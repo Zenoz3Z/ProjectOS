@@ -1,0 +1,32 @@
+[
+  {
+    "id": "q01",
+    "query": "Why was hand tracking replaced with whole-body movement?",
+    "expected_source": "decisions/design_notes.md"
+  },
+  {
+    "id": "q02",
+    "query": "What is the current interaction method used in Echo Field?",
+    "expected_source": "current_state/goals.md"
+  },
+  {
+    "id": "q03",
+    "query": "What feedback did the tutor give about colour and movement?",
+    "expected_source": "feedback/tutor_feedback.md"
+  },
+  {
+    "id": "q04",
+    "query": "What movement strength values were observed for stillness and slow movement?",
+    "expected_source": "process/project_log.md"
+  },
+  {
+    "id": "q05",
+    "query": "What did the tutor suggest about multiple participants?",
+    "expected_source": "feedback/tutor_feedback.md"
+  },
+  {
+    "id": "q06",
+    "query": "What problems were identified during user testing?",
+    "expected_source": "process/project_log.md"
+  }
+]

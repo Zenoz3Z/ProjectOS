@@ -1,0 +1,78 @@
+# Credentials (including local variants; no credentials belong in examples)
+.env
+.env.*
+.streamlit/secrets.toml
+*.pem
+*.key
+
+# Python environments and generated files
+.venv/
+venv/
+env/
+ENV/
+.conda/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+*.egg-info/
+build/
+dist/
+
+# Local runtime data; keep the prepared data/demo_projects/ archive public
+/data/reviews/
+/data/uploads/
+/data/vector_store/
+chroma_db/
+*.sqlite3
+*.sqlite3-*
+
+# Downloaded papers are retained locally, in both existing research trees
+/project_knowledge/research/papers/**/*.[pP][dD][fF]
+/research/papers/**/*.[pP][dD][fF]
+
+# Private records and completed forms; public blank Markdown forms are below
+private_data/
+raw_data/
+participant_data/
+participant_raw_data/
+consent_forms/
+signed_consent_forms/
+completed_consent_forms/
+recordings/
+raw_interviews/
+interview_transcripts/
+/data/participants/
+/project_knowledge/process/meeting_materials/
+
+# Study outputs are private by default. These five files are blank templates.
+/project_knowledge/feedback/user_testing/*
+!/project_knowledge/feedback/user_testing/iteration_1/
+/project_knowledge/feedback/user_testing/iteration_1/*
+!/project_knowledge/feedback/user_testing/iteration_1/participant_information_sheet.md
+!/project_knowledge/feedback/user_testing/iteration_1/participant_consent_form.md
+!/project_knowledge/feedback/user_testing/iteration_1/research_questions.md
+!/project_knowledge/feedback/user_testing/iteration_1/participant_test_protocol.md
+!/project_knowledge/feedback/user_testing/iteration_1/post_test_questionnaire_and_interview.md
+
+# Screenshots are private by default; only this inspected demo is public.
+/outputs/screenshots/*
+!/outputs/screenshots/day_04_corrected_reentry_brief.png.png
+/outputs/user_testing/
+/outputs/participant_data/
+
+# Editors and operating-system caches
+.vscode/
+.idea/
+.DS_Store
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.swp
+*.swo
