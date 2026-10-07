@@ -2,7 +2,21 @@
 
 **A source-grounded, correctable brief for returning to a creative project.**
 
-ProjectOS is an MSc research prototype that helps creative students revisit a project after an interruption. It retrieves evidence from existing project records and organises it into a six-section Project Re-entry Brief, with short AI-generated summaries and visible supporting excerpts. Users can inspect the evidence and confirm, correct or reject reconstructed project states. The current prototype runs locally through Streamlit using a prepared Echo Field demonstration archive; summary generation sends selected excerpts to the OpenAI API.
+ProjectOS is an MSc research prototype that helps creative students revisit a project after an interruption. It retrieves evidence from existing project records and organises it into a six-section Project Re-entry Brief, with short AI-generated summaries and visible supporting excerpts. Users can inspect the evidence and confirm, correct or reject reconstructed project states. The local Streamlit prototype now supports researcher-assigned projects, with Echo Field as a short tutorial. Researchers prepare summaries before a session by sending selected excerpts to the OpenAI API; participant review reads the prepared summaries without calling the API.
+
+## Guide for supervisor review
+
+**Review snapshot: 7 October 2026.** The prototype supports local, assigned-project rehearsals. In the [P00 pilot](project_knowledge/feedback/user_testing/iteration_1/pilot_p00_summary.md), the participant completed all tasks without technical errors but found the interface complex and the instructions unclear. This motivated the progressive review interface. The proposed formal study now concerns participants' own creative projects paused for at least one to two weeks; this change requires supervisor / ethics confirmation before formal use. P00 is excluded from the formal sample, and one pilot does not establish research conclusions. The documents below can be reviewed without installing the application or supplying an API key.
+
+| Review question | Suggested reading |
+| --- | --- |
+| What is the research trying to establish? | [Current goals](project_knowledge/current_state/goals.md) and [research questions](project_knowledge/feedback/user_testing/iteration_1/research_questions.md) |
+| Why this interaction, and how was it built? | [Summary design decision](project_knowledge/decisions/design_decisions/dd_004_user_facing_reentry_summary.md) and [implementation chapter draft](report/drafts/04_design_and_implementation.md) |
+| What evidence exists so far? | [Retrieval baseline](outputs/test_results/day_03_retrieval_results.md), [brief evaluation and limitations](outputs/test_results/day_04_reentry_brief_results.md) and [latest development log](project_knowledge/process/daily_logs/day_8_user_research_preparation.md) |
+| How will it be evaluated with people? | [New data-flow draft requiring confirmation](project_knowledge/feedback/user_testing/iteration_1/participant_owned_project_data_protocol_draft.md), [project-pack guide](project_knowledge/feedback/user_testing/iteration_1/participant_project_pack_guide.md), and the earlier [participant protocol](project_knowledge/feedback/user_testing/iteration_1/participant_test_protocol.md) |
+| What still needs attention? | [Open issues](project_knowledge/current_state/blockers.md) and [proposed next steps](project_knowledge/current_state/next_steps.md) |
+
+The implementation chapter describes Iteration 0. Later summary generation and participant-session work are documented in the [Day 7](project_knowledge/process/daily_logs/day_7_llm_reentry_summary.md) and Day 8 logs; the chapter has not yet been extended to cover those changes.
 
 ## Problem and motivation
 
@@ -20,14 +34,20 @@ ProjectOS uses a fixed project re-entry workflow rather than an open-ended conve
 
 ## Current prototype workflow
 
-1. Launch the application and choose Development mode, or start a Participant study session with an anonymous code.
-2. The application loads the prepared `sample_echo_field` archive and creates a local semantic index.
-3. Generate the six-section brief. Each section receives up to two evidence excerpts and a structured summary.
-4. Open the supporting records to inspect the basis of an interpretation.
-5. Confirm, correct or reject a section, or mark an evidence item as belonging to an older direction.
-6. Review actions are saved locally and restored when the same development or participant context is reopened.
+1. The researcher validates the assigned project, prepares all six summaries and starts a local study server bound to one participant code. The participant enters that code and reads the study introduction.
+2. Complete one Echo Field tutorial section: read a summary, open source evidence and try a response. Tutorial responses are not saved as formal reviews and never enter completion statistics.
+3. Check the assigned project's readiness, then choose **Start my project review**. The first review follows the six sections in order, one at a time: each section's question, provisional summary, optional source evidence and response controls. Each section uses up to two evidence excerpts; missing categories may produce an insufficient-evidence summary.
+4. Choose **Looks accurate**, **I want to update it** or **This is not supported**. An update requires correction text. Older-direction marking is available within the evidence area. Reviews and annotations do not change the prepared system summaries.
+5. **Save and continue** records the response and opens the next pending section. Previous/Next allow navigation; unsaved edits must be saved or explicitly discarded first. Saved sections and remaining work are marked.
+6. After all six sections have saved reviews, the completion page shows reviewed, corrected and rejected counts and **Review or change a section**. Six buttons show each section's full name and saved status; selecting one opens that section directly. These shortcuts are unavailable until all six sections have been reviewed.
 
-There is currently no project picker, file-upload interface, account system or unrestricted chat. Participant codes separate local review files; they are not authentication or access control.
+Post-completion editing shows **Editing section X of 6**, with **Previous section**, **Next section** and **Back to completion summary**. Navigation stays within sections 1–6. Unsaved action, correction or note changes block navigation until the user chooses **Stay and save** or **Discard changes and continue**. Saving appends a review event, updates the status and completion counts, and keeps the current section open. The user can return to completion, continue editing or choose another section; existing summaries and evidence remain unchanged.
+
+After a completed session is refreshed or reopened with the same participant code, it returns directly to the completion page without repeating the introduction, tutorial or readiness steps. Navigation, saving and refresh recovery read existing prepared summaries, evidence and saved reviews; they do not call the OpenAI API, regenerate summaries or rebuild embeddings.
+
+Development mode retains the full six-section view, regeneration controls and technical information. The start screen's 10–15 minute estimate refers to the review activity only, not the full study session, and still needs validation through a timed rehearsal.
+
+There is no project picker, file-upload interface, account system or unrestricted chat. The researcher starts a separate session for each participant. Its server accepts only the bound code and hides Development mode, so changing the entered code cannot select another project. Codes are not passwords: this is supervised, loopback-only use on the researcher's computer, not an authenticated multi-user service.
 
 ### Six Re-entry Brief sections
 
@@ -56,8 +76,10 @@ Review events support `confirm`, `correct`, `reject` and `mark_superseded`. They
 - Six structured sections with inspectable source excerpts.
 - OpenAI summary generation with Pydantic structured output and insufficient-evidence handling.
 - Streamlit controls for confirmation, correction, rejection and older-evidence marking.
-- Persistent review events and separate local files for participant codes.
-- Cached retrieval resources and generated summaries during application use.
+- A validated runtime project context, local assignments, and separate review files keyed by participant code and project ID; the existing review JSON schema is unchanged.
+- A single-section Echo Field tutorial followed by assigned-project readiness, progressive review and draft protection; completion unlocks six named section shortcuts and editing with saved-state recovery.
+- Researcher CLI commands for validation, preparation and a session bound to one participant.
+- Private, durable summary caches checked against project, source content, evidence, model and prompt/schema fingerprints. Participant navigation and saving make no API calls; valid caches work without an API key.
 - Unit tests, a small retrieval evaluation set, design decisions and draft study materials.
 
 ## Technology stack
@@ -82,7 +104,13 @@ The prototype does not require a vector database or a separate web backend.
 ProjectOS/
 ├── src/                      # Retrieval, brief, summary, review and UI modules
 ├── tests/                    # Unit tests and retrieval evaluation questions
-├── data/demo_projects/       # Prepared Echo Field demonstration records
+├── config/                   # Safe assignment example and empty category template
+├── data/
+│   ├── demo_projects/        # Prepared Echo Field tutorial records
+│   ├── study_projects/       # Local project packs; contents ignored except README
+│   ├── study_config/         # Local assignments; contents ignored except README
+│   ├── summary_cache/        # Private prepared summaries and excerpts; ignored
+│   └── reviews/              # Private review histories; ignored
 ├── project_knowledge/
 │   ├── current_state/        # Planning and evaluation documents
 │   ├── decisions/            # Design and technical decisions
@@ -98,30 +126,36 @@ ProjectOS/
 └── README.md
 ```
 
-Historical records describe the prototype as it existed at the time. Some planning files remain empty placeholders, and the two literature-note trees contain duplicate material retained from development. Ignored local files may be present in a working copy but are not part of the repository.
+The current goals, open issues and next steps provide a reading guide to the present prototype. Dated plans and development records describe the project as it existed at the time; they may differ from later drafts. The two literature-note trees contain duplicate material retained from development. Ignored local files may be present in a working copy but are not part of the repository.
 
 ## Installation
 
-Use Python 3.11 and a dedicated environment. From Windows Command Prompt or Miniconda Prompt, a new environment can be prepared with:
+Use Python 3.11 and a dedicated environment. With Git and Miniconda installed, run the following in Miniconda Prompt from the folder where you want to keep the project. Access to the private repository is required to clone it.
 
 ```bat
+git clone https://github.com/Zenoz3Z/ProjectOS.git
+cd ProjectOS
 conda create -n projectos python=3.11
 conda activate projectos
-cd /d C:\Users\1\Desktop\ProjectOS
 python -m pip install -r requirements.txt
 python -m pip check
 ```
 
-If the `projectos` environment already exists, activate it instead of creating it again. Other machines should use their own checkout and Conda installation paths. The first retrieval run may download the embedding model; subsequent runs can use the local model cache. Generating summaries requires network access and an OpenAI API account with access to the configured model, and may incur API charges.
+If you already have a checkout, open its root directory and skip the clone step. If the `projectos` environment already exists, activate it instead of creating it again. The first retrieval run may download the embedding model; subsequent runs can use the local model cache. Generating summaries requires network access and an OpenAI API account with access to the configured model, and may incur API charges.
 
 ## Environment variables
 
 | Variable | Purpose |
 | --- | --- |
-| `OPENAI_API_KEY` | Required for summary generation. Supply it only through the environment of the process launching Streamlit. |
+| `OPENAI_API_KEY` | Required by `prepare` and Development summary generation. Supply it only through the launching process environment. Prepared participant review needs no key. |
 | `PROJECTOS_SUMMARY_MODEL` | Optional model override; the current source default is `gpt-6-luna`. The selected model must support the API options used in `src/llm_summarizer.py`. |
+| `PROJECTOS_STUDY_PARTICIPANT` | Code bound by the researcher's `serve` command; participants cannot change this through the UI. |
+| `PROJECTOS_STUDY_ONLY` | Set to `1` by `serve` to hide Development mode. |
+| `PROJECTOS_STUDY_ROOT` | Data workspace set by `serve`; normally this checkout. `--root` allows an isolated researcher-controlled QA workspace. |
 
 Configure the API key privately in the launching environment. No key value is provided in this document. The application does not load `.env` or Streamlit secrets files. Do not put a key in source code, documentation, screenshots or Git commits. API model access depends on the account; this repository does not guarantee that its default model is available to every user.
+
+On Windows, one option is to add `OPENAI_API_KEY` through the user Environment Variables settings. Open a new terminal afterwards, activate `projectos` and launch the application from that terminal.
 
 To check presence without printing the key:
 
@@ -131,27 +165,58 @@ python -c "import os; print('OPENAI_API_KEY configured' if os.getenv('OPENAI_API
 
 ## Run the Streamlit prototype
 
-For the existing Windows installation, use **Command Prompt**, not PowerShell, for these commands:
+With `projectos` active and the terminal in the repository root:
 
 ```bat
-call C:\Users\1\miniconda3\Scripts\activate.bat projectos
-cd /d C:\Users\1\Desktop\ProjectOS
 python -m streamlit run src/streamlit_app.py
 ```
 
+For a Windows Miniconda installation under the current user's profile, run the following in **Command Prompt** from the ProjectOS repository root. Adjust the activation path if Miniconda is installed elsewhere.
+
+```bat
+REM Run these commands from the ProjectOS repository root
+call "%USERPROFILE%\miniconda3\Scripts\activate.bat" projectos
+python -m streamlit run src\streamlit_app.py
+```
+
 Open the local URL printed by Streamlit. Development mode is sufficient for a demonstration. The application loads records from `data/demo_projects/sample_echo_field/`; it does not index this repository's research notes or downloaded papers. Without an API key, evidence inspection is available, but new LLM summaries cannot be generated. Review controls are shown when a summary or a saved user correction is available.
+
+For a short demonstration, select Development mode, generate the brief, inspect a section's evidence, then save a correction and revisit the section. This writes a local review history under the ignored `data/reviews/` directory. Use demonstration text only. Start participant sessions with the preparation workflow below.
+
+### Prepare an assigned local project
+
+Use non-personal test material for rehearsal. Before collecting real project packs, obtain supervisor / ethics confirmation and revise the information sheet and consent form to cover the [new data flow](project_knowledge/feedback/user_testing/iteration_1/participant_owned_project_data_protocol_draft.md). Existing forms are not assumed to cover it.
+
+1. Copy the empty category folders from `config/study_project_template/` to a new `data/study_projects/P01/` directory. Do not overwrite an existing participant pack.
+2. If no local assignment file exists, copy `config/participant_assignments.example.json` to `data/study_config/participant_assignments.json`. Otherwise edit the existing local file. Its example maps `P01` to `participant_project_p01`, the display name `My assigned project`, and `data/study_projects/P01`. Use distinct project IDs and non-overlapping directories.
+3. Add existing `.md`, UTF-8 `.txt` or text-based `.pdf` files to `current_state/`, `decisions/`, `feedback/` and `process/`. The [pack guide](project_knowledge/feedback/user_testing/iteration_1/participant_project_pack_guide.md) suggests 4–10 records, but categories may be empty. A non-empty supported document and resulting chunks are required. Record how the researcher categorised the files.
+4. In the activated `projectos` environment, run:
+
+```bat
+python src/study_project_manager.py validate --participant P01
+python src/study_project_manager.py prepare --tutorial
+python src/study_project_manager.py prepare --participant P01
+python src/study_project_manager.py validate --participant P01
+python src/study_project_manager.py serve --participant P01
+```
+
+`validate` needs no key, makes no API calls and prints category filenames, document/chunk counts and readiness, never document bodies. It returns a non-zero exit status until materials and all six cached summaries are ready; this is expected before the first preparation. `prepare` requires an environment key and reports per-section progress, cache hits, misses and logical generation requests. Empty-evidence fallbacks do not call the API. A valid cache is reused; repeated preparation does not regenerate it. The selected model must match across preparation and serving (use the same `--model` option if overriding it).
+
+`serve` checks both tutorial and assigned caches, binds to `127.0.0.1:8501` by default, removes `OPENAI_API_KEY` from the Streamlit child process, and accepts only `P01` for that session. Open the local URL printed in the terminal. Stop the server with Ctrl+C before starting the next participant's session. Use `--port` to choose another local port if needed; do not expose this prototype as a public study service.
+
+Each assigned project has its own private cache and review file, for example `data/summary_cache/participants/P01/participant_project_p01_summaries.json` and `data/reviews/participants/P01/participant_project_p01_reviews.json`. The tutorial cache is shared. Changing source bytes, source filenames, the model, prompt/schema or retrieval implementation invalidates preparation. Re-run `prepare` before the session; do not edit sources or reprepare during an active review. Review corrections and notes never enter the summary cache. Once all six sections have saved reviews, refreshing and reopening the same assigned session restores the completion page directly, without repeating the tutorial or making an API request.
 
 ## Run tests and checks
 
 After activating `projectos`, run from the repository root:
 
 ```bat
-python -m py_compile src/streamlit_app.py
-python -m pytest tests/test_reentry_brief.py tests/test_review_store.py tests/test_llm_summarizer.py -v
+python -m py_compile src/streamlit_app.py src/participant_flow.py src/study_project_manager.py
+python -m pytest -v
 python -m pip check
 ```
 
-`pytest.ini` adds `src` to pytest's import path, so a separate `PYTHONPATH` setting is unnecessary. The 23 existing tests cover section structure, evidence metadata, review storage and restoration, summary validation and an empty-evidence fallback. They do not make live OpenAI requests or load an embedding model, although collection imports the installed dependencies. They are not end-to-end interface or factual-accuracy tests.
+`pytest.ini` adds `src` to pytest's import path, so a separate `PYTHONPATH` setting is unnecessary. The current suite has 93 tests: the original 23 brief, review-store and summary tests, plus flow, Streamlit AppTest, assignment, path safety, readiness and cache tests. Tests use temporary non-personal files, mock retrieval and mock summaries; they do not make live OpenAI requests or assess factual accuracy. They cover cache invalidation, keyless review, direct post-completion navigation, save/refresh recovery, unsaved-change protection, tutorial separation and Development compatibility. The [readiness validation report](outputs/test_results/formal_study_readiness.md) records the earlier 74-test checkpoint and its browser rehearsal limits.
 
 The separate retrieval evaluation can be run with:
 
@@ -163,30 +228,39 @@ It loads the embedding model and evaluates six developer-authored queries. The [
 
 ## Current prototype status
 
-The repository contains an Iteration 1 research prototype with summary generation and participant review isolation. The latest development record documents technical rehearsals and preparation of the study pack; a complete timed rehearsal and formal participant evaluation remain follow-up work. This is a local demonstration and research implementation, not a production service.
+The repository contains an Iteration 1 research prototype with assigned-project preparation and local participant review. The [Day 8 development record](project_knowledge/process/daily_logs/day_8_user_research_preparation.md) documents earlier preparation; the [P00 pilot summary](project_knowledge/feedback/user_testing/iteration_1/pilot_p00_summary.md) records the motivation for refining the interface. The assigned-project infrastructure is a technical development, not approval to begin the new formal study. **Formal P01 has not started. Participant-owned materials still await supervisor / ethics confirmation.** This is a local research implementation, not a production service.
+
+The interaction refinement was checked in the existing `projectos` environment with Python compilation, flow/UI tests and `pip check`. Earlier browser rehearsals used local retrieval, fixed offline summary fixtures and isolated test records. The later post-completion browser check used P96's existing prepared summaries and saved reviews, without new OpenAI requests, and verified direct navigation, draft protection, saving and refresh recovery. The researcher has also completed the post-completion navigation experience and reported that it passed. These checks establish technical behaviour, not study outcomes or summary accuracy; a fresh installation was not tested.
+
+**P96 is a researcher self-test and is excluded from the formal participant sample.** Its review statistics, including automated smoke-test review events, must not be treated as formal research results. P96 project materials, summaries, review histories, screenshots and the detailed self-test report remain private and are not included in the repository.
 
 ## Research and evaluation plan
 
-The planned study involves approximately five to eight adult creative students or practitioners, using a common prepared archive for the first iteration. Tasks examine understanding of current and superseded directions, evidence inspection, correction or rejection, unresolved issues and the proposed next action. Observations, task responses, questionnaire ratings and short interviews will inform the next iteration.
+The proposed formal study involves creative students or practitioners returning to their own creative projects after at least one to two weeks away. Echo Field is now a short interaction tutorial. Tasks still examine current and superseded directions, evidence inspection, correction or rejection, unresolved issues and next action. Observations, task responses, ratings and interviews would inform the next iteration; no findings from this new workflow are claimed.
 
-The [research questions](project_knowledge/feedback/user_testing/iteration_1/research_questions.md), [test protocol](project_knowledge/feedback/user_testing/iteration_1/participant_test_protocol.md) and [questionnaire and interview template](project_knowledge/feedback/user_testing/iteration_1/post_test_questionnaire_and_interview.md) are available for review. The information sheet and consent form are **blank drafts**, with identity, contact, withdrawal and retention fields to complete privately before use. Session-duration estimates also need reconciliation through a full rehearsal. No completed participant responses are published here.
+Earlier materials describe approximately five to eight participants and a common prepared archive. Those dated documents are preserved, not treated as authorisation for participant-owned data. The [new protocol draft](project_knowledge/feedback/user_testing/iteration_1/participant_owned_project_data_protocol_draft.md) requires supervisor confirmation of the scope and any ethics amendment, revised information/consent materials, and agreement on participant numbers before formal use. Researcher categorisation can affect retrieval and must be recorded as a limitation. The research questions and six brief sections are unchanged.
+
+The [research questions](project_knowledge/feedback/user_testing/iteration_1/research_questions.md), [test protocol](project_knowledge/feedback/user_testing/iteration_1/participant_test_protocol.md) and [questionnaire and interview template](project_knowledge/feedback/user_testing/iteration_1/post_test_questionnaire_and_interview.md) are available for review. The [information sheet](project_knowledge/feedback/user_testing/iteration_1/participant_information_sheet.md) and [consent form](project_knowledge/feedback/user_testing/iteration_1/participant_consent_form.md) are **blank drafts**, with identity, contact, withdrawal and retention fields to complete privately before use. No completed participant responses are published here.
+
+Session duration and participant allocation across iterations still need agreement: the dated plans contain different estimates. The current questionnaire uses seven-point ratings; the earlier evaluation plan proposed five-point ratings. These differences are recorded in [open issues](project_knowledge/current_state/blockers.md). The application saves review events, but evidence-opening behaviour, task duration, ratings and interview responses require separate researcher records; comprehensive study telemetry is not implemented.
 
 ## Limitations
 
-- Evaluation is currently based on one small prepared archive. Broader project transfer and user benefit remain unverified.
+- Published retrieval evaluation uses one small prepared archive; P96 provides additional researcher self-testing only. Broader project transfer and user benefit remain unverified, and formal P01 has not started.
+- P96 exposed evidence retrieval issues in section 3 (Current versus superseded directions), section 5 (Unresolved tensions) and section 6 (Possible next action). These remain known limitations; successful navigation does not establish that the retrieved evidence or reconstructed project state is accurate.
 - Retrieval does not explicitly model chronology or parse state metadata. Related passages can still mix resolved issues, current blockers and future work. No PDF OCR is implemented.
 - Generated summaries can omit or misinterpret evidence. Source-number checks do not verify factual entailment.
 - Reviews persist, but exact generated-summary snapshots are not durably linked to review events. A regenerated section can inherit an earlier review status.
 - A confirmation following a correction currently removes that correction from the active display, while retaining the historical event.
-- In participant mode, partial generation success or invalidated evidence can leave missing summaries without a direct retry button. This is a known issue to resolve before a formal study.
-- Source-file edits do not automatically invalidate the cached retrieval resources. Restart the local application after changing the demonstration archive.
-- JSON review storage is intended for supervised local use; it has no authentication or concurrent-write coordination. Review-file isolation does not make this a secure multi-user service.
+- Missing or stale participant caches block formal review with a non-technical message. The researcher must prepare them again; participants cannot regenerate summaries. Cache validity checks structure and freshness, not truthfulness.
+- Assigned-project cache freshness is checked on each rerun without inference. Development mode retains its older in-memory retrieval cache; restart that mode after editing the demonstration archive.
+- JSON storage has no concurrent-write coordination. Run one supervised session at a time and keep project materials fixed during it. Server binding blocks code guessing through the participant UI, but does not protect against access to the researcher's operating-system account or an already-open participant session.
 
 ## Privacy and repository contents
 
-**Participant research data is not included in the repository.** Public materials consist of code, prepared demonstration records, development documentation, blank research templates and inspected prototype visuals. The Echo Field records are a prepared archive, not raw ProjectOS participant data.
+**Raw participant research data is not included in the repository.** Versioned materials consist of code, prepared demonstration records, development documentation, blank research templates, an anonymous P00 pilot summary and inspected prototype visuals. The pilot summary contains no names or raw responses. The Echo Field records are a prepared archive, not raw ProjectOS participant data. References within that archive to informal testing concern the Echo Field creative project, not a completed ProjectOS evaluation.
 
-Local review histories, participant responses, signed consent forms, recordings, transcripts, private meeting attachments, downloaded academic PDFs and unapproved screenshots are excluded through `.gitignore`. Original local records are retained. New study outputs should be stored in ignored private directories, never entered into the public blank templates. Ignore rules do not anonymise a file or protect a file that has already been committed; inspect the staged files before publishing.
+Local assignments, participant project packs, summary caches (which contain excerpts), review histories, signed consent forms, recordings, transcripts, private meeting attachments, downloaded academic PDFs and unapproved screenshots are excluded through `.gitignore`. Only safe directory READMEs, empty templates and an assignment example are versionable. Original local records are retained. New study outputs belong in ignored private directories, never in the public blank templates. Ignore rules do not anonymise a file or protect a file already committed; inspect staged files before publishing.
 
 Document loading and embedding-based retrieval run locally. On generation, selected excerpts are sent to the OpenAI API with `store=False`; this is not a claim of zero provider-side retention. Do not use personal or confidential material in the demonstration archive. Never publish API credentials or participant data.
 

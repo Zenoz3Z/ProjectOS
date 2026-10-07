@@ -21,6 +21,21 @@ from reentry_brief import (
     build_reentry_brief,
 )
 from retrieval import SemanticRetriever
+from project_context import (
+    CODE_PATTERN, REPOSITORY_ROOT, ProjectConfigurationError, assigned_context,
+    tutorial_context, validate_participant_code,
+)
+from study_cache import CacheNotReady, read_prepared_project
+from study_project_manager import validate_project
+from participant_flow import (
+    PARTICIPANT_ACTIONS,
+    PARTICIPANT_TITLES,
+    REVIEWED_STATUSES,
+    has_completed_reviews,
+    latest_review_values,
+    next_unreviewed_index,
+    review_progress,
+)
 from review_store import (
     create_review_event,
     load_review_store,
@@ -75,7 +90,7 @@ REVIEW_ACTIONS = {
 }
 
 
-PARTICIPANT_CODE_PATTERN = re.compile(r"^P\d{2,3}$")
+PARTICIPANT_CODE_PATTERN = CODE_PATTERN
 
 
 def apply_interface_style() -> None:
@@ -175,25 +190,26 @@ def generate_cached_summary(
     return result.model_dump()
 
 
-def empty_review_store() -> dict:
+def empty_review_store(project_id: str = PROJECT_ID) -> dict:
     """Return a valid empty review store for a new session."""
     return {
         "schema_version": 1,
-        "project_id": PROJECT_ID,
+        "project_id": project_id,
         "review_events": [],
     }
 
 
 def load_session_review_store(
     review_file: Path,
+    project_id: str = PROJECT_ID,
 ) -> dict:
     """Load one session's reviews without creating a file."""
     if not review_file.exists():
-        return empty_review_store()
+        return empty_review_store(project_id)
 
     return load_review_store(
         file_path=review_file,
-        project_id=PROJECT_ID,
+        project_id=project_id,
     )
 
 
@@ -201,6 +217,7 @@ def participant_review_file(
     participant_code: str,
 ) -> Path:
     """Return the isolated review path for one participant."""
+    validate_participant_code(participant_code)
     return (
         DEFAULT_REVIEW_FILE.parent
         / "participants"
@@ -222,6 +239,7 @@ def clear_interface_state() -> None:
         "action_",
         "correction_",
         "reason_",
+        "participant_ui_",
     )
 
     for key in list(st.session_state.keys()):
@@ -236,18 +254,20 @@ def render_session_setup():
     """Select development or participant-study mode."""
     st.sidebar.header("Session setup")
 
-    session_mode = st.sidebar.radio(
-        "Mode",
-        options=(
-            "Development",
-            "Participant study",
-        ),
-        help=(
-            "Development uses your existing review history. "
-            "Participant study stores each participant separately."
-        ),
-        key="session_mode",
-    )
+    if os.getenv("PROJECTOS_STUDY_ONLY") == "1":
+        session_mode = "Participant study"
+        st.session_state["session_mode"] = session_mode
+    else:
+        session_mode = st.sidebar.radio(
+            "Mode",
+            options=("Development", "Participant study"),
+            help=(
+                "Development uses your existing review history. "
+                "Participant study stores each participant separately."
+            ),
+            key="session_mode",
+            on_change=clear_interface_state,
+        )
 
     if session_mode == "Development":
         return {
@@ -267,12 +287,12 @@ def render_session_setup():
         placeholder="P01",
         max_chars=4,
         key="participant_code_input",
-    ).strip().upper()
+    )
 
     start_clicked = st.sidebar.button(
         "Start participant session",
-        type="primary",
-        use_container_width=True,
+        type="secondary" if st.session_state.get("active_participant_code") else "primary",
+        width="stretch",
     )
 
     if start_clicked:
@@ -282,6 +302,10 @@ def render_session_setup():
             st.sidebar.error(
                 "Enter a code such as P01, P02 or P100."
             )
+        elif not os.getenv("PROJECTOS_STUDY_PARTICIPANT"):
+            st.sidebar.error("This study session has not been set up. Please ask the researcher for assistance.")
+        elif participant_input != os.getenv("PROJECTOS_STUDY_PARTICIPANT"):
+            st.sidebar.error("This code is not available in this study session. Please ask the researcher for assistance.")
         else:
             clear_interface_state()
 
@@ -296,23 +320,19 @@ def render_session_setup():
     )
 
     if active_code:
-        active_review_file = participant_review_file(
-            active_code
-        )
+        if active_code != os.getenv("PROJECTOS_STUDY_PARTICIPANT"):
+            clear_interface_state()
+            st.session_state.pop("active_participant_code", None)
+            st.sidebar.error("Please reopen the study session with your assigned code.")
+            return None
 
         st.sidebar.success(
             f"Active participant: {active_code}"
         )
 
-        if active_review_file.exists():
-            st.sidebar.caption(
-                "This participant code already has saved data. "
-                "The session has been reopened rather than reset."
-            )
-
         end_clicked = st.sidebar.button(
             "End participant session",
-            use_container_width=True,
+            width="stretch",
         )
 
         if end_clicked:
@@ -329,7 +349,6 @@ def render_session_setup():
             "mode": "participant",
             "participant_code": active_code,
             "session_key": active_code.lower(),
-            "review_file": active_review_file,
         }
 
     st.sidebar.warning(
@@ -508,6 +527,7 @@ def save_section_review(
     correction: str,
     reason: str,
     review_file: Path,
+    project_id: str = PROJECT_ID,
 ) -> None:
     """Save one section-level review event."""
     correction_to_save = None
@@ -516,7 +536,7 @@ def save_section_review(
         correction_to_save = correction
 
     event = create_review_event(
-        project_id=PROJECT_ID,
+        project_id=project_id,
         section_id=section_id,
         action=action,
         user_correction=correction_to_save,
@@ -538,10 +558,11 @@ def save_superseded_evidence(
     section_id: str,
     chunk_id: str,
     review_file: Path,
+    project_id: str = PROJECT_ID,
 ) -> None:
     """Mark one record as belonging to an older direction."""
     event = create_review_event(
-        project_id=PROJECT_ID,
+        project_id=project_id,
         section_id=section_id,
         action="mark_superseded",
         user_correction=None,
@@ -1236,7 +1257,497 @@ def render_project_sidebar(
     return show_research_details
 
 
+def participant_flow_state() -> dict:
+    """Keep navigation separate from persisted research data."""
+    return st.session_state.setdefault(
+        "participant_ui_flow",
+        {"stage": "start", "index": 0, "prepare": False},
+    )
+
+
+def render_participant_start() -> None:
+    st.title("Review your project re-entry brief")
+    st.write(
+        "First, practise with a short Echo Field example. Then review six parts "
+        "of your own assigned project, which you previously worked on and paused. "
+        "Check the source evidence when needed and tell us whether each summary is accurate."
+    )
+    with st.container(border=True):
+        st.markdown(
+            "1. **Read the summary**\n"
+            "2. **Check the source evidence**\n"
+            "3. **Confirm, update or reject**"
+        )
+    st.markdown(
+        "- There are six short sections.\n"
+        "- The review normally takes around 10–15 minutes.\n"
+        "- Your review is saved separately under your participant code."
+    )
+    st.caption(
+        "Summaries are provisional. The researcher prepares them in advance by "
+        "sending selected project excerpts to the OpenAI API. Your review does "
+        "not trigger new summary requests. Tutorial responses do not count toward your study review."
+    )
+    if st.button("Start tutorial", type="primary", key="participant_ui_start"):
+        participant_flow_state().update(stage="tutorial", prepare=False)
+        st.rerun()
+
+
+def render_participant_summary(section, result) -> bool:
+    """Display a prepared summary; participant actions never generate content."""
+    with st.container(border=True):
+        st.markdown("#### What ProjectOS found")
+        if result is not None:
+            if result.support_status == "insufficient":
+                st.write(
+                    "ProjectOS could not find enough clear evidence to summarise this section."
+                )
+            else:
+                st.write(result.summary)
+                if result.support_status == "conflicting":
+                    st.caption("The records may describe different project states. Check the evidence below.")
+            st.caption("This summary is provisional. You can disagree with it.")
+        elif section.user_correction:
+            st.caption("The generated summary is not loaded in this session. Your saved update is below.")
+        else:
+            st.info("This summary is not available yet. You can still inspect the source evidence below.")
+    if section.user_correction:
+        st.markdown("**Your saved update**")
+        st.write(section.user_correction)
+    return result is not None or bool(section.user_correction)
+
+
+def render_participant_evidence(section, session_context: dict) -> None:
+    with st.expander("Why did ProjectOS produce this summary?", expanded=False):
+        st.caption("These excerpts come from the project files used to create the summary.")
+        if not section.evidence:
+            st.write("No relevant source evidence was found for this section.")
+        for item in section.evidence:
+            st.markdown(f"**{Path(item.source).name}**")
+            st.write(item.excerpt)
+            if item.is_superseded:
+                st.caption("Marked as belonging to an older direction.")
+            with st.expander(f"Source details · {Path(item.source).name}", expanded=False):
+                st.caption(f"Category: {item.category} · Chunk ID: {item.chunk_id}")
+                st.caption(f"Similarity score: {item.similarity_score:.4f}")
+                st.caption("Similarity indicates textual relevance, not factual confidence.")
+                if session_context.get("project_role") != "tutorial" and not item.is_superseded and st.button(
+                    "This belongs to an older direction",
+                    key=f"participant_ui_older_{section.section_id}_{item.chunk_id}",
+                ):
+                    try:
+                        session_context["project_context"].validate_paths()
+                        save_superseded_evidence(
+                            section.section_id, item.chunk_id, session_context["review_file"],
+                            project_id=session_context["project_context"].project_id,
+                        )
+                    except (ValueError, OSError):
+                        st.error("The evidence review could not be saved. Please try again or ask the researcher.")
+                    else:
+                        st.session_state["review_message"] = (
+                            "Evidence review saved. Your annotation is separate from the prepared summary."
+                        )
+                        st.rerun()
+
+
+def reset_participant_draft(prefix: str, saved: tuple) -> None:
+    """Reset widget values before the next render, only on explicit discard."""
+    action, correction, reason = saved
+    labels = {value: label for label, value in PARTICIPANT_ACTIONS.items()}
+    st.session_state[f"{prefix}_action"] = labels.get(action)
+    st.session_state[f"{prefix}_correction"] = correction
+    st.session_state[f"{prefix}_reason"] = reason
+
+
+def initialise_participant_draft(section, stored_data: dict, session_context: dict) -> tuple:
+    saved = latest_review_values(stored_data, section.section_id)
+    prefix = f"participant_ui_{session_context['session_key']}_{section.section_id}"
+    labels = {value: label for label, value in PARTICIPANT_ACTIONS.items()}
+    st.session_state.setdefault(f"{prefix}_action", labels.get(saved[0]))
+    st.session_state.setdefault(f"{prefix}_correction", saved[1])
+    st.session_state.setdefault(f"{prefix}_reason", saved[2])
+    return prefix, saved
+
+
+def participant_draft_values(prefix: str) -> tuple:
+    """Read live widget values inside navigation callbacks, including unblurred edits."""
+    action = PARTICIPANT_ACTIONS.get(st.session_state.get(f"{prefix}_action"))
+    correction = st.session_state.get(f"{prefix}_correction", "") if action == "correct" else ""
+    reason = st.session_state.get(f"{prefix}_reason", "")
+    return action, correction.strip(), reason.strip()
+
+
+def navigate_completed_review(target: dict, prefix: str | None = None, saved: tuple | None = None) -> None:
+    """Queue a destination instead of losing an unsaved response."""
+    flow = participant_flow_state()
+    if prefix is not None and participant_draft_values(prefix) != saved:
+        flow["pending_navigation"] = target
+    else:
+        flow.update(target, pending_navigation=None, edit_saved=False)
+
+
+def discard_completed_draft(prefix: str, saved: tuple) -> None:
+    """Reset widgets before rendering, then follow the explicitly requested destination."""
+    flow = participant_flow_state()
+    target = flow.get("pending_navigation")
+    if target is not None:
+        reset_participant_draft(prefix, saved)
+        flow.update(target, pending_navigation=None, edit_saved=False)
+
+
+def render_completed_section_links(sections, location: str,
+                                   prefix: str | None = None, saved: tuple | None = None) -> None:
+    if not review_progress(sections)["complete"]:
+        return
+    labels = {"confirmed": "Confirmed", "corrected": "Updated / Corrected", "rejected": "Rejected"}
+    for index, section in enumerate(sections):
+        st.button(
+            f"{index + 1}. {section.title} — {labels[section.review_status]}",
+            key=f"participant_ui_jump_{location}_{section.section_id}", width="stretch",
+            disabled=location == "editing" and index == participant_flow_state()["index"],
+            on_click=navigate_completed_review,
+            args=({"stage": "editing", "index": index}, prefix, saved),
+        )
+
+
+def render_completed_navigation(sections, prefix: str, saved: tuple) -> bool:
+    flow = participant_flow_state()
+    index = flow["index"]
+    st.caption(f"Editing section {index + 1} of {len(sections)}")
+    with st.container(horizontal=True):
+        st.button("Back to completion summary", key="participant_ui_back_summary",
+                  on_click=navigate_completed_review, args=({"stage": "complete"}, prefix, saved))
+        st.button("Previous section", key="participant_ui_edit_previous", disabled=index == 0,
+                  on_click=navigate_completed_review,
+                  args=({"stage": "editing", "index": index - 1}, prefix, saved))
+        st.button("Next section", key="participant_ui_edit_next", disabled=index == len(sections) - 1,
+                  on_click=navigate_completed_review,
+                  args=({"stage": "editing", "index": index + 1}, prefix, saved))
+    if flow.get("pending_navigation") is not None:
+        st.warning("You have unsaved changes. Stay and save, or discard them before leaving this section.")
+        stay_and_save = st.button("Stay and save", key="participant_ui_stay_save", type="primary")
+        st.button("Discard changes and continue", key="participant_ui_discard_continue",
+                  on_click=discard_completed_draft, args=(prefix, saved))
+        return stay_and_save
+    return False
+
+
+def render_participant_review(section, sections, stored_data: dict,
+                              session_context: dict, reviewable: bool, save_requested: bool = False) -> None:
+    flow = participant_flow_state()
+    index = flow["index"]
+    editing = flow["stage"] == "editing" and review_progress(sections)["complete"]
+    prefix, saved = initialise_participant_draft(section, stored_data, session_context)
+
+    st.markdown("#### Is this summary accurate?")
+    selected = st.radio(
+        "Choose your response", tuple(PARTICIPANT_ACTIONS), index=None,
+        label_visibility="collapsed", key=f"{prefix}_action",
+        persist_state="session", disabled=not reviewable,
+    )
+    action = PARTICIPANT_ACTIONS.get(selected)
+    correction = ""
+    if action == "correct":
+        correction = st.text_area(
+            "Your updated version", key=f"{prefix}_correction",
+            persist_state="session", disabled=not reviewable,
+            placeholder="Describe what this section should say.",
+        )
+    with st.expander("Add an optional note", expanded=False):
+        reason = st.text_input(
+            "Optional note", key=f"{prefix}_reason",
+            persist_state="session", disabled=not reviewable,
+        )
+    values = (action, correction.strip(), reason.strip())
+    dirty = values != saved
+    st.session_state["participant_ui_dirty"] = dirty
+    if dirty:
+        st.warning("You have an unsaved response. Save it or discard your changes before moving to another section.")
+    elif saved[0]:
+        st.caption("Your response is saved. You can move on without submitting again.")
+    if not reviewable:
+        st.caption("Prepare the summary before reviewing it. Your existing saved response is retained.")
+
+    with st.container(horizontal=True, vertical_alignment="center"):
+        save = st.button(
+            "Save changes" if editing else "Save and continue", type="primary", key="participant_ui_save",
+            disabled=not reviewable or (bool(saved[0]) and not dirty),
+        )
+        previous = following = False
+        if not editing:
+            previous = st.button("Previous", key="participant_ui_previous", disabled=index == 0 or dirty)
+            following = st.button("Next", key="participant_ui_next", disabled=index == len(sections) - 1 or dirty)
+    if dirty:
+        st.button(
+            "Discard unsaved changes", key="participant_ui_discard",
+            on_click=reset_participant_draft, args=(prefix, saved),
+        )
+    st.caption("Only saved responses survive a refresh or a change of participant session.")
+
+    if save_requested and not dirty:
+        # The user may have restored the saved values while the prompt was open.
+        flow["pending_navigation"] = None
+        st.rerun()
+    if save or save_requested:
+        if action is None:
+            st.warning("Choose one response before saving.")
+        elif action == "correct" and not correction.strip():
+            st.warning("Write your updated version before saving.")
+        else:
+            try:
+                session_context["project_context"].validate_paths()
+                save_section_review(
+                    section.section_id, action, correction, reason,
+                    session_context["review_file"],
+                    project_id=session_context["project_context"].project_id,
+                )
+            except (ValueError, OSError):
+                st.error("Your response could not be saved. Your input is still here. Please try again or ask the researcher.")
+            else:
+                updated_store = load_session_review_store(
+                    session_context["review_file"], session_context["project_context"].project_id,
+                )
+                apply_review_history(sections, updated_store)
+                if editing:
+                    flow.update(edit_saved=True, pending_navigation=None)
+                else:
+                    next_index = next_unreviewed_index(sections, index)
+                    flow.update(
+                        stage="complete" if next_index is None else "review",
+                        index=next_index if next_index is not None else index,
+                    )
+                st.session_state["participant_ui_dirty"] = False
+                st.session_state["review_message"] = f"Section {index + 1} saved."
+                st.rerun()
+    if not dirty and (previous or following):
+        flow["index"] = index + (1 if following else -1)
+        st.rerun()
+    if editing:
+        if flow.get("edit_saved") and not dirty:
+            with st.container(horizontal=True):
+                st.button("Return to completion summary", key="participant_ui_saved_return",
+                          on_click=navigate_completed_review, args=({"stage": "complete"}, prefix, saved))
+                st.button("Continue editing this section", key="participant_ui_keep_editing",
+                          on_click=flow.update, kwargs={"edit_saved": False})
+        with st.expander("Go to another section", expanded=False):
+            render_completed_section_links(sections, "editing", prefix, saved)
+
+
+def render_participant_flow(sections, stored_data: dict, session_context: dict, results: dict) -> None:
+    flow = participant_flow_state()
+    progress = review_progress(sections)
+    if flow["stage"] == "editing" and not progress["complete"]:
+        flow.update(stage="review", index=next_unreviewed_index(sections) or 0,
+                    pending_navigation=None, edit_saved=False)
+    st.sidebar.caption(f"{session_context['project_context'].display_name} · {session_context['participant_code']}")
+    st.sidebar.markdown("**Sections**")
+    for number, section in enumerate(sections, 1):
+        marker = "✓" if section.review_status in REVIEWED_STATUSES else "○"
+        label = f"{marker} {number}. {PARTICIPANT_TITLES[section.section_id]}"
+        if flow["stage"] in {"review", "editing"} and number - 1 == flow["index"]:
+            label = f"**{label}**"
+        st.sidebar.markdown(label)
+
+    st.progress(
+        progress["reviewed"] / progress["total"],
+        text=f"{progress['reviewed']} of {progress['total']} sections reviewed · "
+             f"{progress['total'] - progress['reviewed']} remaining",
+    )
+    if flow["stage"] == "complete" and progress["complete"]:
+        st.title("Review complete")
+        columns = st.columns(3)
+        columns[0].metric("Reviewed sections", progress["reviewed"])
+        columns[1].metric("Corrected sections", progress["corrected"])
+        columns[2].metric("Rejected sections", progress["rejected"])
+        st.success("Your reviews have been saved under your participant code.")
+        st.write("You can close this page, or return to check your saved responses. You do not need to submit them again.")
+        st.subheader("Review or change a section")
+        render_completed_section_links(sections, "completion")
+        return
+
+    section = sections[flow["index"]]
+    save_requested = False
+    if flow["stage"] == "editing":
+        prefix, saved = initialise_participant_draft(section, stored_data, session_context)
+        save_requested = render_completed_navigation(sections, prefix, saved)
+        st.caption(f"Saved reviews: {progress['confirmed']} confirmed · {progress['corrected']} updated / corrected · "
+                   f"{progress['rejected']} rejected")
+    else:
+        st.caption(f"Section {flow['index'] + 1} of {len(sections)}")
+    st.title(PARTICIPANT_TITLES[section.section_id])
+    st.write(USER_FACING_QUESTIONS[section.section_id])
+    if section.review_status in REVIEWED_STATUSES:
+        st.caption(f"✓ Reviewed · {friendly_review_status(section.review_status)}")
+    reviewable = render_participant_summary(section, results[section.section_id])
+    render_participant_evidence(section, session_context)
+    render_participant_review(section, sections, stored_data, session_context, reviewable, save_requested)
+
+
+STUDY_NOT_READY = "This project is not ready for the study session. Please ask the researcher for assistance."
+
+
+def study_root() -> Path:
+    return Path(os.getenv("PROJECTOS_STUDY_ROOT") or REPOSITORY_ROOT).resolve()
+
+
+def render_tutorial() -> None:
+    st.title("Try the Echo Field example")
+    st.write(
+        "Echo Field is a short demonstration project used to explain how ProjectOS works. "
+        "You do not need to understand its technical implementation."
+    )
+    try:
+        sections, results, _ = read_prepared_project(tutorial_context(study_root()), DEFAULT_MODEL)
+    except (CacheNotReady, ProjectConfigurationError, OSError):
+        st.info(STUDY_NOT_READY)
+        return
+    section = sections[0]
+    st.caption("Practice only · this does not count toward your study review")
+    st.subheader("1. Read the summary")
+    render_participant_summary(section, results[section.section_id])
+    st.subheader("2. Check the source evidence")
+    render_participant_evidence(section, {"project_role": "tutorial"})
+    st.subheader("3. Try a response")
+    choice = st.radio(
+        "Is this summary accurate?", tuple(PARTICIPANT_ACTIONS), index=None,
+        key="participant_ui_tutorial_action", persist_state="session",
+    )
+    st.caption("Looks accurate accepts the summary; update lets you change its wording; not supported rejects it.")
+    correction = ""
+    if choice == "I want to update it":
+        correction = st.text_area("Your practice update", key="participant_ui_tutorial_correction", persist_state="session")
+    if st.button("Finish tutorial", type="primary"):
+        if choice is None:
+            st.warning("Try one response before continuing.")
+        elif choice == "I want to update it" and not correction.strip():
+            st.warning("Write a practice update before continuing.")
+        else:
+            participant_flow_state()["stage"] = "readiness"
+            st.rerun()
+
+
+def render_study_session(session_context: dict) -> None:
+    """Resolve only the server-bound assignment; no retrieval/API work on navigation."""
+    flow = participant_flow_state()
+    if flow["stage"] == "start":
+        # Completed sessions reopen at the summary; first-time sessions keep their tutorial.
+        try:
+            project = assigned_context(session_context["participant_code"], study_root(),
+                                       allowed_participant=os.getenv("PROJECTOS_STUDY_PARTICIPANT"))
+            stored_data = load_session_review_store(project.review_file, project.project_id)
+            completed = has_completed_reviews(stored_data)
+        except (ProjectConfigurationError, OSError, ValueError):
+            completed = False
+        if not completed:
+            render_participant_start()
+            return
+        flow.update(stage="complete")
+    if flow["stage"] == "tutorial":
+        render_tutorial()
+        return
+    try:
+        project = assigned_context(
+            session_context["participant_code"], study_root(),
+            allowed_participant=os.getenv("PROJECTOS_STUDY_PARTICIPANT"),
+        )
+        sections, results, identity = read_prepared_project(project, DEFAULT_MODEL)
+        stored_data = load_session_review_store(project.review_file, project.project_id)
+        apply_review_history(sections, stored_data)
+    except (ProjectConfigurationError, CacheNotReady, OSError, ValueError):
+        st.info(STUDY_NOT_READY)
+        st.caption("The researcher needs to check your assignment, project files and prepared summaries.")
+        return
+    binding = (project.project_id, str(project.data_directory), identity)
+    previous_binding = st.session_state.get("participant_ui_binding")
+    if previous_binding is not None and previous_binding != binding:
+        clear_interface_state()
+        st.info("The project preparation has changed. Please reopen your study session with the researcher.")
+        return
+    st.session_state["participant_ui_binding"] = binding
+    if flow["stage"] == "readiness":
+        # Parse the actual files once at this gate; navigation only verifies hashes.
+        readiness = validate_project(project, DEFAULT_MODEL)
+        if not readiness["ready"]:
+            st.info(STUDY_NOT_READY)
+            return
+        st.title("Your project is ready")
+        st.write(project.display_name)
+        st.write("All six summaries are prepared. Review them against what you remember and the source evidence.")
+        st.caption("Your tutorial response is not part of this review. Missing information may appear as insufficient evidence.")
+        if st.button("Start my project review", type="primary"):
+            next_index = next_unreviewed_index(sections)
+            flow.update(stage="complete" if next_index is None else "review", index=next_index or 0)
+            st.rerun()
+        return
+    for key in ("review_message", "summary_message"):
+        message = st.session_state.pop(key, None)
+        if message:
+            st.success(message)
+    formal_session = {
+        **session_context, "project_context": project, "project_role": "participant",
+        "review_file": project.review_file,
+        "session_key": f"{session_context['session_key']}_{project.project_id}",
+    }
+    render_participant_flow(sections, stored_data, formal_session, results)
+
+
+def render_study_preparation_panel() -> None:
+    with st.sidebar.expander("Assigned project preparation", expanded=False):
+        code = st.text_input("Researcher: participant code", key="development_study_code")
+        if st.button("Check assigned project"):
+            try:
+                project = assigned_context(code, study_root())
+                st.json(validate_project(project, DEFAULT_MODEL))
+            except (ProjectConfigurationError, OSError) as error:
+                st.warning(str(error))
+        st.caption("This check does not call the API or display document contents. Use study_project_manager.py to prepare summaries.")
+
+
 def main() -> None:
+    session_context = render_session_setup()
+    participant_mode = st.session_state.get("session_mode") == "Participant study"
+    if participant_mode:
+        st.set_page_config(layout="centered")
+        st.caption("ProjectOS · Participant study")
+        if session_context is None:
+            st.title("Welcome to ProjectOS")
+            st.write("Enter your participant code in the sidebar, then select Start participant session.")
+            return
+        try:
+            render_study_session(session_context)
+        except Exception:
+            st.info(STUDY_NOT_READY)
+        return
+    else:
+        st.set_page_config(layout="wide")
+
+    if not participant_mode:
+        render_development_intro()
+        render_study_preparation_panel()
+
+    for message_key in ("review_message", "summary_message"):
+        message = st.session_state.pop(message_key, None)
+        if message:
+            st.success(message)
+
+    try:
+        with st.spinner("Preparing the project records..."):
+            documents, chunks, retriever = initialise_retrieval()
+        sections, stored_data = build_current_brief(
+            retriever, len(chunks), session_context["review_file"],
+        )
+    except Exception as error:
+        st.error("ProjectOS could not prepare the project records.")
+        if not participant_mode:
+            st.exception(error)
+        else:
+            st.caption("Please ask the researcher for help. Saved reviews have not been reset.")
+        return
+
+    render_development_flow(session_context, documents, chunks, sections, stored_data)
+
+
+def render_development_intro() -> None:
     apply_interface_style()
 
     st.title("ProjectOS")
@@ -1264,70 +1775,9 @@ def main() -> None:
         "project records."
     )
 
-    session_context = (
-        render_session_setup()
-    )
 
-    if session_context is None:
-        st.warning(
-            "A participant study session "
-            "has not started. Enter the "
-            "participant code in the sidebar "
-            "and select "
-            "'Start participant session'."
-        )
-
-        st.stop()
-
-    review_message = (
-        st.session_state.pop(
-            "review_message",
-            None,
-        )
-    )
-
-    if review_message:
-        st.success(review_message)
-
-    summary_message = (
-        st.session_state.pop(
-            "summary_message",
-            None,
-        )
-    )
-
-    if summary_message:
-        st.success(summary_message)
-
-    try:
-        with st.spinner(
-            "Preparing the project records..."
-        ):
-            documents, chunks, retriever = (
-                initialise_retrieval()
-            )
-
-        sections, stored_data = (
-            build_current_brief(
-                retriever=retriever,
-                total_chunks=len(chunks),
-                review_file=(
-                    session_context[
-                        "review_file"
-                    ]
-                ),
-            )
-        )
-
-    except Exception as error:
-        st.error(
-            "ProjectOS could not prepare "
-            "the project records."
-        )
-
-        st.exception(error)
-        st.stop()
-
+def render_development_flow(session_context, documents, chunks, sections, stored_data) -> None:
+    """Retain the full technical overview and development controls."""
     current_summary_count = (
         count_current_summaries(
             sections
@@ -1375,7 +1825,7 @@ def main() -> None:
         generate_clicked = st.button(
             action_label,
             type="primary",
-            use_container_width=False,
+            width="content",
             key=(
                 "generate_summary_"
                 f"{session_context['session_key']}"

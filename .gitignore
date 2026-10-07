@@ -25,6 +25,12 @@ dist/
 
 # Local runtime data; keep the prepared data/demo_projects/ archive public
 /data/reviews/
+/data/study_projects/*
+!/data/study_projects/README.md
+/data/summary_cache/*
+!/data/summary_cache/README.md
+/data/study_config/*
+!/data/study_config/README.md
 /data/uploads/
 /data/vector_store/
 chroma_db/
@@ -49,7 +55,7 @@ interview_transcripts/
 /data/participants/
 /project_knowledge/process/meeting_materials/
 
-# Study outputs are private by default. These five files are blank templates.
+# Study outputs are private by default. Allow blank templates and the anonymous pilot summary.
 /project_knowledge/feedback/user_testing/*
 !/project_knowledge/feedback/user_testing/iteration_1/
 /project_knowledge/feedback/user_testing/iteration_1/*
@@ -58,6 +64,9 @@ interview_transcripts/
 !/project_knowledge/feedback/user_testing/iteration_1/research_questions.md
 !/project_knowledge/feedback/user_testing/iteration_1/participant_test_protocol.md
 !/project_knowledge/feedback/user_testing/iteration_1/post_test_questionnaire_and_interview.md
+!/project_knowledge/feedback/user_testing/iteration_1/pilot_p00_summary.md
+!/project_knowledge/feedback/user_testing/iteration_1/participant_project_pack_guide.md
+!/project_knowledge/feedback/user_testing/iteration_1/participant_owned_project_data_protocol_draft.md
 
 # Screenshots are private by default; only this inspected demo is public.
 /outputs/screenshots/*
