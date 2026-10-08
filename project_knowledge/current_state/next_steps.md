@@ -1,22 +1,19 @@
 ---
 project: ProjectOS
 document_type: next_steps
-status: proposed
-date: 2026-10-04
+status: proposed_pending_supervisor_ethics_confirmation
+date: 2026-10-08
 ---
 
 # Proposed next steps
 
-The next development priority is to make the existing review interaction reliable enough for a complete formative-study rehearsal. The items below are proposed work, not completed changes or confirmed study decisions.
+The next priority is a reviewable first-round study package, not another retrieval implementation. The core question concerns source visibility and user correction during project re-entry. Follow [TD-003](../decisions/technical_decisions/td_003_freeze_automatic_project_state_inference.md) and retain the stable production code.
 
-**5 October update:** the pre-test interaction refinement implements progressive review, per-section summary recovery, draft protection and completion feedback. Rehearse this revised flow next. Durable summary-version association and the underlying correction/confirmation semantics remain follow-up work; the refinement does not change the research data structure.
+1. **Review the draft with Anna.** Use the [Round 1 protocol](../feedback/user_testing/iteration_1/study_protocol_round_1_draft.md), [materials gap check](../feedback/user_testing/iteration_1/study_materials_gap_check_round_1.md) and [data protocol](../feedback/user_testing/iteration_1/participant_owned_project_data_protocol_draft.md). Confirm whether an ethics amendment or other institutional approval is needed.
+2. **Resolve the release blockers.** Agree contact routes, external API handling and actual account settings, transfer/storage/access, retention by data type, withdrawal/deletion and the proposed three-adult, 40–50 minute procedure. Complete consistent private copies of the information and consent forms only after those decisions.
+3. **Rehearse the approved procedure with non-personal material.** Time the independent baseline, tutorial, six-section review, ratings and interview. Use the existing [question/observation guide](../feedback/user_testing/iteration_1/post_test_questionnaire_and_interview.md). Record assistance and missing observations; do not add instrumentation or tune retrieval to produce agreeable answers.
+4. **Only after the start gate is satisfied, recruit and receive consented packs.** Ask for 4–8 self-selected non-sensitive files for one paused long-term creative project. Screen and import with the participant's agreement, log researcher preparation decisions, then prepare and freeze summaries. Do not create formal participant assignments before authorisation.
+5. **Conduct the three agreed sessions and analyse them.** Separate automatic review events from manual observations, exclude tutorial/P00/P96 records, retain negative and mixed cases, and report descriptive statistics and themes without significance claims.
+6. **Decide the next design step from findings.** Consider source presentation, correction and evidence absence first. Explicit temporal metadata could become a user-facing mechanism or future work; no automatic temporal or contradiction reasoning is scheduled.
 
-**7 October update — current priority:** review the participant-owned-project [data protocol draft](../feedback/user_testing/iteration_1/participant_owned_project_data_protocol_draft.md) with the supervisor, confirm whether an ethics amendment is required, and revise information/consent materials before collecting project packs. Then use the [pack guide](../feedback/user_testing/iteration_1/participant_project_pack_guide.md) for a complete timed rehearsal: code entry, one-section tutorial, assigned readiness, six prepared summaries and follow-up research activities. Technical assignment/cache isolation is implemented; review schema and research questions remain unchanged. The numbered list below is the retained 4 October plan and should be read in light of this update.
-
-1. **Review the study scope with the supervisor.** Confirm the prepared-archive task, participant total and allocation across iterations, and rating instrument. Complete contact, withdrawal and retention fields in private study copies after the relevant decisions are made.
-2. **Repair summary and review continuity.** Provide recovery after partial generation in participant mode, associate reviews with the interpretation actually reviewed, and decide how confirmation should preserve a saved correction. Use targeted tests for these behaviours and check them through the interface.
-3. **Run one complete timed rehearsal.** Include introduction, consent, all tasks, questionnaire and interview. Record technical interruptions and researcher assistance, verify separate participant histories, and reconcile the duration stated in the study materials.
-4. **Update the presentation evidence.** Capture a current Streamlit screenshot with demonstration content only, inspect it for private information, and extend the implementation chapter with the Iteration 1 summary and participant-session work.
-5. **Conduct the agreed formative study and revise from findings.** Keep participant responses, consent forms and identifiable records in ignored private storage. Discuss a second archive or a later study of real project return only after the initial findings and scope review.
-
-See [open issues](blockers.md) for the evidence behind these priorities and the [latest development log](../process/daily_logs/day_8_user_research_preparation.md) for the last recorded implementation work. This repository review did not change the application or conduct participant research.
+This is an ordered proposal, not evidence that recruitment, approval, material collection or P01 has begun. Earlier development priorities remain documented in dated logs and Git history; they are not current instructions to modify the prototype.

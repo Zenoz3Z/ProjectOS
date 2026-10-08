@@ -2,42 +2,39 @@
 project: ProjectOS
 document_type: open_issues
 status: current
-date: 2026-10-04
+date: 2026-10-08
 ---
 
-# Open issues before participant evaluation
+# Open issues before Round 1
 
-These issues were identified by comparing the implementation and research documents on 4 October 2026. They remain open; documenting them does not resolve them.
+The prototype is frozen for study preparation. Engineering tests and a researcher's successful navigation rehearsal do not establish semantic accuracy or permission to collect participant-owned material.
 
-**5 October update:** the pre-test interaction refinement adds a per-section summary recovery control, progressive review, unsaved-input protection and completion feedback. The retry issue in the original table below is therefore addressed in the UI. Review-version association and the underlying confirm-after-correct behaviour remain unchanged. The [P00 pilot summary](../feedback/user_testing/iteration_1/pilot_p00_summary.md) records why the interaction was refined; P00 is excluded from the formal sample.
+## Decisions that block recruitment and collection
 
-## Prototype behaviour
+| Open decision | Required resolution |
+| --- | --- |
+| Supervisor/ethics scope | Anna must confirm the move to participant-owned projects, three adults, external API preparation and any necessary amendment/approval route. A supervisor discussion alone must not be recorded as institutional approval. |
+| Information and consent | Review the revised drafts, including 4–8 files, text processing, external excerpts, possible identifying content and no public upload. Complete private contact and independent-concerns routes. |
+| Storage and access | Agree an approved transfer method, storage location, authorised access, device protection and backup handling. Git exclusion alone is not secure storage. |
+| Retention | Set a duration, start trigger and deletion method for raw packs, caches/summaries, review/correction data, baseline notes, ratings/interviews, consent/code linkage and backups. No period has been invented. |
+| Withdrawal | Agree contact route, deadline, what can be removed, analysis/publication cut-off and provider-side limits. Put the same decisions in all issued copies. |
+| API account and policy | Confirm the institution accepts this external processor and the actual account/model settings, including data sharing, retention and processing location. Do not assume zero retention or regional processing. |
+| Study practicality | Confirm the 40–50 minute schedule, seven-point exploratory ratings, manual observations and no recording/screenshots. Rehearse with non-personal material after document review. |
 
-**7 October update:** assigned-project review now requires six valid prepared summaries. Missing/stale caches stop the review and are repaired by the researcher through the CLI; the participant's generation/retry control has been removed from this workflow. Source/prompt/model changes invalidate the durable project cache. Development mode still uses the older retrieval cache. Additional automated assignment, cache, path and UI checks are documented in the [readiness validation report](../../outputs/test_results/formal_study_readiness.md). Review-version association and confirm-after-correct semantics remain unchanged. The original issue table below describes the earlier implementation.
+See the [ten-point materials gap check](../feedback/user_testing/iteration_1/study_materials_gap_check_round_1.md). All participant-facing forms and the [Round 1 protocol](../feedback/user_testing/iteration_1/study_protocol_round_1_draft.md) remain draft. Formal P01 has not started.
 
-**Formal-study blocker:** participant-owned project materials and external API excerpts need explicit coverage in revised information and consent materials, plus supervisor confirmation of whether an ethics amendment is necessary. The [new draft](../feedback/user_testing/iteration_1/participant_owned_project_data_protocol_draft.md) is not approval. Timings, participant allocation and withdrawal/retention decisions still need agreement. No real participant project packs were used in technical QA.
+## Known prototype limits to disclose and observe
 
-| Issue | Consequence for a study | Relevant implementation |
-| --- | --- | --- |
-| Participant mode has no direct retry control after partial summary generation or evidence invalidation. | A session may contain missing summaries that the participant cannot regenerate. | [Streamlit interface](../../src/streamlit_app.py) |
-| Review events are associated with sections, without a durable snapshot of the exact generated summary. | A new interpretation can inherit a review that referred to earlier wording. | [Review storage](../../src/review_store.py) and [brief reconstruction](../../src/reentry_brief.py) |
-| A confirmation following a correction clears the correction from the active display, although the event remains in history. | The visible state may no longer reflect the wording the user corrected. | [Brief reconstruction](../../src/reentry_brief.py) |
-| Changes to source files do not automatically invalidate cached retrieval resources. | An edited demonstration archive may not appear until the application is restarted. | [Streamlit interface](../../src/streamlit_app.py) |
+- Related evidence may be historical, resolved, conditional or wrongly attributed. Currentness is not inferred reliably; an absent source does not prove that the real project lacks feedback or a decision.
+- P96 exposed retrieval weaknesses, especially in current/superseded directions, unresolved tensions and next action. P96 is a researcher self-test, not a participant result. [TD-003](../decisions/technical_decisions/td_003_freeze_automatic_project_state_inference.md) freezes further automatic retrieval extensions.
+- Review events are not durably linked to exact generated-summary snapshots. Keep source packs and prepared summaries fixed within a session, and record the reviewed version privately.
+- A later confirmation can remove a correction from the active display while retaining its event history. Observe this and explain only if needed; do not change it during the study or silently treat it as participant intent.
+- The application saves review actions, correction text and reasons when supplied. Evidence expansions, timings, baseline accounts, ratings and interview notes need manual research records. There is no complete telemetry system.
+- JSON storage has no concurrent-write coordination or user authentication. Use one supervised loopback-only session at a time, stop it between participants, and never overwrite previous records.
+- Missing or stale prepared caches block participant review. Preparation is a researcher task after consent; do not regenerate while the participant is reviewing.
 
-The 23 existing automated tests cover structure, storage and summary validation. They do not cover the full browser interaction or verify whether summaries faithfully reconstruct the project. JSON storage also lacks concurrent-write coordination and authentication; the current scope is supervised local use.
+## Interpretation and presentation limits
 
-## Study documents to reconcile
+Three purposively selected cases cannot establish statistical significance, population accuracy, productivity gains or a causal effect of evidence visibility. Self-selected packs, researcher categorisation, the baseline writing task, think-aloud and assistance can influence responses. Record these limitations.
 
-- **Duration:** the [information sheet](../feedback/user_testing/iteration_1/participant_information_sheet.md) estimates 25–35 minutes. The [protocol](../feedback/user_testing/iteration_1/participant_test_protocol.md) states 30–35 minutes, but its six activity estimates total 35–40 minutes. A complete timed rehearsal is needed before setting one duration across the materials.
-- **Participant allocation:** the [19 September evaluation plan](evaluation_plan_v0.md) proposes three formative participants followed by five new participants. The [1 October research questions](../feedback/user_testing/iteration_1/research_questions.md) describe approximately five to eight participants for Iteration 1. The intended total and allocation across iterations need supervisor agreement.
-- **Rating scale:** the earlier evaluation plan proposes five-point ratings; the current [questionnaire](../feedback/user_testing/iteration_1/post_test_questionnaire_and_interview.md) uses seven-point ratings. Final study materials should identify the chosen instrument consistently while retaining the earlier plan as a dated draft.
-- **Participant-facing fields:** researcher and supervisor contacts, withdrawal arrangements and retention details in the blank information sheet and [consent form](../feedback/user_testing/iteration_1/participant_consent_form.md) need completion in the private study copies before use.
-- **Observation records:** review events are saved automatically. Evidence-opening behaviour, task duration, questionnaire responses and interviews require separate researcher records; they are not all captured by the application.
-
-## Presentation and evidence limits
-
-The committed screenshots show an earlier command-line brief and an early wireframe, not the current Streamlit interface. A current screenshot should use only demonstration content and be inspected before inclusion.
-
-The [implementation chapter](../../report/drafts/04_design_and_implementation.md) covers Iteration 0. The [Day 7](../process/daily_logs/day_7_llm_reentry_summary.md) and [Day 8](../process/daily_logs/day_8_user_research_preparation.md) logs document later work that still needs to be integrated into the chapter.
-
-No completed ProjectOS participant findings are included in the repository. Technical rehearsals and retrieval results should not be presented as user-study outcomes.
+The [P00 pilot summary](../feedback/user_testing/iteration_1/pilot_p00_summary.md) remains unchanged and excluded from the formal sample. Historical documents describe different sample sizes, durations and an Echo Field task; the new protocol is the canonical Round 1 proposal. The implementation chapter and old screenshots remain historical, not current study evidence.

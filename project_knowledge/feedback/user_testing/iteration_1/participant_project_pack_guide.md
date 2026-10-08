@@ -1,43 +1,47 @@
-# Participant project-pack guide
+---
+project: ProjectOS
+document_type: participant_project_pack_guide
+date: 2026-10-08
+status: draft_pending_supervisor_ethics_confirmation
+---
 
-Status: preparation guidance for the proposed participant-owned-project study, 7 October 2026. Read with the [data protocol draft](participant_owned_project_data_protocol_draft.md). This guide does not establish ethics approval.
+# Participant project-pack guide — Round 1 draft
 
-## Choosing a project
+**Preparation guidance only; not an invitation to submit files.** Do not recruit, accept project packs or create formal assignments until the [Round 1 start gate](study_protocol_round_1_draft.md#start-gate) is satisfied. Consent to the data flow must come before receipt and API processing.
 
-Use a creative project that the participant actually worked on and has paused for at least one to two weeks. Record the approximate interruption and the participant's involvement in private study notes. Echo Field is a short tutorial only; it is not the formal project-re-entry task.
+## Choose one project and 4–8 files
 
-Aim for **4–10 existing documents**, where available. Supported formats are UTF-8 `.md`, `.txt` and text-based `.pdf`. Materials can include a brief, notes, a process log, decisions, feedback and goals. Scanned PDFs need text extraction outside this prototype; OCR is not provided.
+Choose one long-term creative project you worked on and have paused, provisionally for at least one to two weeks. Select **4–8 existing, non-sensitive project files** yourself. This is the study pack size, even though the software can technically load fewer files.
 
-The pack need not be complete. Missing, ambiguous or inconsistent records are part of the research situation. Do not ask participants to fabricate a complete archive or manufacture answers for the six sections.
+Supported formats are UTF-8 Markdown/text and text-based PDF. Scanned PDFs require conversion outside this prototype; OCR is not provided. Prefer notes, a brief, goals, dated process records, decisions or feedback you are authorised to share.
 
-## Before providing materials
+An incomplete archive is acceptable. Do not invent missing feedback, write answers for the six sections, or revise the past to make the system look accurate. Missing categories and evidence absence are meaningful research situations. If fewer than four suitable files exist, discuss eligibility rather than creating filler documents.
 
-- Remove names, contact details and unnecessary identifying information, including in filenames and PDF text.
-- Do not provide client-confidential material, commercial secrets, restricted third-party content or material the participant is not authorised to share.
-- Participants may remove sensitive portions or withhold documents before submission.
-- Materials are for this research project only. Explain that selected evidence excerpts will be sent to the OpenAI API during researcher preparation before accepting a pack.
-- Use the agreed Information Sheet and Consent Form after they have been updated and confirmed for this workflow. Do not treat the earlier demo-only forms as covering participant-owned materials.
+## Screen before sharing
 
-## Researcher organisation
+- Remove unnecessary names, contact details and identifying project/client titles from text, filenames and metadata.
+- Exclude sensitive personal information, passwords, credentials, private correspondence, commercial secrets and confidential client/employer records.
+- Do not include third-party material or feedback unless sharing it for this processing is authorised. Omit it if safe redaction is not possible.
+- You may withhold or redact records before submission. Keep your own originals.
+- Read the final [information sheet](participant_information_sheet.md) and [consent form](participant_consent_form.md). ProjectOS processes the text locally and sends retrieved excerpts and source references to the OpenAI API during researcher preparation; a short document may be substantially reproduced in an excerpt.
+- No public upload is planned. There is no self-service upload interface. The researcher must confirm a suitable private transfer route rather than asking for public links.
 
-Keep each pack under `data/study_projects/<participant-code>/` and configure it in the ignored local assignment JSON. Never place participant content in the demonstration archive, public templates or repository documentation.
+## Researcher-assisted preparation — after authorisation only
 
-| Folder | Typical existing material |
+1. Confirm consent and the approved transfer/storage/retention arrangements.
+2. Screen the pack with the participant. Rename or redact only with agreement; retain a private record of actions, omissions and reasons. Do not rewrite facts.
+3. Import into a separate assigned context using a pseudonymous code such as P01. Keep identity linkage separately; codes do not guarantee anonymity.
+4. Organise files into the existing categories below. Preserve wording and dates. A category may stay empty.
+5. Validate extraction and prepare summaries before the session, under the approved API arrangements. Record the prepared version privately. Do not cherry-pick records or regenerate to obtain favourable answers.
+6. Keep the pack and prepared summaries fixed during the session. Serve one supervised session on the researcher's computer; navigation and saving read the cache without API calls.
+
+| Existing category | Suitable existing content |
 | --- | --- |
-| `current_state/` | Current goals, brief or next-step notes |
-| `decisions/` | Decisions and their reasons, including replaced directions |
-| `feedback/` | Feedback the participant is authorised to share |
-| `process/` | Process logs, experiments and dated working notes |
+| current_state | Goals, brief, current notes or explicit next steps |
+| decisions | Decisions, reasons and older/replaced directions |
+| feedback | Authorised tutor/user/peer feedback, if any |
+| process | Dated logs, experiments and reflections |
 
-Preserve original wording and dates where possible. Record any redaction, renaming or researcher categorisation in private preparation notes. **Categorisation affects retrieval filtering and is a research limitation**: researcher organisation may influence which evidence and summaries a participant sees. Do not silently rewrite the participant's account to fit the prototype.
+Researcher categorisation influences retrieval; log it as a limitation, not a neutral transformation. Do not place participant files in the demo archive or versioned documentation. Follow the [data protocol](participant_owned_project_data_protocol_draft.md) for private storage, access, withdrawal and deletion.
 
-No category is mandatory. One non-empty supported document is the technical minimum; it is not a claim of adequate research material. Validate the pack, inspect readiness, and prepare all six summaries before the session. Empty-evidence sections may legitimately report insufficient evidence.
-
-## Session preparation
-
-1. Confirm the proposed data workflow and any required ethics amendment with the supervisor.
-2. Agree the participant's pack and record preparation actions privately.
-3. Run `validate --participant <code>`; check filenames, categories and extraction failures without publishing document text.
-4. With `OPENAI_API_KEY` available in the launching environment, run `prepare --tutorial` and `prepare --participant <code>`. Reused valid caches do not make new API requests.
-5. Run `serve --participant <code>` for the assigned local session. The server receives no API key and accepts only its bound participant code.
-6. Rehearse tutorial, readiness, review, save and reopen. Keep QA codes and records outside the formal sample; P00 remains excluded.
+Echo Field is the tutorial only. P00 pilot and P96 researcher self-test are excluded from the formal three-person sample. This document does not create P01 or authorise collection.

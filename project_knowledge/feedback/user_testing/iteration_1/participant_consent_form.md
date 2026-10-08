@@ -3,121 +3,67 @@ project: ProjectOS
 document_type: participant_consent_form
 category: user_testing
 iteration: 1
-date: 2026-10-01
-status: draft
+date: 2026-10-08
+status: draft_pending_supervisor_ethics_confirmation
 ---
 
-# Participant Consent Form
+# Participant Consent Form — Round 1 draft
 
-## Study title
+**NOT FOR SIGNING YET.** Use only after Anna's supervisor/ethics scope confirmation, any required institutional approval and completion of the matching [Participant Information Sheet](participant_information_sheet.md). Consent must precede receipt of project files and external API preparation, not only the test session.
 
-**ProjectOS: Evaluating a Source-grounded and Correctable Project Re-entry Brief**
+**Study:** ProjectOS: Source Visibility and User Correction During Project Re-entry
 
-## Researcher
+**Researcher:** Zeno Zhang, MSc Creative Computing, UAL Creative Computing Institute
 
-**Researcher:** [insert researcher name]\
-**Programme:** MSc Creative Computing, University of the Arts London\
-**Researcher email:** [insert UAL email address]\
-**Supervisor:** [insert supervisor name]
+**Researcher contact:** [approved institutional contact]
 
-## Participant details
+**Information sheet version/date:** ____________________
 
-**Participant code:** ______________________________
+**Agreed withdrawal deadline and route:** ____________________
 
-The researcher will assign a code such as `P01`. Please do not write your full name in the participant-code field.
+**Agreed retention schedule/reference provided to participant:** ____________________
 
-## Consent statements
+**Participant code:** ____________________ (a pseudonymous code, not a name)
 
-Please read each statement and tick the relevant box.
+## Required consent statements
 
-### Study information
+- [ ] I am at least 18 years old, have read the final information sheet, and have had my questions answered.
+- [ ] I understand participation is voluntary. I may skip, pause or stop without giving a reason or affecting my studies, assessment, work or university relationships.
+- [ ] I understand the withdrawal route, deadline, local deletion arrangements and the stated limits after aggregation/publication and external API processing.
+- [ ] I agree to provide 4–8 self-selected, screened, non-sensitive records from one paused long-term creative project that I am authorised to share. I may withhold or redact records before providing them.
+- [ ] I understand ProjectOS will process the text locally, and the researcher will organise and import it for this study.
+- [ ] I agree to retrieved excerpts and their source references being sent to the OpenAI API for preparation, under the data-processing arrangements explained in the information sheet. I understand `store=False` does not guarantee zero provider retention.
+- [ ] I understand declining that external processing means I should not provide a project pack for this study, without penalty.
+- [ ] I understand the session takes approximately 40–50 minutes on the researcher's computer; pack preparation occurs beforehand.
+- [ ] I agree to the independent written project account, six-section review, short ratings and interview, while retaining my right to skip activities.
+- [ ] I agree to collection of review actions, correction content and reasons, observed evidence-opening behaviour, timings, ratings and written interview/observation notes.
+- [ ] I understand summaries may be incomplete, historical, wrongly attributed or misleading, and I may Confirm, Update or Reject them.
+- [ ] I understand codes such as P01 do not guarantee anonymity; consent/contact linkage is stored separately and project details will be screened before any reporting.
+- [ ] I understand the local retention schedule, authorised access and backup arrangements stated in the final information sheet.
+- [ ] I understand raw project files, summaries, reviews and interview records will not be publicly uploaded. No audio/video/screen recording or participant screenshots are planned.
+- [ ] I understand de-identified descriptive findings may appear in the MSc report, assessment and project presentation.
 
-- [ ] I confirm that I have read and understood the Participant Information Sheet for this study.
+## Optional permission
 
-- [ ] I have had the opportunity to ask questions about the study and have received satisfactory answers.
-
-- [ ] I understand the purpose of the study and what I will be asked to do.
-
-### Voluntary participation
-
-- [ ] I understand that participation is voluntary.
-
-- [ ] I understand that I may skip a question, pause the session or stop participating at any time without giving a reason.
-
-- [ ] I understand that choosing not to participate or withdrawing will not affect my studies, assessment, employment or relationship with the researcher or university.
-
-### Withdrawal
-
-- [ ] I understand that I may request the removal of my identifiable research data before [insert withdrawal deadline].
-
-- [ ] I understand that it may no longer be possible to remove my individual contribution after the data has been anonymised and combined with other participants’ findings.
-
-### Study activities and research data
-
-- [ ] I agree to use the ProjectOS prototype and complete the study tasks.
-
-- [ ] I agree to the researcher collecting task-completion observations, questionnaire responses, review actions and written interview notes.
-
-- [ ] I understand that the study uses a prepared demonstration project and that I am not required to upload my own project documents.
-
-- [ ] I agree not to enter personal, confidential or sensitive information into the prototype.
-
-### Artificial intelligence
-
-- [ ] I understand that ProjectOS uses an OpenAI language model to generate summaries from selected excerpts of the demonstration project records.
-
-- [ ] I understand that generated summaries may be incomplete, misleading or incorrect.
-
-- [ ] I understand that I may be asked to inspect, confirm, update or reject an AI-generated interpretation.
-
-### Confidentiality and use of findings
-
-- [ ] I understand that my research data will be stored securely and represented using a participant code.
-
-- [ ] I understand that my name and directly identifying information will not appear in the final report or public portfolio.
-
-- [ ] I understand that anonymised findings may be included in the researcher’s MSc final project report, portfolio, assessment materials and presentations.
-
-## Optional permissions
-
-The following permissions are optional. Selecting “No” will not prevent you from participating.
-
-### Anonymised quotations
-
-I agree that short anonymised quotations from my interview responses may be included in the final report, portfolio or presentation.
+May short de-identified quotations from your interview responses be used in the report or presentation? Refusal does not prevent participation. Project-source excerpts are not authorised for publication by this checkbox.
 
 - [ ] Yes
 - [ ] No
 
-### Anonymised interface screenshots
+## Agreement
 
-I agree that anonymised screenshots of my interaction with the prototype may be included in the final report, portfolio or presentation, provided that they contain no name or directly identifying information.
+- [ ] I freely agree to participate under the final information and arrangements above.
 
-- [ ] Yes
-- [ ] No
+**Participant signature:** ____________________   **Date:** ____________________
 
-## Recording
+**Researcher signature:** ____________________   **Date:** ____________________
 
-No audio or video recording is planned for this study.
+## Researcher checks — blank template only
 
-If the research procedure changes and recording is proposed, the researcher must provide updated information and obtain separate consent before recording begins.
+- [ ] Approval/scope record checked; no unresolved information-sheet fields.
+- [ ] Consent received before materials or API processing.
+- [ ] Participant received a copy and contact/withdrawal details.
+- [ ] Signed form stored separately from coded responses in approved private storage.
+- [ ] Consent reconfirmed at the supervised session.
 
-## Final agreement
-
-- [ ] I voluntarily agree to participate in this study.
-
-**Participant signature:** ______________________________
-
-**Date:** ______________________________
-
-**Researcher signature:** ______________________________
-
-**Date:** ______________________________
-
-## Researcher use only
-
-**Session ID:** ______________________________
-
-**Participant code:** ______________________________
-
-**Consent form checked before testing:** Yes / No
+Keep signed forms and code/contact linkage out of Git. Do not use P00 or P96 records as consent or results for a formal participant.

@@ -3,186 +3,95 @@ project: ProjectOS
 document_type: participant_information_sheet
 category: user_testing
 iteration: 1
-date: 2026-10-01
-status: draft
+date: 2026-10-08
+status: draft_pending_supervisor_ethics_confirmation
 ---
 
-# Participant Information Sheet
+# Participant Information Sheet — Round 1 draft
 
-## Study title
+**NOT FOR RECRUITMENT OR CONSENT YET.** This revised draft covers a proposed study using participants' own project records. Anna's supervisor/ethics scope confirmation, any required institutional approval and all outstanding fields must be resolved before it is issued. It supersedes the earlier demonstration-only draft.
 
-**ProjectOS: Evaluating a Source-grounded and Correctable Project Re-entry Brief**
+## Study and contacts
 
-## Researcher
+**Study:** ProjectOS: Source Visibility and User Correction During Project Re-entry
 
-**Researcher:** [insert researcher name]\
-**Programme:** MSc Creative Computing, University of the Arts London\
-**Researcher email:** [insert UAL email address]\
-**Supervisor:** [insert supervisor name]\
-**Supervisor email:** [insert supervisor email address]
+**Researcher:** Zeno Zhang, MSc Creative Computing, UAL Creative Computing Institute
 
-## Invitation
+**Researcher contact:** [approved institutional contact to complete before use]
 
-You are invited to take part in a research study about ProjectOS, a prototype designed to help creative students and practitioners return to long-term projects after an interruption.
+**Supervisor contact:** [approved supervisor name and contact to complete before use]
 
-Before deciding whether to participate, please read the following information. It explains the purpose of the study, what you will be asked to do and how the research data will be used.
+**Independent concerns/complaints contact:** [institutional route to confirm before use]
 
-Please ask the researcher if anything is unclear.
+## Invitation and purpose
 
-## What is the purpose of this study?
+We propose inviting three adults who work on long-term creative projects. Each person would revisit one project they have paused. You do not need AI or programming expertise.
 
-Long-term creative projects often contain notes, decisions, feedback, experiments and abandoned directions across different documents. After an interruption, it can be difficult to remember the current project state and decide what to do next.
+The research question is: “How do source visibility and user correction help creative practitioners assess an AI-generated reconstruction of a long-term project during project re-entry?”
 
-ProjectOS uses retrieval and generative AI to produce a Project Re-entry Brief from existing project records. It presents information about:
+ProjectOS prepares a six-part brief: current intention, changes and reasons, current versus superseded directions, relevant feedback, unresolved tensions and possible next action. The brief can be incomplete, outdated or misleading. The study examines how you assess it, not whether you can find a correct answer.
 
-- the current project intention;
-- important changes and their reasons;
-- current and superseded directions;
-- relevant feedback;
-- unresolved tensions;
-- a possible next action.
+## What would I provide?
 
-The study investigates whether this brief is understandable and useful, whether its supporting evidence is sufficiently visible, and whether users can identify and correct misleading interpretations.
+After receiving final study information and giving consent, select **4–8 existing, non-sensitive files** from one long-term creative project you worked on and have paused. The proposed interruption is at least one to two weeks; eligibility will be confirmed before invitation.
 
-## Why have I been invited?
+You choose which records to include and may redact or withhold material. Notes, decisions, goals, process logs and authorised feedback are suitable. Do not include names, contact details, private messages, health or other sensitive information, confidential client/employer material, credentials or material you cannot authorise for sharing. Check filenames and document metadata too. If a pack cannot be made suitable, do not provide it.
 
-You have been invited because you are an adult creative student or practitioner who has experience working on projects across multiple sessions.
+The researcher will agree a transfer route, screen the pack with you, and import it locally. There is no self-service upload or public study website. Your records will not be uploaded to GitHub or publicly released. This does not mean processing is wholly offline: selected text goes to an external API as explained below. See the [project-pack guide](participant_project_pack_guide.md).
 
-You do not need previous knowledge of artificial intelligence, programming or retrieval-augmented generation.
+## What happens during the study?
 
-## Do I have to take part?
+The supervised session is proposed to last **40–50 minutes**, on the researcher's computer. Selecting and sharing the pack beforehand is additional preparation; no fixed preparation time has yet been established.
 
-No. Participation is entirely voluntary.
+1. Recheck consent and ask any questions.
+2. Independently write what you currently understand about your project before viewing the tutorial or AI brief. You may say you are unsure.
+3. Try a short Echo Field tutorial, separate from your own project.
+4. Review six prepared sections about your project. Look at sources when useful and choose Confirm, Update or Reject. You do not have to invent a correction or agree with the system.
+5. Complete short ratings and a 10–15 minute interview about clarity, control, checking effort and misleading interpretations.
 
-You may:
+The first review proceeds in order. Once all six sections have saved responses, you can revisit any named section directly. You may leave a task incomplete, skip questions, pause or stop. Completion of every task is not a condition of participation. P00 pilot and P96 researcher self-test records are excluded from this formal sample.
 
-- decide not to participate;
-- skip any question;
-- ask to pause the session;
-- stop participating at any time without giving a reason.
+## How is my text processed?
 
-Choosing not to participate or withdrawing from the study will not affect your studies, assessment, employment or relationship with the researcher or university.
+ProjectOS reads the selected files, extracts text and retrieves passages on the researcher's computer. During preparation, retrieved excerpts, source filenames/relative paths, excerpt identifiers and section questions/instructions are sent to the **OpenAI API** to generate summaries. An excerpt can contain most or all of a short document. Generic filenames and careful screening matter.
 
-## What will happen if I participate?
+Prepared summaries and their evidence are stored locally. Participant navigation, saving and reopening use these prepared records without new API calls. Corrections, reasons and interview notes are not sent for regeneration in this workflow. Changes to your wording are kept separate from original project records.
 
-The session will take approximately 25–35 minutes.
+### External API handling
 
-You will be asked to:
+OpenAI states that API content is not used for training unless the customer opts in. Default abuse-monitoring logs can retain prompts and responses for up to 30 days, with longer retention possible for legal or safety reasons. Feature/model-specific storage, including prompt caching, can also apply. ProjectOS sets `store=False`; this does not guarantee zero retention. The study's actual account settings, processing location and institutional acceptability remain to be confirmed. See [OpenAI data controls](https://developers.openai.com/api/docs/guides/your-data), checked 8 October 2026.
 
-1. read this information sheet;
-2. complete a consent form;
-3. answer a small number of background questions;
-4. use ProjectOS with a demonstration creative project;
-5. identify the project’s current intention, important changes, unresolved issues and possible next action;
-6. inspect at least one supporting source;
-7. confirm, update or reject at least one generated summary;
-8. complete a short questionnaire;
-9. discuss your experience in a short interview.
+Deleting local study records cannot undo an API transmission or guarantee immediate deletion of provider-held records. You must receive the confirmed arrangements before providing files. If you do not agree to this processing, do not provide a pack; declining has no penalty.
 
-You may be encouraged to explain what you are thinking while completing the tasks. You do not need to demonstrate technical knowledge.
+## What is collected, who has access, and for how long?
 
-## What project material will be used?
+We propose collecting your screened pack; prepared summaries and excerpts; written pre-test account; saved review actions, corrections and reasons; observed source-opening behaviour and timing; ratings; and written interview/observation notes. No audio, video, screen recording or participant screenshots are planned in Round 1.
 
-The session will use a prepared demonstration project called Echo Field.
+Records use a code such as P01. A code is a pseudonym, not a guarantee of anonymity: project details can identify you. Consent/contact details and any code linkage will be kept separately from response data. Storage, backups and access must be agreed before use; Git exclusion alone is not protection. Proposed access is the researcher and, where necessary under the agreed arrangements, the supervisor and authorised assessors.
 
-You will not be required to upload your own project documents, personal files or confidential creative work during this study.
+| Data group | Retention duration and start point | Deletion arrangements |
+| --- | --- | --- |
+| Received project files and screened working copies | [to confirm before use] | [approved local/transfer-copy procedure] |
+| Extracted excerpts, summaries and caches | [to confirm before use] | [include every local copy and export] |
+| Review actions, corrections and reasons | [to confirm before use] | [include review history and analysis copies] |
+| Baseline account, ratings, observations and interview notes | [to confirm before use] | [include any quotations and working analysis] |
+| Signed consent, contact/code linkage | [to confirm separately before use] | [approved separate-record procedure] |
+| Backups and transfer copies | [to confirm before use] | [backup expiry/deletion procedure] |
 
-## How is artificial intelligence used?
+These are unresolved decisions, not permission to retain data indefinitely. The researcher must replace every placeholder in the issued information sheet. External API retention is separate from this local schedule.
 
-ProjectOS uses an OpenAI language model to produce short summaries from selected excerpts of the demonstration project records.
+## Choice, risks and use of findings
 
-These summaries may be incomplete or incorrect. They should not be treated as authoritative project decisions.
+Participation is voluntary. You can decline, skip, pause or stop without giving a reason, with no effect on studies, assessment, work or your relationship with the researcher or university. There is no guaranteed benefit or payment.
 
-The purpose of the study includes observing whether participants can inspect the supporting evidence and correct the generated interpretation.
+Risks include frustration, unwanted disclosure of project information and being misled by a plausible reconstruction. You decide what to share and which interpretations to accept. This is a prototype, not authoritative project advice. If sensitive information is noticed, stop processing and tell the researcher.
 
-You should not enter personal, confidential or sensitive information into the prototype.
+Descriptive, de-identified findings may be used in the MSc report, assessment and project presentation. Public descriptions must be screened for indirect identification. Project packs, raw summaries, reviews, interview notes and identifiable screenshots will not be publicly uploaded. Short de-identified interview quotations require the separate optional permission on the consent form; refusal does not prevent participation. A broader later use would require review of scope and consent.
 
-## What information will be collected?
+## Withdrawal and deletion
 
-The researcher may collect:
+You can stop during the session. To request withdrawal of your data, contact **[confirmed researcher route]**, quoting your participant code if available, by **[agreed deadline/date]**. The researcher will explain which records can still be linked to you, stop covered processing and confirm the agreed deletion outcome, including local packs, caches, reviews and notes.
 
-- general information about your creative-practice experience;
-- whether individual study tasks were completed;
-- observations about hesitation, confusion or requests for help;
-- whether supporting evidence was inspected;
-- review actions made in the prototype;
-- corrections or rejections entered during the session;
-- questionnaire ratings;
-- written researcher notes;
-- anonymised comments from the interview.
+After genuinely irreversible aggregation or publication, it may not be possible to isolate every contribution. The exact cut-off and limits must be agreed and explained before consent; use of a code alone is not irreversible anonymisation. Provider-side handling has the limits described above. No automatic deletion feature is promised.
 
-No medical, biometric or highly sensitive personal data will be requested.
-
-No audio or video recording is currently planned. If recording is added later, you will receive updated information and be asked for separate consent before recording begins.
-
-## Are there any possible risks?
-
-This is considered a low-risk study.
-
-Possible minor risks include:
-
-- temporary confusion when using an unfamiliar prototype;
-- frustration if a generated summary is misleading;
-- mild discomfort when discussing difficulties experienced during creative work.
-
-You may stop, pause or skip a question at any time.
-
-Do not provide confidential information about your own work, clients, employers, collaborators or university projects.
-
-## Are there any benefits?
-
-There is no guaranteed personal benefit or payment for participating.
-
-Your feedback may help improve ProjectOS and contribute to research about reflective AI tools for long-term creative practice.
-
-The session may also encourage reflection on how project records, previous decisions and feedback affect the process of returning to creative work.
-
-## How will my information be protected?
-
-Research data will be stored securely and will only be accessed by the researcher and, where necessary, the project supervisor or authorised university assessors.
-
-Your name will not appear in the final report. A participant code, such as `P01`, will be used instead.
-
-Interview comments may be quoted in the report, portfolio or project presentation, but identifying details will be removed.
-
-Screenshots will not include your name, contact details or other directly identifying information.
-
-The data will be retained for [insert the retention period required by UAL] and then securely deleted.
-
-## How will the findings be used?
-
-Anonymised findings may be included in:
-
-- the researcher’s MSc final project report;
-- the ProjectOS portfolio;
-- academic presentations or assessments;
-- prototype evaluation documentation;
-- future portfolio presentations of the project.
-
-The study will report patterns and limitations honestly. Participation does not mean that you approve or endorse ProjectOS.
-
-## Can I withdraw my data?
-
-You may stop participating at any point during the session.
-
-You may request the removal of your research data by contacting the researcher before [insert withdrawal deadline].
-
-After the data has been fully anonymised and combined with other participants’ findings, it may no longer be possible to identify and remove an individual contribution.
-
-## Who can I contact?
-
-If you have questions about the study or would like to withdraw your data, please contact:
-
-**[insert researcher name]**\
-[insert UAL email address]
-
-If you have concerns that you do not wish to discuss with the researcher, you may contact:
-
-**Project supervisor:** [insert supervisor name]\
-[insert supervisor email address]
-
-## What happens next?
-
-If you would like to participate, please ask any questions you may have and then complete the separate consent form.
-
-Please keep a copy of this information sheet for your records.
+Keep the final information sheet and consent form. Do not sign or send project files while this document remains an unconfirmed draft.

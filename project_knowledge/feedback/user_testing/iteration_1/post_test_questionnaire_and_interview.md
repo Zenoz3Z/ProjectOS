@@ -1,351 +1,130 @@
 ---
 project: ProjectOS
-document_type: questionnaire_and_interview_guide
+document_type: question_and_observation_guide
 category: user_testing
 iteration: 1
-date: 2026-10-01
-status: draft
+date: 2026-10-08
+status: draft_pending_supervisor_ethics_confirmation
 ---
 
-# ProjectOS Post-test Questionnaire and Interview Guide
+# Round 1 questions and observation guide — draft
 
-## Participant information
+Use only with the confirmed [Round 1 protocol](study_protocol_round_1_draft.md) and final information/consent materials. This existing questionnaire file now holds the complete concise instrument, replacing its earlier demo-only questions. It is not approved for recruitment or data collection.
 
-**Participant code:** ______________________________
+Blank master only. Complete private copies with a pseudonymous code, never participant names or identifiable project titles.
 
-**Session date:** ______________________________
+**Participant code:** __________  **Session date:** __________
 
-**Session ID:** ______________________________
+**Protocol/information-sheet version:** __________  **Private preparation reference:** __________
 
-Do not write the participant’s name on this form.
+## A. Pre-test questions
 
-# Part A — Post-test Questionnaire
+Ask before showing the tutorial or generated brief. Do not collect course names, employer details or other identifiers.
 
-## Instructions
+1. **Project context:** What kind of creative project is this, and what was your role? A general description is enough.
+2. **Interruption:** Approximately how long did you work on it, and how long has it been since you last worked on it?
+3. **Usual re-entry:** What would you normally consult or do first when returning to it?
 
-Please indicate how strongly you agree or disagree with each statement based on your experience of using ProjectOS today.
+**Independent written account:** “Before seeing ProjectOS, write what you currently understand about your project's aim and direction, important changes, unresolved issues and intended next step. Mark anything you are unsure about. There is no expected answer.”
 
-Use the following scale:
+Give space for four short headings: current aim/direction; changes; unresolved/unknown; intended next step. Do not show AI text or offer likely answers. Record whether the participant used notes or memory; do not force recall. Keep this account separate and unchanged after the task. It is the participant's initial understanding, not verified ground truth.
 
-- **1 — Strongly disagree**
-- **2 — Disagree**
-- **3 — Somewhat disagree**
-- **4 — Neither agree nor disagree**
-- **5 — Somewhat agree**
-- **6 — Agree**
-- **7 — Strongly agree**
+## B. Task prompts
 
-There are no correct answers. Please respond according to your own experience.
+Opening: “We are testing the prototype, not you. Its interpretation may be incomplete or misleading. You can pause, skip or stop. Positive, negative and mixed responses are equally useful.”
 
-## Statements
+- **T1 — Review:** “After the short tutorial, work through the six prepared sections about your project in order. For each, decide whether it represents your understanding now. You may inspect the sources when useful.”
+- **T2 — Respond:** “Choose Confirm, Update or Reject as appropriate and save if you wish. If you update it, use your own wording. You may explain why in a note. You do not need to find an error, invent a correction or agree with the system.”
+- **T3 — Revisit:** “After completing the six sections, you can use any named section entry to revisit a decision. Change it only if you want to. Tell me when you are finished.”
 
-### Q1 — Current intention
+The actual buttons say Looks accurate / I want to update it / This is not supported. Explain this mapping only as part of tutorial guidance or when help is requested. Do not demand every action type or force every evidence panel open. Mark researcher-prompted openings separately from spontaneous ones. A skipped section is incomplete, not a rejection.
 
-The brief made the project’s current intention easy to understand.
+## C. Post-test Likert questions
 
-**Rating:** 1 / 2 / 3 / 4 / 5 / 6 / 7
+“Please rate each statement based on today's assigned-project review. There are no preferred answers. Choose N/A / cannot judge when you did not experience something.”
 
-### Q2 — Changes and reasons
+Scale: **1 Strongly disagree; 2 Disagree; 3 Somewhat disagree; 4 Neither agree nor disagree; 5 Somewhat agree; 6 Agree; 7 Strongly agree.** N/A is not the midpoint.
 
-The brief made it clear what had changed in the project and why.
+| ID | Statement | Response |
+| --- | --- | --- |
+| L1 — Clarity | I could understand what the brief was saying about my project. | 1 / 2 / 3 / 4 / 5 / 6 / 7 / N/A |
+| L2 — Source visibility | I could identify the source evidence, if any, provided for an interpretation. | 1 / 2 / 3 / 4 / 5 / 6 / 7 / N/A |
+| L3 — User correction | The review controls let me express my own understanding of the project. | 1 / 2 / 3 / 4 / 5 / 6 / 7 / N/A |
+| L4 — Control | I felt in control of whether to accept the system's interpretation. | 1 / 2 / 3 / 4 / 5 / 6 / 7 / N/A |
+| L5 — Project re-entry/helpfulness | Reviewing the brief helped me work out where to resume my project. | 1 / 2 / 3 / 4 / 5 / 6 / 7 / N/A |
+| L6 — Verification effort | Checking whether the brief fitted my project required a lot of effort. | 1 / 2 / 3 / 4 / 5 / 6 / 7 / N/A |
+| L7 — Misleading reconstruction | I could recognise when an interpretation might be misleading. | 1 / 2 / 3 / 4 / 5 / 6 / 7 / N/A |
 
-**Rating:** 1 / 2 / 3 / 4 / 5 / 6 / 7
+These are exploratory items, not a validated scale. Higher L6 means greater burden; L7 is perceived ability, not demonstrated detection accuracy. Keep individual answers and N/A, report median/range where meaningful, and do not combine into one overall score.
 
-### Q3 — Project-state distinction
+## D. Semi-structured interview — 10–15 minutes
 
-I could distinguish the current project direction from directions that had been superseded.
+Ask five core questions. Use only relevant probes; do not read every probe as an extra question. Ask for an example before proposing an explanation. Do not require disclosure of confidential project details.
 
-**Rating:** 1 / 2 / 3 / 4 / 5 / 6 / 7
+1. **Re-entry:** What, if anything, changed in your understanding of where to resume, compared with what you wrote before the brief?
+   - If useful: What prompted that change, or why did nothing change?
+2. **Sources and absence:** How did you decide whether an interpretation had enough support?
+   - If useful: Describe a time you opened a source, chose not to, or found evidence missing. Did a record seem historical, already resolved, conditional or attributed to the wrong person? Only explore a category if relevant; do not assert that an error occurred.
+3. **Correction and control:** How did you decide to confirm, update or reject a section?
+   - If useful: What was the basis for your response: a source, your memory, or something else? If you corrected it, did the result represent what you intended? If not, what prevented that?
+4. **Clarity and effort:** Which parts helped you assess the brief, and which parts added checking work or reduced your control?
+   - If useful: What one change would make that assessment easier?
+5. **Misleading risk:** Was there anything you would hesitate to rely on, and why?
+   - If useful: What might happen if you acted on it without checking? Distinguish an encountered example from a hypothetical concern.
 
-### Q4 — Supporting evidence
+Use written notes only. Mark paraphrase versus exact words, and read back important interpretations when practical. Optional publication of a quotation requires the participant's permission and a disclosure check. Do not describe paraphrases as verbatim quotations.
 
-The supporting project records helped me judge whether a summary was reasonable.
+## E. Researcher observation checklist
 
-**Rating:** 1 / 2 / 3 / 4 / 5 / 6 / 7
+Before the authorised session:
 
-### Q5 — Status labels
+- [ ] Start gate and consent checked; participant received final information/withdrawal contacts.
+- [ ] Private coded records prepared; consent/contact linkage stored separately.
+- [ ] Correct assigned project and prepared version recorded; no other participant data visible.
+- [ ] Sources/cache fixed; no regeneration planned; no recording or screenshots.
+- [ ] Independent account collected before tutorial and generated brief.
 
-The evidence and project-state labels helped me understand the status of the information.
+For each section, record the following privately. If an opening cannot be observed, mark **not observable**, not “not opened.” An open panel does not prove reading or understanding.
 
-**Rating:** 1 / 2 / 3 / 4 / 5 / 6 / 7
+| Section | First view / leaving time | Evidence opened / not opened / not observable | Opening tally; spontaneous or prompted | Saved action / incomplete | Correction/reason reference or not supplied | Help / difficulty / uncertainty |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 Current intention | | | | | | |
+| 2 What changed and why | | | | | | |
+| 3 Current versus superseded directions | | | | | | |
+| 4 Relevant feedback | | | | | | |
+| 5 Unresolved tensions | | | | | | |
+| 6 Possible next action | | | | | | |
 
-### Q6 — User control
+Event notes: elapsed time; section; evidence open/reopen or correction/rejection; observed behaviour; participant explanation (if supplied); assistance. Keep observation separate from inferred motivation. Link to private saved review events rather than duplicating raw correction text into public documents.
 
-I felt able to confirm, update or reject the system’s interpretation.
+- [ ] Record confusion about source versus summary versus user correction.
+- [ ] Record handling of absent evidence and uncertainty without inventing a missing answer.
+- [ ] Record historical/resolved/conditional/wrong-attribution concerns only when observed or stated.
+- [ ] Record requests for help and any prompted source opening.
+- [ ] Record optional post-completion revisits, saved changes and unsaved-input warnings.
+- [ ] Record actual completion or stopping point; preserve skipped/missing data.
 
-**Rating:** 1 / 2 / 3 / 4 / 5 / 6 / 7
+**Timing:** Full session start/end: __________. Tutorial start/end: __________. Assigned review start/completion or stop: __________. Breaks/technical delay: __________. Review wall-clock duration: __________. Active review duration after documented breaks/delays: __________.
 
-### Q7 — Trust calibration
+**Help:** 0 none; 1 neutral prompt; 2 location indicated; 3 direct instruction; 4 researcher action. Record what happened and when. Avoid giving the supposed correct reconstruction.
 
-I felt able to recognise when a generated summary might be incomplete or misleading.
-
-**Rating:** 1 / 2 / 3 / 4 / 5 / 6 / 7
-
-### Q8 — Next action
-
-The proposed next action was clear and actionable.
-
-**Rating:** 1 / 2 / 3 / 4 / 5 / 6 / 7
-
-### Q9 — Information load
-
-The amount of information shown by the interface was manageable.
-
-**Rating:** 1 / 2 / 3 / 4 / 5 / 6 / 7
-
-### Q10 — Re-entry value
-
-A brief like this could help me return to one of my own long-term creative projects after an interruption.
-
-**Rating:** 1 / 2 / 3 / 4 / 5 / 6 / 7
-
-## Short written responses
-
-### Q11 — Most useful element
-
-What was the most useful part of the Project Re-entry Brief?
-
-____________________________________________________________________
-
-____________________________________________________________________
-
-### Q12 — Confusing or unnecessary element
-
-What was the most confusing or unnecessary part of the interface?
-
-____________________________________________________________________
-
-____________________________________________________________________
-
-### Q13 — Most important improvement
-
-If you could change one thing about ProjectOS, what would you change?
-
-____________________________________________________________________
-
-____________________________________________________________________
-
-### Q14 — Additional comments
-
-Is there anything else you would like to say about the experience?
-
-____________________________________________________________________
-
-____________________________________________________________________
-
-# Part B — Semi-structured Interview Guide
-
-## Researcher introduction
-
-Thank you for completing the questionnaire.
-
-I would now like to ask a few questions about your experience. There are no correct answers. I am interested in what helped, what did not help and anything that felt misleading or required additional effort.
-
-The researcher may use the suggested prompts when clarification is needed but should avoid leading the participant towards a positive or negative answer.
-
-## Interview question 1 — Initial understanding
-
-What did you think ProjectOS was trying to help you do when you first saw the interface?
-
-### Optional prompts
-
-- Was its purpose immediately clear?
-- Was anything unclear before you began?
-- Did the six-section structure make sense?
-
-## Interview question 2 — Reconstructing project state
-
-After using the brief, how would you describe the current state of Echo Field?
-
-### Optional prompts
-
-- What is its current aim?
-- What has changed?
-- What remains unresolved?
-- What should happen next?
-
-This question helps assess whether the participant formed a coherent understanding rather than only locating individual pieces of text.
-
-## Interview question 3 — Current and previous directions
-
-How easy or difficult was it to distinguish current project information from earlier or superseded directions?
-
-### Optional prompts
-
-- Did the labels help?
-- Was the word “superseded” understandable?
-- Did any information appear to belong to more than one state?
-- Were any historical decisions presented as if they were still current?
-
-## Interview question 4 — Supporting evidence
-
-How did the supporting project records affect your understanding of the generated summaries?
-
-### Optional prompts
-
-- When did you decide to open the evidence?
-- Did the evidence make you trust the summary more or less?
-- Was the source excerpt understandable?
-- Was any technical information distracting?
-- Would you normally inspect this evidence?
-
-## Interview question 5 — Correcting the system
-
-How did it feel to confirm, update or reject a generated interpretation?
-
-### Optional prompts
-
-- Was it clear which action to choose?
-- Did you feel that your correction became the main project understanding?
-- Was it clear that the earlier AI summary still existed?
-- Did the correction process feel useful or like additional work?
-- Would you correct the system during a real project?
-
-## Interview question 6 — Misleading output
-
-Did you notice any summary that appeared incomplete, uncertain or misleading?
-
-### Optional prompts
-
-- What made you question it?
-- Did the evidence help you identify the problem?
-- What would have happened if you had accepted it without checking?
-- How should the interface communicate uncertainty?
-
-The researcher must not tell the participant which section previously produced an incorrect interpretation before the participant answers.
-
-## Interview question 7 — Next action
-
-What did you think about the proposed next action?
-
-### Optional prompts
-
-- Was it specific enough?
-- Did it appear to come from the project records?
-- Would you act on it?
-- Would you want alternative actions?
-- Should ProjectOS suggest an action or only show documented actions?
-
-## Interview question 8 — Personal creative practice
-
-Can you imagine using ProjectOS in one of your own long-term creative projects?
-
-### Optional prompts
-
-- At what stage would it be most useful?
-- How long would a project need to be before this became valuable?
-- What kinds of documents would you expect it to use?
-- Would you be comfortable allowing it to process your project records?
-- What would prevent you from using it?
-
-Do not ask the participant to reveal confidential project details.
-
-## Interview question 9 — Cognitive effort
-
-Did ProjectOS reduce the effort of understanding the project, or did it create additional work?
-
-### Optional prompts
-
-- Was there too much information?
-- Did checking evidence require too much effort?
-- Which parts could be shortened or hidden?
-- Did the brief make you reflect on the project differently?
-
-## Interview question 10 — Final recommendation
-
-If ProjectOS could make only one improvement before the next version, what should that improvement be?
-
-### Optional prompts
-
-- clearer language;
-- different section order;
-- stronger evidence display;
-- improved correction controls;
-- clearer next actions;
-- better uncertainty communication;
-- support for different document types.
-
-## Closing question
-
-Is there anything important about returning to a long-term creative project that ProjectOS currently fails to address?
-
-# Part C — Researcher Analysis Notes
-
-## Questionnaire interpretation
-
-This questionnaire is project-specific and exploratory. It is not presented as a validated standardised scale.
-
-Because the expected sample is small, the results should be reported descriptively rather than used for strong statistical claims.
-
-For each item, record:
-
-- individual participant ratings;
-- median;
-- range;
-- notable differences between participants.
-
-Do not combine all ten items into one overall score unless a clear analytical justification is established.
-
-## Relationship to research questions
-
-### Comprehension
-
-Relevant items:
-
-- Q1 — Current intention
-- Q2 — Changes and reasons
-- Q3 — Project-state distinction
-
-### Source grounding and trust calibration
-
-Relevant items:
-
-- Q4 — Supporting evidence
-- Q5 — Status labels
-- Q7 — Trust calibration
-
-### Correctability and user control
-
-Relevant item:
-
-- Q6 — User control
-
-### Reflection and next action
-
-Relevant items:
-
-- Q8 — Next action
-- Q10 — Re-entry value
-
-### Cognitive effort and interface limitations
-
-Relevant items:
-
-- Q9 — Information load
-- Q11–Q14 — Written responses
-- Interview questions 6, 9 and 10
-
-## Qualitative coding themes
-
-Initial analysis may use the following provisional themes:
-
-- clarity of project state;
-- distinction between current and historical information;
-- evidence visibility;
-- trust in generated summaries;
-- detection of misleading interpretations;
-- user control and correction;
-- usefulness of the next action;
-- reflective value;
-- cognitive effort;
-- interface confusion;
-- privacy concerns;
-- desired improvements.
-
-Additional themes should be added if they emerge from participant responses.
-
-## Researcher reminder
-
-Do not interpret participant politeness as evidence of usefulness.
-
-Record negative, mixed and unexpected responses with the same attention as positive feedback.
+After the session:
+
+- [ ] Check final saved section actions separately from revision events; do not count each event as another section.
+- [ ] Exclude tutorial, P00 and P96 data from formal statistics.
+- [ ] Keep N/A and missing reasons as missing; do not infer intention from confirmation alone.
+- [ ] Store notes/ratings privately, respect quotation permission, and close the assigned session without overwriting its records.
+
+## Construct coverage
+
+| Focus | Primary instrument references |
+| --- | --- |
+| Source visibility and absence | T1, L2, interview 2, evidence-opening observations |
+| User correction | T2/T3, L3, interview 3, correction/reason and revision records |
+| Project re-entry | Pre-test account, L5, interview 1 |
+| Clarity | L1, interview 4, observed confusion |
+| Control | L4, interview 3/4, help and navigation observations |
+| Verification effort | L6, interview 4, timing and evidence observations |
+| Misleading reconstruction | L7, interview 2/5, stated uncertainty and attribution concerns |
+
+Analysis follows the [Round 1 protocol](study_protocol_round_1_draft.md): descriptive statistics and thematic analysis, no statistical-significance claim. Record disconfirming, negative and unexpected cases with the same care as positive ones.

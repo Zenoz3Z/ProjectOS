@@ -4,11 +4,13 @@ document_type: participant_test_protocol
 category: user_testing
 iteration: 1
 date: 2026-10-01
-status: draft
+status: historical_draft_superseded_for_round_1
 estimated_duration: 30-35 minutes
 ---
 
 # ProjectOS Iteration 1 Participant Test Protocol
+
+> **Historical demo-only draft (1 October 2026), retained for provenance. Do not administer this procedure for Round 1.** Its Echo Field task, generation step, timings and consent checks are superseded by the [Round 1 protocol draft](study_protocol_round_1_draft.md). The new own-project study still awaits Anna's supervisor/ethics confirmation; no recruitment or collection is authorised. The original procedure below is unchanged.
 
 ## Study purpose
 
