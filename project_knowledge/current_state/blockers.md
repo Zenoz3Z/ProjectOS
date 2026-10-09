@@ -19,7 +19,7 @@ The prototype is frozen for study preparation. Engineering tests and a researche
 | Retention | Set a duration, start trigger and deletion method for raw packs, caches/summaries, review/correction data, baseline notes, ratings/interviews, consent/code linkage and backups. No period has been invented. |
 | Withdrawal | Agree contact route, deadline, what can be removed, analysis/publication cut-off and provider-side limits. Put the same decisions in all issued copies. |
 | API account and policy | Confirm the institution accepts this external processor and the actual account/model settings, including data sharing, retention and processing location. Do not assume zero retention or regional processing. |
-| Study practicality | Confirm the 40–50 minute schedule, seven-point exploratory ratings, manual observations and no recording/screenshots. Rehearse with non-personal material after document review. |
+| Study practicality | Confirm the 40–50 minute schedule, [R1-R7, Round 1 v1](../feedback/user_testing/iteration_1/round_1_templates/post_test_ratings_template.md) custom exploratory ratings, manual observations and no recording/screenshots. Rehearse with non-personal material after document review. |
 
 See the [ten-point materials gap check](../feedback/user_testing/iteration_1/study_materials_gap_check_round_1.md). All participant-facing forms and the [Round 1 protocol](../feedback/user_testing/iteration_1/study_protocol_round_1_draft.md) remain draft. Formal P01 has not started.
 

@@ -59,7 +59,7 @@ Navigation, review saving and completed-session restoration read prepared local 
 | Pre-test questions and independent written account | 6 | Ask the three background prompts; participant writes current understanding before seeing tutorial or brief. Keep this separate and do not rewrite it afterwards. |
 | Echo Field tutorial and readiness | 4 | Use the existing one-section tutorial. Check review controls and assigned readiness; tutorial actions are excluded from formal data. |
 | Assigned-project six-section review | 11–16 | Observe sequential review, sources opened, Confirm / Update / Reject and optional post-completion revisions. Record elapsed time, breaks and help. |
-| Short ratings | 3 | Seven exploratory seven-point items, including N/A/cannot judge. |
+| Short ratings | 3 | [R1-R7, Round 1 v1](round_1_templates/post_test_ratings_template.md): seven custom exploratory seven-point items, including N/A/cannot judge. |
 | Semi-structured interview | 10–15 | Use five core questions with optional probes relevant to what happened. |
 | Close | 1 | Reconfirm withdrawal/contact information and next steps; thank the participant. |
 | **Total supervised session** | **40–50** | Preparation beforehand is separate. Do not rush or compel completion to achieve this estimate. |
@@ -68,7 +68,7 @@ The interface's earlier 10–15 minute estimate refers only to review activity, 
 
 ## Task administration
 
-Use the [existing question/observation guide](post_test_questionnaire_and_interview.md) for all pre-test prompts, tasks, ratings, interview questions and observation fields. Do not create a separate competing questionnaire.
+Use the [existing question/observation guide](post_test_questionnaire_and_interview.md) for pre-test prompts, tasks, interview questions and observation fields. For post-test ratings, use only [ProjectOS Round 1 Post-test Ratings — Round 1 v1](round_1_templates/post_test_ratings_template.md), R1-R7, wording frozen on 2026-10-08. Its status remains Draft pending supervisor/ethics confirmation. L1-L7 in the guide is a historical draft: do not administer it for formal Round 1, combine its scores with R1-R7 or relabel historical responses.
 
 The participant first writes an independent account of the project's aim/direction, important changes, unresolved issues and intended next step, marking uncertainty. This is a baseline account of their understanding, not an objective answer key.
 
@@ -109,10 +109,12 @@ For withdrawal or unexpected sensitive content, stop processing and follow the a
 | Correction and reason | Saved text/reason when supplied; interview explanation distinguished from event data | A correction may use memory or new knowledge, not prove source support |
 | Evidence expansion | Manual observation by section: opened/not opened/not observable; event tally and prompted/spontaneous label | No automatic telemetry; opening is not proof of reading, comprehension or trust |
 | Completion time | Manual timestamps/stopwatch: start assigned review to completion summary or stopping point; breaks, technical delays and assistance logged | Report wall-clock and active time separately; tutorial and full-session time are separate |
-| Clarity, control, help and effort | Seven-point item responses, N/A retained | Exploratory items, not a validated scale or an accuracy score |
+| Clarity, alignment, sources, control, re-entry, effort and evidence absence | [R1-R7, Round 1 v1](round_1_templates/post_test_ratings_template.md) responses, N/A retained | Custom exploratory items, not a validated scale; participant-assessed alignment is not objective accuracy or ground truth |
 | Historical state, absence and misleading risks | Written baseline plus interview/observation notes | Participant recollection and researcher interpretation can both be uncertain |
 
 Use descriptive statistics: per-participant final action counts, number of revisions, section coverage, observed openings, individual ratings with median/range, and actual times. Show denominators and missing values. Do not combine all ratings into a total score or treat 18 section decisions as 18 participants. Do not calculate inferential significance.
+
+R6 is a negative-direction item: higher agreement means more verification effort than expected. Keep it separate from positive items. Interpret the ratings descriptively alongside interview findings; they do not establish objective reconstruction accuracy.
 
 Use thematic analysis of correction reasons and notes: familiarise with each case, code examples around sources/absence, correction/control, re-entry, checking effort and misleading historical attribution; revise codes from the data; compare cases, retain negative cases and document interpretation decisions. These starting concepts are not predetermined findings. Optional quotations must be accurately recorded, permitted and screened for identification.
 
@@ -123,3 +125,7 @@ Compare the participant's initial account with their later explanation to explor
 Check the participant's saved records without regenerating. Keep signed consent separately; store coded notes privately; distinguish observation from inference and mark missing entries. Close the server before another participant. Do not overwrite prior data or put completed templates into Git. No recordings, participant screenshots or raw material are published.
 
 The [P00 summary](pilot_p00_summary.md) remains an unchanged historical pilot record. The [earlier demo-only procedure](participant_test_protocol.md) is retained for provenance and must not be administered as the Round 1 script.
+
+## Data collection templates
+
+Draft blank masters: [use and version notes](round_1_templates/README.md), [session record](round_1_templates/participant_session_record_template.md), [pre-test account](round_1_templates/pre_test_project_state_template.md), [section observation](round_1_templates/section_review_observation_template.md), [R1-R7 ratings](round_1_templates/post_test_ratings_template.md), [interview notes](round_1_templates/interview_notes_template.md), [provisional codebook](round_1_templates/analysis_codebook_v0.md), and [cross-participant matrix](round_1_templates/cross_participant_matrix_template.csv). Copy them to a Git-ignored private research directory before use. The template README identifies Round 1 v1 as the sole formal ratings instrument and separates historical versions. These templates do not change this protocol's research question, sample or timing, or indicate Anna/ethics approval.

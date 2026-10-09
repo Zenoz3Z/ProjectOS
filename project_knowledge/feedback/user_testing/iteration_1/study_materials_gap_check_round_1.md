@@ -19,11 +19,11 @@ status: draft_pending_supervisor_ethics_confirmation
 | [Project-pack guide](participant_project_pack_guide.md) | 4–10 files and preparation instructions, scope unconfirmed | Revised to 4–8 self-selected non-sensitive files and consent before receipt |
 | [Participant-owned data protocol](participant_owned_project_data_protocol_draft.md) | Own-project flow already described; storage/withdrawal decisions open | Consolidated with the information sheet and new procedure; decisions remain open |
 | [P00 pilot summary](pilot_p00_summary.md) | Anonymous excluded pilot; task completion with interaction difficulties | Read and retained unchanged; not a Round 1 result or evidence of new accuracy |
-| [Questionnaire/interview guide](post_test_questionnaire_and_interview.md) | Ten ratings and a long Echo Field-oriented interview | Reused for concise pre-test/tasks/seven ratings/five interview questions/checklist |
+| [Questionnaire/interview guide](post_test_questionnaire_and_interview.md) | Ten ratings and a long Echo Field-oriented interview; a subsequent L1-L7 draft | Pre-test/tasks/interview/checklist retained; L1-L7 preserved as historical wording. Formal ratings now use only [R1-R7, Round 1 v1](round_1_templates/post_test_ratings_template.md) |
 | [Research questions](research_questions.md) | Earlier question, five-to-eight participants, shared demo archive | Reframed around source visibility and correction with three own-project cases |
 | [Earlier participant procedure](participant_test_protocol.md) | Demo-only tasks, participant generation, inconsistent duration | Full original procedure retained and prominently marked historical; do not administer it for Round 1 |
 
-The [new Round 1 protocol](study_protocol_round_1_draft.md) is the canonical draft procedure. It links to the existing forms and instrument rather than duplicating them.
+The [new Round 1 protocol](study_protocol_round_1_draft.md) is the canonical draft procedure. It links to the existing forms and the sole formal ratings instrument, [ProjectOS Round 1 Post-test Ratings — Round 1 v1](round_1_templates/post_test_ratings_template.md), rather than duplicating them. Wording is frozen on 2026-10-08; the status remains Draft pending supervisor/ethics confirmation.
 
 ## Ten required disclosures and remaining gaps
 
@@ -56,7 +56,7 @@ Coverage means the issue is addressed in a draft. It does not mean its ethical o
 
 - Core question is the same across current goals, research questions, README and the Round 1 protocol.
 - Three adults, 4–8 files, supervised 40–50 minute sessions and a 10–15 minute interview are proposals, not completed recruitment.
-- Seven-point ratings retain the existing scale but shorten the instrument; do not pool responses with earlier versions.
+- Formal seven-point ratings use R1-R7, Round 1 v1, as custom exploratory items, not a validated scale. R6 is negative-direction verification burden. Analyse items descriptively alongside interviews; participant-assessed alignment is not objective accuracy or ground truth. Do not pool, convert or relabel historical L1-L7 or pilot responses.
 - Evidence openings and completion time are manually observed. Existing review events store actions/corrections/reasons; no new production telemetry is claimed.
 - Earlier demo-only scripts and pilot records remain historical. The technical decision contains no private self-test excerpts, identifiers or data.
 - Automatic inference expansion is frozen. Temporal metadata is only a possible later explicit interface mechanism or future work.

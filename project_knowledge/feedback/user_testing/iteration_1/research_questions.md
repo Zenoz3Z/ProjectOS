@@ -21,7 +21,7 @@ The question allows negative and mixed answers. Visible sources or correction co
 2. **Correction and control:** How and why do practitioners Confirm, Update or Reject a reconstruction, and can they express their own understanding without confusing it with original evidence?
 3. **Re-entry and checking costs:** What clarity or practical help does the review provide, what verification effort does it require, and which interpretations might be misleading if accepted?
 
-The [question and observation guide](post_test_questionnaire_and_interview.md) maps pre-test questions, tasks, seven Likert items, five interview questions and observation fields to these constructs.
+The [question and observation guide](post_test_questionnaire_and_interview.md) maps pre-test questions, tasks, five interview questions and observation fields to these constructs. Formal ratings use only [R1-R7, Round 1 v1](round_1_templates/post_test_ratings_template.md), custom exploratory items interpreted descriptively alongside interviews. Historical L1-L7 scores cannot be pooled with them.
 
 ## Proposed study
 

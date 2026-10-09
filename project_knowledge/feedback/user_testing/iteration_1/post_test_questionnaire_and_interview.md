@@ -9,7 +9,7 @@ status: draft_pending_supervisor_ethics_confirmation
 
 # Round 1 questions and observation guide — draft
 
-Use only with the confirmed [Round 1 protocol](study_protocol_round_1_draft.md) and final information/consent materials. This existing questionnaire file now holds the complete concise instrument, replacing its earlier demo-only questions. It is not approved for recruitment or data collection.
+Use only with the confirmed [Round 1 protocol](study_protocol_round_1_draft.md) and final information/consent materials. This file supports question and observation administration. The sole formal post-test ratings instrument is [ProjectOS Round 1 Post-test Ratings — Round 1 v1](round_1_templates/post_test_ratings_template.md), R1-R7, frozen on 2026-10-08. It remains Draft pending supervisor/ethics confirmation. The L1-L7 block below is preserved as a historical draft only. Neither this guide nor the wording freeze authorises recruitment or data collection.
 
 Blank master only. Complete private copies with a pseudonymous code, never participant names or identifiable project titles.
 
@@ -39,7 +39,13 @@ Opening: “We are testing the prototype, not you. Its interpretation may be inc
 
 The actual buttons say Looks accurate / I want to update it / This is not supported. Explain this mapping only as part of tutorial guidance or when help is requested. Do not demand every action type or force every evidence panel open. Mark researcher-prompted openings separately from spontaneous ones. A skipped section is incomplete, not a rejection.
 
-## C. Post-test Likert questions
+## C. Formal Round 1 post-test ratings
+
+Administer the exact R1-R7 wording from [Round 1 v1](round_1_templates/post_test_ratings_template.md). Use its response scale and blank fields; do not create a second copy of the items here. These are custom exploratory items, not a validated scale. R6 is negative-direction verification burden. Describe each item separately alongside interview findings, without a composite score or statistical-significance claim. R2 is participant-assessed alignment, not objective accuracy or ground truth.
+
+### Historical L1-L7 draft — not for formal Round 1
+
+The following earlier wording and scale are retained unchanged for provenance. Do not administer this block in formal Round 1, combine its scores with R1-R7, convert scores between instruments or migrate old responses into formal data. This historical label does not claim that P00 used L1-L7; the pilot summary does not document that instrument.
 
 “Please rate each statement based on today's assigned-project review. There are no preferred answers. Choose N/A / cannot judge when you did not experience something.”
 
@@ -115,16 +121,17 @@ After the session:
 - [ ] Keep N/A and missing reasons as missing; do not infer intention from confirmation alone.
 - [ ] Store notes/ratings privately, respect quotation permission, and close the assigned session without overwriting its records.
 
-## Construct coverage
+## Formal Round 1 construct coverage
 
 | Focus | Primary instrument references |
 | --- | --- |
-| Source visibility and absence | T1, L2, interview 2, evidence-opening observations |
-| User correction | T2/T3, L3, interview 3, correction/reason and revision records |
-| Project re-entry | Pre-test account, L5, interview 1 |
-| Clarity | L1, interview 4, observed confusion |
-| Control | L4, interview 3/4, help and navigation observations |
-| Verification effort | L6, interview 4, timing and evidence observations |
-| Misleading reconstruction | L7, interview 2/5, stated uncertainty and attribution concerns |
+| Source visibility and absence | T1, R3/R7, interview 2, evidence-opening observations |
+| User correction | T2/T3, R4, interview 3, correction/reason and revision records |
+| Project re-entry | Pre-test account, R5, interview 1 |
+| Clarity | R1, interview 4, observed confusion |
+| Control | R4, interview 3/4, help and navigation observations |
+| Participant-assessed alignment | R2, pre-test account and interview explanations; not an objective accuracy measure |
+| Verification effort | R6 (negative direction), interview 4, timing and evidence observations |
+| Misleading reconstruction | Interview 2/5, stated uncertainty and attribution concerns; R2/R4/R7 provide related perceptions, not a detection-accuracy score |
 
 Analysis follows the [Round 1 protocol](study_protocol_round_1_draft.md): descriptive statistics and thematic analysis, no statistical-significance claim. Record disconfirming, negative and unexpected cases with the same care as positive ones.

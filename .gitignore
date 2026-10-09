@@ -70,6 +70,18 @@ interview_transcripts/
 !/project_knowledge/feedback/user_testing/iteration_1/study_protocol_round_1_draft.md
 !/project_knowledge/feedback/user_testing/iteration_1/study_materials_gap_check_round_1.md
 
+# Only these blank Round 1 masters are public; completed records remain private.
+!/project_knowledge/feedback/user_testing/iteration_1/round_1_templates/
+/project_knowledge/feedback/user_testing/iteration_1/round_1_templates/*
+!/project_knowledge/feedback/user_testing/iteration_1/round_1_templates/README.md
+!/project_knowledge/feedback/user_testing/iteration_1/round_1_templates/participant_session_record_template.md
+!/project_knowledge/feedback/user_testing/iteration_1/round_1_templates/pre_test_project_state_template.md
+!/project_knowledge/feedback/user_testing/iteration_1/round_1_templates/section_review_observation_template.md
+!/project_knowledge/feedback/user_testing/iteration_1/round_1_templates/post_test_ratings_template.md
+!/project_knowledge/feedback/user_testing/iteration_1/round_1_templates/interview_notes_template.md
+!/project_knowledge/feedback/user_testing/iteration_1/round_1_templates/analysis_codebook_v0.md
+!/project_knowledge/feedback/user_testing/iteration_1/round_1_templates/cross_participant_matrix_template.csv
+
 # Screenshots are private by default; only this inspected demo is public.
 /outputs/screenshots/*
 !/outputs/screenshots/day_04_corrected_reentry_brief.png.png

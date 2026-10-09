@@ -37,7 +37,7 @@ After receiving final study information and giving consent, select **4–8 exist
 
 You choose which records to include and may redact or withhold material. Notes, decisions, goals, process logs and authorised feedback are suitable. Do not include names, contact details, private messages, health or other sensitive information, confidential client/employer material, credentials or material you cannot authorise for sharing. Check filenames and document metadata too. If a pack cannot be made suitable, do not provide it.
 
-The researcher will agree a transfer route, screen the pack with you, and import it locally. There is no self-service upload or public study website. Your records will not be uploaded to GitHub or publicly released. This does not mean processing is wholly offline: selected text goes to an external API as explained below. See the [project-pack guide](participant_project_pack_guide.md).
+The researcher will agree how you can share the files, check them with you, and prepare them on their computer. There is no public upload page or study website. Your files will not be uploaded to websites for sharing software or publicly released. Preparation does involve an external AI service: selected text is sent to OpenAI as explained below. The researcher will explain how to select and safely share your files before you provide them.
 
 ## What happens during the study?
 
@@ -47,38 +47,38 @@ The supervised session is proposed to last **40–50 minutes**, on the researche
 2. Independently write what you currently understand about your project before viewing the tutorial or AI brief. You may say you are unsure.
 3. Try a short Echo Field tutorial, separate from your own project.
 4. Review six prepared sections about your project. Look at sources when useful and choose Confirm, Update or Reject. You do not have to invent a correction or agree with the system.
-5. Complete short ratings and a 10–15 minute interview about clarity, control, checking effort and misleading interpretations.
+5. After using ProjectOS, you will complete a short seven-item questionnaire and a brief interview. The interview takes 10–15 minutes and covers clarity, control, checking effort and misleading interpretations.
 
-The first review proceeds in order. Once all six sections have saved responses, you can revisit any named section directly. You may leave a task incomplete, skip questions, pause or stop. Completion of every task is not a condition of participation. P00 pilot and P96 researcher self-test records are excluded from this formal sample.
+The first review proceeds in order. Once all six sections have saved responses, you can revisit any named section directly. You may leave a task incomplete, skip questions, pause or stop. Completion of every task is not a condition of participation. Earlier pilot and researcher self-test records are excluded from this formal sample.
 
 ## How is my text processed?
 
-ProjectOS reads the selected files, extracts text and retrieves passages on the researcher's computer. During preparation, retrieved excerpts, source filenames/relative paths, excerpt identifiers and section questions/instructions are sent to the **OpenAI API** to generate summaries. An excerpt can contain most or all of a short document. Generic filenames and careful screening matter.
+ProjectOS reads the selected files and selects relevant passages on the researcher's computer. During preparation, selected excerpts, file names and folder labels, references identifying where excerpts came from, and the questions and instructions used to guide the summaries are sent to **OpenAI, an external AI service**, to generate summaries. An excerpt can contain most or all of a short document. Use file names that do not identify you and check your files carefully.
 
-Prepared summaries and their evidence are stored locally. Participant navigation, saving and reopening use these prepared records without new API calls. Corrections, reasons and interview notes are not sent for regeneration in this workflow. Changes to your wording are kept separate from original project records.
+Prepared summaries and their evidence are stored on the researcher's computer. Moving between sections, saving and reopening use these prepared records without sending new requests to OpenAI. Corrections, reasons and interview notes are not sent to OpenAI to generate new summaries in this study. Changes to your wording are kept separate from original project records.
 
-### External API handling
+### External AI service handling
 
-OpenAI states that API content is not used for training unless the customer opts in. Default abuse-monitoring logs can retain prompts and responses for up to 30 days, with longer retention possible for legal or safety reasons. Feature/model-specific storage, including prompt caching, can also apply. ProjectOS sets `store=False`; this does not guarantee zero retention. The study's actual account settings, processing location and institutional acceptability remain to be confirmed. See [OpenAI data controls](https://developers.openai.com/api/docs/guides/your-data), checked 8 October 2026.
+OpenAI states that content sent through the service used by ProjectOS is not used for training unless the customer opts in. Its standard monitoring for misuse can retain submitted text and generated responses for up to 30 days, with longer retention possible for legal or safety reasons. Depending on the service features and AI model used, additional storage, including temporary copies of repeated requests, can also apply. ProjectOS requests that generated responses are not saved for later retrieval, but this does not guarantee zero retention by OpenAI. The study's actual account settings, processing location and institutional acceptability remain to be confirmed. See [OpenAI data controls](https://developers.openai.com/api/docs/guides/your-data), checked 8 October 2026.
 
-Deleting local study records cannot undo an API transmission or guarantee immediate deletion of provider-held records. You must receive the confirmed arrangements before providing files. If you do not agree to this processing, do not provide a pack; declining has no penalty.
+Deleting study records from the researcher's computer cannot undo text already sent to OpenAI or guarantee immediate deletion of records held by OpenAI. You must receive the confirmed arrangements before providing files. If you do not agree to this processing, do not provide a pack; declining has no penalty.
 
 ## What is collected, who has access, and for how long?
 
 We propose collecting your screened pack; prepared summaries and excerpts; written pre-test account; saved review actions, corrections and reasons; observed source-opening behaviour and timing; ratings; and written interview/observation notes. No audio, video, screen recording or participant screenshots are planned in Round 1.
 
-Records use a code such as P01. A code is a pseudonym, not a guarantee of anonymity: project details can identify you. Consent/contact details and any code linkage will be kept separately from response data. Storage, backups and access must be agreed before use; Git exclusion alone is not protection. Proposed access is the researcher and, where necessary under the agreed arrangements, the supervisor and authorised assessors.
+Records use a code such as P01. A code is a pseudonym, not a guarantee of anonymity: project details can identify you. Consent/contact details and any code linkage will be kept separately from response data. Storage, backups and access must be agreed before use; keeping records out of public materials is not sufficient protection by itself. Proposed access is the researcher and, where necessary under the agreed arrangements, the supervisor and authorised assessors.
 
 | Data group | Retention duration and start point | Deletion arrangements |
 | --- | --- | --- |
 | Received project files and screened working copies | [to confirm before use] | [approved local/transfer-copy procedure] |
-| Extracted excerpts, summaries and caches | [to confirm before use] | [include every local copy and export] |
+| Extracted excerpts, summaries and saved working copies | [to confirm before use] | [include every local copy and export] |
 | Review actions, corrections and reasons | [to confirm before use] | [include review history and analysis copies] |
 | Baseline account, ratings, observations and interview notes | [to confirm before use] | [include any quotations and working analysis] |
 | Signed consent, contact/code linkage | [to confirm separately before use] | [approved separate-record procedure] |
 | Backups and transfer copies | [to confirm before use] | [backup expiry/deletion procedure] |
 
-These are unresolved decisions, not permission to retain data indefinitely. The researcher must replace every placeholder in the issued information sheet. External API retention is separate from this local schedule.
+These are unresolved decisions, not permission to retain data indefinitely. You must receive the confirmed arrangements in full before deciding whether to participate. OpenAI's retention of records is separate from this local schedule.
 
 ## Choice, risks and use of findings
 
@@ -90,7 +90,7 @@ Descriptive, de-identified findings may be used in the MSc report, assessment an
 
 ## Withdrawal and deletion
 
-You can stop during the session. To request withdrawal of your data, contact **[confirmed researcher route]**, quoting your participant code if available, by **[agreed deadline/date]**. The researcher will explain which records can still be linked to you, stop covered processing and confirm the agreed deletion outcome, including local packs, caches, reviews and notes.
+You can stop during the session. To request withdrawal of your data, contact **[confirmed researcher route]**, quoting your participant code if available, by **[agreed deadline/date]**. The researcher will explain which records can still be linked to you, stop covered processing and confirm the agreed deletion outcome, including project files, saved summaries and excerpts, reviews and notes held on the researcher's computer.
 
 After genuinely irreversible aggregation or publication, it may not be possible to isolate every contribution. The exact cut-off and limits must be agreed and explained before consent; use of a code alone is not irreversible anonymisation. Provider-side handling has the limits described above. No automatic deletion feature is promised.
 

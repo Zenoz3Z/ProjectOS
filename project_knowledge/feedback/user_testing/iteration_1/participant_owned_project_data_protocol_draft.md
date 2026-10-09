@@ -20,9 +20,9 @@ The [Round 1 protocol](study_protocol_round_1_draft.md) is the canonical procedu
 5. Prepare summaries by sending selected evidence text and source references to the OpenAI API with the section prompt. The existing code includes source filenames/relative paths and excerpt identifiers. Corrections, reasons and interview records are not inputs to this preparation.
 6. Store summaries and retrieved excerpts in the project's private local cache. Keep materials and preparation version fixed within a session. A stale cache is a preparation problem, not permission to regenerate during testing.
 7. Collect the independent pre-test account, then run a short Echo Field tutorial and six-section review on the researcher's computer. The participant can Confirm, Update or Reject; tutorial responses do not enter formal review statistics.
-8. Save review events locally. Record evidence openings, time, ratings and interviews manually. Use no audio/video/screen recording or participant screenshots in this draft procedure.
+8. Save review events locally. Record evidence openings, time, [ratings (Round 1 v1)](round_1_templates/post_test_ratings_template.md) and interviews manually. Use no audio/video/screen recording or participant screenshots in this draft procedure.
 
-Provider handling is disclosed in the information sheet's [external API section](participant_information_sheet.md#external-api-handling), with an official source checked on 8 October 2026. Inspect the actual study account and model settings before use. Do not claim that local testing means offline preparation, that `store=False` enables zero retention, or that a regional processing arrangement is already in place.
+Provider handling is disclosed in the information sheet's [external AI service section](participant_information_sheet.md#external-ai-service-handling), with an official source checked on 8 October 2026. Inspect the actual study account and model settings before use. Do not claim that local testing means offline preparation, that `store=False` enables zero retention, or that a regional processing arrangement is already in place.
 
 ## Storage and access plan — must be confirmed
 
@@ -57,3 +57,15 @@ If unexpected sensitive content is found, stop preparation or the session, preve
 P00 is a pilot and P96 a researcher self-test, neither part of the formal sample. P96 review statistics are not study findings. Formal P01 has not started.
 
 Automatic project-state inference extensions are frozen by [TD-003](../../../decisions/technical_decisions/td_003_freeze_automatic_project_state_inference.md). Source visibility, evidence absence and correction are the research focus; no temporal inference or production changes are proposed here. The [gap check](study_materials_gap_check_round_1.md) lists the remaining release decisions.
+
+## Researcher consent checks — blank checklist
+
+This checklist is kept in the researcher protocol, separately from the participant-facing consent form. It does not record completed approval or consent.
+
+- [ ] Approval/scope record checked; no unresolved information-sheet fields.
+- [ ] Consent received before materials or API processing.
+- [ ] Participant received a copy and contact/withdrawal details.
+- [ ] Signed form stored separately from coded responses in approved private storage.
+- [ ] Consent reconfirmed at the supervised session.
+
+Keep signed forms and code/contact linkage out of Git. Do not use P00 or P96 records as consent or results for a formal participant.

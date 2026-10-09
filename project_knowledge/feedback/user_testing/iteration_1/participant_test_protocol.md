@@ -12,6 +12,8 @@ estimated_duration: 30-35 minutes
 
 > **Historical demo-only draft (1 October 2026), retained for provenance. Do not administer this procedure for Round 1.** Its Echo Field task, generation step, timings and consent checks are superseded by the [Round 1 protocol draft](study_protocol_round_1_draft.md). The new own-project study still awaits Anna's supervisor/ethics confirmation; no recruitment or collection is authorised. The original procedure below is unchanged.
 
+Formal ratings use only [R1-R7, Round 1 v1](round_1_templates/post_test_ratings_template.md). Do not combine any ratings associated with this historical procedure with formal Round 1 results or relabel pilot responses.
+
 ## Study purpose
 
 This session investigates how creative students and practitioners understand, inspect and correct a Project Re-entry Brief generated from project records.

@@ -9,6 +9,8 @@ version: 0
 
 # ProjectOS — Provisional Evaluation Plan
 
+> **Historical evaluation draft (19 September 2026), retained unchanged below for provenance. Do not administer its proposed 1–5 ratings in formal Round 1 or combine them with formal results.** The current procedure is the [Round 1 protocol](../feedback/user_testing/iteration_1/study_protocol_round_1_draft.md); the sole formal ratings instrument is [R1-R7, Round 1 v1](../feedback/user_testing/iteration_1/round_1_templates/post_test_ratings_template.md), still pending supervisor/ethics confirmation. This notice does not claim that the historical ratings were used by P00 or any participant.
+
 ## Status
 
 This evaluation plan is provisional.

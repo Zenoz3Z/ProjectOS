@@ -43,6 +43,7 @@ No recruitment, collection of project packs or processing of participant materia
 
 - [Round 1 protocol](../feedback/user_testing/iteration_1/study_protocol_round_1_draft.md).
 - [Research questions](../feedback/user_testing/iteration_1/research_questions.md) and [question/observation guide](../feedback/user_testing/iteration_1/post_test_questionnaire_and_interview.md).
+- [Formal post-test ratings: R1-R7, Round 1 v1](../feedback/user_testing/iteration_1/round_1_templates/post_test_ratings_template.md), still pending supervisor/ethics confirmation.
 - [Materials gap check](../feedback/user_testing/iteration_1/study_materials_gap_check_round_1.md).
 - [Open blockers](blockers.md) and [next steps](next_steps.md).
 
