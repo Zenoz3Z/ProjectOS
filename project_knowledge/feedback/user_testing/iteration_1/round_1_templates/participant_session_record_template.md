@@ -1,12 +1,12 @@
 # Participant session record
 
-Status: **Draft — pending Anna/ethics confirmation. Blank public master.**
+Status: **Draft for supervisor review — existing ethics approval unchanged; data-storage wording updated following supervisor feedback on 9 October 2026.** Blank public master.
 
 Copy to a Git-ignored private research directory before authorised use. Follow the [template guidance](README.md). Leave all fields blank in this public master. Confirm the agreed Information Sheet, Consent Form and withdrawal arrangements before beginning a session; blank fields do not show consent or approval.
 
 - **Do not record name, email, phone number or identifiable project title here.**
 - **Do not paste project source text into this record.**
-- **Do not add audio or screen recording unless separately approved and consented.**
+- **No audio, video or photographs will be recorded. Do not add screen recording or participant screenshots.**
 
 ## Session context
 
@@ -54,4 +54,4 @@ Record observable events and explicit participant statements, keeping paraphrase
 | Participant discomfort or stop request (observable or explicitly stated; action taken) | |
 | General observation notes | |
 
-Signed forms and any consent/contact mapping belong in separate approved storage, not in this record. Storage, retention, withdrawal and deletion arrangements remain pending confirmation.
+Signed forms and any consent/contact mapping belong in separate restricted UAL OneDrive storage, not in this record. Follow the storage schedule in the [researcher data protocol](../participant_owned_project_data_protocol_draft.md): source/temporary copies deleted within 7 calendar days after the session, mapping deleted after the 7-day withdrawal period, and de-identified records and separate signed forms retained until 30 November 2027 and then permanently deleted. Wording remains for Meeting 3 review.

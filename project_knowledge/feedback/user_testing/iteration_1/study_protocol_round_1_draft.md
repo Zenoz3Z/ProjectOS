@@ -3,14 +3,16 @@ project: ProjectOS
 document_type: study_protocol
 iteration: 1
 date: 2026-10-08
-status: draft_pending_supervisor_ethics_confirmation
+status: draft_for_supervisor_review_existing_ethics_approval_unchanged
 proposed_participants: 3
 estimated_session_duration: 40-50 minutes
 ---
 
 # Round 1 study protocol — draft
 
-**Review copy only. No recruitment, collection of materials or formal P01 setup yet.** Anna must confirm the supervisor/ethics scope, and any required institutional approval must be in place before the study begins. This document does not imply approval.
+**Status:** Draft for supervisor review — existing ethics approval unchanged; data-storage wording updated following supervisor feedback on 9 October 2026.
+
+**Review copy only. Formal recruitment, collection of materials and P01 have not started.** Supervisor confirmation received on 9 October 2026: no amendment to the existing ethics approval is required. Participant-facing documents must clearly state what data will be stored, where it will be stored, and for how long. The added storage wording will be reviewed at Meeting 3 on 15 October 2026 at 15:00 (Europe/London); this records no new ethics approval.
 
 ## Research question and boundaries
 
@@ -22,16 +24,18 @@ Non-goals: automatic temporal reasoning, automatic contradiction detection, self
 
 ## Start gate
 
-All of the following must be resolved before recruitment or receipt of project packs:
+The ethics-amendment question is resolved by the supervisor's 9 October confirmation. Before recruitment or receipt of project packs, complete the remaining checks:
 
-- Anna's documented scope review and any required institutional ethics confirmation/amendment.
+- Meeting 3 review of the participant-facing storage and withdrawal wording under the unchanged existing ethics approval.
 - Agreed three-adult eligibility and voluntary recruitment arrangements.
-- Final information and consent forms with actual contact routes, per-data-type retention, withdrawal/deletion and independent concerns route.
-- Agreed private transfer, protected storage, authorised access and backup arrangements.
-- Confirmation of external API processing, actual study account/model settings and institutional acceptability.
+- Final information and consent forms with actual contact and independent-concerns routes, the stated storage schedule and a session-specific seven-day withdrawal deadline.
+- Restricted UAL OneDrive permissions, necessary password-protected local working copies, private transfer and deletion of working/backup copies.
+- Checks of external API processing and actual study account/model settings, without assuming zero retention.
 - A consistent 40–50 minute procedure, manual measurement plan and timed rehearsal with non-personal material.
 
 The [gap check](study_materials_gap_check_round_1.md) records what remains open. Do not collect project files as an informal rehearsal while these gates remain unresolved.
+
+The [data protocol](participant_owned_project_data_protocol_draft.md) records the schedule: permanently delete source files, extracted text and temporary copies within 7 calendar days after the session; retain de-identified research records and separately stored signed consent forms in restricted UAL OneDrive until 30 November 2027, then permanently delete them; delete separate identity linkage after the seven-day withdrawal period. Identifiable data may be withdrawn within that period; after link deletion and aggregation, withdrawal may no longer be possible. No audio, video or photographs will be recorded.
 
 ## Participants and preparation
 
@@ -68,7 +72,7 @@ The interface's earlier 10–15 minute estimate refers only to review activity, 
 
 ## Task administration
 
-Use the [existing question/observation guide](post_test_questionnaire_and_interview.md) for pre-test prompts, tasks, interview questions and observation fields. For post-test ratings, use only [ProjectOS Round 1 Post-test Ratings — Round 1 v1](round_1_templates/post_test_ratings_template.md), R1-R7, wording frozen on 2026-10-08. Its status remains Draft pending supervisor/ethics confirmation. L1-L7 in the guide is a historical draft: do not administer it for formal Round 1, combine its scores with R1-R7 or relabel historical responses.
+Use the [existing question/observation guide](post_test_questionnaire_and_interview.md) for pre-test prompts, tasks, interview questions and observation fields. For post-test ratings, use only [ProjectOS Round 1 Post-test Ratings — Round 1 v1](round_1_templates/post_test_ratings_template.md), R1-R7, wording frozen on 2026-10-08. Its status remains Draft for supervisor review — existing ethics approval unchanged; data-storage wording updated following supervisor feedback on 9 October 2026. L1-L7 in the guide is a historical draft: do not administer it for formal Round 1, combine its scores with R1-R7 or relabel historical responses.
 
 The participant first writes an independent account of the project's aim/direction, important changes, unresolved issues and intended next step, marking uncertainty. This is a baseline account of their understanding, not an objective answer key.
 
@@ -128,4 +132,4 @@ The [P00 summary](pilot_p00_summary.md) remains an unchanged historical pilot re
 
 ## Data collection templates
 
-Draft blank masters: [use and version notes](round_1_templates/README.md), [session record](round_1_templates/participant_session_record_template.md), [pre-test account](round_1_templates/pre_test_project_state_template.md), [section observation](round_1_templates/section_review_observation_template.md), [R1-R7 ratings](round_1_templates/post_test_ratings_template.md), [interview notes](round_1_templates/interview_notes_template.md), [provisional codebook](round_1_templates/analysis_codebook_v0.md), and [cross-participant matrix](round_1_templates/cross_participant_matrix_template.csv). Copy them to a Git-ignored private research directory before use. The template README identifies Round 1 v1 as the sole formal ratings instrument and separates historical versions. These templates do not change this protocol's research question, sample or timing, or indicate Anna/ethics approval.
+Draft blank masters: [use and version notes](round_1_templates/README.md), [session record](round_1_templates/participant_session_record_template.md), [pre-test account](round_1_templates/pre_test_project_state_template.md), [section observation](round_1_templates/section_review_observation_template.md), [R1-R7 ratings](round_1_templates/post_test_ratings_template.md), [interview notes](round_1_templates/interview_notes_template.md), [provisional codebook](round_1_templates/analysis_codebook_v0.md), and [cross-participant matrix](round_1_templates/cross_participant_matrix_template.csv). Copy them to a Git-ignored private research directory before use. The template README identifies Round 1 v1 as the sole formal ratings instrument and separates historical versions. These templates do not change this protocol's research question, sample or timing. The status records supervisor confirmation that no ethics amendment is required, not a new approval; the documents remain for Meeting 3 wording review.

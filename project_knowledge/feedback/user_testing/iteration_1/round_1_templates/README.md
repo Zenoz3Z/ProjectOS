@@ -1,6 +1,6 @@
 # Round 1 data collection and initial analysis templates
 
-Status: **Draft — pending Anna/supervisor and ethics confirmation.** These are blank public masters that can be versioned on GitHub. Creating them does not authorise recruitment, project import or data collection.
+Status: **Draft for supervisor review — existing ethics approval unchanged; data-storage wording updated following supervisor feedback on 9 October 2026.** These are blank public masters that can be versioned on GitHub. Creating them does not authorise recruitment, project import or data collection.
 
 ## Privacy and use
 
@@ -8,7 +8,7 @@ Do not save real participant answers, project files, signed forms, names, emails
 
 Use anonymous participant codes such as P01 or P02 and a non-identifying project pseudonym in research records. Codes alone do not guarantee anonymity: screen free text for identifiers and identifying combinations of details. Any consent/contact mapping must remain separate from coded answers and materials. Store signed Consent Forms separately from research answers and project materials.
 
-The approved storage location, access arrangements, retention periods for each data type, withdrawal deadline and deletion procedure remain **pending Anna/ethics confirmation**. Do not invent dates or approval. Follow the draft [participant data protocol](../participant_owned_project_data_protocol_draft.md) and [Round 1 protocol](../study_protocol_round_1_draft.md); resolve outstanding arrangements before recruitment or collecting materials.
+Supervisor confirmation received on 9 October 2026: no amendment to the existing ethics approval is required. Participant-facing documents must clearly state what data will be stored, where it will be stored, and for how long. The [participant data protocol](../participant_owned_project_data_protocol_draft.md) now specifies restricted UAL OneDrive, with necessary temporary preparation/session copies on the password-protected computer. Source files, extracted text and temporary copies are permanently deleted within 7 calendar days after the session; de-identified research records and separately stored signed consent forms are retained until 30 November 2027 and then permanently deleted. Separate identity linkage is deleted after the 7-day withdrawal period. Follow the [Round 1 protocol](../study_protocol_round_1_draft.md); wording remains for Meeting 3 review, and formal recruitment/P01 have not started.
 
 P96 is a researcher self-test and is excluded from the formal participant sample and cross-participant analysis. No P96 source material, saved reviews or results belong in these templates. The OpenAI request option `store=False` must not be described as zero data retention; it does not settle all provider processing or retention arrangements.
 
@@ -28,11 +28,11 @@ For participant-facing use, prepare only the participant portion of the pre-test
 
 ## Instrument version and interpretation
 
-The sole formal Round 1 post-test ratings instrument is [ProjectOS Round 1 Post-test Ratings — Round 1 v1](post_test_ratings_template.md): R1-R7, wording frozen on **2026-10-08**, status **Draft pending supervisor/ethics confirmation**. Use that file as the authoritative wording; do not rewrite items in other forms.
+The sole formal Round 1 post-test ratings instrument is [ProjectOS Round 1 Post-test Ratings — Round 1 v1](post_test_ratings_template.md): R1-R7, wording frozen on **2026-10-08**. Status: **Draft for supervisor review — existing ethics approval unchanged; data-storage wording updated following supervisor feedback on 9 October 2026.** Use that file as the authoritative wording; do not rewrite items in other forms.
 
 The [question and observation guide](../post_test_questionnaire_and_interview.md) directs formal scoring to R1-R7 and retains L1-L7 explicitly as a historical draft. These instruments are not interchangeable. Do not administer L1-L7 for formal Round 1, pool L and R responses, convert scores between them or relabel historical responses as new data. The P00 record does not establish that L1-L7 was used in that pilot; no such use is inferred here.
 
-This audit selects the formal ratings version without changing the open pre-test prompt, interview templates or session procedure. Supervisor/ethics confirmation is still required before formal use. Selection and wording freeze do not imply approval.
+The formal ratings version, open pre-test prompt, interview questions and session procedure are unchanged. The supervisor has confirmed that no ethics amendment is required; the participant-facing storage wording remains for Meeting 3 review. The status update does not represent a new ethics approval or a start to data collection.
 
 The protocol's three adults, 40-50 minute session and research question remain unchanged. Its approval gates still apply. These templates are preparation materials, not findings.
 

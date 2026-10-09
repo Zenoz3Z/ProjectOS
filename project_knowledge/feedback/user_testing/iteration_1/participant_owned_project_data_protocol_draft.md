@@ -2,14 +2,16 @@
 project: ProjectOS
 document_type: participant_owned_data_protocol
 date: 2026-10-08
-status: draft_pending_supervisor_ethics_confirmation
+status: draft_for_supervisor_review_existing_ethics_approval_unchanged
 ---
 
 # Participant-owned project data protocol
 
-**DRAFT — no recruitment, material collection or processing before Anna's supervisor/ethics scope confirmation and any required institutional approval.** This is a preparation plan, not a consent instrument or approval record.
+**Status:** Draft for supervisor review — existing ethics approval unchanged; data-storage wording updated following supervisor feedback on 9 October 2026.
 
-The [Round 1 protocol](study_protocol_round_1_draft.md) is the canonical procedure. The [information sheet](participant_information_sheet.md) and [consent form](participant_consent_form.md) now describe the proposed own-project workflow but remain unapproved drafts.
+Supervisor confirmation received on 9 October 2026: no amendment to the existing ethics approval is required. Participant-facing documents must clearly state what data will be stored, where it will be stored, and for how long. This is a preparation plan under the existing approval, not a new ethics approval or a completed consent record. Formal recruitment and P01 have not started; the wording is for Meeting 3 review on 15 October 2026 at 15:00 (Europe/London).
+
+The [Round 1 protocol](study_protocol_round_1_draft.md) is the canonical procedure. The [information sheet](participant_information_sheet.md) and [consent form](participant_consent_form.md) describe the unchanged own-project workflow and the storage schedule below; they remain drafts for wording review.
 
 ## Data flow and consent order
 
@@ -24,31 +26,34 @@ The [Round 1 protocol](study_protocol_round_1_draft.md) is the canonical procedu
 
 Provider handling is disclosed in the information sheet's [external AI service section](participant_information_sheet.md#external-ai-service-handling), with an official source checked on 8 October 2026. Inspect the actual study account and model settings before use. Do not claim that local testing means offline preparation, that `store=False` enables zero retention, or that a regional processing arrangement is already in place.
 
-## Storage and access plan — must be confirmed
+## Storage and deletion schedule — for wording review
 
-The proposed locations below describe existing separation, not approval of a storage service or device. Agree institutionally acceptable storage, device protection, access and backups before use.
+Use restricted UAL OneDrive for retained study records. Use the researcher's password-protected computer only where necessary for preparation or the supervised session. The existing local folders below are temporary operational locations, not an additional long-term store. Check folder permissions, transfer and backup-copy deletion before issue of the final participant documents.
 
-| Record | Proposed handling | Unresolved decision |
+| Record | Storage and operational handling | Retention and deletion |
 | --- | --- | --- |
-| Received pack and working copy | Private transfer/storage; researcher-assisted category import under `data/study_projects/` | Transfer route; access; duration/start trigger; deletion of copies |
-| Assignment and code linkage | Local assignment under `data/study_config/`; identity linkage separate from content | Who can access each; retention and deletion |
-| Summaries and retrieved evidence | Per-project private `data/summary_cache/` | Retention, preparation snapshot record and backups |
-| Review/correction/reason history | Per-project private `data/reviews/` | Retention, analysis export and deletion |
-| Baseline, observation, ratings and interview notes | Private coded research records, separate from consent | Approved location, access, retention and de-identification |
-| Signed consent and contact details | Separate private storage; never a public template | Required retention and independent concerns route |
-| Backups and transfer copies | Account for every copy in the agreed schedule | Expiry, deletion procedure and verification |
+| Participant-selected source files, extracted text and temporary working copies | Restricted UAL OneDrive; only necessary preparation/session copies on the password-protected computer, including `data/study_projects/` | Permanently delete within 7 calendar days after the session |
+| Assignment and temporary identity-to-participant-code mapping | Mapping in restricted UAL OneDrive, separately from research records and signed forms; local `data/study_config/` is temporary operational configuration | Delete mapping after the 7-day withdrawal period; remove identifying temporary local configuration within the same source-copy deletion schedule |
+| AI-generated summaries and displayed source excerpts | De-identify and retain in restricted UAL OneDrive; necessary local preparation/session copies in `data/summary_cache/` are temporary | Retain de-identified records until 30 November 2027, then permanently delete; remove temporary local copies within 7 calendar days after the session |
+| Review choices, corrections and reasons | De-identified research records in restricted UAL OneDrive; local `data/reviews/` and review JSON stay private and temporary | Retain de-identified records until 30 November 2027, then permanently delete; remove temporary local copies within 7 calendar days after the session |
+| Written pre-test account, ratings, interview notes, observation notes and timings | De-identified research records in restricted UAL OneDrive, separate from consent | Retain until 30 November 2027 and then permanently delete |
+| Signed consent forms | Restricted UAL OneDrive, separately from research records | Retain until 30 November 2027 and then permanently delete |
+| Backups and transfer copies | Apply the relevant record category's schedule to every copy under the researcher's control | Include permanent deletion of working/transfer/backup copies; verify the manual procedure |
+| Text sent to the OpenAI API | OpenAI is an external service; names and contact details will not deliberately be sent | Abuse-monitoring logs may be retained for up to 30 days; provider-side limits remain as disclosed in the information sheet |
 
-Use the same retention schedule and withdrawal wording in all issued copies. None of these durations has yet been agreed. Do not substitute a guessed institutional policy.
+Use the same schedule and withdrawal wording in all issued copies. These specified dates and locations are included for Meeting 3 wording review following the supervisor feedback, not presented as a newly issued ethics approval or an invented institutional retention rule. De-identification must address indirect identifiers in source excerpts and free text; a participant code alone is not sufficient.
 
-Raw packs, caches, review histories, signed forms, interviews and participant screenshots must never be uploaded to GitHub or public documentation. Existing ignore rules are a publication safeguard, not encryption or anonymisation. No self-service upload, public hosting or user account system is introduced.
+Participant-owned source files, signed forms, identity mappings, review JSON and raw interview notes must never enter GitHub. Raw packs, caches, review histories and participant screenshots also remain excluded from public documentation. No audio, video or photographs will be recorded; no screen recording or participant screenshots are planned. Existing ignore rules are a publication safeguard, not encryption or anonymisation. No self-service upload, public hosting or user account system is introduced.
 
 The server is local and bound to one participant context. Codes are not passwords; this does not protect files from someone with access to the researcher's operating-system account. Run one supervised session at a time and close it before opening another participant's context.
 
 ## Withdrawal, deletion and inadvertent disclosure
 
-Before consent, agree a request route, deadline, identification method, analysis/publication cut-off and expected response process. Participants may stop or skip without penalty. A coded record is still withdrawable while linkable under the agreed arrangements; do not describe it as already anonymous.
+Before consent, provide the contact route and the session-specific calendar date for the seven-day withdrawal deadline. Identifiable data may be withdrawn within 7 calendar days after the session. Participants may stop or skip without penalty. Keep the identity link available through that period; delete it afterwards. After deletion of the identity link and aggregation, withdrawal may no longer be possible. Do not treat a code alone as anonymity.
 
 For an eligible request, stop further processing, identify all covered pack/cache/review/notes/export/backup copies, apply the agreed deletion procedure and record completion without retaining withdrawn content. Explain any separate consent-record retention and provider-side limitations. The software has no automatic study-wide deletion feature, and this document does not perform deletion.
+
+The schedule governs future formal sessions. This documentation update does not delete or move P00/P96 records, prepare participant records, create storage folders or change application behaviour.
 
 If unexpected sensitive content is found, stop preparation or the session, prevent further API transmission, record only the minimum incident information privately and seek the agreed supervisor/institutional response. Do not quietly redact and continue processing without resolving scope and consent.
 

@@ -4,12 +4,16 @@ document_type: participant_information_sheet
 category: user_testing
 iteration: 1
 date: 2026-10-08
-status: draft_pending_supervisor_ethics_confirmation
+status: draft_for_supervisor_review_existing_ethics_approval_unchanged
 ---
 
 # Participant Information Sheet — Round 1 draft
 
-**NOT FOR RECRUITMENT OR CONSENT YET.** This revised draft covers a proposed study using participants' own project records. Anna's supervisor/ethics scope confirmation, any required institutional approval and all outstanding fields must be resolved before it is issued. It supersedes the earlier demonstration-only draft.
+**Status:** Draft for supervisor review — existing ethics approval unchanged; data-storage wording updated following supervisor feedback on 9 October 2026.
+
+**Review copy, not yet issued for recruitment or consent.** Supervisor confirmation received on 9 October 2026: no amendment to the existing ethics approval is required. Participant-facing documents must clearly state what data will be stored, where it will be stored, and for how long.
+
+This revised draft covers participants' own project records and supersedes the earlier demonstration-only draft. The wording will be reviewed at Meeting 3 on 15 October 2026 at 15:00 (Europe/London). Contact fields must be completed before the final version is issued. Formal recruitment and P01 have not started.
 
 ## Study and contacts
 
@@ -55,30 +59,29 @@ The first review proceeds in order. Once all six sections have saved responses, 
 
 ProjectOS reads the selected files and selects relevant passages on the researcher's computer. During preparation, selected excerpts, file names and folder labels, references identifying where excerpts came from, and the questions and instructions used to guide the summaries are sent to **OpenAI, an external AI service**, to generate summaries. An excerpt can contain most or all of a short document. Use file names that do not identify you and check your files carefully.
 
-Prepared summaries and their evidence are stored on the researcher's computer. Moving between sections, saving and reopening use these prepared records without sending new requests to OpenAI. Corrections, reasons and interview notes are not sent to OpenAI to generate new summaries in this study. Changes to your wording are kept separate from original project records.
+Prepared summaries and their evidence are used on the researcher's password-protected computer only as needed for preparation or the supervised session. The de-identified research records retained afterwards are stored in restricted UAL OneDrive as set out below. Moving between sections, saving and reopening use prepared records without sending new requests to OpenAI. Corrections, reasons and interview notes are not sent to OpenAI to generate new summaries in this study. Changes to your wording are kept separate from original project records.
 
 ### External AI service handling
 
-OpenAI states that content sent through the service used by ProjectOS is not used for training unless the customer opts in. Its standard monitoring for misuse can retain submitted text and generated responses for up to 30 days, with longer retention possible for legal or safety reasons. Depending on the service features and AI model used, additional storage, including temporary copies of repeated requests, can also apply. ProjectOS requests that generated responses are not saved for later retrieval, but this does not guarantee zero retention by OpenAI. The study's actual account settings, processing location and institutional acceptability remain to be confirmed. See [OpenAI data controls](https://developers.openai.com/api/docs/guides/your-data), checked 8 October 2026.
+OpenAI is an external service. Participant names and contact details will not deliberately be sent. OpenAI states that content sent through the service used by ProjectOS is not used for training unless the customer opts in. Its abuse-monitoring logs may retain submitted text and generated responses for up to 30 days, with longer retention possible for legal or safety reasons. Depending on the service features and AI model used, additional storage, including temporary copies of repeated requests, can also apply. ProjectOS requests that generated responses are not saved for later retrieval, but this does not guarantee zero retention by OpenAI. Actual account settings and processing location will be checked before use; no particular processing region is promised. See [OpenAI data controls](https://developers.openai.com/api/docs/guides/your-data), checked 8 October 2026.
 
 Deleting study records from the researcher's computer cannot undo text already sent to OpenAI or guarantee immediate deletion of records held by OpenAI. You must receive the confirmed arrangements before providing files. If you do not agree to this processing, do not provide a pack; declining has no penalty.
 
 ## What is collected, who has access, and for how long?
 
-We propose collecting your screened pack; prepared summaries and excerpts; written pre-test account; saved review actions, corrections and reasons; observed source-opening behaviour and timing; ratings; and written interview/observation notes. No audio, video, screen recording or participant screenshots are planned in Round 1.
+We propose collecting your screened pack; prepared summaries and excerpts; written pre-test account; saved review actions, corrections and reasons; observed source-opening behaviour and timing; ratings; and written interview/observation notes. No audio, video or photographs will be recorded. There will also be no screen recording or participant screenshots.
 
-Records use a code such as P01. A code is a pseudonym, not a guarantee of anonymity: project details can identify you. Consent/contact details and any code linkage will be kept separately from response data. Storage, backups and access must be agreed before use; keeping records out of public materials is not sufficient protection by itself. Proposed access is the researcher and, where necessary under the agreed arrangements, the supervisor and authorised assessors.
+Records use a code such as P01. A code is a pseudonym, not a guarantee of anonymity: project details can identify you. Consent forms and the temporary record linking your identity to your participant code will be kept separately from research records. Access is restricted to the researcher and, where necessary under the study arrangements, the supervisor and authorised assessors.
 
-| Data group | Retention duration and start point | Deletion arrangements |
+| Data stored | Where it is stored | How long it is kept |
 | --- | --- | --- |
-| Received project files and screened working copies | [to confirm before use] | [approved local/transfer-copy procedure] |
-| Extracted excerpts, summaries and saved working copies | [to confirm before use] | [include every local copy and export] |
-| Review actions, corrections and reasons | [to confirm before use] | [include review history and analysis copies] |
-| Baseline account, ratings, observations and interview notes | [to confirm before use] | [include any quotations and working analysis] |
-| Signed consent, contact/code linkage | [to confirm separately before use] | [approved separate-record procedure] |
-| Backups and transfer copies | [to confirm before use] | [backup expiry/deletion procedure] |
+| Participant-selected project files, extracted text and temporary working copies | A restricted UAL OneDrive folder and, only where necessary for preparation or the supervised session, the researcher's password-protected computer | Permanently deleted within 7 calendar days after the session |
+| De-identified research records: AI-generated summaries, displayed source excerpts, review choices, corrections, ratings, interview notes and observation notes; also the written pre-test account, reasons and timings collected in the same session | Restricted UAL OneDrive | Retained until 30 November 2027 and then permanently deleted |
+| Signed consent forms | Restricted UAL OneDrive, separately from research records | Retained until 30 November 2027 and then permanently deleted |
+| Temporary identity-to-participant-code mapping | Restricted UAL OneDrive, separately from research records and signed consent forms | Deleted after the 7-day withdrawal period |
+| Text sent to OpenAI, an external service | OpenAI's service; participant names and contact details will not deliberately be sent | Abuse-monitoring logs may be retained for up to 30 days, subject to the external-service limits explained above |
 
-These are unresolved decisions, not permission to retain data indefinitely. You must receive the confirmed arrangements in full before deciding whether to participate. OpenAI's retention of records is separate from this local schedule.
+Temporary copies used on the computer will be removed within the same 7-day period; the retained de-identified research records will be held in restricted UAL OneDrive. The schedule applies to working, transfer and backup copies under the researcher's control. OpenAI's retention is separate from this schedule. These storage statements are included for wording review at Meeting 3.
 
 ## Choice, risks and use of findings
 
@@ -90,8 +93,10 @@ Descriptive, de-identified findings may be used in the MSc report, assessment an
 
 ## Withdrawal and deletion
 
-You can stop during the session. To request withdrawal of your data, contact **[confirmed researcher route]**, quoting your participant code if available, by **[agreed deadline/date]**. The researcher will explain which records can still be linked to you, stop covered processing and confirm the agreed deletion outcome, including project files, saved summaries and excerpts, reviews and notes held on the researcher's computer.
+You can stop during the session. Identifiable data may be withdrawn within **7 calendar days after your session**. Contact **[confirmed researcher route]**, quoting your participant code if available. Your final information sheet will state the calendar date of this deadline. The researcher will explain which records can still be linked to you, stop covered processing and confirm the agreed deletion outcome, including project files, saved summaries and excerpts, reviews and notes under the researcher's control.
 
-After genuinely irreversible aggregation or publication, it may not be possible to isolate every contribution. The exact cut-off and limits must be agreed and explained before consent; use of a code alone is not irreversible anonymisation. Provider-side handling has the limits described above. No automatic deletion feature is promised.
+The temporary identity link is deleted after the 7-day withdrawal period. After deletion of the identity link and aggregation, withdrawal may no longer be possible because individual contributions may no longer be identifiable. Use of a code alone is not irreversible anonymisation. OpenAI's handling has the limits described above. No automatic deletion feature is promised.
 
-Keep the final information sheet and consent form. Do not sign or send project files while this document remains an unconfirmed draft.
+Project files, signed forms, identity mappings, saved review records and raw interview notes will not be published or uploaded to websites for sharing software.
+
+Keep the final information sheet and consent form. Do not sign or send project files using this review draft.

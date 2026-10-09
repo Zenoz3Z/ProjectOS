@@ -1,6 +1,6 @@
 # Pre-test project state
 
-Status: **Draft — pending Anna/ethics confirmation. Blank public master.**
+Status: **Draft for supervisor review — existing ethics approval unchanged; data-storage wording updated following supervisor feedback on 9 October 2026.** Blank public master.
 
 Researcher preparation: copy this template to a Git-ignored private directory. Complete this activity **before both the Echo Field tutorial and the formal ProjectOS review**. For the participant handout, use only the participant portion below. Do not show the researcher mapping or the six section names before the formal task; a collapsed display alone is not sufficient separation. See [template guidance](README.md).
 

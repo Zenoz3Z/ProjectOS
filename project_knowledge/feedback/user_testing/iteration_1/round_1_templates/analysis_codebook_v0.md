@@ -1,6 +1,6 @@
 # Initial analysis codebook v0
 
-Status: **Draft — pending Anna/ethics confirmation. Blank public master.**
+Status: **Draft for supervisor review — existing ethics approval unchanged; data-storage wording updated following supervisor feedback on 9 October 2026.** Blank public master.
 
 This is an initial **deductive codebook** for source visibility, user correction and project re-entry. It defines starting concepts, not study findings. Round 1 may add inductive codes: record their definition, reason and version in private analysis notes. A passage may receive more than one code. See [template guidance](README.md).
 

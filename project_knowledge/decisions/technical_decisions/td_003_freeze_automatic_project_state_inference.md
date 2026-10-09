@@ -43,6 +43,6 @@ Temporal metadata remains possible future work after user testing. A later expli
 
 Non-goals are automatic temporal reasoning, automatic contradiction detection, self-service upload, public deployment, user accounts and perfect reconstruction accuracy.
 
-The [Round 1 protocol](../../feedback/user_testing/iteration_1/study_protocol_round_1_draft.md) is a draft awaiting Anna's supervisor/ethics scope confirmation. No recruitment or collection of project packs is authorised by this technical decision. Reconsider the freeze after the first agreed research round, using observed checking and correction needs rather than another isolated ranking gain.
+Current study status, updated following 9 October 2026 feedback: Anna confirmed that no amendment to the existing ethics approval is required. The [Round 1 protocol](../../feedback/user_testing/iteration_1/study_protocol_round_1_draft.md) and participant data-storage wording remain drafts for Meeting 3 wording review. No recruitment or collection of project packs is authorised by this technical decision. Reconsider the freeze after the first agreed research round, using observed checking and correction needs rather than another isolated ranking gain.
 
 See [current goals](../../current_state/goals.md), [open blockers](../../current_state/blockers.md) and the [materials gap check](../../feedback/user_testing/iteration_1/study_materials_gap_check_round_1.md).

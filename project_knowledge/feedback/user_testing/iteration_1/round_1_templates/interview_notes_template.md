@@ -1,6 +1,6 @@
 # Interview notes
 
-Status: **Draft — pending Anna/ethics confirmation. Blank public master.**
+Status: **Draft for supervisor review — existing ethics approval unchanged; data-storage wording updated following supervisor feedback on 9 October 2026.** Blank public master.
 
 Copy to a Git-ignored private directory before authorised use. Participant code: __________. Instrument version: __________.
 

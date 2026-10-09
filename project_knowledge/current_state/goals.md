@@ -1,7 +1,7 @@
 ---
 project: ProjectOS
 document_type: current_goals
-status: current_direction_study_pending_confirmation
+status: current_direction_meeting_3_wording_review
 date: 2026-10-08
 ---
 
@@ -39,11 +39,13 @@ Retrieval extensions are frozen. Explicit, user-visible temporal metadata may be
 
 ## Start gate and reading
 
-No recruitment, collection of project packs or processing of participant materials before Anna confirms the supervisor/ethics scope and any required institutional approval is in place. Information and consent materials remain drafts with outstanding fields.
+Supervisor confirmation received on 9 October 2026: no amendment to the existing ethics approval is required. Participant-facing documents must clearly state what data will be stored, where it will be stored, and for how long.
+
+The storage schedule has been added. Information and consent materials remain drafts for wording review at Meeting 3 on 15 October 2026 at 15:00 (Europe/London), with contact fields to complete before issue. Formal recruitment and P01 have not started; this documentation update does not collect project packs or process participant materials.
 
 - [Round 1 protocol](../feedback/user_testing/iteration_1/study_protocol_round_1_draft.md).
 - [Research questions](../feedback/user_testing/iteration_1/research_questions.md) and [question/observation guide](../feedback/user_testing/iteration_1/post_test_questionnaire_and_interview.md).
-- [Formal post-test ratings: R1-R7, Round 1 v1](../feedback/user_testing/iteration_1/round_1_templates/post_test_ratings_template.md), still pending supervisor/ethics confirmation.
+- [Formal post-test ratings: R1-R7, Round 1 v1](../feedback/user_testing/iteration_1/round_1_templates/post_test_ratings_template.md), wording and freeze date unchanged; review-draft status reflects the 9 October supervisor feedback.
 - [Materials gap check](../feedback/user_testing/iteration_1/study_materials_gap_check_round_1.md).
 - [Open blockers](blockers.md) and [next steps](next_steps.md).
 

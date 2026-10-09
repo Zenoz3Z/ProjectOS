@@ -4,12 +4,14 @@ document_type: question_and_observation_guide
 category: user_testing
 iteration: 1
 date: 2026-10-08
-status: draft_pending_supervisor_ethics_confirmation
+status: draft_for_supervisor_review_existing_ethics_approval_unchanged
 ---
 
 # Round 1 questions and observation guide — draft
 
-Use only with the confirmed [Round 1 protocol](study_protocol_round_1_draft.md) and final information/consent materials. This file supports question and observation administration. The sole formal post-test ratings instrument is [ProjectOS Round 1 Post-test Ratings — Round 1 v1](round_1_templates/post_test_ratings_template.md), R1-R7, frozen on 2026-10-08. It remains Draft pending supervisor/ethics confirmation. The L1-L7 block below is preserved as a historical draft only. Neither this guide nor the wording freeze authorises recruitment or data collection.
+**Status:** Draft for supervisor review — existing ethics approval unchanged; data-storage wording updated following supervisor feedback on 9 October 2026.
+
+Use only with the confirmed [Round 1 protocol](study_protocol_round_1_draft.md) and final information/consent materials. This file supports question and observation administration. The sole formal post-test ratings instrument is [ProjectOS Round 1 Post-test Ratings — Round 1 v1](round_1_templates/post_test_ratings_template.md), R1-R7, frozen on 2026-10-08. It remains Draft for supervisor review — existing ethics approval unchanged; data-storage wording updated following supervisor feedback on 9 October 2026. The L1-L7 block below is preserved as a historical draft only. Neither this guide nor the wording freeze authorises recruitment or data collection.
 
 Blank master only. Complete private copies with a pseudonymous code, never participant names or identifiable project titles.
 

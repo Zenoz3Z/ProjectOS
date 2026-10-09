@@ -4,10 +4,12 @@ document_type: research_design
 category: user_testing
 iteration: 1
 date: 2026-10-08
-status: draft_pending_supervisor_ethics_confirmation
+status: draft_for_supervisor_review_existing_ethics_approval_unchanged
 ---
 
 # Round 1 research questions
+
+**Status:** Draft for supervisor review — existing ethics approval unchanged; data-storage wording updated following supervisor feedback on 9 October 2026.
 
 ## Core question
 
@@ -35,4 +37,4 @@ P00 is an excluded pilot; P96 is an excluded researcher self-test. Their records
 
 Automatic temporal reasoning, automatic contradiction detection, self-service upload, public deployment, user accounts and perfect reconstruction accuracy are non-goals. [TD-003](../../../decisions/technical_decisions/td_003_freeze_automatic_project_state_inference.md) freezes retrieval expansion; explicit temporal metadata remains a possible post-study interface direction or future work.
 
-The [Round 1 protocol](study_protocol_round_1_draft.md) supersedes earlier demo-only and five-to-eight-person proposals for this round. Historical plans remain available as dated records and in Git history. All current study documents remain drafts until Anna confirms scope and the required ethics route is completed. Do not recruit or collect project files before that point.
+The [Round 1 protocol](study_protocol_round_1_draft.md) supersedes earlier demo-only and five-to-eight-person proposals for this round. Historical plans remain available as dated records and in Git history. Supervisor confirmation received on 9 October 2026: no amendment to the existing ethics approval is required. Participant-facing documents must clearly state what data will be stored, where it will be stored, and for how long. Current materials contain that schedule and remain drafts for Meeting 3 wording review on 15 October 2026 at 15:00 (Europe/London). Formal recruitment and P01 have not started.

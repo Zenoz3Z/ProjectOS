@@ -2,10 +2,12 @@
 project: ProjectOS
 document_type: participant_project_pack_guide
 date: 2026-10-08
-status: draft_pending_supervisor_ethics_confirmation
+status: draft_for_supervisor_review_existing_ethics_approval_unchanged
 ---
 
 # Participant project-pack guide — Round 1 draft
+
+**Status:** Draft for supervisor review — existing ethics approval unchanged; data-storage wording updated following supervisor feedback on 9 October 2026.
 
 **Preparation guidance only; not an invitation to submit files.** Do not recruit, accept project packs or create formal assignments until the [Round 1 start gate](study_protocol_round_1_draft.md#start-gate) is satisfied. Consent to the data flow must come before receipt and API processing.
 

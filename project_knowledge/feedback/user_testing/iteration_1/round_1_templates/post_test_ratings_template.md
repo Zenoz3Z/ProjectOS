@@ -5,9 +5,9 @@
 | Instrument name | ProjectOS Round 1 Post-test Ratings |
 | Version | Round 1 v1 |
 | Date frozen | 2026-10-08 |
-| Status | Draft pending supervisor/ethics confirmation |
+| Status | Draft for supervisor review — existing ethics approval unchanged; data-storage wording updated following supervisor feedback on 9 October 2026. |
 
-**Blank public master.** R1-R7 in this file are the sole formal Round 1 post-test ratings instrument. Freezing the wording does not indicate supervisor/ethics approval or authorise data collection.
+**Blank public master.** R1-R7 in this file are the sole formal Round 1 post-test ratings instrument. The wording remains frozen. Documents are for Meeting 3 wording review; formal recruitment and P01 have not started.
 
 Copy to a Git-ignored private directory before authorised use. Participant code: __________. Instrument version: **Round 1 v1**. See [template guidance and version note](README.md). The earlier L1-L7 items are a historical draft, not formal Round 1 ratings. Do not combine their scores with R1-R7 or relabel old responses as new data.
 

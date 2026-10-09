@@ -9,16 +9,18 @@ date: 2026-10-08
 
 The prototype is frozen for study preparation. Engineering tests and a researcher's successful navigation rehearsal do not establish semantic accuracy or permission to collect participant-owned material.
 
-## Decisions that block recruitment and collection
+Supervisor confirmation received on 9 October 2026: no amendment to the existing ethics approval is required. Participant-facing documents must clearly state what data will be stored, where it will be stored, and for how long. This confirmation concerns the existing approval; it is not a new ethics approval.
+
+## Remaining checks before recruitment and collection
 
 | Open decision | Required resolution |
 | --- | --- |
-| Supervisor/ethics scope | Anna must confirm the move to participant-owned projects, three adults, external API preparation and any necessary amendment/approval route. A supervisor discussion alone must not be recorded as institutional approval. |
+| Supervisor feedback recorded | No ethics amendment is required. Meeting 3 on 15 October 2026 at 15:00 (Europe/London) will review the revised wording; do not describe this as a new approval. |
 | Information and consent | Review the revised drafts, including 4–8 files, text processing, external excerpts, possible identifying content and no public upload. Complete private contact and independent-concerns routes. |
-| Storage and access | Agree an approved transfer method, storage location, authorised access, device protection and backup handling. Git exclusion alone is not secure storage. |
-| Retention | Set a duration, start trigger and deletion method for raw packs, caches/summaries, review/correction data, baseline notes, ratings/interviews, consent/code linkage and backups. No period has been invented. |
-| Withdrawal | Agree contact route, deadline, what can be removed, analysis/publication cut-off and provider-side limits. Put the same decisions in all issued copies. |
-| API account and policy | Confirm the institution accepts this external processor and the actual account/model settings, including data sharing, retention and processing location. Do not assume zero retention or regional processing. |
+| Storage and access | Restricted UAL OneDrive is specified; necessary temporary preparation/session copies use the password-protected computer. Check folder permissions, transfer method, authorised access and deletion of all working/backup copies. Git exclusion alone is not secure storage. |
+| Retention implementation | Source files, extracted text and temporary copies: permanently delete within 7 calendar days after the session. De-identified records and separately stored signed consent: retain until 30 November 2027, then permanently delete. Check that the manual deletion procedure covers every copy. |
+| Withdrawal wording and contact | Identifiable data may be withdrawn within 7 calendar days; delete separate identity linkage after that period. After link deletion and aggregation, withdrawal may no longer be possible. Complete the contact route and session-specific deadline in issued copies. |
+| API account settings | Check actual account/model settings, data sharing and processing location. Names/contact details will not deliberately be sent; abuse-monitoring logs may remain up to 30 days. Do not assume zero retention or regional processing. |
 | Study practicality | Confirm the 40–50 minute schedule, [R1-R7, Round 1 v1](../feedback/user_testing/iteration_1/round_1_templates/post_test_ratings_template.md) custom exploratory ratings, manual observations and no recording/screenshots. Rehearse with non-personal material after document review. |
 
 See the [ten-point materials gap check](../feedback/user_testing/iteration_1/study_materials_gap_check_round_1.md). All participant-facing forms and the [Round 1 protocol](../feedback/user_testing/iteration_1/study_protocol_round_1_draft.md) remain draft. Formal P01 has not started.
