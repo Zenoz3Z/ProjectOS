@@ -2,15 +2,19 @@
 
 **A source-grounded, correctable brief for returning to a creative project.**
 
-ProjectOS is an MSc research prototype that helps creative students revisit a project after an interruption. It retrieves evidence from existing project records and organises it into a six-section Project Re-entry Brief, with short AI-generated summaries and visible supporting excerpts. Users can inspect the evidence and confirm, correct or reject reconstructed project states. The local Streamlit prototype now supports researcher-assigned projects, with Echo Field as a short tutorial. Researchers prepare summaries before a session by sending selected excerpts to the OpenAI API; participant review reads the prepared summaries without calling the API.
+ProjectOS is an MSc research prototype that helps creative students revisit a project after an interruption. It retrieves evidence from existing project records and organises it into a six-section Project Re-entry Brief, with short AI-generated summaries and visible supporting excerpts. Users can inspect the evidence and confirm, update, mark a section not applicable or reject reconstructed project states. The local Streamlit prototype now supports researcher-assigned projects, with Echo Field as a short tutorial. Researchers prepare summaries before a session by sending selected excerpts to the OpenAI API; participant review reads the prepared summaries without calling the API.
 
 ## Guide for supervisor review
 
+**Iteration 2 implementation, 19 October 2026:** Round 1 is complete according to the approved implementation brief. The current refinement clarifies section language, adds **Not applicable**, and explains evidence checking and documented next steps. Its usability benefit has not yet been evaluated with participants. See [TD-004](project_knowledge/decisions/technical_decisions/td_004_iteration_2_review_semantics.md), the [findings-to-design record](project_knowledge/decisions/design_decisions/dd_005_round_1_usability_refinements.md) and [validation report](outputs/test_results/iteration_2_usability_validation.md). Existing report drafts remain working drafts, not final comparative findings.
+
+The following Meeting 3 preparation notes record the earlier position, not the current recruitment status.
+
 **Meeting 3 preparation: 15 October 2026, 15:00 (Europe/London). Updated following feedback on 9 October 2026.** Supervisor confirmation received on 9 October 2026: no amendment to the existing ethics approval is required. Participant-facing documents must clearly state what data will be stored, where it will be stored, and for how long.
 
-Participant data-storage wording has been added to the information sheet and consent form. Their status is **Draft for supervisor review — existing ethics approval unchanged; data-storage wording updated following supervisor feedback on 9 October 2026.** Documents remain subject to wording review at Meeting 3. **Formal recruitment and P01 have not started.** This records supervisor confirmation about the existing approval, not a new ethics approval.
+Participant data-storage wording has been added to the information sheet and consent form. Their status is **Draft for supervisor review — existing ethics approval unchanged; data-storage wording updated following supervisor feedback on 9 October 2026.** Documents remain subject to wording review at Meeting 3. **At the 9 October preparation checkpoint, formal recruitment and P01 had not started.** This records supervisor confirmation about the existing approval, not a new ethics approval.
 
-The prototype supports local, assigned-project rehearsals. In the [P00 pilot](project_knowledge/feedback/user_testing/iteration_1/pilot_p00_summary.md), the participant completed all tasks without technical errors but found the interface complex and the instructions unclear. This motivated the progressive review interface. Technical exploration is frozen for Round 1 preparation. The proposed study involves three adults returning to their own paused creative projects. P00 is excluded from the formal sample, and one pilot does not establish research conclusions. The documents below can be reviewed without installing the application or supplying an API key.
+The prototype supports local, assigned-project rehearsals. In the [P00 pilot](project_knowledge/feedback/user_testing/iteration_1/pilot_p00_summary.md), the participant completed all tasks without technical errors but found the interface complex and the instructions unclear. This motivated the progressive review interface. Automatic retrieval expansion remains frozen. The original Round 1 protocol proposed three adults returning to their own paused creative projects; that proposal is retained as a dated protocol, not an assertion of achieved sample size. P00 is excluded from the formal sample, and one pilot does not establish research conclusions. The documents below can be reviewed without installing the application or supplying an API key.
 
 | Review question | Suggested reading |
 | --- | --- |
@@ -39,11 +43,11 @@ ProjectOS uses a fixed project re-entry workflow rather than an open-ended conve
 ## Current prototype workflow
 
 1. The researcher validates the assigned project, prepares all six summaries and starts a local study server bound to one participant code. The participant enters that code and reads the study introduction.
-2. Complete one Echo Field tutorial section: read a summary, open source evidence and try a response. Tutorial responses are not saved as formal reviews and never enter completion statistics.
+2. Complete one Echo Field tutorial section: read a provisional summary, optionally inspect source evidence and try one of four responses. Missing evidence can be a valid result; an update records the user's interpretation separately from the original evidence. Tutorial responses are not saved as formal reviews and never enter completion statistics.
 3. Check the assigned project's readiness, then choose **Start my project review**. The first review follows the six sections in order, one at a time: each section's question, provisional summary, optional source evidence and response controls. Each section uses up to two evidence excerpts; missing categories may produce an insufficient-evidence summary.
-4. Choose **Looks accurate**, **I want to update it** or **This is not supported**. An update requires correction text. Older-direction marking is available within the evidence area. Reviews and annotations do not change the prepared system summaries.
+4. Choose **Confirm**, **Update**, **Not applicable** or **Reject**. Not applicable means there are no relevant records or the section does not apply; it counts as reviewed but is distinct from confirmation and rejection. An update requires correction text. Older-direction marking is available within the evidence area. Reviews and annotations do not change the prepared system summaries.
 5. **Save and continue** records the response and opens the next pending section. Previous/Next allow navigation; unsaved edits must be saved or explicitly discarded first. Saved sections and remaining work are marked.
-6. After all six sections have saved reviews, the completion page shows reviewed, corrected and rejected counts and **Review or change a section**. Six buttons show each section's full name and saved status; selecting one opens that section directly. These shortcuts are unavailable until all six sections have been reviewed.
+6. After all six sections have saved reviews, the completion page shows reviewed, corrected, rejected and not-applicable counts and **Review or change a section**. Six buttons show each section's full name and saved status; selecting one opens that section directly. These shortcuts are unavailable until all six sections have been reviewed.
 
 Post-completion editing shows **Editing section X of 6**, with **Previous section**, **Next section** and **Back to completion summary**. Navigation stays within sections 1–6. Unsaved action, correction or note changes block navigation until the user chooses **Stay and save** or **Discard changes and continue**. Saving appends a review event, updates the status and completion counts, and keeps the current section open. The user can return to completion, continue editing or choose another section; existing summaries and evidence remain unchanged.
 
@@ -55,14 +59,16 @@ There is no project picker, file-upload interface, account system or unrestricte
 
 ### Six Re-entry Brief sections
 
+Participant wording is independent of the backend section definitions. Section IDs `current_vs_superseded` and `possible_next_action`, retrieval questions, prompts and cache fingerprints are unchanged.
+
 | Section | Purpose |
 | --- | --- |
 | Current intention | Reconstruct the project's current aim. |
 | What changed and why | Revisit documented changes and their reasons. |
-| Current versus superseded directions | Separate the present direction from earlier approaches. |
+| Current direction and replaced ideas | What is the project doing now, and which earlier ideas or approaches are no longer current? |
 | Relevant feedback | Recall feedback and any documented response. |
 | Unresolved tensions | Identify questions or limitations that may still need attention. |
-| Possible next action | Surface a documented next step for the user to assess. |
+| Documented next step | Report a next step found in project records; do not invent a recommendation. If none is documented, the user can choose Not applicable or record their own next step using Update. |
 
 ## Evidence retrieval and user review
 
@@ -72,14 +78,16 @@ Sentence Transformers creates normalised `all-MiniLM-L6-v2` embeddings. Retrieva
 
 **Semantic similarity is not factual confidence. Generated summaries are provisional.** A valid citation number does not prove that the interpretation is correct. The retrieval layer's `supported` flag means evidence items were selected; it is separate from the LLM's assessment and from the user's review.
 
-Review events support `confirm`, `correct`, `reject` and `mark_superseded`. They are appended to a local JSON history without rewriting source documents. User corrections are displayed separately from the generated interpretation. Development and participant histories live under `data/reviews/`, which is excluded from Git.
+Above supporting records, the participant interface says: “Check the supporting records when a summary seems surprising, outdated or incomplete. You do not need to open every record.” Opening a record remains optional and is not proof of verification.
+
+Review events support `confirm`, `correct`, `not_applicable`, `reject` and `mark_superseded`. They are appended to a local JSON history without rewriting source documents, and existing events load without migration. A later Not applicable review removes any previous correction from the active display while retaining that correction in the append-only history. User corrections are displayed separately from the generated interpretation. Development and participant histories live under `data/reviews/`, which is excluded from Git.
 
 ## Current features
 
 - Local document loading, overlapping chunks and semantic retrieval.
 - Six structured sections with inspectable source excerpts.
 - OpenAI summary generation with Pydantic structured output and insufficient-evidence handling.
-- Streamlit controls for confirmation, correction, rejection and older-evidence marking.
+- Participant controls for confirmation, correction, not-applicable review, rejection and older-evidence marking.
 - A validated runtime project context, local assignments, and separate review files keyed by participant code and project ID; the existing review JSON schema is unchanged.
 - A single-section Echo Field tutorial followed by assigned-project readiness, progressive review and draft protection; completion unlocks six named section shortcuts and editing with saved-state recovery.
 - Researcher CLI commands for validation, preparation and a session bound to one participant.
@@ -222,7 +230,7 @@ python -m pytest -v
 python -m pip check
 ```
 
-`pytest.ini` adds `src` to pytest's import path, so a separate `PYTHONPATH` setting is unnecessary. The current suite has 93 tests: the original 23 brief, review-store and summary tests, plus flow, Streamlit AppTest, assignment, path safety, readiness and cache tests. Tests use temporary non-personal files, mock retrieval and mock summaries; they do not make live OpenAI requests or assess factual accuracy. They cover cache invalidation, keyless review, direct post-completion navigation, save/refresh recovery, unsaved-change protection, tutorial separation and Development compatibility. The [readiness validation report](outputs/test_results/formal_study_readiness.md) records the earlier 74-test checkpoint and its browser rehearsal limits.
+`pytest.ini` adds `src` to pytest's import path, so a separate `PYTHONPATH` setting is unnecessary. The suite includes brief, review-store, summary, flow, Streamlit AppTest, assignment, path safety, readiness and cache tests; the [Iteration 2 validation report](outputs/test_results/iteration_2_usability_validation.md) records the current count and results. Tests use temporary non-personal files, mock retrieval and mock summaries; they do not make live OpenAI requests or assess factual accuracy. They cover cache invalidation, keyless review, direct post-completion navigation, save/refresh recovery, unsaved-change protection, tutorial separation and Development compatibility. The [readiness validation report](outputs/test_results/formal_study_readiness.md) records the earlier 74-test checkpoint and its browser rehearsal limits.
 
 The separate retrieval evaluation can be run with:
 
@@ -234,7 +242,7 @@ It loads the embedding model and evaluates six developer-authored queries. The [
 
 ## Current prototype status
 
-The repository contains an Iteration 1 research prototype with assigned-project preparation and local participant review. The [Day 8 development record](project_knowledge/process/daily_logs/day_8_user_research_preparation.md) documents earlier preparation; the [P00 pilot summary](project_knowledge/feedback/user_testing/iteration_1/pilot_p00_summary.md) records the motivation for refining the interface. The assigned-project infrastructure is a technical development, not itself permission to collect data. **Formal recruitment and P01 have not started. The existing ethics approval does not require amendment; participant documents are awaiting Meeting 3 wording review.** This is a local research implementation, not a production service.
+The repository contains an Iteration 2 usability refinement of the assigned-project research prototype. The approved brief records Round 1 as complete; this implementation has not yet received Iteration 2 participant evaluation. The [Day 8 development record](project_knowledge/process/daily_logs/day_8_user_research_preparation.md) documents earlier preparation; the [P00 pilot summary](project_knowledge/feedback/user_testing/iteration_1/pilot_p00_summary.md) records the motivation for refining the interface. The assigned-project infrastructure is a technical development, not itself permission to collect data. The 9 October record confirmed that the existing ethics approval did not require amendment and left participant-document wording for Meeting 3 review. This implementation does not change consent, storage terms or approval status. This is a local research implementation, not a production service.
 
 The interaction refinement was checked in the existing `projectos` environment with Python compilation, flow/UI tests and `pip check`. Earlier browser rehearsals used local retrieval, fixed offline summary fixtures and isolated test records. The later post-completion browser check used P96's existing prepared summaries and saved reviews, without new OpenAI requests, and verified direct navigation, draft protection, saving and refresh recovery. The researcher has also completed the post-completion navigation experience and reported that it passed. These checks establish technical behaviour, not study outcomes or summary accuracy; a fresh installation was not tested.
 
@@ -242,19 +250,21 @@ The interaction refinement was checked in the existing `projectos` environment w
 
 ## Research and evaluation plan
 
+Round 1 records and frozen R1–R7 wording are preserved. Future comparisons must identify the interface version: Iteration 2 adds a fourth review action, so action frequencies must not be pooled across rounds without accounting for that difference. Evidence openings remain researcher observations, not a complete interaction log.
+
 The [Round 1 protocol](project_knowledge/feedback/user_testing/iteration_1/study_protocol_round_1_draft.md) proposes three adults, each returning to one paused long-term creative project using 4–8 self-selected, non-sensitive files. After final document review and participant consent, the researcher would screen and import each pack and prepare summaries. The supervised session on the researcher's computer would take 40–50 minutes: an independent written account before seeing the brief, a short Echo Field tutorial, six-section review, short ratings and a 10–15 minute interview. Advance pack preparation is additional.
 
 The [research questions](project_knowledge/feedback/user_testing/iteration_1/research_questions.md) and [question/observation guide](project_knowledge/feedback/user_testing/iteration_1/post_test_questionnaire_and_interview.md) focus on source visibility, evidence absence, correction, clarity, control, re-entry, verification effort and misleading reconstruction. Existing review actions, corrections and reasons are saved locally; evidence openings, timing, ratings and interview notes require manual records. No complete telemetry system is claimed. Analysis will use descriptive statistics and thematic analysis, without statistical-significance or accuracy-improvement claims.
 
 The sole formal post-test ratings instrument is [ProjectOS Round 1 Post-test Ratings — Round 1 v1](project_knowledge/feedback/user_testing/iteration_1/round_1_templates/post_test_ratings_template.md), R1-R7, wording frozen on 2026-10-08. Its status is **Draft for supervisor review — existing ethics approval unchanged; data-storage wording updated following supervisor feedback on 9 October 2026.** These are custom exploratory items, not a validated scale. R6 measures verification burden in the negative direction; ratings are interpreted descriptively alongside interviews. Participant-assessed alignment is not objective accuracy or ground truth. Historical L1-L7 and pilot responses must not be pooled with formal R1-R7 results.
 
-All participant-facing materials remain review drafts. The [information sheet](project_knowledge/feedback/user_testing/iteration_1/participant_information_sheet.md), [consent form](project_knowledge/feedback/user_testing/iteration_1/participant_consent_form.md) and [data protocol](project_knowledge/feedback/user_testing/iteration_1/participant_owned_project_data_protocol_draft.md) now state the data categories, restricted UAL OneDrive storage and deletion dates: source files/extracted text/temporary copies within seven calendar days after the session; de-identified research records and separately stored signed forms until 30 November 2027; identity linkage deleted after the seven-day withdrawal period. Necessary temporary local preparation/session copies use the researcher's password-protected computer. OpenAI is an external service whose abuse-monitoring logs may be retained for up to 30 days; names and contact details will not deliberately be sent. No audio, video or photographs will be recorded. Participant-owned source files, signed forms, identity mappings, review JSON and raw interview notes never enter GitHub. The [materials gap check](project_knowledge/feedback/user_testing/iteration_1/study_materials_gap_check_round_1.md) records remaining wording and operational checks for Meeting 3; formal recruitment has not begun.
+All participant-facing materials remain review drafts. The [information sheet](project_knowledge/feedback/user_testing/iteration_1/participant_information_sheet.md), [consent form](project_knowledge/feedback/user_testing/iteration_1/participant_consent_form.md) and [data protocol](project_knowledge/feedback/user_testing/iteration_1/participant_owned_project_data_protocol_draft.md) now state the data categories, restricted UAL OneDrive storage and deletion dates: source files/extracted text/temporary copies within seven calendar days after the session; de-identified research records and separately stored signed forms until 30 November 2027; identity linkage deleted after the seven-day withdrawal period. Necessary temporary local preparation/session copies use the researcher's password-protected computer. OpenAI is an external service whose abuse-monitoring logs may be retained for up to 30 days; names and contact details will not deliberately be sent. No audio, video or photographs will be recorded. Participant-owned source files, signed forms, identity mappings, review JSON and raw interview notes never enter GitHub. The [materials gap check](project_knowledge/feedback/user_testing/iteration_1/study_materials_gap_check_round_1.md) records remaining wording and operational checks for the earlier Meeting 3 preparation checkpoint. This iteration does not alter those documents.
 
-Earlier prepared-archive plans and the [demo-only procedure](project_knowledge/feedback/user_testing/iteration_1/participant_test_protocol.md) are retained as historical drafts, not the Round 1 script. P00 and P96 are excluded from the formal sample; P96 review statistics are not study findings. Formal P01 has not started. Researcher categorisation, self-selected packs and baseline writing may affect results and must be acknowledged.
+Earlier prepared-archive plans and the [demo-only procedure](project_knowledge/feedback/user_testing/iteration_1/participant_test_protocol.md) are retained as historical drafts, not the Round 1 script. P00 and P96 are excluded from the formal sample; P96 review statistics are not study findings. The earlier preparation checkpoint pre-dated formal sessions; the approved Iteration 2 brief now records Round 1 as complete. Researcher categorisation, self-selected packs and baseline writing may affect results and must be acknowledged.
 
 ## Limitations
 
-- Published retrieval evaluation uses one small prepared archive; P96 provides additional researcher self-testing only. Broader project transfer and user benefit remain unverified, and formal P01 has not started.
+- Published retrieval evaluation uses one small prepared archive; P96 provides additional researcher self-testing only. Broader project transfer and user benefit remain unverified; the first round does not establish generalisable accuracy.
 - P96 exposed evidence retrieval issues in section 3 (Current versus superseded directions), section 5 (Unresolved tensions) and section 6 (Possible next action). These remain known limitations; successful navigation does not establish that the retrieved evidence or reconstructed project state is accurate.
 - Retrieval does not explicitly model chronology or parse state metadata. Related passages can still mix resolved issues, current blockers and future work. No PDF OCR is implemented.
 - Generated summaries can omit or misinterpret evidence. Source-number checks do not verify factual entailment.

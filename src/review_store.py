@@ -15,6 +15,7 @@ DEFAULT_REVIEW_DIR = PROJECT_ROOT / "data" / "reviews"
 ReviewAction = Literal[
     "confirm",
     "correct",
+    "not_applicable",
     "reject",
     "mark_superseded",
 ]
@@ -22,6 +23,7 @@ ReviewAction = Literal[
 VALID_ACTIONS = {
     "confirm",
     "correct",
+    "not_applicable",
     "reject",
     "mark_superseded",
 }
@@ -217,6 +219,7 @@ def get_latest_section_status(
     action_to_status = {
         "confirm": "confirmed",
         "correct": "corrected",
+        "not_applicable": "not_applicable",
         "reject": "rejected",
     }
 
@@ -239,12 +242,13 @@ def get_latest_section_correction(
     """
     Return the correction attached to the latest section review.
 
-    If the latest section-level action is confirm or reject,
+    If the latest section-level action is not a correction,
     no active correction is returned.
     """
     section_actions = {
         "confirm",
         "correct",
+        "not_applicable",
         "reject",
     }
 

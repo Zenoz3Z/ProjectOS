@@ -13,11 +13,68 @@ if str(SRC_DIR) not in sys.path:
 
 from review_store import (  # noqa: E402
     create_review_event,
+    get_latest_section_correction,
     get_latest_section_status,
     get_superseded_chunk_ids,
     load_review_store,
     save_review_event,
 )
+
+
+def test_not_applicable_persists_without_rewriting_old_reviews(tmp_path):
+    path = tmp_path / "reviews.json"
+    original = []
+    for action in ("confirm", "correct", "reject", "correct"):
+        event = create_review_event(
+            "synthetic_project", "relevant_feedback", action,
+            user_correction="An earlier update." if action == "correct" else None,
+        )
+        original = save_review_event(event, path)["review_events"]
+    event = create_review_event(
+        "synthetic_project", "relevant_feedback", "not_applicable",
+        reason="No relevant records.",
+    )
+    assert event.user_correction is None
+    assert event.target_chunk_id is None
+    save_review_event(event, path)
+    # Evidence annotation must not hide the latest section-level action.
+    save_review_event(create_review_event(
+        "synthetic_project", "relevant_feedback", "mark_superseded", target_chunk_id="synthetic_1",
+    ), path)
+    loaded = load_review_store(path, "synthetic_project")
+    assert loaded["schema_version"] == 1
+    assert loaded["review_events"][:4] == original
+    assert loaded["review_events"][4]["reason"] == "No relevant records."
+    assert get_latest_section_status(loaded, "relevant_feedback") == "not_applicable"
+    assert get_latest_section_correction(loaded, "relevant_feedback") is None
+    # The previous correction remains historical, not active source evidence.
+    assert loaded["review_events"][3]["user_correction"] == "An earlier update."
+    with pytest.raises(ValueError, match="belongs to project"):
+        load_review_store(path, "other_project")
+
+
+@pytest.mark.parametrize("action,status", [("confirm", "confirmed"), ("correct", "corrected"), ("reject", "rejected")])
+def test_legacy_schema_one_events_load_unchanged(tmp_path, action, status):
+    import json
+    path = tmp_path / "legacy.json"
+    legacy = {"schema_version": 1, "project_id": "legacy_project", "review_events": [{
+        "event_id": "legacy_event", "project_id": "legacy_project", "timestamp": "2026-10-01T12:00:00+00:00",
+        "section_id": "current_intention", "action": action,
+        "user_correction": "Existing update." if action == "correct" else None,
+        "reason": "Existing note.", "target_chunk_id": None,
+    }]}
+    path.write_text(json.dumps(legacy), encoding="utf-8")
+    before = path.read_bytes()
+    loaded = load_review_store(path, "legacy_project")
+    assert loaded == legacy
+    assert get_latest_section_status(loaded, "current_intention") == status
+    assert get_latest_section_correction(loaded, "current_intention") == legacy["review_events"][0]["user_correction"]
+    assert path.read_bytes() == before
+
+
+def test_new_action_does_not_allow_unknown_actions():
+    with pytest.raises(ValueError, match="Unknown review action"):
+        create_review_event("synthetic_project", "relevant_feedback", "not_relevant")
 
 
 def test_valid_confirm_event_can_be_created():

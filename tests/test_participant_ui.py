@@ -33,6 +33,9 @@ def ui(monkeypatch, tmp_path):
         raise AssertionError("Participant navigation must never generate summaries.")
     monkeypatch.setattr(app, "generate_cached_summary", forbidden_api)
     monkeypatch.setattr(app, "generate_all_summaries", forbidden_api)
+    monkeypatch.setattr(llm_summarizer, "OpenAI", forbidden_api)
+    monkeypatch.setattr(httpx.Client, "send", forbidden_api)
+    monkeypatch.setattr(app.SemanticRetriever, "__init__", forbidden_api)
     at = AppTest.from_string("import streamlit_app as app\napp.main()", default_timeout=20).run()
     return at, tmp_path
 
@@ -51,7 +54,7 @@ def start(at, code="P00"):
         return at
     assert at.title[0].value == "Review your project re-entry brief"
     click(at, "Start tutorial")
-    at.radio(key="participant_ui_tutorial_action").set_value("Looks accurate").run()
+    at.radio(key="participant_ui_tutorial_action").set_value("Confirm").run()
     click(at, "Finish tutorial")
     click(at, "Start my project review")
     return at
@@ -69,7 +72,7 @@ def test_single_section_validation_draft_protection_and_auto_advance(ui):
     assert any(e.label == "Why did ProjectOS produce this summary?" for e in at.expander)
     click(at, "Save and continue")
     assert any("Choose one response" in w.value for w in at.warning)
-    response(at).set_value("I want to update it").run()
+    response(at).set_value("Update").run()
     assert at.text_area[0].label == "Your updated version"
     click(at, "Save and continue")
     assert any("Write your updated version" in w.value for w in at.warning)
@@ -77,9 +80,9 @@ def test_single_section_validation_draft_protection_and_auto_advance(ui):
     assert next(b for b in at.button if b.label == "Next").disabled
     assert any("unsaved response" in w.value for w in at.warning)
     # Hiding and showing the conditional field must retain the draft.
-    response(at).set_value("Looks accurate").run()
+    response(at).set_value("Confirm").run()
     assert not at.text_area
-    response(at).set_value("I want to update it").run()
+    response(at).set_value("Update").run()
     assert at.text_area[0].value == "A participant correction."
     click(at, "Save and continue")
     assert at.title[0].value == "What changed and why"
@@ -96,16 +99,16 @@ def test_single_section_validation_draft_protection_and_auto_advance(ui):
 def test_completion_reload_isolation_and_development_view(ui, monkeypatch):
     at, root = ui
     start(at)
-    choices = ["Looks accurate", "I want to update it", "This is not supported"] + ["Looks accurate"] * 3
+    choices = ["Confirm", "Update", "Reject"] + ["Confirm"] * 3
     for number, choice in enumerate(choices):
         assert f"Section {number + 1} of 6" in [c.value for c in at.caption]
         response(at).set_value(choice).run()
-        if choice == "I want to update it":
+        if choice == "Update":
             at.text_area[0].set_value("Updated direction.").run()
         click(at, "Save and continue")
     assert at.title[0].value == "Review complete"
     assert {m.label: m.value for m in at.metric} == {
-        "Reviewed sections": "6", "Corrected sections": "1", "Rejected sections": "1",
+        "Reviewed sections": "6", "Corrected sections": "1", "Rejected sections": "1", "Not applicable sections": "0",
     }
     path = assigned_context("P00", root).review_file
     before = path.read_bytes()
@@ -150,7 +153,7 @@ def test_insufficient_summary_is_reviewable_without_error_and_details_are_hidden
     assert "ProjectOS could not find enough clear evidence to summarise this section." in [m.value for m in at.markdown]
     assert not at.toggle
     assert not at.code
-    response(at).set_value("This is not supported").run()
+    response(at).set_value("Reject").run()
     click(at, "Save and continue")
     assert at.title[0].value == "Open questions"
 
@@ -158,7 +161,7 @@ def test_insufficient_summary_is_reviewable_without_error_and_details_are_hidden
 def test_failed_save_keeps_input_and_hides_private_exception(ui, monkeypatch):
     at, root = ui
     start(at)
-    response(at).set_value("I want to update it").run()
+    response(at).set_value("Update").run()
     at.text_area[0].set_value("Keep this draft.").run()
 
     def fail(*args, **kwargs):
@@ -181,7 +184,7 @@ def test_missing_cache_blocks_review_without_trying_api(ui):
     at.text_input(key="participant_code_input").set_value("P00").run()
     click(at, "Start participant session")
     click(at, "Start tutorial")
-    at.radio(key="participant_ui_tutorial_action").set_value("Looks accurate").run()
+    at.radio(key="participant_ui_tutorial_action").set_value("Confirm").run()
     click(at, "Finish tutorial")
     assert not at.exception
     assert any(app.STUDY_NOT_READY == message.value for message in at.info)
@@ -203,14 +206,14 @@ def test_tutorial_practice_never_writes_formal_reviews_or_changes_cache(ui):
     at.text_input(key="participant_code_input").set_value("P00").run()
     click(at, "Start participant session")
     click(at, "Start tutorial")
-    at.radio(key="participant_ui_tutorial_action").set_value("I want to update it").run()
+    at.radio(key="participant_ui_tutorial_action").set_value("Update").run()
     at.text_area[0].set_value("Practice wording only.").run()
     click(at, "Finish tutorial")
     assert not context.review_file.exists()
     assert not tutorial_context(root).review_file.exists()
     click(at, "Start my project review")
     assert response(at).value is None
-    response(at).set_value("I want to update it").run()
+    response(at).set_value("Update").run()
     at.text_area[0].set_value("A formal correction.").run()
     click(at, "Save and continue")
     assert context.summary_cache_file.read_bytes() == before
@@ -282,7 +285,7 @@ def test_completion_has_named_status_links_and_jumps_directly(completed_ui, numb
     links = [b for b in at.button if (b.key or "").startswith("participant_ui_jump_completion_")]
     assert len(links) == 6
     for index, (link, definition) in enumerate(zip(links, SECTION_DEFINITIONS), 1):
-        assert link.label.startswith(f"{index}. {definition.title} — ")
+        assert link.label.startswith(f"{index}. {app.PARTICIPANT_TITLES[definition.section_id]} — ")
     assert links[3].label.endswith("Updated / Corrected")
     assert links[5].label.endswith("Rejected")
     links[number - 1].click().run()
@@ -306,12 +309,12 @@ def test_post_completion_save_stays_updates_statistics_and_survives_refresh(comp
     at, root, context = completed_ui
     before_cache = context.summary_cache_file.read_bytes()
     at.button(key="participant_ui_jump_completion_relevant_feedback").click().run()
-    response(at).set_value("This is not supported").run()
+    response(at).set_value("Reject").run()
     next(t for t in at.text_input if t.label == "Optional note").set_value("Revised feedback judgement.").run()
     click(at, "Save changes")
     assert "Editing section 4 of 6" in [c.value for c in at.caption]
     assert any("Section 4 saved" in s.value for s in at.success)
-    assert "This is not supported" == response(at).value
+    assert "Reject" == response(at).value
     assert any("0 updated / corrected · 2 rejected" in c.value for c in at.caption)
     assert any(b.label == "Return to completion summary" for b in at.button)
     assert any(b.label == "Continue editing this section" for b in at.button)
@@ -320,7 +323,7 @@ def test_post_completion_save_stays_updates_statistics_and_survives_refresh(comp
     assert "Editing section 4 of 6" in [c.value for c in at.caption]
     click(at, "Back to completion summary")
     assert {m.label: m.value for m in at.metric} == {
-        "Reviewed sections": "6", "Corrected sections": "0", "Rejected sections": "2",
+        "Reviewed sections": "6", "Corrected sections": "0", "Rejected sections": "2", "Not applicable sections": "0",
     }
     assert at.button(key="participant_ui_jump_completion_relevant_feedback").label.endswith("Rejected")
     saved = json.loads(context.review_file.read_text())["review_events"]
@@ -332,7 +335,7 @@ def test_post_completion_save_stays_updates_statistics_and_survives_refresh(comp
     assert reopened.title[0].value == "Review complete"
     assert not any(b.label in {"Start tutorial", "Start my project review"} for b in reopened.button)
     reopened.button(key="participant_ui_jump_completion_relevant_feedback").click().run()
-    assert response(reopened).value == "This is not supported"
+    assert response(reopened).value == "Reject"
     assert next(t.value for t in reopened.text_input if t.label == "Optional note") == "Revised feedback judgement."
     assert context.summary_cache_file.read_bytes() == before_cache
     assert len(json.loads(context.review_file.read_text())["review_events"]) == 7
@@ -345,7 +348,7 @@ def test_unsaved_edits_guard_every_completed_navigation_and_discard(completed_ui
     before = context.review_file.read_bytes()
     at.button(key="participant_ui_jump_completion_relevant_feedback").click().run()
     if field == "action":
-        response(at).set_value("Looks accurate").run()
+        response(at).set_value("Confirm").run()
     elif field == "correction":
         at.text_area[0].set_value("Unsaved correction.").run()
     else:
@@ -358,7 +361,7 @@ def test_unsaved_edits_guard_every_completed_navigation_and_discard(completed_ui
     assert any("unsaved changes" in w.value for w in at.warning)
     assert any(b.label == "Stay and save" for b in at.button)
     if field == "action":
-        assert response(at).value == "Looks accurate"
+        assert response(at).value == "Confirm"
     elif field == "correction":
         assert at.text_area[0].value == "Unsaved correction."
     else:
@@ -372,7 +375,7 @@ def test_unsaved_edits_guard_every_completed_navigation_and_discard(completed_ui
         target = {"previous": 3, "next": 5, "direct": 6}[destination]
         assert f"Editing section {target} of 6" in [c.value for c in at.caption]
         at.button(key="participant_ui_jump_editing_relevant_feedback").click().run()
-    assert response(at).value == "I want to update it"
+    assert response(at).value == "Update"
     assert at.text_area[0].value == "Saved feedback correction."
     assert next(t.value for t in at.text_input if t.label == "Optional note") == "Saved feedback note."
     assert context.review_file.read_bytes() == before
@@ -412,7 +415,7 @@ def test_completed_p96_isolated_from_other_projects_and_tutorial(ui, monkeypatch
     monkeypatch.setenv("PROJECTOS_STUDY_PARTICIPANT", "P96")
     start(at, "P96")
     at.button(key="participant_ui_jump_completion_current_vs_superseded").click().run()
-    response(at).set_value("I want to update it").run()
+    response(at).set_value("Update").run()
     at.text_area[0].set_value("P96 self-test revision.").run()
     click(at, "Save changes")
     assert len(json.loads(p96.review_file.read_text())["review_events"]) == 7
@@ -424,3 +427,103 @@ def test_completed_p96_isolated_from_other_projects_and_tutorial(ui, monkeypatch
     click(at, "Start participant session")
     assert any("not available" in e.value for e in at.error)
     assert not any((b.key or "").startswith("participant_ui_jump_") for b in at.button)
+
+
+def test_not_applicable_full_flow_refresh_isolation_and_cache_reuse(ui):
+    from study_cache import read_prepared_project, prepare_project
+    at, root = ui
+    context = assigned_context("P00", root)
+    other = seed_completed_reviews(root, "P01")
+    other_before = other.review_file.read_bytes()
+    cache_before = context.summary_cache_file.read_bytes()
+    sections_before, _, identity_before = read_prepared_project(context)
+    start(at)
+    for index, definition in enumerate(SECTION_DEFINITIONS):
+        assert response(at).options == ["Confirm", "Update", "Not applicable", "Reject"]
+        assert app.EVIDENCE_GUIDANCE in [c.value for c in at.caption]
+        if index == 2:
+            assert at.title[0].value == "Current direction and replaced ideas"
+            assert app.PARTICIPANT_QUESTIONS[definition.section_id] in [m.value for m in at.markdown]
+        if index == 5:
+            assert at.title[0].value == "Documented next step"
+            assert app.DOCUMENTED_NEXT_STEP_GUIDANCE in [m.value for m in at.markdown]
+        assert not any((b.key or "").startswith("participant_ui_jump_") for b in at.button)
+        response(at).set_value("Not applicable").run()
+        click(at, "Save and continue")
+    assert at.title[0].value == "Review complete"
+    assert {m.label: m.value for m in at.metric} == {
+        "Reviewed sections": "6", "Corrected sections": "0", "Rejected sections": "0",
+        "Not applicable sections": "6",
+    }
+    links = [b for b in at.button if (b.key or "").startswith("participant_ui_jump_completion_")]
+    assert len(links) == 6 and all(b.label.endswith("Not applicable") for b in links)
+    at.button(key="participant_ui_jump_completion_current_vs_superseded").click().run()
+    assert response(at).value == "Not applicable"
+    response(at).set_value("Update").run()
+    at.text_area[0].set_value("My own synthetic interpretation.").run()
+    click(at, "Next section")
+    assert "Editing section 3 of 6" in [c.value for c in at.caption]
+    assert any("unsaved changes" in w.value for w in at.warning)
+    click(at, "Stay and save")
+    assert "My own synthetic interpretation." in [m.value for m in at.markdown]
+    response(at).set_value("Not applicable").run()
+    click(at, "Save changes")
+    assert "My own synthetic interpretation." not in [m.value for m in at.markdown]
+    assert any("6 not applicable" in c.value for c in at.caption)
+    # A fresh UI session restores only persisted values, without repeating tutorial.
+    reopened = AppTest.from_string("import streamlit_app as app\napp.main()", default_timeout=20).run()
+    start(reopened)
+    assert reopened.title[0].value == "Review complete"
+    reopened.button(key="participant_ui_jump_completion_current_vs_superseded").click().run()
+    assert response(reopened).value == "Not applicable"
+    events = json.loads(context.review_file.read_text())["review_events"]
+    assert len(events) == 8
+    assert events[-2]["user_correction"] == "My own synthetic interpretation."
+    assert events[-1]["action"] == "not_applicable" and events[-1]["user_correction"] is None
+    sections_after, _, identity_after = read_prepared_project(context)
+    assert identity_after == identity_before
+    assert sections_after == sections_before
+    assert context.summary_cache_file.read_bytes() == cache_before
+    assert other.review_file.read_bytes() == other_before
+    assert not tutorial_context(root).review_file.exists()
+    def forbidden(*args, **kwargs):
+        pytest.fail("A valid cache must not rebuild evidence or generate summaries.")
+    stats = prepare_project(context, generate=forbidden, build_sections=forbidden)
+    assert stats["cache_hits"] == 6 and stats["cache_misses"] == 0 and stats["api_calls"] == 0
+    assert context.summary_cache_file.read_bytes() == cache_before
+
+
+@pytest.mark.parametrize("destination", ["Back to completion summary", "Previous section", "Next section", "direct"])
+def test_not_applicable_unsaved_selection_blocks_completed_navigation(completed_ui, destination):
+    at, root, context = completed_ui
+    before = context.review_file.read_bytes()
+    at.button(key="participant_ui_jump_completion_relevant_feedback").click().run()
+    response(at).set_value("Not applicable").run()
+    if destination == "direct":
+        at.button(key="participant_ui_jump_editing_possible_next_action").click().run()
+    else:
+        click(at, destination)
+    assert "Editing section 4 of 6" in [c.value for c in at.caption]
+    assert response(at).value == "Not applicable"
+    assert any("unsaved changes" in w.value for w in at.warning)
+    click(at, "Discard changes and continue")
+    assert context.review_file.read_bytes() == before
+    assert at.title[0].value != "Relevant feedback"
+
+
+def test_tutorial_explains_four_actions_and_absence_without_formal_review(ui):
+    at, root = ui
+    at.radio(key="session_mode").set_value("Participant study").run()
+    at.text_input(key="participant_code_input").set_value("P00").run()
+    click(at, "Start participant session")
+    click(at, "Start tutorial")
+    assert app.PARTICIPANT_ACTION_GUIDANCE in [m.value for m in at.markdown]
+    assert app.EVIDENCE_GUIDANCE in [c.value for c in at.caption]
+    assert any("summary is provisional" in c.value for c in at.caption)
+    assert any("Missing evidence can be a valid result" in c.value and "does not rewrite" in c.value for c in at.caption)
+    at.radio(key="participant_ui_tutorial_action").set_value("Not applicable").run()
+    click(at, "Finish tutorial")
+    click(at, "Start my project review")
+    assert response(at).value is None
+    assert not tutorial_context(root).review_file.exists()
+    assert not assigned_context("P00", root).review_file.exists()

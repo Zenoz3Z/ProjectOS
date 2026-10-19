@@ -1,9 +1,24 @@
 ---
 project: ProjectOS
 document_type: next_steps
-status: proposed_supervisor_review_existing_ethics_approval_unchanged
-date: 2026-10-08
+status: iteration_2_implementation_for_review
+date: 2026-10-19
 ---
+
+# Current next steps — Iteration 2 review
+
+Updated 19 October 2026. Round 1 is complete according to the approved brief. Implementation is ready for researcher review, not yet an evaluated second-round outcome.
+
+1. Review the revised tutorial, section wording, four action meanings and evidence guidance against the [design rationale](../decisions/design_decisions/dd_005_round_1_usability_refinements.md).
+2. Review [validation results](../../outputs/test_results/iteration_2_usability_validation.md), including synthetic-session save/reload behaviour and protected-data hashes. Preserve the existing report drafts and historical records.
+3. Before subsequent sessions, check the applicable consent/storage materials and freeze the reviewed interface version. This implementation does not recruit, assign new formal participant projects or collect study data.
+4. In later evaluation, observe comprehension, assistance, evidence checking, correction and verification effort. Use unchanged R1–R7 wording; describe the extra review action when comparing rounds.
+5. Keep the results-integrated report as a working draft until comparative analysis is available. No retrieval expansion, automatic temporal reasoning or generated recommendations are scheduled.
+
+## Historical Round 1 preparation record — 8–9 October 2026
+
+The dated text below is preserved for context; it does not describe the current study stage.
+
 
 # Proposed next steps
 

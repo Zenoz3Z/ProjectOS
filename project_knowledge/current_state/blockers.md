@@ -1,9 +1,27 @@
 ---
 project: ProjectOS
 document_type: open_issues
-status: current
-date: 2026-10-08
+status: iteration_2_implementation_for_review
+date: 2026-10-19
 ---
+
+# Current limitations and review gates — Iteration 2
+
+Updated 19 October 2026. The approved implementation brief records Round 1 as complete. The earlier preparation checklist below is retained as history, not a statement that P01 has yet to start.
+
+- Clearer wording and Not applicable need participant evaluation; technical checks do not establish comprehension or reduced verification effort.
+- Retrieval can still surface historical, resolved or conditional records. Source visibility does not prove currentness, and missing evidence does not prove that an event never occurred.
+- Not applicable is separate from confirmation and rejection. Comparisons of review frequencies must account for the added action; do not reinterpret older responses or pool them silently.
+- Evidence opening and assistance remain manual observations. The system does not record a complete interaction log.
+- Consent, retention and external-service wording are unchanged. Check the applicable participant-facing materials before any further study activity; this implementation makes no new ethics claim.
+- Continue one supervised session at a time. Keep source packs and prepared summaries fixed, retain private records outside Git, and preserve corrections as user interpretations rather than source evidence.
+
+See [Iteration 2 validation](../../outputs/test_results/iteration_2_usability_validation.md). The retrieval freeze and non-goals in [TD-003](../decisions/technical_decisions/td_003_freeze_automatic_project_state_inference.md) remain in force.
+
+## Historical Round 1 preparation record — 8–9 October 2026
+
+The dated text below is preserved for context; it does not describe the current study stage.
+
 
 # Open issues before Round 1
 

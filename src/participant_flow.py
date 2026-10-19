@@ -4,22 +4,49 @@ from brief_schema import SECTION_DEFINITIONS
 
 
 PARTICIPANT_ACTIONS = {
-    "Looks accurate": "confirm",
-    "I want to update it": "correct",
-    "This is not supported": "reject",
+    "Confirm": "confirm",
+    "Update": "correct",
+    "Not applicable": "not_applicable",
+    "Reject": "reject",
 }
+
+PARTICIPANT_ACTION_GUIDANCE = (
+    "**Confirm** — This matches my current understanding.\n\n"
+    "**Update** — This is partly useful but needs correction or additional information.\n\n"
+    "**Not applicable** — There are no relevant records, or this section does not apply to my project.\n\n"
+    "**Reject** — This reconstruction is misleading or incorrect."
+)
+
+EVIDENCE_GUIDANCE = (
+    "Check the supporting records when a summary seems surprising, outdated or incomplete. "
+    "You do not need to open every record."
+)
+
+# Presentation only: backend questions remain unchanged for retrieval and cache reuse.
+PARTICIPANT_QUESTIONS = {
+    "current_vs_superseded": (
+        "What is the project doing now, and which earlier ideas or approaches are no longer current?"
+    ),
+    "possible_next_action": "What next step is documented in your project records?",
+}
+
+DOCUMENTED_NEXT_STEP_GUIDANCE = (
+    "This section reports a next step found in your project records. It does not invent a recommendation. "
+    "If no next step was documented, you can mark this section Not applicable or use Update "
+    "to record what you would do next."
+)
 
 PARTICIPANT_TITLES = {
     "current_intention": "Current aim",
     "changes_and_reasons": "What changed and why",
-    "current_vs_superseded": "Current and earlier directions",
+    "current_vs_superseded": "Current direction and replaced ideas",
     "relevant_feedback": "Relevant feedback",
     "unresolved_tensions": "Open questions",
-    "possible_next_action": "Possible next step",
+    "possible_next_action": "Documented next step",
 }
 
 SECTION_IDS = tuple(section.section_id for section in SECTION_DEFINITIONS)
-REVIEWED_STATUSES = frozenset({"confirmed", "corrected", "rejected"})
+REVIEWED_STATUSES = frozenset({"confirmed", "corrected", "not_applicable", "rejected"})
 
 
 def review_progress(sections) -> dict:

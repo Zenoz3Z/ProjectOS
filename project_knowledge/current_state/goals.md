@@ -1,9 +1,24 @@
 ---
 project: ProjectOS
 document_type: current_goals
-status: current_direction_meeting_3_wording_review
-date: 2026-10-08
+status: iteration_2_implementation_for_review
+date: 2026-10-19
 ---
+
+# Current goals — Iteration 2
+
+Updated 19 October 2026. Round 1 is complete according to the approved implementation brief. The current aim is to improve the clarity of project re-entry review while keeping automatic retrieval expansion frozen.
+
+The research question remains: “How do source visibility and user correction help creative practitioners assess an AI-generated reconstruction of a long-term project during project re-entry?”
+
+The refinement introduces clearer participant wording for sections 3 and 6, a distinct Not applicable response, proportionate evidence guidance and a concise four-action tutorial. It does not establish reconstruction accuracy or demonstrate a participant benefit. See [TD-004](../decisions/technical_decisions/td_004_iteration_2_review_semantics.md) and the [design rationale](../decisions/design_decisions/dd_005_round_1_usability_refinements.md).
+
+Keep the frozen Round 1 v1 ratings, project isolation, prepared summaries and review history intact. Existing report drafts remain working drafts until Iteration 2 evaluation and comparative analysis are complete. P00 and P96 remain outside the formal sample.
+
+## Historical Round 1 preparation record — 8–9 October 2026
+
+The dated text below is preserved for context; it does not describe the current study stage.
+
 
 # Current research goals
 

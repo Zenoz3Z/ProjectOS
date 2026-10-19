@@ -28,7 +28,11 @@ from project_context import (
 from study_cache import CacheNotReady, read_prepared_project
 from study_project_manager import validate_project
 from participant_flow import (
+    DOCUMENTED_NEXT_STEP_GUIDANCE,
+    EVIDENCE_GUIDANCE,
     PARTICIPANT_ACTIONS,
+    PARTICIPANT_ACTION_GUIDANCE,
+    PARTICIPANT_QUESTIONS,
     PARTICIPANT_TITLES,
     REVIEWED_STATUSES,
     has_completed_reviews,
@@ -654,6 +658,7 @@ def friendly_review_status(
         "unreviewed": "Needs your review",
         "confirmed": "Confirmed by you",
         "corrected": "Updated by you",
+        "not_applicable": "Not applicable",
         "rejected": "Marked as inaccurate",
     }
 
@@ -1276,7 +1281,7 @@ def render_participant_start() -> None:
         st.markdown(
             "1. **Read the summary**\n"
             "2. **Check the source evidence**\n"
-            "3. **Confirm, update or reject**"
+            "3. **Confirm, update, mark not applicable or reject**"
         )
     st.markdown(
         "- There are six short sections.\n"
@@ -1318,6 +1323,7 @@ def render_participant_summary(section, result) -> bool:
 
 
 def render_participant_evidence(section, session_context: dict) -> None:
+    st.caption(EVIDENCE_GUIDANCE)
     with st.expander("Why did ProjectOS produce this summary?", expanded=False):
         st.caption("These excerpts come from the project files used to create the summary.")
         if not section.evidence:
@@ -1399,10 +1405,11 @@ def render_completed_section_links(sections, location: str,
                                    prefix: str | None = None, saved: tuple | None = None) -> None:
     if not review_progress(sections)["complete"]:
         return
-    labels = {"confirmed": "Confirmed", "corrected": "Updated / Corrected", "rejected": "Rejected"}
+    labels = {"confirmed": "Confirmed", "corrected": "Updated / Corrected",
+              "not_applicable": "Not applicable", "rejected": "Rejected"}
     for index, section in enumerate(sections):
         st.button(
-            f"{index + 1}. {section.title} — {labels[section.review_status]}",
+            f"{index + 1}. {PARTICIPANT_TITLES[section.section_id]} — {labels[section.review_status]}",
             key=f"participant_ui_jump_{location}_{section.section_id}", width="stretch",
             disabled=location == "editing" and index == participant_flow_state()["index"],
             on_click=navigate_completed_review,
@@ -1439,7 +1446,8 @@ def render_participant_review(section, sections, stored_data: dict,
     editing = flow["stage"] == "editing" and review_progress(sections)["complete"]
     prefix, saved = initialise_participant_draft(section, stored_data, session_context)
 
-    st.markdown("#### Is this summary accurate?")
+    st.markdown("#### How does this summary fit your project?")
+    st.caption(PARTICIPANT_ACTION_GUIDANCE)
     selected = st.radio(
         "Choose your response", tuple(PARTICIPANT_ACTIONS), index=None,
         label_visibility="collapsed", key=f"{prefix}_action",
@@ -1555,10 +1563,11 @@ def render_participant_flow(sections, stored_data: dict, session_context: dict, 
     )
     if flow["stage"] == "complete" and progress["complete"]:
         st.title("Review complete")
-        columns = st.columns(3)
+        columns = st.columns(4)
         columns[0].metric("Reviewed sections", progress["reviewed"])
         columns[1].metric("Corrected sections", progress["corrected"])
         columns[2].metric("Rejected sections", progress["rejected"])
+        columns[3].metric("Not applicable sections", progress["not_applicable"])
         st.success("Your reviews have been saved under your participant code.")
         st.write("You can close this page, or return to check your saved responses. You do not need to submit them again.")
         st.subheader("Review or change a section")
@@ -1571,11 +1580,13 @@ def render_participant_flow(sections, stored_data: dict, session_context: dict, 
         prefix, saved = initialise_participant_draft(section, stored_data, session_context)
         save_requested = render_completed_navigation(sections, prefix, saved)
         st.caption(f"Saved reviews: {progress['confirmed']} confirmed · {progress['corrected']} updated / corrected · "
-                   f"{progress['rejected']} rejected")
+                   f"{progress['rejected']} rejected · {progress['not_applicable']} not applicable")
     else:
         st.caption(f"Section {flow['index'] + 1} of {len(sections)}")
     st.title(PARTICIPANT_TITLES[section.section_id])
-    st.write(USER_FACING_QUESTIONS[section.section_id])
+    st.write(PARTICIPANT_QUESTIONS.get(section.section_id, USER_FACING_QUESTIONS[section.section_id]))
+    if section.section_id == "possible_next_action":
+        st.write(DOCUMENTED_NEXT_STEP_GUIDANCE)
     if section.review_status in REVIEWED_STATUSES:
         st.caption(f"✓ Reviewed · {friendly_review_status(section.review_status)}")
     reviewable = render_participant_summary(section, results[section.section_id])
@@ -1608,18 +1619,22 @@ def render_tutorial() -> None:
     st.subheader("2. Check the source evidence")
     render_participant_evidence(section, {"project_role": "tutorial"})
     st.subheader("3. Try a response")
+    st.markdown(PARTICIPANT_ACTION_GUIDANCE)
+    st.caption(
+        "Missing evidence can be a valid result; it does not prove that nothing happened. "
+        "Your update records your interpretation separately and does not rewrite the original source evidence."
+    )
     choice = st.radio(
-        "Is this summary accurate?", tuple(PARTICIPANT_ACTIONS), index=None,
+        "How does this summary fit the project?", tuple(PARTICIPANT_ACTIONS), index=None,
         key="participant_ui_tutorial_action", persist_state="session",
     )
-    st.caption("Looks accurate accepts the summary; update lets you change its wording; not supported rejects it.")
     correction = ""
-    if choice == "I want to update it":
+    if PARTICIPANT_ACTIONS.get(choice) == "correct":
         correction = st.text_area("Your practice update", key="participant_ui_tutorial_correction", persist_state="session")
     if st.button("Finish tutorial", type="primary"):
         if choice is None:
             st.warning("Try one response before continuing.")
-        elif choice == "I want to update it" and not correction.strip():
+        elif PARTICIPANT_ACTIONS.get(choice) == "correct" and not correction.strip():
             st.warning("Write a practice update before continuing.")
         else:
             participant_flow_state()["stage"] = "readiness"
