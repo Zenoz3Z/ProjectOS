@@ -1,19 +1,20 @@
 ---
 project: ProjectOS
 document_type: next_steps
-status: iteration_2_implementation_for_review
-date: 2026-10-19
+status: final_analysis_and_submission
+date: 2026-10-24
 ---
 
-# Current next steps — Iteration 2 review
+# Current next steps — analysis, thesis and submission
 
-Updated 19 October 2026. Round 1 is complete according to the approved brief. Implementation is ready for researcher review, not yet an evaluated second-round outcome.
+Updated 24 October 2026. Round 1 and Round 2 are complete with four formal participants: P01/P02 and P03/P04. There is no P05, no further recruitment is planned, and prototype feature development is frozen.
 
-1. Review the revised tutorial, section wording, four action meanings and evidence guidance against the [design rationale](../decisions/design_decisions/dd_005_round_1_usability_refinements.md).
-2. Review [validation results](../../outputs/test_results/iteration_2_usability_validation.md), including synthetic-session save/reload behaviour and protected-data hashes. Preserve the existing report drafts and historical records.
-3. Before subsequent sessions, check the applicable consent/storage materials and freeze the reviewed interface version. This implementation does not recruit, assign new formal participant projects or collect study data.
-4. In later evaluation, observe comprehension, assistance, evidence checking, correction and verification effort. Use unchanged R1–R7 wording; describe the extra review action when comparing rounds.
-5. Keep the results-integrated report as a working draft until comparative analysis is available. No retrieval expansion, automatic temporal reasoning or generated recommendations are scheduled.
+1. **Review the final analysis.** Check the [Round 2 findings](../feedback/user_testing/iteration_2/round_2_final_findings.md) and [cross-iteration comparison](../feedback/user_testing/iteration_2/cross_iteration_findings.md) against the private evidence matrix. Retain missing observations, timing conflicts and rating ambiguity. Do not resolve them by inference or present causal effects.
+2. **Integrate the reviewed evidence into the thesis.** Use the achieved four-person sample, version-specific action sets, descriptive item ranges and bounded themes. Keep P00/P96 excluded. The existing three thesis drafts have not been edited by this documentation update.
+3. **Complete final technical and document validation.** Check the frozen implementation, links, privacy exclusions and deliverables without changing participant sources, cached outputs or saved reviews. Historical engineering test results do not substitute for the final validation run or prove user benefit.
+4. **Prepare submission.** Reconcile Method, Findings, Discussion, limitations and supporting materials; verify that only de-identified approved outputs are included. Continue the existing consent/retention obligations without treating study closure as proof of compliance.
+
+Missing-document guidance, retrieval expansion, automatic temporal reasoning and generated recommendations remain future work. No feature implementation or new participant collection is scheduled. Keep frozen R1-R7 wording and historical records intact.
 
 ## Historical Round 1 preparation record — 8–9 October 2026
 

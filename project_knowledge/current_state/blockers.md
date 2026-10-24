@@ -1,22 +1,24 @@
 ---
 project: ProjectOS
 document_type: open_issues
-status: iteration_2_implementation_for_review
-date: 2026-10-19
+status: final_analysis_review
+date: 2026-10-24
 ---
 
-# Current limitations and review gates — Iteration 2
+# Current limitations and final review gates
 
-Updated 19 October 2026. The approved implementation brief records Round 1 as complete. The earlier preparation checklist below is retained as history, not a statement that P01 has yet to start.
+Updated 24 October 2026. Both research rounds are closed with four formal participants, n=2 per round. Round 2 consists of P03/P04; there is no P05. P00/P96 remain excluded. No further recruitment is planned and prototype feature development is frozen.
 
-- Clearer wording and Not applicable need participant evaluation; technical checks do not establish comprehension or reduced verification effort.
-- Retrieval can still surface historical, resolved or conditional records. Source visibility does not prove currentness, and missing evidence does not prove that an event never occurred.
-- Not applicable is separate from confirmation and rejection. Comparisons of review frequencies must account for the added action; do not reinterpret older responses or pool them silently.
-- Evidence opening and assistance remain manual observations. The system does not record a complete interaction log.
-- Consent, retention and external-service wording are unchanged. Check the applicable participant-facing materials before any further study activity; this implementation makes no new ethics claim.
-- Continue one supervised session at a time. Keep source packs and prepared summaries fixed, retain private records outside Git, and preserve corrections as user interpretations rather than source evidence.
+- The two rounds involve different participants and projects, and the response set changed. Round 2 projects were complete or largely complete. These cases do not establish a causal usability effect, statistical significance or generalisable performance.
+- Both Round 1 independent baselines are missing. One evidence-opening observation is not recorded, so no complete Round 1 opening rate is reported. One session's recorded date/time conflicts with saved event timestamps; its timing is excluded from public aggregates.
+- R1-R7 are custom exploratory ratings. R6 is negative-direction and P03's interpretation is ambiguous. No composite or inferential analysis is supported.
+- Assistance and some follow-up reasons remain uncertain. Manual evidence-opening observations are not complete interaction logs and do not establish thorough verification.
+- Semantic relevance does not establish current project state. Distinguish genuine corpus absence, missed existing evidence, historical non-applicability and an appropriate-looking output after incomplete retrieval.
+- Saved review events lack a durable link to the exact viewed summary snapshot. Current caches are corroborating records, not proof of every past display.
+- Final analysis review, thesis integration, final validation and submission preparation remain. Missing-document guidance is future work and will not be implemented in the frozen prototype.
+- Existing consent, storage and withdrawal obligations remain unchanged. Study closure does not certify final document issuance, deletion completion or a new ethics approval. Preserve private records and reconcile administrative evidence separately.
 
-See [Iteration 2 validation](../../outputs/test_results/iteration_2_usability_validation.md). The retrieval freeze and non-goals in [TD-003](../decisions/technical_decisions/td_003_freeze_automatic_project_state_inference.md) remain in force.
+See the [final descriptive Round 2 findings](../feedback/user_testing/iteration_2/round_2_final_findings.md), [cross-iteration comparison](../feedback/user_testing/iteration_2/cross_iteration_findings.md) and historical [Iteration 2 validation](../../outputs/test_results/iteration_2_usability_validation.md). Earlier preparation gates below are retained as dated history, not instructions to reopen recruitment.
 
 ## Historical Round 1 preparation record — 8–9 October 2026
 

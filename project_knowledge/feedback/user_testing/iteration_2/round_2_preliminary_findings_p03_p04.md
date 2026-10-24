@@ -1,3 +1,5 @@
+**Historical preliminary record.** This file records the preliminary state after the two sessions. Round 2 is now complete. The [final descriptive findings](round_2_final_findings.md) supersede its preliminary status; the historical body below is unchanged.
+
 # Round 2 preliminary findings: P03 and P04
 
 **Preliminary findings from two Round 2 sessions — not final Round 2 results**

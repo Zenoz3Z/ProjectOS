@@ -41,3 +41,7 @@ Further Round 2 evidence is required before drawing stronger conclusions.
 
 - [De-identified preliminary findings](../../feedback/user_testing/iteration_2/round_2_preliminary_findings_p03_p04.md).
 - Anonymised record types: researcher-supplied session observations and existing formal review actions. Detailed participant data remains in private storage.
+
+## Round 2 closure
+
+Round 2 closed with P03 and P04; no P05 will be recruited. Results remain small-sample and descriptive. Prototype development is frozen. The next step is thesis integration and final validation, alongside final analysis review and submission preparation. Detailed participant records remain private.

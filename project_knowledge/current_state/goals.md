@@ -1,19 +1,21 @@
 ---
 project: ProjectOS
 document_type: current_goals
-status: iteration_2_implementation_for_review
-date: 2026-10-19
+status: study_complete_analysis_for_review
+date: 2026-10-24
 ---
 
-# Current goals — Iteration 2
+# Current goals — final analysis and submission
 
-Updated 19 October 2026. Round 1 is complete according to the approved implementation brief. The current aim is to improve the clarity of project re-entry review while keeping automatic retrieval expansion frozen.
+Updated 24 October 2026. Round 1 and Round 2 are complete. The actual formal sample is four: P01/P02 in Round 1 and P03/P04 in Round 2, n=2 per round. P00 is an excluded informal pilot and P96 an excluded researcher self-test. There is no P05 and no further participant recruitment is planned.
 
 The research question remains: “How do source visibility and user correction help creative practitioners assess an AI-generated reconstruction of a long-term project during project re-entry?”
 
-The refinement introduces clearer participant wording for sections 3 and 6, a distinct Not applicable response, proportionate evidence guidance and a concise four-action tutorial. It does not establish reconstruction accuracy or demonstrate a participant benefit. See [TD-004](../decisions/technical_decisions/td_004_iteration_2_review_semantics.md) and the [design rationale](../decisions/design_decisions/dd_005_round_1_usability_refinements.md).
+Prototype feature development is frozen. The remaining work is final analysis review, thesis integration, final validation and submission preparation. The [Round 2 final findings](../feedback/user_testing/iteration_2/round_2_final_findings.md) and [cross-iteration comparison](../feedback/user_testing/iteration_2/cross_iteration_findings.md) are descriptive, exploratory accounts, not evidence of statistical significance, causal improvement or objective reconstruction accuracy.
 
-Keep the frozen Round 1 v1 ratings, project isolation, prepared summaries and review history intact. Existing report drafts remain working drafts until Iteration 2 evaluation and comparative analysis are complete. P00 and P96 remain outside the formal sample.
+Source visibility, correctability and explicit absence remain the focus. Both Round 2 projects were described as complete or largely complete; source opening was limited. Retain the missing Round 1 baselines, incomplete opening observation, timing conflict and R6 interpretation uncertainty in the final account.
+
+Preserve the frozen R1-R7 wording, source packs, caches, review events and historical documents. The three thesis drafts remain unchanged in this update and require later reviewed integration. Missing-document guidance, automatic temporal reasoning and retrieval extensions are future work, not scheduled prototype changes. See [TD-003](../decisions/technical_decisions/td_003_freeze_automatic_project_state_inference.md), [TD-004](../decisions/technical_decisions/td_004_iteration_2_review_semantics.md), [limitations](blockers.md) and [next steps](next_steps.md).
 
 ## Historical Round 1 preparation record — 8–9 October 2026
 
