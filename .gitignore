@@ -82,6 +82,11 @@ interview_transcripts/
 !/project_knowledge/feedback/user_testing/iteration_1/round_1_templates/analysis_codebook_v0.md
 !/project_knowledge/feedback/user_testing/iteration_1/round_1_templates/cross_participant_matrix_template.csv
 
+# Only this de-identified Round 2 summary is public; other study outputs stay private.
+!/project_knowledge/feedback/user_testing/iteration_2/
+/project_knowledge/feedback/user_testing/iteration_2/*
+!/project_knowledge/feedback/user_testing/iteration_2/round_2_preliminary_findings_p03_p04.md
+
 # Screenshots are private by default; only this inspected demo is public.
 /outputs/screenshots/*
 !/outputs/screenshots/day_04_corrected_reentry_brief.png.png
