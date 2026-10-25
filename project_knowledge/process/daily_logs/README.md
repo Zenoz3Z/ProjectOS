@@ -1,6 +1,6 @@
 # ProjectOS daily logs
 
-This directory combines preserved historical logs with a retrospective development record reconstructed on 24 October 2026 from existing project evidence. The new entries are not contemporaneous diaries and must not be treated as minute-by-minute accounts.
+This directory combines preserved historical logs with a retrospective development record reconstructed on 24 October 2026 from existing project evidence, followed by separately dated session and implementation records. The retrospective entries are not contemporaneous diaries and must not be treated as minute-by-minute accounts.
 
 Only dates supported by reliable evidence receive new logs. Git commit dates and actual diffs, explicitly dated technical reports, research records and saved-event timestamps provide the evidence. A commit date establishes a versioned checkpoint, not necessarily the date each feature was first built. File modification times are not used to establish work dates.
 
@@ -10,6 +10,7 @@ Participant source material, raw responses, corrections, private caches, identif
 
 - **13 new public logs** were added. All **8 pre-existing logs** remain unchanged, including their filenames and original wording.
 - The separately added 24 October session log is not part of that initial 13-log backfill. It records two completed Round 2 sessions; the earlier preparation entries retain their historical scope.
+- The 25 October Iteration 3 entry records the final design response and its technical-validation limits. It is separate from the retrospective backfill and does not record a third participant study.
 - **explicit** means the date is stated in a primary dated document or Git commit. It does not certify every historic claim as objectively correct.
 - **reconstructed** means a narrowly bounded activity was reconstructed from timestamps or associated evidence. It is not a guessed calendar day.
 - The entries for Day 7 and Day 8 both retain **1 October 2026**. Their day numbers do not justify changing either date or adding another workday.
@@ -41,6 +42,7 @@ Participant source material, raw responses, corrections, private caches, identif
 | 2026-10-19 | [2026-10-19_iteration_2_usability.md](2026-10-19_iteration_2_usability.md) | Iteration 2 review wording, Not applicable and tutorial refinement | New retrospective log | 8bee874 diff; DD-005/TD-004 and validation report | explicit |
 | 2026-10-23 | [2026-10-23_round_2_preparation_checks.md](2026-10-23_round_2_preparation_checks.md) | P03/P04 material confirmation and P03 retrieval diagnosis | New retrospective log | Dated confirmation records and P03 diagnostic report | explicit |
 | 2026-10-24 | [2026-10-24_round_2_p03_p04_sessions.md](2026-10-24_round_2_p03_p04_sessions.md) | Two Round 2 sessions and preliminary observations | Session record; added after backfill | Researcher-supplied session notes and matching saved formal review actions | explicit |
+| 2026-10-25 | [2026-10-25_iteration_3_evidence_guidance.md](2026-10-25_iteration_3_evidence_guidance.md) | Final evidence guidance and review semantics; technical validation limits | Implementation record; added after backfill | Local implementation diff, researcher-reported local pytest result and recorded Codex validation checks | explicit |
 
 ## Undated existing log and earlier context
 

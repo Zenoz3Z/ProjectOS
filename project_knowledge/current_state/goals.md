@@ -1,21 +1,21 @@
 ---
 project: ProjectOS
 document_type: current_goals
-status: study_complete_analysis_for_review
-date: 2026-10-24
+status: iteration_3_final_design_response
+date: 2026-10-25
 ---
 
-# Current goals — final analysis and submission
+# Current goals — final design response and submission
 
-Updated 24 October 2026. Round 1 and Round 2 are complete. The actual formal sample is four: P01/P02 in Round 1 and P03/P04 in Round 2, n=2 per round. P00 is an excluded informal pilot and P96 an excluded researcher self-test. There is no P05 and no further participant recruitment is planned.
+Updated 25 October 2026. Round 1 and Round 2 are complete with four formal participants, n=2 per round. P00 and P96 are excluded; there is no P05 and no further recruitment is planned. Iteration 3 is the final prototype design response, not a third participant study.
 
 The research question remains: “How do source visibility and user correction help creative practitioners assess an AI-generated reconstruction of a long-term project during project re-entry?”
 
-Prototype feature development is frozen. The remaining work is final analysis review, thesis integration, final validation and submission preparation. The [Round 2 final findings](../feedback/user_testing/iteration_2/round_2_final_findings.md) and [cross-iteration comparison](../feedback/user_testing/iteration_2/cross_iteration_findings.md) are descriptive, exploratory accounts, not evidence of statistical significance, causal improvement or objective reconstruction accuracy.
+[DD-006](../decisions/design_decisions/dd_006_iteration_3_actionable_evidence_absence.md) responds to the [Round 2 findings](../feedback/user_testing/iteration_2/round_2_final_findings.md) with conditional evidence guidance, clearer review definitions and an optional source-checking reminder. These changes have not been evaluated with new participants. Their implementation does not establish better comprehension, verification or reconstruction accuracy.
 
-Source visibility, correctability and explicit absence remain the focus. Both Round 2 projects were described as complete or largely complete; source opening was limited. Retain the missing Round 1 baselines, incomplete opening observation, timing conflict and R6 interpretation uncertainty in the final account.
+Feature development is frozen after this final design response. Remaining work is reviewed thesis integration, portfolio preparation, final validation and submission preparation. The researcher reported a local full-suite result of **129 passed in 145.16s**; the Codex synthetic browser attempt was blocked during runtime startup and is not a browser pass. See the [validation report](../../outputs/test_results/iteration_3_evidence_guidance_validation.md), [limitations](blockers.md) and [next steps](next_steps.md).
 
-Preserve the frozen R1-R7 wording, source packs, caches, review events and historical documents. The three thesis drafts remain unchanged in this update and require later reviewed integration. Missing-document guidance, automatic temporal reasoning and retrieval extensions are future work, not scheduled prototype changes. See [TD-003](../decisions/technical_decisions/td_003_freeze_automatic_project_state_inference.md), [TD-004](../decisions/technical_decisions/td_004_iteration_2_review_semantics.md), [limitations](blockers.md) and [next steps](next_steps.md).
+Preserve the frozen R1-R7 wording, source packs, caches, append-only reviews, research findings and three existing thesis drafts. Automatic temporal reasoning, retrieval extensions, uploads and deployment remain outside this iteration. Conditional document-type suggestions do not diagnose why evidence is insufficient.
 
 ## Historical Round 1 preparation record — 8–9 October 2026
 

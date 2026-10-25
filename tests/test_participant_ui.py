@@ -150,7 +150,7 @@ def test_insufficient_summary_is_reviewable_without_error_and_details_are_hidden
     for _ in range(3):
         click(at, "Next")
     assert not at.error
-    assert "ProjectOS could not find enough clear evidence to summarise this section." in [m.value for m in at.markdown]
+    assert "ProjectOS could not establish this section from the evidence it selected. The information may be absent, outdated, or not retrieved." in [m.value for m in at.markdown]
     assert not at.toggle
     assert not at.code
     response(at).set_value("Reject").run()
@@ -439,7 +439,7 @@ def test_not_applicable_full_flow_refresh_isolation_and_cache_reuse(ui):
     sections_before, _, identity_before = read_prepared_project(context)
     start(at)
     for index, definition in enumerate(SECTION_DEFINITIONS):
-        assert response(at).options == ["Confirm", "Update", "Not applicable", "Reject"]
+        assert response(at).options == ["Confirm", "Update", "Reject", "Not applicable"]
         assert app.EVIDENCE_GUIDANCE in [c.value for c in at.caption]
         if index == 2:
             assert at.title[0].value == "Current direction and replaced ideas"

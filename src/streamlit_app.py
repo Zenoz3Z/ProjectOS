@@ -30,12 +30,15 @@ from study_project_manager import validate_project
 from participant_flow import (
     DOCUMENTED_NEXT_STEP_GUIDANCE,
     EVIDENCE_GUIDANCE,
+    OPTIONAL_EVIDENCE_REMINDER,
     PARTICIPANT_ACTIONS,
+    PARTICIPANT_ACTION_CLARIFICATION,
     PARTICIPANT_ACTION_GUIDANCE,
     PARTICIPANT_QUESTIONS,
     PARTICIPANT_TITLES,
     REVIEWED_STATUSES,
     has_completed_reviews,
+    insufficient_evidence_guidance,
     latest_review_values,
     next_unreviewed_index,
     review_progress,
@@ -1304,9 +1307,9 @@ def render_participant_summary(section, result) -> bool:
         st.markdown("#### What ProjectOS found")
         if result is not None:
             if result.support_status == "insufficient":
-                st.write(
-                    "ProjectOS could not find enough clear evidence to summarise this section."
-                )
+                explanation, guidance = insufficient_evidence_guidance(section.section_id, result.support_status)
+                st.markdown(explanation)
+                st.caption(guidance)
             else:
                 st.write(result.summary)
                 if result.support_status == "conflicting":
@@ -1448,6 +1451,8 @@ def render_participant_review(section, sections, stored_data: dict,
 
     st.markdown("#### How does this summary fit your project?")
     st.caption(PARTICIPANT_ACTION_GUIDANCE)
+    st.caption(PARTICIPANT_ACTION_CLARIFICATION)
+    st.caption(OPTIONAL_EVIDENCE_REMINDER)
     selected = st.radio(
         "Choose your response", tuple(PARTICIPANT_ACTIONS), index=None,
         label_visibility="collapsed", key=f"{prefix}_action",
@@ -1620,10 +1625,12 @@ def render_tutorial() -> None:
     render_participant_evidence(section, {"project_role": "tutorial"})
     st.subheader("3. Try a response")
     st.markdown(PARTICIPANT_ACTION_GUIDANCE)
+    st.caption(PARTICIPANT_ACTION_CLARIFICATION)
     st.caption(
         "Missing evidence can be a valid result; it does not prove that nothing happened. "
         "Your update records your interpretation separately and does not rewrite the original source evidence."
     )
+    st.caption(OPTIONAL_EVIDENCE_REMINDER)
     choice = st.radio(
         "How does this summary fit the project?", tuple(PARTICIPANT_ACTIONS), index=None,
         key="participant_ui_tutorial_action", persist_state="session",

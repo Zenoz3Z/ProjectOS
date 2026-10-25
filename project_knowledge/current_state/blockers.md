@@ -1,24 +1,25 @@
 ---
 project: ProjectOS
 document_type: open_issues
-status: final_analysis_review
-date: 2026-10-24
+status: iteration_3_validation_and_review
+date: 2026-10-25
 ---
 
 # Current limitations and final review gates
 
-Updated 24 October 2026. Both research rounds are closed with four formal participants, n=2 per round. Round 2 consists of P03/P04; there is no P05. P00/P96 remain excluded. No further recruitment is planned and prototype feature development is frozen.
+Updated 25 October 2026. Both participant rounds are closed with four formal participants, n=2 per round. P00/P96 remain excluded, there is no P05 and no further recruitment is planned.
 
-- The two rounds involve different participants and projects, and the response set changed. Round 2 projects were complete or largely complete. These cases do not establish a causal usability effect, statistical significance or generalisable performance.
-- Both Round 1 independent baselines are missing. One evidence-opening observation is not recorded, so no complete Round 1 opening rate is reported. One session's recorded date/time conflicts with saved event timestamps; its timing is excluded from public aggregates.
-- R1-R7 are custom exploratory ratings. R6 is negative-direction and P03's interpretation is ambiguous. No composite or inferential analysis is supported.
-- Assistance and some follow-up reasons remain uncertain. Manual evidence-opening observations are not complete interaction logs and do not establish thorough verification.
-- Semantic relevance does not establish current project state. Distinguish genuine corpus absence, missed existing evidence, historical non-applicability and an appropriate-looking output after incomplete retrieval.
-- Saved review events lack a durable link to the exact viewed summary snapshot. Current caches are corroborating records, not proof of every past display.
-- Final analysis review, thesis integration, final validation and submission preparation remain. Missing-document guidance is future work and will not be implemented in the frozen prototype.
-- Existing consent, storage and withdrawal obligations remain unchanged. Study closure does not certify final document issuance, deletion completion or a new ethics approval. Preserve private records and reconcile administrative evidence separately.
+- Iteration 3 is a final design response to the completed study, not participant-validated improvement. Technical checks and synthetic browser use cannot establish comprehension or greater evidence checking.
+- The researcher reported **129 passed in 145.16s** in the local environment after restarting Windows. The Codex synthetic browser attempt remained blocked at asyncio/socketpair during Streamlit startup; its interaction checklist remains unverified in this attempt. This is an isolated-environment limitation, not an observed product assertion failure.
+- Insufficient summary support cannot identify whether records are absent, outdated or missed. The new static guidance suggests types to check; it neither diagnoses missing files nor changes retrieval.
+- Confirm remains a user's assessment, not independently verified truth. Not applicable describes current relevance, while Reject concerns misleading or unsupported reconstruction. Wording alone cannot guarantee consistent interpretation.
+- The rounds used different participants, projects and response sets. Round 2 projects were complete or largely complete. No causal effect or generalisable accuracy is established.
+- Round 1 lacks independent baselines and one opening observation. One session's timing conflicts with saved timestamps. P03 R6 remains ambiguous; no composite or inferential analysis is supported.
+- Evidence opening and assistance are manually observed, not complete interaction logs. Saved reviews lack a durable link to exact viewed-summary snapshots.
+- Feature development is frozen after this final design response. Remaining work is thesis integration, portfolio preparation, final validation and submission preparation; automatic retrieval expansion and temporal reasoning remain out of scope.
+- Existing consent, storage and withdrawal obligations remain unchanged. Study closure does not establish document issuance, deletion completion or new ethics approval.
 
-See the [final descriptive Round 2 findings](../feedback/user_testing/iteration_2/round_2_final_findings.md), [cross-iteration comparison](../feedback/user_testing/iteration_2/cross_iteration_findings.md) and historical [Iteration 2 validation](../../outputs/test_results/iteration_2_usability_validation.md). Earlier preparation gates below are retained as dated history, not instructions to reopen recruitment.
+See [DD-006](../decisions/design_decisions/dd_006_iteration_3_actionable_evidence_absence.md), [Iteration 3 validation](../../outputs/test_results/iteration_3_evidence_guidance_validation.md) and the preserved [cross-iteration findings](../feedback/user_testing/iteration_2/cross_iteration_findings.md). Earlier preparation gates below remain dated history.
 
 ## Historical Round 1 preparation record — 8–9 October 2026
 

@@ -1,20 +1,20 @@
 ---
 project: ProjectOS
 document_type: next_steps
-status: final_analysis_and_submission
-date: 2026-10-24
+status: iteration_3_review_and_submission
+date: 2026-10-25
 ---
 
-# Current next steps — analysis, thesis and submission
+# Current next steps — final prototype review and submission
 
-Updated 24 October 2026. Round 1 and Round 2 are complete with four formal participants: P01/P02 and P03/P04. There is no P05, no further recruitment is planned, and prototype feature development is frozen.
+Updated 25 October 2026. The participant study is complete with P01/P02 and P03/P04, four formal participants. There is no P05, no third participant round and no further recruitment.
 
-1. **Review the final analysis.** Check the [Round 2 findings](../feedback/user_testing/iteration_2/round_2_final_findings.md) and [cross-iteration comparison](../feedback/user_testing/iteration_2/cross_iteration_findings.md) against the private evidence matrix. Retain missing observations, timing conflicts and rating ambiguity. Do not resolve them by inference or present causal effects.
-2. **Integrate the reviewed evidence into the thesis.** Use the achieved four-person sample, version-specific action sets, descriptive item ranges and bounded themes. Keep P00/P96 excluded. The existing three thesis drafts have not been edited by this documentation update.
-3. **Complete final technical and document validation.** Check the frozen implementation, links, privacy exclusions and deliverables without changing participant sources, cached outputs or saved reviews. Historical engineering test results do not substitute for the final validation run or prove user benefit.
-4. **Prepare submission.** Reconcile Method, Findings, Discussion, limitations and supporting materials; verify that only de-identified approved outputs are included. Continue the existing consent/retention obligations without treating study closure as proof of compliance.
+1. **Review the final design response.** Inspect [DD-006](../decisions/design_decisions/dd_006_iteration_3_actionable_evidence_absence.md) and the [technical validation report](../../outputs/test_results/iteration_3_evidence_guidance_validation.md). Iteration 3 adds conditional evidence guidance, consistent action definitions and an optional evidence reminder. No new participant validation is claimed.
+2. **Maintain the feature freeze.** Keep retrieval, prompts, cache fingerprints, schemas, project isolation and participant records fixed. No further features, source-pack changes or summary regeneration are planned.
+3. **Integrate reviewed evidence into the thesis.** Distinguish completed Round 1/Round 2 findings from the later, untested design response. Preserve n=2 per round, rating and timing ambiguities and missing observations. The three existing thesis drafts remain unchanged in this implementation task.
+4. **Prepare the portfolio and final submission.** Review implementation evidence, documentation links, privacy exclusions and deliverables. Preserve the distinction between the researcher-reported local test pass and the browser attempt blocked by the Codex runtime; any later manual interface check needs its own record. Continue consent/retention obligations without inferring compliance from study closure.
 
-Missing-document guidance, retrieval expansion, automatic temporal reasoning and generated recommendations remain future work. No feature implementation or new participant collection is scheduled. Keep frozen R1-R7 wording and historical records intact.
+The [Round 2 findings](../feedback/user_testing/iteration_2/round_2_final_findings.md) and [cross-iteration comparison](../feedback/user_testing/iteration_2/cross_iteration_findings.md) remain historical study evidence, not an evaluation of Iteration 3. R1-R7 remain frozen. Automatic temporal reasoning, new retrieval algorithms, self-service upload and public deployment remain out of scope.
 
 ## Historical Round 1 preparation record — 8–9 October 2026
 

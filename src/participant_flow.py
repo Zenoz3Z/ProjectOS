@@ -6,16 +6,70 @@ from brief_schema import SECTION_DEFINITIONS
 PARTICIPANT_ACTIONS = {
     "Confirm": "confirm",
     "Update": "correct",
-    "Not applicable": "not_applicable",
     "Reject": "reject",
+    "Not applicable": "not_applicable",
 }
 
-PARTICIPANT_ACTION_GUIDANCE = (
-    "**Confirm** — This matches my current understanding.\n\n"
-    "**Update** — This is partly useful but needs correction or additional information.\n\n"
-    "**Not applicable** — There are no relevant records, or this section does not apply to my project.\n\n"
-    "**Reject** — This reconstruction is misleading or incorrect."
+PARTICIPANT_ACTION_DEFINITIONS = {
+    "Confirm": "The reconstruction accurately represents the project.",
+    "Update": "The reconstruction needs a corrected current interpretation.",
+    "Reject": "The reconstruction is misleading or unsupported.",
+    "Not applicable": "This section does not apply to the project’s current state.",
+}
+
+PARTICIPANT_ACTION_GUIDANCE = "\n\n".join(
+    f"**{label}** — {definition}"
+    for label, definition in PARTICIPANT_ACTION_DEFINITIONS.items()
 )
+
+PARTICIPANT_ACTION_CLARIFICATION = (
+    "Confirm means you have assessed the reconstruction, not simply left it unchecked. "
+    "Use Update when you can give a more accurate current interpretation. "
+    "Reject covers incorrect, misleading or unsupported reconstructions; "
+    "Not applicable is not a synonym for a system error. Choose according to your own judgement."
+)
+
+OPTIONAL_EVIDENCE_REMINDER = (
+    "You may open the source evidence before deciding. This is optional."
+)
+
+INSUFFICIENT_EXPLANATION = (
+    "ProjectOS could not establish this section from the evidence it selected. "
+    "The information may be absent, outdated, or not retrieved."
+)
+
+SECTION_EVIDENCE_GUIDANCE = {
+    "current_intention": (
+        "You may want to check a recent project overview, current-goals note, or final project statement."
+    ),
+    "changes_and_reasons": (
+        "You may want to check a decision log or process record explaining what changed and why."
+    ),
+    "current_vs_superseded": (
+        "You may want to check a record that distinguishes the current direction from earlier or abandoned directions."
+    ),
+    "relevant_feedback": (
+        "You may want to check tutor feedback, user feedback, critique notes, or a record stating that no external feedback exists."
+    ),
+    "unresolved_tensions": (
+        "You may want to check current blockers, limitations, unresolved questions, or a final reflection."
+    ),
+    "possible_next_action": (
+        "You may want to check a current task list, next-step note, handover record, or a statement that the project is complete."
+    ),
+}
+
+GENERIC_EVIDENCE_GUIDANCE = (
+    "You may want to check a recent project record relevant to this section."
+)
+
+
+def insufficient_evidence_guidance(section_id: str, support_status: str | None) -> tuple[str, ...]:
+    """Presentation only: use the summary assessment, never infer a cause of absence."""
+    if support_status != "insufficient":
+        return ()
+    return INSUFFICIENT_EXPLANATION, SECTION_EVIDENCE_GUIDANCE.get(section_id, GENERIC_EVIDENCE_GUIDANCE)
+
 
 EVIDENCE_GUIDANCE = (
     "Check the supporting records when a summary seems surprising, outdated or incomplete. "
