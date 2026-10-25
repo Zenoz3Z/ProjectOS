@@ -1,0 +1,183 @@
+{
+  "version": "phase_1_gold_v1",
+  "date": "2026-10-25",
+  "status": "researcher_confirmed_frozen_gold",
+  "researcher_approved": true,
+  "checkpoint": "6e959e9554701e74355f31b4957db2529d47fb06",
+  "scope": "Public frozen annotations, documentation and synthetic sources; no private source content or performance results.",
+  "unchanged_public_sources": [
+    {
+      "path": "data/demo_projects/sample_echo_field/current_state/goals.md",
+      "sha256": "0aba8abc716496aff7a4b21546438d615170ebb709ddd89861557082d18ee764"
+    },
+    {
+      "path": "data/demo_projects/sample_echo_field/decisions/design_notes.md",
+      "sha256": "4e7f0b73c0ffedfef02a9edaaa5bb98eb7988f3a0d6090c46d4d7bca7fd24051"
+    },
+    {
+      "path": "data/demo_projects/sample_echo_field/feedback/tutor_feedback.md",
+      "sha256": "b8db06f869e8bbe8a0fbf80d919c04e7cd11eb7e075bd04775405760d102f61f"
+    },
+    {
+      "path": "data/demo_projects/sample_echo_field/process/project_log.md",
+      "sha256": "be0223b782b4233518d127e97f54d4b9a388d49daf174892dc51b1f060315c31"
+    }
+  ],
+  "unchanged_production_fingerprints": [
+    {
+      "path": "src/brief_schema.py",
+      "sha256": "270dcf17882514503fc0a6633457a5838e90cde2fbb00fd8882fed66da5a007f"
+    },
+    {
+      "path": "src/chunking.py",
+      "sha256": "a9612aac37e68876c51b1dce262247e6bfdf8008ccc303e20b36f8679b82128a"
+    },
+    {
+      "path": "src/document_loader.py",
+      "sha256": "332c1020edd63efbeb8308ae88a5cc8078415491a0e8533fbba7fbb9b8110ffa"
+    },
+    {
+      "path": "src/evaluate_retrieval.py",
+      "sha256": "0b3864a8dfb1a8487791298d47d08c754705b9291584bf25783152a1183b5e3c"
+    },
+    {
+      "path": "src/llm_summarizer.py",
+      "sha256": "d8bd86a6996fd10220133b321eb3173c967ab6d161dc8002ee63c7a2c02cefaf"
+    },
+    {
+      "path": "src/participant_flow.py",
+      "sha256": "d7668b0bc0569844d7a1823d34916b81fc1b7b5b168ddb9275b2cc0fd98f6e66"
+    },
+    {
+      "path": "src/project_context.py",
+      "sha256": "b1913205d9df4ea34690a8bb62d660c51d054fb93058ebdae74622479ac2b2ce"
+    },
+    {
+      "path": "src/reentry_brief.py",
+      "sha256": "a31486dc4aca2d2c3e8ae444b9c667abedab3c54832ef50d871bf9e9521a6be3"
+    },
+    {
+      "path": "src/retrieval.py",
+      "sha256": "d2e4985839f23b9cec875c65608f4e4d4a0bc076db77aec2ea373bc5fc700be8"
+    },
+    {
+      "path": "src/review_store.py",
+      "sha256": "f02447a88c496bd3e5276f63016606afed17e8d3c4b53a70f8741dc7c3901f2e"
+    },
+    {
+      "path": "src/streamlit_app.py",
+      "sha256": "2ae4c2667122d6ce8277c34a42da540f4c595e51ee0c1fa0f4ceffd125b61c05"
+    },
+    {
+      "path": "src/study_cache.py",
+      "sha256": "0eb7f5b303aa1fd7b51ec1074c1ee163f6e9437c1ae59917434ccd4f1590aef3"
+    },
+    {
+      "path": "src/study_project_manager.py",
+      "sha256": "e396973eb3f232f3b4f7ef8a40db9b0a31ef980dbd93d543117689f05816edde"
+    }
+  ],
+  "unchanged_legacy_regression": {
+    "path": "tests/evaluation_queries.json",
+    "sha256": "26eeb29b0fec07577505634ff2a7b83823db9ca8f2ff9ce8f431841a2c73e503"
+  },
+  "source_locator_convention": "UTF-8 text with universal LF newlines; zero-based end-exclusive Unicode character offsets; raw-byte source hashes.",
+  "previous_candidate": {
+    "version": "phase_1_candidate_v3",
+    "manifest_sha256": "3a30d9bcb5a66ff5ac74f9b274e785b368bb1208f27229e19cd64106b5a13252",
+    "reason": "Researcher confirmed all cases and specified the final RS-09 supported/unclear purpose interpretation before any baseline run."
+  },
+  "annotation_dimensions": [
+    "benchmark_tier",
+    "reference_state",
+    "as_of_record",
+    "eligible_record_ids",
+    "expected_support_status",
+    "section_applicability",
+    "temporal_status",
+    "evidence_role"
+  ],
+  "earlier_candidate_history": [
+    {
+      "version": "phase_1_candidate_v1",
+      "manifest_sha256": "a1b90c84178e795ef7854e4e82c0f9bc7d94df5d86d600fd33ea51f70c7815d9",
+      "reason": "Separate section applicability from evidence support; retain all annotations pending researcher review."
+    },
+    {
+      "version": "phase_1_candidate_v2",
+      "manifest_sha256": "6b89be4621d57a9a89b40509a4be9db6314e615112a06cf77ff3a8d419c96af3",
+      "reason": "Separate canonical primary cases from secondary diagnostics and specify reference anchors and record eligibility."
+    }
+  ],
+  "performance_results_present": false,
+  "reviewed_by": "Fuzhe Zhang",
+  "review_date": "2026-10-25",
+  "review_basis": "manual review of case summaries, evidence roles, applicability, temporal scope and ambiguity notes",
+  "freeze_rule": "Immutable after freeze. Any correction requires a new explicit version, full reason, preserved predecessor hashes and renewed prospective review; baseline outcomes must not trigger silent relabelling.",
+  "frozen_files": [
+    {
+      "path": "project_knowledge/process/experiments/temporal_state_retrieval/experiment_protocol.md",
+      "sha256": "3c2b1f564b50001ea6aaff262d65ac593cdc712fd3742e6a3780d6077cc053c6"
+    },
+    {
+      "path": "tests/fixtures/temporal_state_benchmark/benchmark.schema.json",
+      "sha256": "d9241d998a9a2eb39e61698f0188ffbe32b0c3bba1c02d911394fc293dee4f72"
+    },
+    {
+      "path": "tests/fixtures/temporal_state_benchmark/public_benchmark.json",
+      "sha256": "9aa5150990e9f8843cc9f484e5b06fcf68ccfb09d7377ce36d30b911c3294c69"
+    },
+    {
+      "path": "tests/fixtures/temporal_state_benchmark/README.md",
+      "sha256": "c6204ad64d369fb7aee39df481fe716370b9e17b1e60da56531cd96efc8174ef"
+    },
+    {
+      "path": "tests/fixtures/temporal_state_project/README.md",
+      "sha256": "fe63291284a83a3694947eb2ade91c46f149b04a67c87a42af7f8c8db1f37e79"
+    },
+    {
+      "path": "tests/fixtures/temporal_state_project/records/current_state/05_active_snapshot.md",
+      "sha256": "3705aa76e8b21748444a0e64e7d8d511c08519c5b4f80ba70a7b50c13bbdf049"
+    },
+    {
+      "path": "tests/fixtures/temporal_state_project/records/current_state/07_closure.md",
+      "sha256": "aae3431e9acf6e9597f7afcb49dea3be7268fe5e2a7c0f0c13c5c8f3920f505b"
+    },
+    {
+      "path": "tests/fixtures/temporal_state_project/records/decisions/02_revision.md",
+      "sha256": "ebba3f71a7415ba87b687b38cc3bc0c421c86c47fd9b04f0b4f0a7a4758e3120"
+    },
+    {
+      "path": "tests/fixtures/temporal_state_project/records/process/01_concept.md",
+      "sha256": "f113078b8cf823052b634528a2b658e860c3745c356fde0bdd430d74982aa052"
+    },
+    {
+      "path": "tests/fixtures/temporal_state_project/records/process/03_repairs.md",
+      "sha256": "02e7dcc7bf4f150403989941565211ed76cd22aad3ef1f9612e819f57d688d2f"
+    },
+    {
+      "path": "tests/fixtures/temporal_state_project/records/process/04_working_notes.md",
+      "sha256": "06f35a3e70efa5ddb3086bcf3c2fc4690e5d30ca29cd9b75a8ac256621ecd77b"
+    },
+    {
+      "path": "tests/fixtures/temporal_state_project/records/process/06_undated_note.md",
+      "sha256": "824e9aab65e16ff2496d6c06f4210f335605544801862fa0fc16fc7472962821"
+    }
+  ],
+  "private_gold_commitment": {
+    "label": "researcher_archive_gold",
+    "sha256": "0e29cb741db661d91662d2455fedada9e4f7f3f4b7c9d89ef1f43beefed0f122",
+    "hash_basis": "raw file bytes; content remains private"
+  },
+  "public_file_count": 13,
+  "frozen_population": {
+    "production": 12,
+    "diagnostic": 11
+  },
+  "self_digest": {
+    "path": "tests/fixtures/temporal_state_benchmark/freeze_manifest.json",
+    "hash_basis": "SHA-256 of UTF-8 canonical JSON: sorted keys, compact separators, ensure_ascii=false; omit only self_digest.sha256 before hashing.",
+    "sha256": "455065927d50f71bc995ced30157703c90668b67a384f3573390099307a685f9"
+  },
+  "public_line_ending_policy": "All thirteen public files are frozen with LF bytes. Verify raw Git blobs; if checkout converts line endings, compare after restoring LF without changing source wording. Local unchanged-source fingerprint entries retain their separately recorded raw-byte basis."
+}

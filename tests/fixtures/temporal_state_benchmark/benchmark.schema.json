@@ -1,0 +1,1021 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Frozen temporal-state benchmark annotations",
+  "description": "Researcher-confirmed annotation format, separate from production schemas. Review provenance is required; no new analytical dimension was added at freeze. Cross-reference, canonical wording, eligibility and leakage checks remain mandatory.",
+  "type": "object",
+  "properties": {
+    "benchmark_version": {
+      "const": "phase_1_gold_v1"
+    },
+    "created_date": {
+      "const": "2026-10-25"
+    },
+    "freeze_status": {
+      "const": "researcher_confirmed_frozen_gold"
+    },
+    "annotation_origin": {
+      "type": "string",
+      "minLength": 1
+    },
+    "review_status": {
+      "const": "researcher_confirmed"
+    },
+    "contexts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/context"
+      },
+      "minItems": 1
+    },
+    "passages": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/passage"
+      },
+      "minItems": 1
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/case"
+      },
+      "minItems": 1
+    },
+    "record_catalog": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/record"
+      },
+      "minItems": 1
+    },
+    "reviewed_by": {
+      "const": "Fuzhe Zhang"
+    },
+    "review_date": {
+      "const": "2026-10-25"
+    },
+    "review_basis": {
+      "const": "manual review of case summaries, evidence roles, applicability, temporal scope and ambiguity notes"
+    }
+  },
+  "required": [
+    "benchmark_version",
+    "created_date",
+    "freeze_status",
+    "annotation_origin",
+    "review_status",
+    "contexts",
+    "passages",
+    "cases",
+    "record_catalog",
+    "reviewed_by",
+    "review_date",
+    "review_basis"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "locator": {
+      "type": "object",
+      "properties": {
+        "start_char": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end_char": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "start_line": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "end_line": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "start_char",
+        "end_char",
+        "start_line",
+        "end_line"
+      ],
+      "additionalProperties": false
+    },
+    "context_span": {
+      "type": "object",
+      "properties": {
+        "start_char": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end_char": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "start_line": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "end_line": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "quote": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "start_char",
+        "end_char",
+        "start_line",
+        "end_line",
+        "quote"
+      ],
+      "additionalProperties": false
+    },
+    "context": {
+      "type": "object",
+      "properties": {
+        "context_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "project_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reference_point": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_root": {
+          "type": "string",
+          "pattern": "^(?![/\\\\])(?![A-Za-z]:)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "source": {
+                "type": "string",
+                "pattern": "^(?![/\\\\])(?![A-Za-z]:)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "record_id": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "source",
+              "sha256",
+              "record_id"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "review_status": {
+          "const": "researcher_confirmed"
+        },
+        "reference_state": {
+          "enum": [
+            "latest_project_state",
+            "historical_snapshot"
+          ]
+        },
+        "as_of_record": {
+          "type": "string",
+          "minLength": 1
+        },
+        "eligible_record_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "reference_note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "context_id",
+        "project_id",
+        "reference_point",
+        "source_root",
+        "sources",
+        "review_status",
+        "reference_state",
+        "as_of_record",
+        "eligible_record_ids",
+        "reference_note"
+      ],
+      "additionalProperties": false
+    },
+    "passage": {
+      "type": "object",
+      "properties": {
+        "passage_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "project_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "context_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source": {
+          "type": "string",
+          "pattern": "^(?![/\\\\])(?![A-Za-z]:)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+        },
+        "category": {
+          "enum": [
+            "current_state",
+            "decisions",
+            "process",
+            "feedback"
+          ]
+        },
+        "locator": {
+          "$ref": "#/$defs/locator"
+        },
+        "quote": {
+          "type": "string",
+          "minLength": 1
+        },
+        "temporal_status": {
+          "enum": [
+            "current",
+            "historical",
+            "superseded",
+            "completed",
+            "future_conditional",
+            "unknown"
+          ]
+        },
+        "evidence_role": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "current_intention",
+              "change",
+              "reason",
+              "current_direction",
+              "superseded_direction",
+              "feedback",
+              "unresolved_issue",
+              "next_action",
+              "contextual_only",
+              "closure_or_inapplicability"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true,
+          "description": "A conditional future possibility is never next_action. Completed status alone never implies closure_or_inapplicability."
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "context_spans": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/context_span"
+          },
+          "minItems": 0
+        },
+        "requires_pairing_in_cases": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "partner_passage_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "review_status": {
+          "const": "researcher_confirmed"
+        },
+        "inapplicability_case_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true,
+          "description": "Cases for which this passage directly proves scoped inapplicability; empty for all other passages."
+        },
+        "record_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "passage_id",
+        "project_id",
+        "context_id",
+        "source",
+        "category",
+        "locator",
+        "quote",
+        "temporal_status",
+        "evidence_role",
+        "rationale",
+        "context_spans",
+        "requires_pairing_in_cases",
+        "partner_passage_ids",
+        "review_status",
+        "inapplicability_case_ids",
+        "record_id"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "temporal_status": {
+                "const": "future_conditional"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "evidence_role": {
+                "not": {
+                  "contains": {
+                    "const": "next_action"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "evidence_role": {
+                "contains": {
+                  "const": "closure_or_inapplicability"
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "inapplicability_case_ids": {
+                "minItems": 1
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "inapplicability_case_ids": {
+                "maxItems": 0
+              }
+            }
+          }
+        }
+      ]
+    },
+    "case": {
+      "type": "object",
+      "properties": {
+        "case_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "project_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "context_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "section_id": {
+          "enum": [
+            "current_intention",
+            "changes_and_reasons",
+            "current_vs_superseded",
+            "relevant_feedback",
+            "unresolved_tensions",
+            "possible_next_action"
+          ]
+        },
+        "question": {
+          "type": "string",
+          "minLength": 1
+        },
+        "expected_support_status": {
+          "enum": [
+            "supported",
+            "insufficient"
+          ]
+        },
+        "required_evidence_roles": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "current_intention",
+              "change",
+              "reason",
+              "current_direction",
+              "superseded_direction",
+              "feedback",
+              "unresolved_issue",
+              "next_action",
+              "contextual_only",
+              "closure_or_inapplicability"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "acceptable_gold_passages": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "excluded_or_misleading_passages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "passage_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "passage_id",
+              "reason"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "expected_temporal_status": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "current",
+              "historical",
+              "superseded",
+              "completed",
+              "future_conditional",
+              "unknown"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "role_temporal_requirements": {
+          "type": "object",
+          "propertyNames": {
+            "enum": [
+              "current_intention",
+              "change",
+              "reason",
+              "current_direction",
+              "superseded_direction",
+              "feedback",
+              "unresolved_issue",
+              "next_action",
+              "contextual_only",
+              "closure_or_inapplicability"
+            ]
+          },
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "current",
+                "historical",
+                "superseded",
+                "completed",
+                "future_conditional",
+                "unknown"
+              ]
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "minProperties": 1
+        },
+        "acceptable_pair_sets": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 2,
+            "maxItems": 2,
+            "uniqueItems": true
+          },
+          "minItems": 0
+        },
+        "boundary_passages": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "required_context_passages": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "coverage_tags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "genuine_insufficient": {
+          "type": "boolean"
+        },
+        "review_status": {
+          "const": "researcher_confirmed"
+        },
+        "review_note": {
+          "type": "string",
+          "minLength": 1
+        },
+        "insufficiency_type": {
+          "enum": [
+            "no_current_commitment",
+            "no_external_feedback",
+            "unknown_ongoing_status",
+            "closed_project_non_applicability",
+            "missing_decision_and_reason",
+            "resolved_issue",
+            "not_applicable_to_supported_case"
+          ]
+        },
+        "current_claim_roles": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "current_intention",
+              "change",
+              "reason",
+              "current_direction",
+              "superseded_direction",
+              "feedback",
+              "unresolved_issue",
+              "next_action",
+              "contextual_only",
+              "closure_or_inapplicability"
+            ]
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "section_applicability": {
+          "enum": [
+            "applicable",
+            "not_applicable",
+            "unclear"
+          ],
+          "description": "Applicability of the scoped section question at the documented reference point, independent of support and retrieval success."
+        },
+        "applicability_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "applicability_rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "applicability_evidence_sets": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "uniqueItems": true,
+          "description": "Alternative complete sets of acceptable passages that establish the proposed applicable/not_applicable label. Empty for unclear; used only for evidence coverage, not automatic classification."
+        },
+        "reference_state": {
+          "enum": [
+            "latest_project_state",
+            "historical_snapshot"
+          ]
+        },
+        "as_of_record": {
+          "type": "string",
+          "minLength": 1
+        },
+        "eligible_record_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "benchmark_tier": {
+          "enum": [
+            "production",
+            "diagnostic"
+          ]
+        },
+        "candidate_v2_question": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "case_origin": {
+          "enum": [
+            "v2_diagnostic_retained",
+            "v2_case_canonicalised",
+            "new_canonical_case"
+          ]
+        },
+        "reviewed_by": {
+          "const": "Fuzhe Zhang"
+        },
+        "review_date": {
+          "const": "2026-10-25"
+        },
+        "review_basis": {
+          "const": "manual review of case summaries, evidence roles, applicability, temporal scope and ambiguity notes"
+        }
+      },
+      "required": [
+        "case_id",
+        "project_id",
+        "context_id",
+        "section_id",
+        "question",
+        "expected_support_status",
+        "required_evidence_roles",
+        "acceptable_gold_passages",
+        "excluded_or_misleading_passages",
+        "expected_temporal_status",
+        "role_temporal_requirements",
+        "acceptable_pair_sets",
+        "boundary_passages",
+        "required_context_passages",
+        "rationale",
+        "coverage_tags",
+        "genuine_insufficient",
+        "review_status",
+        "review_note",
+        "insufficiency_type",
+        "current_claim_roles",
+        "section_applicability",
+        "applicability_scope",
+        "applicability_rationale",
+        "applicability_evidence_sets",
+        "reference_state",
+        "as_of_record",
+        "eligible_record_ids",
+        "benchmark_tier",
+        "candidate_v2_question",
+        "case_origin",
+        "reviewed_by",
+        "review_date",
+        "review_basis"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "expected_support_status": {
+                "const": "insufficient"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "acceptable_gold_passages": {
+                "maxItems": 0
+              },
+              "genuine_insufficient": {
+                "const": true
+              },
+              "acceptable_pair_sets": {
+                "maxItems": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "expected_support_status": {
+                "const": "supported"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "acceptable_gold_passages": {
+                "minItems": 1
+              },
+              "genuine_insufficient": {
+                "const": false
+              },
+              "insufficiency_type": {
+                "const": "not_applicable_to_supported_case"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "section_applicability": {
+                "const": "not_applicable"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "expected_support_status": {
+                "const": "supported"
+              },
+              "required_evidence_roles": {
+                "contains": {
+                  "const": "closure_or_inapplicability"
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "section_applicability": {
+                "const": "unclear"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "applicability_evidence_sets": {
+                "maxItems": 0
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "applicability_evidence_sets": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "benchmark_tier": {
+                "const": "production"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "reference_state": {
+                "const": "latest_project_state"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "benchmark_tier": {
+                "const": "production"
+              },
+              "section_id": {
+                "const": "current_intention"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "question": {
+                "const": "What is the current aim or intended direction of this project?"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "benchmark_tier": {
+                "const": "production"
+              },
+              "section_id": {
+                "const": "changes_and_reasons"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "question": {
+                "const": "What important changes were made to the project, and why were they made?"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "benchmark_tier": {
+                "const": "production"
+              },
+              "section_id": {
+                "const": "current_vs_superseded"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "question": {
+                "const": "Which project directions are current, and which directions have been replaced or superseded?"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "benchmark_tier": {
+                "const": "production"
+              },
+              "section_id": {
+                "const": "relevant_feedback"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "question": {
+                "const": "What tutor or user feedback is relevant to the current project direction?"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "benchmark_tier": {
+                "const": "production"
+              },
+              "section_id": {
+                "const": "unresolved_tensions"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "question": {
+                "const": "What unresolved questions, tensions or limitations remain in the project?"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "benchmark_tier": {
+                "const": "production"
+              },
+              "section_id": {
+                "const": "possible_next_action"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "question": {
+                "const": "What is the next documented action or decision that should be addressed?"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "record": {
+      "type": "object",
+      "properties": {
+        "record_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "project_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source": {
+          "type": "string",
+          "pattern": "^(?![/\\\\])(?![A-Za-z]:)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+        },
+        "source_root": {
+          "type": "string",
+          "pattern": "^(?![/\\\\])(?![A-Za-z]:)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+        },
+        "record_sequence": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "record_date": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+            }
+          ]
+        },
+        "sequence_basis": {
+          "type": "string",
+          "minLength": 1
+        },
+        "historical_order_established": {
+          "type": "boolean"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "record_id",
+        "project_id",
+        "source",
+        "source_root",
+        "record_sequence",
+        "record_date",
+        "sequence_basis",
+        "historical_order_established",
+        "sha256"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,3315 @@
+{
+  "benchmark_version": "phase_1_gold_v1",
+  "created_date": "2026-10-25",
+  "freeze_status": "researcher_confirmed_frozen_gold",
+  "annotation_origin": "Assistant-prepared, source-read annotations manually reviewed and confirmed by researcher Fuzhe Zhang on 25 October 2026. This is not independent expert annotation; inter-rater agreement was not assessed.",
+  "review_status": "researcher_confirmed",
+  "contexts": [
+    {
+      "context_id": "echo_documented_snapshot",
+      "project_id": "sample_echo_field",
+      "reference_point": "Current-state authority is used as an explicit snapshot anchor. The undated records' publication chronology is unknown; the sequence is a declared manifest order, not a fabricated date. Researcher accepted this semantic latest-supplied-state anchor on 25 October 2026; actual creation dates and complete authoring chronology remain unproved.",
+      "source_root": "data/demo_projects/sample_echo_field",
+      "sources": [
+        {
+          "source": "decisions/design_notes.md",
+          "sha256": "4e7f0b73c0ffedfef02a9edaaa5bb98eb7988f3a0d6090c46d4d7bca7fd24051",
+          "record_id": "EF-R01"
+        },
+        {
+          "source": "feedback/tutor_feedback.md",
+          "sha256": "b8db06f869e8bbe8a0fbf80d919c04e7cd11eb7e075bd04775405760d102f61f",
+          "record_id": "EF-R02"
+        },
+        {
+          "source": "process/project_log.md",
+          "sha256": "be0223b782b4233518d127e97f54d4b9a388d49daf174892dc51b1f060315c31",
+          "record_id": "EF-R03"
+        },
+        {
+          "source": "current_state/goals.md",
+          "sha256": "0aba8abc716496aff7a4b21546438d615170ebb709ddd89861557082d18ee764",
+          "record_id": "EF-R04"
+        }
+      ],
+      "review_status": "researcher_confirmed",
+      "reference_state": "latest_project_state",
+      "as_of_record": "EF-R04",
+      "eligible_record_ids": [
+        "EF-R01",
+        "EF-R02",
+        "EF-R03",
+        "EF-R04"
+      ],
+      "reference_note": "Current-state authority is used as an explicit snapshot anchor. The undated records' publication chronology is unknown; the sequence is a declared manifest order, not a fabricated date. Researcher accepted this semantic latest-supplied-state anchor on 25 October 2026; actual creation dates and complete authoring chronology remain unproved."
+    },
+    {
+      "context_id": "signal_active",
+      "project_id": "signal_loom_synthetic",
+      "reference_point": "12 February 2026 cutoff. Only records 01-05 are available. The undated record 06 and later closure 07 are excluded.",
+      "source_root": "tests/fixtures/temporal_state_project/records",
+      "sources": [
+        {
+          "source": "process/01_concept.md",
+          "sha256": "f113078b8cf823052b634528a2b658e860c3745c356fde0bdd430d74982aa052",
+          "record_id": "SY-R01"
+        },
+        {
+          "source": "decisions/02_revision.md",
+          "sha256": "ebba3f71a7415ba87b687b38cc3bc0c421c86c47fd9b04f0b4f0a7a4758e3120",
+          "record_id": "SY-R02"
+        },
+        {
+          "source": "process/03_repairs.md",
+          "sha256": "02e7dcc7bf4f150403989941565211ed76cd22aad3ef1f9612e819f57d688d2f",
+          "record_id": "SY-R03"
+        },
+        {
+          "source": "process/04_working_notes.md",
+          "sha256": "06f35a3e70efa5ddb3086bcf3c2fc4690e5d30ca29cd9b75a8ac256621ecd77b",
+          "record_id": "SY-R04"
+        },
+        {
+          "source": "current_state/05_active_snapshot.md",
+          "sha256": "3705aa76e8b21748444a0e64e7d8d511c08519c5b4f80ba70a7b50c13bbdf049",
+          "record_id": "SY-R05"
+        }
+      ],
+      "review_status": "researcher_confirmed",
+      "reference_state": "historical_snapshot",
+      "as_of_record": "SY-R05",
+      "eligible_record_ids": [
+        "SY-R01",
+        "SY-R02",
+        "SY-R03",
+        "SY-R04",
+        "SY-R05"
+      ],
+      "reference_note": "12 February 2026 cutoff. Only records 01-05 are available. The undated record 06 and later closure 07 are excluded."
+    },
+    {
+      "context_id": "signal_closed",
+      "project_id": "signal_loom_synthetic",
+      "reference_point": "20 February 2026 closure snapshot includes all seven numbered records; the undated fragment acquires no invented date.",
+      "source_root": "tests/fixtures/temporal_state_project/records",
+      "sources": [
+        {
+          "source": "process/01_concept.md",
+          "sha256": "f113078b8cf823052b634528a2b658e860c3745c356fde0bdd430d74982aa052",
+          "record_id": "SY-R01"
+        },
+        {
+          "source": "decisions/02_revision.md",
+          "sha256": "ebba3f71a7415ba87b687b38cc3bc0c421c86c47fd9b04f0b4f0a7a4758e3120",
+          "record_id": "SY-R02"
+        },
+        {
+          "source": "process/03_repairs.md",
+          "sha256": "02e7dcc7bf4f150403989941565211ed76cd22aad3ef1f9612e819f57d688d2f",
+          "record_id": "SY-R03"
+        },
+        {
+          "source": "process/04_working_notes.md",
+          "sha256": "06f35a3e70efa5ddb3086bcf3c2fc4690e5d30ca29cd9b75a8ac256621ecd77b",
+          "record_id": "SY-R04"
+        },
+        {
+          "source": "current_state/05_active_snapshot.md",
+          "sha256": "3705aa76e8b21748444a0e64e7d8d511c08519c5b4f80ba70a7b50c13bbdf049",
+          "record_id": "SY-R05"
+        },
+        {
+          "source": "process/06_undated_note.md",
+          "sha256": "824e9aab65e16ff2496d6c06f4210f335605544801862fa0fc16fc7472962821",
+          "record_id": "SY-R06"
+        },
+        {
+          "source": "current_state/07_closure.md",
+          "sha256": "aae3431e9acf6e9597f7afcb49dea3be7268fe5e2a7c0f0c13c5c8f3920f505b",
+          "record_id": "SY-R07"
+        }
+      ],
+      "review_status": "researcher_confirmed",
+      "reference_state": "latest_project_state",
+      "as_of_record": "SY-R07",
+      "eligible_record_ids": [
+        "SY-R01",
+        "SY-R02",
+        "SY-R03",
+        "SY-R04",
+        "SY-R05",
+        "SY-R06",
+        "SY-R07"
+      ],
+      "reference_note": "20 February 2026 closure snapshot includes all seven numbered records; the undated fragment acquires no invented date."
+    }
+  ],
+  "passages": [
+    {
+      "passage_id": "EF-GOAL",
+      "project_id": "sample_echo_field",
+      "context_id": "echo_documented_snapshot",
+      "source": "current_state/goals.md",
+      "category": "current_state",
+      "locator": {
+        "start_char": 180,
+        "end_char": 315,
+        "start_line": 14,
+        "end_line": 14
+      },
+      "quote": "The current goal is to investigate how visual feedback driven by whole-body movement influences users’ sense of control and engagement.",
+      "temporal_status": "current",
+      "evidence_role": [
+        "current_intention"
+      ],
+      "rationale": "Explicit current goal in the undated current snapshot.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "EF-R04"
+    },
+    {
+      "passage_id": "EF-CONTROL",
+      "project_id": "sample_echo_field",
+      "context_id": "echo_documented_snapshot",
+      "source": "current_state/goals.md",
+      "category": "current_state",
+      "locator": {
+        "start_char": 341,
+        "end_char": 437,
+        "start_line": 18,
+        "end_line": 18
+      },
+      "quote": "The webcam detects changes across the full image rather than recognising specific hand gestures.",
+      "temporal_status": "current",
+      "evidence_role": [
+        "current_direction"
+      ],
+      "rationale": "Current interaction describes full-image movement, not hand recognition.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [
+        "EF-03",
+        "EF-07"
+      ],
+      "partner_passage_ids": [
+        "EF-OLD"
+      ],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "EF-R04"
+    },
+    {
+      "passage_id": "EF-OLD",
+      "project_id": "sample_echo_field",
+      "context_id": "echo_documented_snapshot",
+      "source": "current_state/goals.md",
+      "category": "current_state",
+      "locator": {
+        "start_char": 1525,
+        "end_char": 1693,
+        "start_line": 52,
+        "end_line": 52
+      },
+      "quote": "Hand-gesture recognition is no longer the current interaction method. It should only be discussed as an earlier experiment that informed the whole-body movement design.",
+      "temporal_status": "superseded",
+      "evidence_role": [
+        "superseded_direction"
+      ],
+      "rationale": "Explicit no-longer-current statement; the original experiment is retained as history.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [
+        "EF-03",
+        "EF-07"
+      ],
+      "partner_passage_ids": [
+        "EF-CONTROL",
+        "EF-FINAL"
+      ],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "EF-R04"
+    },
+    {
+      "passage_id": "EF-CHANGE",
+      "project_id": "sample_echo_field",
+      "context_id": "echo_documented_snapshot",
+      "source": "decisions/design_notes.md",
+      "category": "decisions",
+      "locator": {
+        "start_char": 1070,
+        "end_char": 1148,
+        "start_line": 30,
+        "end_line": 30
+      },
+      "quote": "The primary interaction was changed from hand gestures to whole-body movement.",
+      "temporal_status": "historical",
+      "evidence_role": [
+        "change"
+      ],
+      "rationale": "A recorded transition, not a new task.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "EF-R01"
+    },
+    {
+      "passage_id": "EF-REASON",
+      "project_id": "sample_echo_field",
+      "context_id": "echo_documented_snapshot",
+      "source": "decisions/design_notes.md",
+      "category": "decisions",
+      "locator": {
+        "start_char": 1343,
+        "end_char": 1592,
+        "start_line": 36,
+        "end_line": 36
+      },
+      "quote": "Whole-body movement was selected because it was more stable and easier for users to understand without learning a gesture vocabulary. It also allowed the installation to respond to different movement styles rather than requiring one correct gesture.",
+      "temporal_status": "historical",
+      "evidence_role": [
+        "reason"
+      ],
+      "rationale": "The source states why the change was selected.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "EF-R01"
+    },
+    {
+      "passage_id": "EF-FEEDBACK",
+      "project_id": "sample_echo_field",
+      "context_id": "echo_documented_snapshot",
+      "source": "feedback/tutor_feedback.md",
+      "category": "feedback",
+      "locator": {
+        "start_char": 308,
+        "end_char": 600,
+        "start_line": 18,
+        "end_line": 20
+      },
+      "quote": "The visual response should not rely only on changes in speed. Colour should also change with movement intensity so that users receive more than one form of visual feedback.\n\nA possible direction was to use blue for lower movement and shift towards green or yellow-green as movement increases.",
+      "temporal_status": "historical",
+      "evidence_role": [
+        "feedback"
+      ],
+      "rationale": "Attributed tutor advice at a rehearsal; subsequent implementation does not erase its attribution.",
+      "context_spans": [
+        {
+          "start_char": 130,
+          "end_char": 306,
+          "start_line": 10,
+          "end_line": 16,
+          "quote": "# Echo Field — Tutor Feedback\n\n## Context\n\nThis feedback was received after a rehearsal of the responsive visual installation.\n\n## Feedback point 1 — Connect colour to movement"
+        }
+      ],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "EF-R02"
+    },
+    {
+      "passage_id": "EF-RESPONSE",
+      "project_id": "sample_echo_field",
+      "context_id": "echo_documented_snapshot",
+      "source": "feedback/tutor_feedback.md",
+      "category": "feedback",
+      "locator": {
+        "start_char": 1299,
+        "end_char": 1461,
+        "start_line": 36,
+        "end_line": 38
+      },
+      "quote": "The colour system was connected to movement intensity.\n\nThe project documentation was revised to explain the transition from hand gestures to whole-body movement.",
+      "temporal_status": "completed",
+      "evidence_role": [
+        "contextual_only"
+      ],
+      "rationale": "Response actions are recorded as performed, not new instructions.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "EF-R02"
+    },
+    {
+      "passage_id": "EF-FUTURE",
+      "project_id": "sample_echo_field",
+      "context_id": "echo_documented_snapshot",
+      "source": "feedback/tutor_feedback.md",
+      "category": "feedback",
+      "locator": {
+        "start_char": 1463,
+        "end_char": 1589,
+        "start_line": 40,
+        "end_line": 40
+      },
+      "quote": "Multi-person interaction was retained as a possible future investigation rather than being added to the final prototype scope.",
+      "temporal_status": "future_conditional",
+      "evidence_role": [
+        "contextual_only"
+      ],
+      "rationale": "Multiple-person work was explicitly deferred, not committed.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "EF-R02"
+    },
+    {
+      "passage_id": "EF-BLOCKERS",
+      "project_id": "sample_echo_field",
+      "context_id": "echo_documented_snapshot",
+      "source": "current_state/goals.md",
+      "category": "current_state",
+      "locator": {
+        "start_char": 930,
+        "end_char": 1203,
+        "start_line": 38,
+        "end_line": 41
+      },
+      "quote": "* Slow movement does not always produce sufficiently clear feedback.\n* Sudden value changes can still occur under unstable lighting.\n* Long viewing sessions may cause visual fatigue.\n* The current system cannot distinguish between one participant and multiple participants.",
+      "temporal_status": "current",
+      "evidence_role": [
+        "unresolved_issue"
+      ],
+      "rationale": "Explicit current blockers, including issues that smoothing did not fully eliminate.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "EF-R04"
+    },
+    {
+      "passage_id": "EF-NEXT",
+      "project_id": "sample_echo_field",
+      "context_id": "echo_documented_snapshot",
+      "source": "current_state/goals.md",
+      "category": "current_state",
+      "locator": {
+        "start_char": 1220,
+        "end_char": 1290,
+        "start_line": 45,
+        "end_line": 45
+      },
+      "quote": "1. Test whether the low-movement visual state is sufficiently visible.",
+      "temporal_status": "current",
+      "evidence_role": [
+        "next_action"
+      ],
+      "rationale": "The complete first task is sufficient for the visibility-test question.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "EF-R04"
+    },
+    {
+      "passage_id": "EF-SCOPE-TASK",
+      "project_id": "sample_echo_field",
+      "context_id": "echo_documented_snapshot",
+      "source": "current_state/goals.md",
+      "category": "current_state",
+      "locator": {
+        "start_char": 1411,
+        "end_char": 1498,
+        "start_line": 48,
+        "end_line": 48
+      },
+      "quote": "4. Decide whether multi-person interaction belongs in the current scope or future work.",
+      "temporal_status": "current",
+      "evidence_role": [
+        "next_action"
+      ],
+      "rationale": "Deciding scope is not implementing a multi-person feature.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "EF-R04"
+    },
+    {
+      "passage_id": "EF-DONE",
+      "project_id": "sample_echo_field",
+      "context_id": "echo_documented_snapshot",
+      "source": "current_state/goals.md",
+      "category": "current_state",
+      "locator": {
+        "start_char": 594,
+        "end_char": 907,
+        "start_line": 29,
+        "end_line": 34
+      },
+      "quote": "* Webcam movement detection is functioning.\n* The raw movement value has been smoothed.\n* Extreme values have been clamped.\n* Colour changes have been linked to movement intensity.\n* The interface explains that overall body movement is being detected.\n* Informal testing has been completed with five participants.",
+      "temporal_status": "completed",
+      "evidence_role": [
+        "contextual_only"
+      ],
+      "rationale": "Completed implementation and demo testing cannot themselves establish an open task.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "EF-R04"
+    },
+    {
+      "passage_id": "EF-INITIAL",
+      "project_id": "sample_echo_field",
+      "context_id": "echo_documented_snapshot",
+      "source": "decisions/design_notes.md",
+      "category": "decisions",
+      "locator": {
+        "start_char": 520,
+        "end_char": 678,
+        "start_line": 20,
+        "end_line": 20
+      },
+      "quote": "The initial concept focused on hand gestures as the main interaction method. Hand movements were intended to provide precise control over the visual response.",
+      "temporal_status": "superseded",
+      "evidence_role": [
+        "superseded_direction"
+      ],
+      "rationale": "Its displaced status is corroborated by the explicit later current-status statements.",
+      "context_spans": [
+        {
+          "start_char": 1717,
+          "end_char": 1916,
+          "start_line": 40,
+          "end_line": 44,
+          "quote": "## Current status\n\nWhole-body movement remains the current interaction method.\n\nThe earlier hand-gesture approach is considered superseded and should not be presented as the current design direction."
+        }
+      ],
+      "requires_pairing_in_cases": [
+        "EF-07"
+      ],
+      "partner_passage_ids": [
+        "EF-FINAL"
+      ],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "EF-R01"
+    },
+    {
+      "passage_id": "EF-FINAL",
+      "project_id": "sample_echo_field",
+      "context_id": "echo_documented_snapshot",
+      "source": "decisions/design_notes.md",
+      "category": "decisions",
+      "locator": {
+        "start_char": 1736,
+        "end_char": 1795,
+        "start_line": 42,
+        "end_line": 42
+      },
+      "quote": "Whole-body movement remains the current interaction method.",
+      "temporal_status": "current",
+      "evidence_role": [
+        "current_direction"
+      ],
+      "rationale": "Explicit current method in the decisions record.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [
+        "EF-03",
+        "EF-07"
+      ],
+      "partner_passage_ids": [
+        "EF-OLD",
+        "EF-INITIAL"
+      ],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "EF-R01"
+    },
+    {
+      "passage_id": "EF-SLOW",
+      "project_id": "sample_echo_field",
+      "context_id": "echo_documented_snapshot",
+      "source": "process/project_log.md",
+      "category": "process",
+      "locator": {
+        "start_char": 1729,
+        "end_char": 1858,
+        "start_line": 49,
+        "end_line": 49
+      },
+      "quote": "It is still unclear whether the low-movement state provides enough feedback for users to recognise that the system is responding.",
+      "temporal_status": "current",
+      "evidence_role": [
+        "unresolved_issue"
+      ],
+      "rationale": "The remaining low-movement question is stated explicitly.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "EF-R03"
+    },
+    {
+      "passage_id": "SY-AIM",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_active",
+      "source": "current_state/05_active_snapshot.md",
+      "category": "current_state",
+      "locator": {
+        "start_char": 75,
+        "end_char": 190,
+        "start_line": 5,
+        "end_line": 5
+      },
+      "quote": "The current aim is to explore how sustained pressure can shape a slow visual ribbon in a small indoor installation.",
+      "temporal_status": "current",
+      "evidence_role": [
+        "current_intention"
+      ],
+      "rationale": "Explicit active aim at the selected snapshot.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "SY-R05"
+    },
+    {
+      "passage_id": "SY-PAD",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_active",
+      "source": "current_state/05_active_snapshot.md",
+      "category": "current_state",
+      "locator": {
+        "start_char": 213,
+        "end_char": 276,
+        "start_line": 8,
+        "end_line": 8
+      },
+      "quote": "The installation now uses a pressure pad and a fabric diffuser.",
+      "temporal_status": "current",
+      "evidence_role": [
+        "current_direction"
+      ],
+      "rationale": "The active configuration is stated directly.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [
+        "SY-05",
+        "SY-06"
+      ],
+      "partner_passage_ids": [
+        "SY-DIAL",
+        "SY-GLASS"
+      ],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "SY-R05"
+    },
+    {
+      "passage_id": "SY-DIAL",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_active",
+      "source": "decisions/02_revision.md",
+      "category": "decisions",
+      "locator": {
+        "start_char": 73,
+        "end_char": 227,
+        "start_line": 5,
+        "end_line": 5
+      },
+      "quote": "The rotary dial was replaced by a pressure pad as the main control. The dial is retained only in the experiment archive and is no longer the active input.",
+      "temporal_status": "superseded",
+      "evidence_role": [
+        "superseded_direction",
+        "change"
+      ],
+      "rationale": "The dial ceased to be the active input; its archive remains.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [
+        "SY-05"
+      ],
+      "partner_passage_ids": [
+        "SY-PAD"
+      ],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "SY-R02"
+    },
+    {
+      "passage_id": "SY-PAD-REASON",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_active",
+      "source": "decisions/02_revision.md",
+      "category": "decisions",
+      "locator": {
+        "start_char": 262,
+        "end_char": 384,
+        "start_line": 8,
+        "end_line": 8
+      },
+      "quote": "The pressure pad was selected because repeated dial movement caused abrupt jumps in the visual ribbon during bench trials.",
+      "temporal_status": "historical",
+      "evidence_role": [
+        "reason"
+      ],
+      "rationale": "The cause is stated in the decision record.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "SY-R02"
+    },
+    {
+      "passage_id": "SY-GLASS",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_active",
+      "source": "decisions/02_revision.md",
+      "category": "decisions",
+      "locator": {
+        "start_char": 404,
+        "end_char": 503,
+        "start_line": 11,
+        "end_line": 11
+      },
+      "quote": "The glass screen was replaced by a fabric diffuser. Glass is no longer part of the current display.",
+      "temporal_status": "superseded",
+      "evidence_role": [
+        "superseded_direction",
+        "change"
+      ],
+      "rationale": "Glass was explicitly removed from the current display.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [
+        "SY-06"
+      ],
+      "partner_passage_ids": [
+        "SY-PAD"
+      ],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "SY-R02"
+    },
+    {
+      "passage_id": "SY-SURFACE-REASON",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_active",
+      "source": "decisions/02_revision.md",
+      "category": "decisions",
+      "locator": {
+        "start_char": 538,
+        "end_char": 641,
+        "start_line": 14,
+        "end_line": 14
+      },
+      "quote": "The fabric diffuser was chosen to reduce the distracting reflections recorded in the first bench setup.",
+      "temporal_status": "historical",
+      "evidence_role": [
+        "reason"
+      ],
+      "rationale": "The decision explicitly addresses reflections.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "SY-R02"
+    },
+    {
+      "passage_id": "SY-INITIAL",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_active",
+      "source": "process/01_concept.md",
+      "category": "process",
+      "locator": {
+        "start_char": 72,
+        "end_char": 198,
+        "start_line": 5,
+        "end_line": 5
+      },
+      "quote": "The initial aim was a small installation where turning a rotary dial would make a projected ribbon follow the visitor's speed.",
+      "temporal_status": "historical",
+      "evidence_role": [
+        "current_intention"
+      ],
+      "rationale": "A former intention, not the active aim; role and temporal status are independent.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "SY-R01"
+    },
+    {
+      "passage_id": "SY-DRIFT",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_active",
+      "source": "current_state/05_active_snapshot.md",
+      "category": "current_state",
+      "locator": {
+        "start_char": 361,
+        "end_char": 465,
+        "start_line": 11,
+        "end_line": 11
+      },
+      "quote": "Pressure readings still drift during a long hold. This remains unresolved and needs a calibration check.",
+      "temporal_status": "current",
+      "evidence_role": [
+        "unresolved_issue"
+      ],
+      "rationale": "Explicitly still unresolved at the active snapshot.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "SY-R05"
+    },
+    {
+      "passage_id": "SY-TASK",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_active",
+      "source": "current_state/05_active_snapshot.md",
+      "category": "current_state",
+      "locator": {
+        "start_char": 492,
+        "end_char": 637,
+        "start_line": 14,
+        "end_line": 14
+      },
+      "quote": "The next agreed task is to run a ten-minute pressure-hold calibration on 13 February and record the drift. This task is pending at this snapshot.",
+      "temporal_status": "current",
+      "evidence_role": [
+        "next_action"
+      ],
+      "rationale": "Agreed task with date and pending status.",
+      "context_spans": [
+        {
+          "start_char": 0,
+          "end_char": 52,
+          "start_line": 1,
+          "end_line": 2,
+          "quote": "# Signal Loom active snapshot\nDate: 12 February 2026"
+        }
+      ],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "SY-R05"
+    },
+    {
+      "passage_id": "SY-REFLECTION",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_active",
+      "source": "process/04_working_notes.md",
+      "category": "process",
+      "locator": {
+        "start_char": 72,
+        "end_char": 225,
+        "start_line": 5,
+        "end_line": 5
+      },
+      "quote": "The fictional maker found the ribbon calmer after the control change. This is a self-reflection, not feedback from a tutor, visitor or external reviewer.",
+      "temporal_status": "historical",
+      "evidence_role": [
+        "contextual_only"
+      ],
+      "rationale": "Maker reflection explicitly excludes external feedback.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "SY-R04"
+    },
+    {
+      "passage_id": "SY-FUTURE",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_active",
+      "source": "process/04_working_notes.md",
+      "category": "process",
+      "locator": {
+        "start_char": 249,
+        "end_char": 414,
+        "start_line": 8,
+        "end_line": 8
+      },
+      "quote": "If the installation is reopened for an outdoor event, weather data could modulate the ribbon. No outdoor event is agreed, and this extension is not an assigned task.",
+      "temporal_status": "future_conditional",
+      "evidence_role": [
+        "contextual_only"
+      ],
+      "rationale": "Condition, absent agreement and no assigned task are explicit.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "SY-R04"
+    },
+    {
+      "passage_id": "SY-NO-FEEDBACK",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_active",
+      "source": "current_state/05_active_snapshot.md",
+      "category": "current_state",
+      "locator": {
+        "start_char": 664,
+        "end_char": 746,
+        "start_line": 17,
+        "end_line": 17
+      },
+      "quote": "No tutor, visitor or external reviewer feedback has been recorded in this archive.",
+      "temporal_status": "current",
+      "evidence_role": [
+        "closure_or_inapplicability"
+      ],
+      "rationale": "Direct negative-state evidence only for the cases listed in inapplicability_case_ids. The active record explicitly states that no external feedback is recorded in this archive. Inapplicability is limited to available recorded advice, not a claim that no conversation ever occurred.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [
+        "SY-07"
+      ],
+      "record_id": "SY-R05"
+    },
+    {
+      "passage_id": "SY-REPAIRED",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_active",
+      "source": "process/03_repairs.md",
+      "category": "process",
+      "locator": {
+        "start_char": 76,
+        "end_char": 380,
+        "start_line": 5,
+        "end_line": 8
+      },
+      "quote": "The reflection problem was resolved by installing the fabric diffuser. The visibility check passed; this repair is complete.\n\n## Completed timing repair\nA loose cable caused intermittent frame pauses during an early bench run. Replacing the cable resolved the pauses, and the repeated bench check passed.",
+      "temporal_status": "completed",
+      "evidence_role": [
+        "contextual_only"
+      ],
+      "rationale": "Both repairs are complete; neither is an active blocker.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "SY-R03"
+    },
+    {
+      "passage_id": "SY-UNKNOWN",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_closed",
+      "source": "process/06_undated_note.md",
+      "category": "process",
+      "locator": {
+        "start_char": 30,
+        "end_char": 220,
+        "start_line": 3,
+        "end_line": 5
+      },
+      "quote": "A margin note reads: amber ribbon?\n\nThe fragment has no date, author attribution, approval, explanation or link to an implemented change. It cannot establish a colour decision or its reason.",
+      "temporal_status": "unknown",
+      "evidence_role": [
+        "contextual_only"
+      ],
+      "rationale": "Undated fragment supplies neither an adopted change nor a reason.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "SY-R06"
+    },
+    {
+      "passage_id": "SY-CLOSED",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_closed",
+      "source": "current_state/07_closure.md",
+      "category": "current_state",
+      "locator": {
+        "start_char": 72,
+        "end_char": 180,
+        "start_line": 5,
+        "end_line": 5
+      },
+      "quote": "The installation is complete and archived. There is no active development intention and no agreed next task.",
+      "temporal_status": "completed",
+      "evidence_role": [
+        "closure_or_inapplicability"
+      ],
+      "rationale": "Direct negative-state evidence only for the cases listed in inapplicability_case_ids. The closure explicitly states that no active development intention remains; this is supported inapplicability, not absent evidence. Closure explicitly states there is no agreed next task. Optional reopening does not establish a current commitment.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [
+        "SY-02",
+        "SY-12"
+      ],
+      "record_id": "SY-R07"
+    },
+    {
+      "passage_id": "SY-CALIBRATED",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_closed",
+      "source": "current_state/07_closure.md",
+      "category": "current_state",
+      "locator": {
+        "start_char": 205,
+        "end_char": 405,
+        "start_line": 8,
+        "end_line": 8
+      },
+      "quote": "The pressure-hold calibration was performed on 13 February. Its adjustment resolved the drift, and the repeated hold check passed. The calibration task is completed and drift is not a current blocker.",
+      "temporal_status": "completed",
+      "evidence_role": [
+        "closure_or_inapplicability"
+      ],
+      "rationale": "Direct negative-state evidence only for the cases listed in inapplicability_case_ids. The final calibration explicitly resolved pressure drift. Inapplicability concerns this named blocker only, not every possible limitation.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [
+        "SY-10"
+      ],
+      "record_id": "SY-R07"
+    },
+    {
+      "passage_id": "SY-CLOSED-FUTURE",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_closed",
+      "source": "current_state/07_closure.md",
+      "category": "current_state",
+      "locator": {
+        "start_char": 577,
+        "end_char": 712,
+        "start_line": 14,
+        "end_line": 14
+      },
+      "quote": "An outdoor version using weather data remains only a conditional possibility if the project is reopened. Reopening has not been agreed.",
+      "temporal_status": "future_conditional",
+      "evidence_role": [
+        "contextual_only"
+      ],
+      "rationale": "Reopening is conditional and unagreed.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "SY-R07"
+    },
+    {
+      "passage_id": "SY-CLOSED-NO-FEEDBACK",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_closed",
+      "source": "current_state/07_closure.md",
+      "category": "current_state",
+      "locator": {
+        "start_char": 739,
+        "end_char": 816,
+        "start_line": 17,
+        "end_line": 17
+      },
+      "quote": "No tutor, visitor or external reviewer feedback was collected before closure.",
+      "temporal_status": "completed",
+      "evidence_role": [
+        "closure_or_inapplicability"
+      ],
+      "rationale": "Direct negative-state evidence only for the cases listed in inapplicability_case_ids. The closure explicitly states that no external feedback was collected before closure.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [
+        "SY-08"
+      ],
+      "record_id": "SY-R07"
+    },
+    {
+      "passage_id": "SY-STALE-AIM",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_closed",
+      "source": "current_state/05_active_snapshot.md",
+      "category": "current_state",
+      "locator": {
+        "start_char": 75,
+        "end_char": 190,
+        "start_line": 5,
+        "end_line": 5
+      },
+      "quote": "The current aim is to explore how sustained pressure can shape a slow visual ribbon in a small indoor installation.",
+      "temporal_status": "historical",
+      "evidence_role": [
+        "current_intention"
+      ],
+      "rationale": "The old aim remains in the corpus but is inactive after closure.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "SY-R05"
+    },
+    {
+      "passage_id": "SY-STALE-TASK",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_closed",
+      "source": "current_state/05_active_snapshot.md",
+      "category": "current_state",
+      "locator": {
+        "start_char": 492,
+        "end_char": 637,
+        "start_line": 14,
+        "end_line": 14
+      },
+      "quote": "The next agreed task is to run a ten-minute pressure-hold calibration on 13 February and record the drift. This task is pending at this snapshot.",
+      "temporal_status": "completed",
+      "evidence_role": [
+        "next_action"
+      ],
+      "rationale": "The later closure record establishes task completion.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "SY-R05"
+    },
+    {
+      "passage_id": "SY-STALE-DRIFT",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_closed",
+      "source": "current_state/05_active_snapshot.md",
+      "category": "current_state",
+      "locator": {
+        "start_char": 361,
+        "end_char": 465,
+        "start_line": 11,
+        "end_line": 11
+      },
+      "quote": "Pressure readings still drift during a long hold. This remains unresolved and needs a calibration check.",
+      "temporal_status": "completed",
+      "evidence_role": [
+        "unresolved_issue"
+      ],
+      "rationale": "The later closure record resolves the issue; the old wording must not prevail.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "SY-R05"
+    },
+    {
+      "passage_id": "EF-DESIGN-AIM",
+      "project_id": "sample_echo_field",
+      "context_id": "echo_documented_snapshot",
+      "source": "decisions/design_notes.md",
+      "category": "decisions",
+      "locator": {
+        "start_char": 180,
+        "end_char": 489,
+        "start_line": 14,
+        "end_line": 16
+      },
+      "quote": "Echo Field is a responsive visual installation that explores how visual feedback based on body movement can influence a user’s sense of control and engagement.\n\nThe installation uses a webcam to estimate movement intensity. This value controls the speed, density and colour of a generative visual environment.",
+      "temporal_status": "current",
+      "evidence_role": [
+        "current_intention"
+      ],
+      "rationale": "Alternative explicit project purpose at the supplied current snapshot.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "EF-R01"
+    },
+    {
+      "passage_id": "EF-SMOOTHING",
+      "project_id": "sample_echo_field",
+      "context_id": "echo_documented_snapshot",
+      "source": "process/project_log.md",
+      "category": "process",
+      "locator": {
+        "start_char": 1410,
+        "end_char": 1613,
+        "start_line": 43,
+        "end_line": 43
+      },
+      "quote": "The movement signal was smoothed to reduce sudden jumps. Colour was connected to movement intensity so that lower movement produced blue tones and stronger movement shifted towards green or yellow-green.",
+      "temporal_status": "historical",
+      "evidence_role": [
+        "change",
+        "reason"
+      ],
+      "rationale": "Records smoothing and its stated purpose; colour linkage is also recorded.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "EF-R03"
+    },
+    {
+      "passage_id": "EF-FEEDBACK-EXPLANATION",
+      "project_id": "sample_echo_field",
+      "context_id": "echo_documented_snapshot",
+      "source": "feedback/tutor_feedback.md",
+      "category": "feedback",
+      "locator": {
+        "start_char": 666,
+        "end_char": 983,
+        "start_line": 24,
+        "end_line": 26
+      },
+      "quote": "The project presentation should explain why the interaction changed from hand gestures to whole-body movement.\n\nThe final research framing should show that this decision emerged from practical experimentation with unstable gesture detection rather than presenting whole-body movement as an unexplained starting point.",
+      "temporal_status": "historical",
+      "evidence_role": [
+        "feedback"
+      ],
+      "rationale": "Attributed advice to explain the change of interaction.",
+      "context_spans": [
+        {
+          "start_char": 130,
+          "end_char": 256,
+          "start_line": 10,
+          "end_line": 14,
+          "quote": "# Echo Field — Tutor Feedback\n\n## Context\n\nThis feedback was received after a rehearsal of the responsive visual installation."
+        }
+      ],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "EF-R02"
+    },
+    {
+      "passage_id": "EF-FEEDBACK-MULTI",
+      "project_id": "sample_echo_field",
+      "context_id": "echo_documented_snapshot",
+      "source": "feedback/tutor_feedback.md",
+      "category": "feedback",
+      "locator": {
+        "start_char": 1039,
+        "end_char": 1272,
+        "start_line": 30,
+        "end_line": 32
+      },
+      "quote": "The difference between one-person and multi-person interaction could be explored.\n\nMultiple bodies may produce a stronger movement signal, but this does not necessarily mean that each participant would feel an equal sense of control.",
+      "temporal_status": "historical",
+      "evidence_role": [
+        "feedback"
+      ],
+      "rationale": "Attributed exploratory advice is valid feedback, not an agreed implementation task.",
+      "context_spans": [
+        {
+          "start_char": 130,
+          "end_char": 256,
+          "start_line": 10,
+          "end_line": 14,
+          "quote": "# Echo Field — Tutor Feedback\n\n## Context\n\nThis feedback was received after a rehearsal of the responsive visual installation."
+        }
+      ],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "EF-R02"
+    },
+    {
+      "passage_id": "EF-UNRESOLVED",
+      "project_id": "sample_echo_field",
+      "context_id": "echo_documented_snapshot",
+      "source": "process/project_log.md",
+      "category": "process",
+      "locator": {
+        "start_char": 1729,
+        "end_char": 2038,
+        "start_line": 49,
+        "end_line": 53
+      },
+      "quote": "It is still unclear whether the low-movement state provides enough feedback for users to recognise that the system is responding.\n\nThe difference between one-person and multi-person interaction has not been investigated.\n\nThe effect of prolonged exposure on comfort and visual fatigue also remains unresolved.",
+      "temporal_status": "current",
+      "evidence_role": [
+        "unresolved_issue"
+      ],
+      "rationale": "Explicit unresolved visibility, multi-person and comfort questions.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "EF-R03"
+    },
+    {
+      "passage_id": "EF-NEXT-COMPARE",
+      "project_id": "sample_echo_field",
+      "context_id": "echo_documented_snapshot",
+      "source": "current_state/goals.md",
+      "category": "current_state",
+      "locator": {
+        "start_char": 1291,
+        "end_char": 1355,
+        "start_line": 46,
+        "end_line": 46
+      },
+      "quote": "2. Compare the intended response with the actual movement value.",
+      "temporal_status": "current",
+      "evidence_role": [
+        "next_action"
+      ],
+      "rationale": "Another explicitly listed comparison task; not an implementation commitment.",
+      "context_spans": [
+        {
+          "start_char": 1205,
+          "end_char": 1218,
+          "start_line": 43,
+          "end_line": 43,
+          "quote": "## Next steps"
+        }
+      ],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "EF-R04"
+    },
+    {
+      "passage_id": "EF-NEXT-LIGHT",
+      "project_id": "sample_echo_field",
+      "context_id": "echo_documented_snapshot",
+      "source": "current_state/goals.md",
+      "category": "current_state",
+      "locator": {
+        "start_char": 1356,
+        "end_char": 1410,
+        "start_line": 47,
+        "end_line": 47
+      },
+      "quote": "3. Record any sudden jumps caused by lighting changes.",
+      "temporal_status": "current",
+      "evidence_role": [
+        "next_action"
+      ],
+      "rationale": "Another explicitly listed recording task.",
+      "context_spans": [
+        {
+          "start_char": 1205,
+          "end_char": 1218,
+          "start_line": 43,
+          "end_line": 43,
+          "quote": "## Next steps"
+        }
+      ],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "EF-R04"
+    },
+    {
+      "passage_id": "SY-CLOSED-DIAL",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_closed",
+      "source": "decisions/02_revision.md",
+      "category": "decisions",
+      "locator": {
+        "start_char": 73,
+        "end_char": 227,
+        "start_line": 5,
+        "end_line": 5
+      },
+      "quote": "The rotary dial was replaced by a pressure pad as the main control. The dial is retained only in the experiment archive and is no longer the active input.",
+      "temporal_status": "superseded",
+      "evidence_role": [
+        "superseded_direction",
+        "change"
+      ],
+      "rationale": "The dial ceased to be the active input; its archive remains. Re-evaluated at the explicit closure reference; no restoration or reversal is recorded.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [
+        "SY-14"
+      ],
+      "partner_passage_ids": [
+        "SY-FINAL-CONFIG"
+      ],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "SY-R02"
+    },
+    {
+      "passage_id": "SY-CLOSED-GLASS",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_closed",
+      "source": "decisions/02_revision.md",
+      "category": "decisions",
+      "locator": {
+        "start_char": 404,
+        "end_char": 503,
+        "start_line": 11,
+        "end_line": 11
+      },
+      "quote": "The glass screen was replaced by a fabric diffuser. Glass is no longer part of the current display.",
+      "temporal_status": "superseded",
+      "evidence_role": [
+        "superseded_direction",
+        "change"
+      ],
+      "rationale": "Glass was explicitly removed from the current display. Re-evaluated at the explicit closure reference; no restoration or reversal is recorded.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [
+        "SY-14"
+      ],
+      "partner_passage_ids": [
+        "SY-FINAL-CONFIG"
+      ],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "SY-R02"
+    },
+    {
+      "passage_id": "SY-CLOSED-PAD-REASON",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_closed",
+      "source": "decisions/02_revision.md",
+      "category": "decisions",
+      "locator": {
+        "start_char": 262,
+        "end_char": 384,
+        "start_line": 8,
+        "end_line": 8
+      },
+      "quote": "The pressure pad was selected because repeated dial movement caused abrupt jumps in the visual ribbon during bench trials.",
+      "temporal_status": "historical",
+      "evidence_role": [
+        "reason"
+      ],
+      "rationale": "The cause is stated in the decision record. Re-evaluated at the explicit closure reference; no restoration or reversal is recorded.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "SY-R02"
+    },
+    {
+      "passage_id": "SY-CLOSED-SURFACE-REASON",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_closed",
+      "source": "decisions/02_revision.md",
+      "category": "decisions",
+      "locator": {
+        "start_char": 538,
+        "end_char": 641,
+        "start_line": 14,
+        "end_line": 14
+      },
+      "quote": "The fabric diffuser was chosen to reduce the distracting reflections recorded in the first bench setup.",
+      "temporal_status": "historical",
+      "evidence_role": [
+        "reason"
+      ],
+      "rationale": "The decision explicitly addresses reflections. Re-evaluated at the explicit closure reference; no restoration or reversal is recorded.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "SY-R02"
+    },
+    {
+      "passage_id": "SY-CLOSED-REPAIRED",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_closed",
+      "source": "process/03_repairs.md",
+      "category": "process",
+      "locator": {
+        "start_char": 76,
+        "end_char": 380,
+        "start_line": 5,
+        "end_line": 8
+      },
+      "quote": "The reflection problem was resolved by installing the fabric diffuser. The visibility check passed; this repair is complete.\n\n## Completed timing repair\nA loose cable caused intermittent frame pauses during an early bench run. Replacing the cable resolved the pauses, and the repeated bench check passed.",
+      "temporal_status": "completed",
+      "evidence_role": [
+        "contextual_only"
+      ],
+      "rationale": "Both repairs are complete; neither is an active blocker. Re-evaluated at the explicit closure reference; no restoration or reversal is recorded.",
+      "context_spans": [],
+      "requires_pairing_in_cases": [],
+      "partner_passage_ids": [],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "SY-R03"
+    },
+    {
+      "passage_id": "SY-FINAL-CONFIG",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_closed",
+      "source": "current_state/07_closure.md",
+      "category": "current_state",
+      "locator": {
+        "start_char": 433,
+        "end_char": 553,
+        "start_line": 11,
+        "end_line": 11
+      },
+      "quote": "The archived installation uses the pressure pad and fabric diffuser. The rotary dial and glass screen were not restored.",
+      "temporal_status": "current",
+      "evidence_role": [
+        "current_direction"
+      ],
+      "rationale": "Retained archived configuration at closure, not a claim of ongoing development.",
+      "context_spans": [
+        {
+          "start_char": 0,
+          "end_char": 51,
+          "start_line": 1,
+          "end_line": 2,
+          "quote": "# Signal Loom closure record\nDate: 20 February 2026"
+        },
+        {
+          "start_char": 407,
+          "end_char": 432,
+          "start_line": 10,
+          "end_line": 10,
+          "quote": "## Archived configuration"
+        }
+      ],
+      "requires_pairing_in_cases": [
+        "SY-14"
+      ],
+      "partner_passage_ids": [
+        "SY-CLOSED-DIAL",
+        "SY-CLOSED-GLASS"
+      ],
+      "review_status": "researcher_confirmed",
+      "inapplicability_case_ids": [],
+      "record_id": "SY-R07"
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "EF-01",
+      "project_id": "sample_echo_field",
+      "context_id": "echo_documented_snapshot",
+      "section_id": "current_intention",
+      "question": "What is the current aim or intended direction of this project?",
+      "expected_support_status": "supported",
+      "required_evidence_roles": [
+        "current_intention"
+      ],
+      "acceptable_gold_passages": [
+        "EF-GOAL",
+        "EF-DESIGN-AIM"
+      ],
+      "excluded_or_misleading_passages": [
+        {
+          "passage_id": "EF-INITIAL",
+          "reason": "Former control concept is not the current aim."
+        }
+      ],
+      "expected_temporal_status": [
+        "current"
+      ],
+      "role_temporal_requirements": {
+        "current_intention": [
+          "current"
+        ]
+      },
+      "acceptable_pair_sets": [],
+      "boundary_passages": [],
+      "required_context_passages": [],
+      "rationale": "The snapshot explicitly states its current goal.",
+      "coverage_tags": [
+        "explicit_current",
+        "historical_current_coexist"
+      ],
+      "genuine_insufficient": false,
+      "review_status": "researcher_confirmed",
+      "review_note": "Confirmed by the researcher on 25 October 2026 after manual review of the case summary, evidence roles, applicability, temporal scope and ambiguity notes. No independent expert or inter-rater agreement claim.",
+      "insufficiency_type": "not_applicable_to_supported_case",
+      "current_claim_roles": [
+        "current_intention"
+      ],
+      "applicability_scope": "The exact canonical section question at the project's complete latest supplied record state; not an assertion about the experiment date.",
+      "section_applicability": "applicable",
+      "applicability_rationale": "The documented snapshot explicitly identifies the current interaction purpose.",
+      "applicability_evidence_sets": [
+        [
+          "EF-GOAL"
+        ],
+        [
+          "EF-DESIGN-AIM"
+        ]
+      ],
+      "benchmark_tier": "production",
+      "reference_state": "latest_project_state",
+      "as_of_record": "EF-R04",
+      "eligible_record_ids": [
+        "EF-R01",
+        "EF-R02",
+        "EF-R03",
+        "EF-R04"
+      ],
+      "candidate_v2_question": "What purpose does the documented current interaction serve, rather than the earlier hand-control concept?",
+      "case_origin": "v2_case_canonicalised",
+      "reviewed_by": "Fuzhe Zhang",
+      "review_date": "2026-10-25",
+      "review_basis": "manual review of case summaries, evidence roles, applicability, temporal scope and ambiguity notes"
+    },
+    {
+      "case_id": "EF-02",
+      "project_id": "sample_echo_field",
+      "context_id": "echo_documented_snapshot",
+      "section_id": "changes_and_reasons",
+      "question": "What important changes were made to the project, and why were they made?",
+      "expected_support_status": "supported",
+      "required_evidence_roles": [
+        "change",
+        "reason"
+      ],
+      "acceptable_gold_passages": [
+        "EF-CHANGE",
+        "EF-REASON",
+        "EF-SMOOTHING"
+      ],
+      "excluded_or_misleading_passages": [
+        {
+          "passage_id": "EF-FUTURE",
+          "reason": "Future exploration is not an implemented change."
+        }
+      ],
+      "expected_temporal_status": [
+        "historical"
+      ],
+      "role_temporal_requirements": {
+        "change": [
+          "historical"
+        ],
+        "reason": [
+          "historical"
+        ]
+      },
+      "acceptable_pair_sets": [],
+      "boundary_passages": [],
+      "required_context_passages": [],
+      "rationale": "Both a transition and its stated rationale are required.",
+      "coverage_tags": [],
+      "genuine_insufficient": false,
+      "review_status": "researcher_confirmed",
+      "review_note": "Confirmed by the researcher on 25 October 2026 after manual review of the case summary, evidence roles, applicability, temporal scope and ambiguity notes. No independent expert or inter-rater agreement claim.",
+      "insufficiency_type": "not_applicable_to_supported_case",
+      "current_claim_roles": [],
+      "applicability_scope": "The exact canonical section question at the project's complete latest supplied record state; not an assertion about the experiment date.",
+      "section_applicability": "applicable",
+      "applicability_rationale": "An implemented interaction transition and its reason are explicitly recorded and remain relevant to reconstructing the project.",
+      "applicability_evidence_sets": [
+        [
+          "EF-CHANGE",
+          "EF-REASON"
+        ],
+        [
+          "EF-SMOOTHING"
+        ]
+      ],
+      "benchmark_tier": "production",
+      "reference_state": "latest_project_state",
+      "as_of_record": "EF-R04",
+      "eligible_record_ids": [
+        "EF-R01",
+        "EF-R02",
+        "EF-R03",
+        "EF-R04"
+      ],
+      "candidate_v2_question": "Which interaction changed, and what practical benefit explains the choice?",
+      "case_origin": "v2_case_canonicalised",
+      "reviewed_by": "Fuzhe Zhang",
+      "review_date": "2026-10-25",
+      "review_basis": "manual review of case summaries, evidence roles, applicability, temporal scope and ambiguity notes"
+    },
+    {
+      "case_id": "EF-03",
+      "project_id": "sample_echo_field",
+      "context_id": "echo_documented_snapshot",
+      "section_id": "current_vs_superseded",
+      "question": "Which project directions are current, and which directions have been replaced or superseded?",
+      "expected_support_status": "supported",
+      "required_evidence_roles": [
+        "current_direction",
+        "superseded_direction"
+      ],
+      "acceptable_gold_passages": [
+        "EF-CONTROL",
+        "EF-OLD",
+        "EF-FINAL"
+      ],
+      "excluded_or_misleading_passages": [
+        {
+          "passage_id": "EF-FUTURE",
+          "reason": "Future scope is not a superseded method."
+        }
+      ],
+      "expected_temporal_status": [
+        "current",
+        "superseded"
+      ],
+      "role_temporal_requirements": {
+        "current_direction": [
+          "current"
+        ],
+        "superseded_direction": [
+          "superseded"
+        ]
+      },
+      "acceptable_pair_sets": [
+        [
+          "EF-CONTROL",
+          "EF-OLD"
+        ],
+        [
+          "EF-FINAL",
+          "EF-OLD"
+        ]
+      ],
+      "boundary_passages": [],
+      "required_context_passages": [],
+      "rationale": "Two complementary claims must be present.",
+      "coverage_tags": [
+        "current_superseded_pair"
+      ],
+      "genuine_insufficient": false,
+      "review_status": "researcher_confirmed",
+      "review_note": "Confirmed by the researcher on 25 October 2026 after manual review of the case summary, evidence roles, applicability, temporal scope and ambiguity notes. No independent expert or inter-rater agreement claim.",
+      "insufficiency_type": "not_applicable_to_supported_case",
+      "current_claim_roles": [
+        "current_direction"
+      ],
+      "applicability_scope": "The exact canonical section question at the project's complete latest supplied record state; not an assertion about the experiment date.",
+      "section_applicability": "applicable",
+      "applicability_rationale": "Both the retained direction and the explicitly replaced approach are documented.",
+      "applicability_evidence_sets": [
+        [
+          "EF-CONTROL",
+          "EF-OLD"
+        ],
+        [
+          "EF-FINAL",
+          "EF-OLD"
+        ]
+      ],
+      "benchmark_tier": "production",
+      "reference_state": "latest_project_state",
+      "as_of_record": "EF-R04",
+      "eligible_record_ids": [
+        "EF-R01",
+        "EF-R02",
+        "EF-R03",
+        "EF-R04"
+      ],
+      "candidate_v2_question": "What interaction is in use and which former approach is explicitly no longer current?",
+      "case_origin": "v2_case_canonicalised",
+      "reviewed_by": "Fuzhe Zhang",
+      "review_date": "2026-10-25",
+      "review_basis": "manual review of case summaries, evidence roles, applicability, temporal scope and ambiguity notes"
+    },
+    {
+      "case_id": "EF-04",
+      "project_id": "sample_echo_field",
+      "context_id": "echo_documented_snapshot",
+      "section_id": "relevant_feedback",
+      "question": "What tutor or user feedback is relevant to the current project direction?",
+      "expected_support_status": "supported",
+      "required_evidence_roles": [
+        "feedback"
+      ],
+      "acceptable_gold_passages": [
+        "EF-FEEDBACK",
+        "EF-FEEDBACK-EXPLANATION",
+        "EF-FEEDBACK-MULTI"
+      ],
+      "excluded_or_misleading_passages": [
+        {
+          "passage_id": "EF-RESPONSE",
+          "reason": "Implementation alone omits the advice and its attribution."
+        }
+      ],
+      "expected_temporal_status": [
+        "historical"
+      ],
+      "role_temporal_requirements": {
+        "feedback": [
+          "historical"
+        ]
+      },
+      "acceptable_pair_sets": [],
+      "boundary_passages": [],
+      "required_context_passages": [
+        "EF-FEEDBACK",
+        "EF-FEEDBACK-EXPLANATION",
+        "EF-FEEDBACK-MULTI"
+      ],
+      "rationale": "Feedback remains historical advice even after implementation.",
+      "coverage_tags": [],
+      "genuine_insufficient": false,
+      "review_status": "researcher_confirmed",
+      "review_note": "Confirmed by the researcher on 25 October 2026 after manual review of the case summary, evidence roles, applicability, temporal scope and ambiguity notes. No independent expert or inter-rater agreement claim.",
+      "insufficiency_type": "not_applicable_to_supported_case",
+      "current_claim_roles": [],
+      "applicability_scope": "The exact canonical section question at the project's complete latest supplied record state; not an assertion about the experiment date.",
+      "section_applicability": "applicable",
+      "applicability_rationale": "Attributed tutor advice exists and remains relevant even though a response was implemented.",
+      "applicability_evidence_sets": [
+        [
+          "EF-FEEDBACK"
+        ],
+        [
+          "EF-FEEDBACK-EXPLANATION"
+        ],
+        [
+          "EF-FEEDBACK-MULTI"
+        ]
+      ],
+      "benchmark_tier": "production",
+      "reference_state": "latest_project_state",
+      "as_of_record": "EF-R04",
+      "eligible_record_ids": [
+        "EF-R01",
+        "EF-R02",
+        "EF-R03",
+        "EF-R04"
+      ],
+      "candidate_v2_question": "What attributed tutor advice concerned visual feedback beyond speed?",
+      "case_origin": "v2_case_canonicalised",
+      "reviewed_by": "Fuzhe Zhang",
+      "review_date": "2026-10-25",
+      "review_basis": "manual review of case summaries, evidence roles, applicability, temporal scope and ambiguity notes"
+    },
+    {
+      "case_id": "EF-05",
+      "project_id": "sample_echo_field",
+      "context_id": "echo_documented_snapshot",
+      "section_id": "unresolved_tensions",
+      "question": "What unresolved questions, tensions or limitations remain in the project?",
+      "expected_support_status": "supported",
+      "required_evidence_roles": [
+        "unresolved_issue"
+      ],
+      "acceptable_gold_passages": [
+        "EF-BLOCKERS",
+        "EF-SLOW",
+        "EF-UNRESOLVED"
+      ],
+      "excluded_or_misleading_passages": [
+        {
+          "passage_id": "EF-DONE",
+          "reason": "Completed work is not itself a current blocker."
+        }
+      ],
+      "expected_temporal_status": [
+        "current"
+      ],
+      "role_temporal_requirements": {
+        "unresolved_issue": [
+          "current"
+        ]
+      },
+      "acceptable_pair_sets": [],
+      "boundary_passages": [],
+      "required_context_passages": [],
+      "rationale": "Current blockers and unresolved questions explicitly establish remaining issues.",
+      "coverage_tags": [
+        "unresolved_present",
+        "completed_issue_distractor"
+      ],
+      "genuine_insufficient": false,
+      "review_status": "researcher_confirmed",
+      "review_note": "Confirmed by the researcher on 25 October 2026 after manual review of the case summary, evidence roles, applicability, temporal scope and ambiguity notes. No independent expert or inter-rater agreement claim.",
+      "insufficiency_type": "not_applicable_to_supported_case",
+      "current_claim_roles": [
+        "unresolved_issue"
+      ],
+      "applicability_scope": "The exact canonical section question at the project's complete latest supplied record state; not an assertion about the experiment date.",
+      "section_applicability": "applicable",
+      "applicability_rationale": "Specific visibility and comfort issues are explicitly still unresolved.",
+      "applicability_evidence_sets": [
+        [
+          "EF-BLOCKERS"
+        ],
+        [
+          "EF-SLOW"
+        ],
+        [
+          "EF-UNRESOLVED"
+        ]
+      ],
+      "benchmark_tier": "production",
+      "reference_state": "latest_project_state",
+      "as_of_record": "EF-R04",
+      "eligible_record_ids": [
+        "EF-R01",
+        "EF-R02",
+        "EF-R03",
+        "EF-R04"
+      ],
+      "candidate_v2_question": "What visibility or comfort problems explicitly remain despite completed smoothing work?",
+      "case_origin": "v2_case_canonicalised",
+      "reviewed_by": "Fuzhe Zhang",
+      "review_date": "2026-10-25",
+      "review_basis": "manual review of case summaries, evidence roles, applicability, temporal scope and ambiguity notes"
+    },
+    {
+      "case_id": "EF-06",
+      "project_id": "sample_echo_field",
+      "context_id": "echo_documented_snapshot",
+      "section_id": "possible_next_action",
+      "question": "What is the next documented action or decision that should be addressed?",
+      "expected_support_status": "supported",
+      "required_evidence_roles": [
+        "next_action"
+      ],
+      "acceptable_gold_passages": [
+        "EF-NEXT",
+        "EF-NEXT-COMPARE",
+        "EF-NEXT-LIGHT",
+        "EF-SCOPE-TASK"
+      ],
+      "excluded_or_misleading_passages": [
+        {
+          "passage_id": "EF-DONE",
+          "reason": "A completed implementation is not a pending test."
+        }
+      ],
+      "expected_temporal_status": [
+        "current"
+      ],
+      "role_temporal_requirements": {
+        "next_action": [
+          "current"
+        ]
+      },
+      "acceptable_pair_sets": [],
+      "boundary_passages": [],
+      "required_context_passages": [
+        "EF-NEXT-COMPARE",
+        "EF-NEXT-LIGHT"
+      ],
+      "rationale": "The first task must remain complete, not only the Next steps heading.",
+      "coverage_tags": [
+        "explicit_next_action"
+      ],
+      "genuine_insufficient": false,
+      "review_status": "researcher_confirmed",
+      "review_note": "Confirmed by the researcher on 25 October 2026 after manual review of the case summary, evidence roles, applicability, temporal scope and ambiguity notes. No independent expert or inter-rater agreement claim.",
+      "insufficiency_type": "not_applicable_to_supported_case",
+      "current_claim_roles": [
+        "next_action"
+      ],
+      "applicability_scope": "The exact canonical section question at the project's complete latest supplied record state; not an assertion about the experiment date.",
+      "section_applicability": "applicable",
+      "applicability_rationale": "A concrete next visibility test is documented in the snapshot.",
+      "applicability_evidence_sets": [
+        [
+          "EF-NEXT"
+        ],
+        [
+          "EF-NEXT-COMPARE"
+        ],
+        [
+          "EF-NEXT-LIGHT"
+        ],
+        [
+          "EF-SCOPE-TASK"
+        ]
+      ],
+      "benchmark_tier": "production",
+      "reference_state": "latest_project_state",
+      "as_of_record": "EF-R04",
+      "eligible_record_ids": [
+        "EF-R01",
+        "EF-R02",
+        "EF-R03",
+        "EF-R04"
+      ],
+      "candidate_v2_question": "What concrete visibility test is documented as the next step?",
+      "case_origin": "v2_case_canonicalised",
+      "reviewed_by": "Fuzhe Zhang",
+      "review_date": "2026-10-25",
+      "review_basis": "manual review of case summaries, evidence roles, applicability, temporal scope and ambiguity notes"
+    },
+    {
+      "case_id": "EF-07",
+      "project_id": "sample_echo_field",
+      "context_id": "echo_documented_snapshot",
+      "section_id": "current_vs_superseded",
+      "question": "Which current method replaced the initial hand-control idea, with both sides visible?",
+      "expected_support_status": "supported",
+      "required_evidence_roles": [
+        "current_direction",
+        "superseded_direction"
+      ],
+      "acceptable_gold_passages": [
+        "EF-FINAL",
+        "EF-INITIAL",
+        "EF-OLD",
+        "EF-CONTROL"
+      ],
+      "excluded_or_misleading_passages": [
+        {
+          "passage_id": "EF-CHANGE",
+          "reason": "A transition alone need not establish that the newer method remains current."
+        }
+      ],
+      "expected_temporal_status": [
+        "current",
+        "superseded"
+      ],
+      "role_temporal_requirements": {
+        "current_direction": [
+          "current"
+        ],
+        "superseded_direction": [
+          "superseded"
+        ]
+      },
+      "acceptable_pair_sets": [
+        [
+          "EF-FINAL",
+          "EF-INITIAL"
+        ],
+        [
+          "EF-FINAL",
+          "EF-OLD"
+        ],
+        [
+          "EF-CONTROL",
+          "EF-OLD"
+        ]
+      ],
+      "boundary_passages": [],
+      "required_context_passages": [
+        "EF-INITIAL"
+      ],
+      "rationale": "Second paired case uses a different record location; not an independent project observation.",
+      "coverage_tags": [
+        "current_superseded_pair"
+      ],
+      "genuine_insufficient": false,
+      "review_status": "researcher_confirmed",
+      "review_note": "Confirmed by the researcher on 25 October 2026 after manual review of the case summary, evidence roles, applicability, temporal scope and ambiguity notes. No independent expert or inter-rater agreement claim.",
+      "insufficiency_type": "not_applicable_to_supported_case",
+      "current_claim_roles": [
+        "current_direction"
+      ],
+      "applicability_scope": "The section question as specified by this case, at its context's documented reference point; not a project-wide or present-day verdict.",
+      "section_applicability": "applicable",
+      "applicability_rationale": "The initial method and its documented replacement establish the applicability of a direction comparison.",
+      "applicability_evidence_sets": [
+        [
+          "EF-FINAL",
+          "EF-INITIAL"
+        ],
+        [
+          "EF-FINAL",
+          "EF-OLD"
+        ],
+        [
+          "EF-CONTROL",
+          "EF-OLD"
+        ]
+      ],
+      "benchmark_tier": "diagnostic",
+      "reference_state": "latest_project_state",
+      "as_of_record": "EF-R04",
+      "eligible_record_ids": [
+        "EF-R01",
+        "EF-R02",
+        "EF-R03",
+        "EF-R04"
+      ],
+      "candidate_v2_question": "Which current method replaced the initial hand-control idea, with both sides visible?",
+      "case_origin": "v2_diagnostic_retained",
+      "reviewed_by": "Fuzhe Zhang",
+      "review_date": "2026-10-25",
+      "review_basis": "manual review of case summaries, evidence roles, applicability, temporal scope and ambiguity notes"
+    },
+    {
+      "case_id": "EF-08",
+      "project_id": "sample_echo_field",
+      "context_id": "echo_documented_snapshot",
+      "section_id": "possible_next_action",
+      "question": "Do the records commit the project to implementing multi-person interaction now?",
+      "expected_support_status": "insufficient",
+      "required_evidence_roles": [
+        "next_action"
+      ],
+      "acceptable_gold_passages": [],
+      "excluded_or_misleading_passages": [
+        {
+          "passage_id": "EF-FUTURE",
+          "reason": "A possible future investigation is not a commitment."
+        },
+        {
+          "passage_id": "EF-SCOPE-TASK",
+          "reason": "Deciding whether to include a feature is not implementing it."
+        }
+      ],
+      "expected_temporal_status": [
+        "current"
+      ],
+      "role_temporal_requirements": {
+        "next_action": [
+          "current"
+        ]
+      },
+      "acceptable_pair_sets": [],
+      "boundary_passages": [
+        "EF-FUTURE"
+      ],
+      "required_context_passages": [],
+      "rationale": "No committed implementation task is documented; other next steps do exist.",
+      "coverage_tags": [
+        "future_not_current",
+        "genuine_insufficient"
+      ],
+      "genuine_insufficient": true,
+      "review_status": "researcher_confirmed",
+      "review_note": "Confirmed by the researcher on 25 October 2026 after manual review of the case summary, evidence roles, applicability, temporal scope and ambiguity notes. No independent expert or inter-rater agreement claim.",
+      "insufficiency_type": "no_current_commitment",
+      "current_claim_roles": [
+        "next_action"
+      ],
+      "applicability_scope": "Applicability of a current multi-person implementation commitment, not of every next-action question.",
+      "section_applicability": "unclear",
+      "applicability_rationale": "Implementation is deferred in the final-scope account, while an undated next-step list still calls for deciding its scope. This does not establish a confirmed implementation task or an unambiguous applicability judgment for that narrow question. Other next-action questions remain applicable.",
+      "applicability_evidence_sets": [],
+      "benchmark_tier": "diagnostic",
+      "reference_state": "latest_project_state",
+      "as_of_record": "EF-R04",
+      "eligible_record_ids": [
+        "EF-R01",
+        "EF-R02",
+        "EF-R03",
+        "EF-R04"
+      ],
+      "candidate_v2_question": "Do the records commit the project to implementing multi-person interaction now?",
+      "case_origin": "v2_diagnostic_retained",
+      "reviewed_by": "Fuzhe Zhang",
+      "review_date": "2026-10-25",
+      "review_basis": "manual review of case summaries, evidence roles, applicability, temporal scope and ambiguity notes"
+    },
+    {
+      "case_id": "SY-01",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_active",
+      "section_id": "current_intention",
+      "question": "What is the installation's active aim at the February working snapshot?",
+      "expected_support_status": "supported",
+      "required_evidence_roles": [
+        "current_intention"
+      ],
+      "acceptable_gold_passages": [
+        "SY-AIM"
+      ],
+      "excluded_or_misleading_passages": [
+        {
+          "passage_id": "SY-INITIAL",
+          "reason": "Older wording is semantically related but describes the former aim."
+        }
+      ],
+      "expected_temporal_status": [
+        "current"
+      ],
+      "role_temporal_requirements": {
+        "current_intention": [
+          "current"
+        ]
+      },
+      "acceptable_pair_sets": [],
+      "boundary_passages": [],
+      "required_context_passages": [],
+      "rationale": "An explicit current statement supersedes the older concept for this snapshot.",
+      "coverage_tags": [
+        "explicit_current",
+        "historical_current_coexist",
+        "state_wrong_distractor",
+        "dated_update"
+      ],
+      "genuine_insufficient": false,
+      "review_status": "researcher_confirmed",
+      "review_note": "Confirmed by the researcher on 25 October 2026 after manual review of the case summary, evidence roles, applicability, temporal scope and ambiguity notes. No independent expert or inter-rater agreement claim.",
+      "insufficiency_type": "not_applicable_to_supported_case",
+      "current_claim_roles": [
+        "current_intention"
+      ],
+      "applicability_scope": "The section question as specified by this case, at its context's documented reference point; not a project-wide or present-day verdict.",
+      "section_applicability": "applicable",
+      "applicability_rationale": "The active snapshot explicitly records the installation's working aim.",
+      "applicability_evidence_sets": [
+        [
+          "SY-AIM"
+        ]
+      ],
+      "benchmark_tier": "diagnostic",
+      "reference_state": "historical_snapshot",
+      "as_of_record": "SY-R05",
+      "eligible_record_ids": [
+        "SY-R01",
+        "SY-R02",
+        "SY-R03",
+        "SY-R04",
+        "SY-R05"
+      ],
+      "candidate_v2_question": "What is the installation's active aim at the February working snapshot?",
+      "case_origin": "v2_diagnostic_retained",
+      "reviewed_by": "Fuzhe Zhang",
+      "review_date": "2026-10-25",
+      "review_basis": "manual review of case summaries, evidence roles, applicability, temporal scope and ambiguity notes"
+    },
+    {
+      "case_id": "SY-02",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_closed",
+      "section_id": "current_intention",
+      "question": "What is the current aim or intended direction of this project?",
+      "expected_support_status": "supported",
+      "required_evidence_roles": [
+        "closure_or_inapplicability"
+      ],
+      "acceptable_gold_passages": [
+        "SY-CLOSED"
+      ],
+      "excluded_or_misleading_passages": [
+        {
+          "passage_id": "SY-STALE-AIM",
+          "reason": "The prior active aim is historical after closure."
+        },
+        {
+          "passage_id": "SY-CLOSED-FUTURE",
+          "reason": "Conditional reopening is not an active intention."
+        }
+      ],
+      "expected_temporal_status": [
+        "completed"
+      ],
+      "role_temporal_requirements": {
+        "closure_or_inapplicability": [
+          "completed"
+        ]
+      },
+      "acceptable_pair_sets": [],
+      "boundary_passages": [],
+      "required_context_passages": [],
+      "rationale": "The closure explicitly states that no active development intention remains; this is supported inapplicability, not absent evidence.",
+      "coverage_tags": [
+        "completed_project",
+        "dated_update",
+        "explicit_inapplicability"
+      ],
+      "genuine_insufficient": false,
+      "review_status": "researcher_confirmed",
+      "review_note": "Confirmed by the researcher on 25 October 2026 after manual review of the case summary, evidence roles, applicability, temporal scope and ambiguity notes. No independent expert or inter-rater agreement claim.",
+      "insufficiency_type": "not_applicable_to_supported_case",
+      "current_claim_roles": [],
+      "applicability_scope": "The exact canonical section question at the project's complete latest supplied record state; not an assertion about the experiment date.",
+      "section_applicability": "not_applicable",
+      "applicability_rationale": "The closure explicitly states that no active development intention remains; this is supported inapplicability, not absent evidence.",
+      "applicability_evidence_sets": [
+        [
+          "SY-CLOSED"
+        ]
+      ],
+      "benchmark_tier": "production",
+      "reference_state": "latest_project_state",
+      "as_of_record": "SY-R07",
+      "eligible_record_ids": [
+        "SY-R01",
+        "SY-R02",
+        "SY-R03",
+        "SY-R04",
+        "SY-R05",
+        "SY-R06",
+        "SY-R07"
+      ],
+      "candidate_v2_question": "What active development intention remains after the closure record?",
+      "case_origin": "v2_case_canonicalised",
+      "reviewed_by": "Fuzhe Zhang",
+      "review_date": "2026-10-25",
+      "review_basis": "manual review of case summaries, evidence roles, applicability, temporal scope and ambiguity notes"
+    },
+    {
+      "case_id": "SY-03",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_active",
+      "section_id": "changes_and_reasons",
+      "question": "Which input was changed and what observed problem motivated it?",
+      "expected_support_status": "supported",
+      "required_evidence_roles": [
+        "change",
+        "reason"
+      ],
+      "acceptable_gold_passages": [
+        "SY-DIAL",
+        "SY-PAD-REASON"
+      ],
+      "excluded_or_misleading_passages": [
+        {
+          "passage_id": "SY-SURFACE-REASON",
+          "reason": "Reason for a different change must not be misattributed."
+        }
+      ],
+      "expected_temporal_status": [
+        "superseded",
+        "historical"
+      ],
+      "role_temporal_requirements": {
+        "change": [
+          "superseded"
+        ],
+        "reason": [
+          "historical"
+        ]
+      },
+      "acceptable_pair_sets": [],
+      "boundary_passages": [],
+      "required_context_passages": [],
+      "rationale": "The decision records the input transition and a causal reason.",
+      "coverage_tags": [],
+      "genuine_insufficient": false,
+      "review_status": "researcher_confirmed",
+      "review_note": "Confirmed by the researcher on 25 October 2026 after manual review of the case summary, evidence roles, applicability, temporal scope and ambiguity notes. No independent expert or inter-rater agreement claim.",
+      "insufficiency_type": "not_applicable_to_supported_case",
+      "current_claim_roles": [],
+      "applicability_scope": "The section question as specified by this case, at its context's documented reference point; not a project-wide or present-day verdict.",
+      "section_applicability": "applicable",
+      "applicability_rationale": "The input replacement and its motivation are explicitly recorded.",
+      "applicability_evidence_sets": [
+        [
+          "SY-DIAL",
+          "SY-PAD-REASON"
+        ]
+      ],
+      "benchmark_tier": "diagnostic",
+      "reference_state": "historical_snapshot",
+      "as_of_record": "SY-R05",
+      "eligible_record_ids": [
+        "SY-R01",
+        "SY-R02",
+        "SY-R03",
+        "SY-R04",
+        "SY-R05"
+      ],
+      "candidate_v2_question": "Which input was changed and what observed problem motivated it?",
+      "case_origin": "v2_diagnostic_retained",
+      "reviewed_by": "Fuzhe Zhang",
+      "review_date": "2026-10-25",
+      "review_basis": "manual review of case summaries, evidence roles, applicability, temporal scope and ambiguity notes"
+    },
+    {
+      "case_id": "SY-04",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_closed",
+      "section_id": "changes_and_reasons",
+      "question": "What implemented colour change and its reason can be established from the notebook fragment?",
+      "expected_support_status": "insufficient",
+      "required_evidence_roles": [
+        "change",
+        "reason"
+      ],
+      "acceptable_gold_passages": [],
+      "excluded_or_misleading_passages": [
+        {
+          "passage_id": "SY-UNKNOWN",
+          "reason": "A question fragment establishes neither a decision nor a cause."
+        }
+      ],
+      "expected_temporal_status": [
+        "current",
+        "historical"
+      ],
+      "role_temporal_requirements": {
+        "change": [
+          "current",
+          "historical"
+        ],
+        "reason": [
+          "current",
+          "historical"
+        ]
+      },
+      "acceptable_pair_sets": [],
+      "boundary_passages": [
+        "SY-UNKNOWN"
+      ],
+      "required_context_passages": [],
+      "rationale": "The complete archive contains no adopted colour decision or reason.",
+      "coverage_tags": [
+        "unknown_status",
+        "genuine_insufficient"
+      ],
+      "genuine_insufficient": true,
+      "review_status": "researcher_confirmed",
+      "review_note": "Confirmed by the researcher on 25 October 2026 after manual review of the case summary, evidence roles, applicability, temporal scope and ambiguity notes. No independent expert or inter-rater agreement claim.",
+      "insufficiency_type": "missing_decision_and_reason",
+      "current_claim_roles": [],
+      "applicability_scope": "Applicability of the proposed implemented colour-change/reason reconstruction, not of every design-change question.",
+      "section_applicability": "unclear",
+      "applicability_rationale": "The undated fragment establishes neither an implemented colour decision nor its reason. It does not explicitly establish that a colour change never existed.",
+      "applicability_evidence_sets": [],
+      "benchmark_tier": "diagnostic",
+      "reference_state": "latest_project_state",
+      "as_of_record": "SY-R07",
+      "eligible_record_ids": [
+        "SY-R01",
+        "SY-R02",
+        "SY-R03",
+        "SY-R04",
+        "SY-R05",
+        "SY-R06",
+        "SY-R07"
+      ],
+      "candidate_v2_question": "What implemented colour change and its reason can be established from the notebook fragment?",
+      "case_origin": "v2_diagnostic_retained",
+      "reviewed_by": "Fuzhe Zhang",
+      "review_date": "2026-10-25",
+      "review_basis": "manual review of case summaries, evidence roles, applicability, temporal scope and ambiguity notes"
+    },
+    {
+      "case_id": "SY-05",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_active",
+      "section_id": "current_vs_superseded",
+      "question": "Which control is active and which control was explicitly retired from use?",
+      "expected_support_status": "supported",
+      "required_evidence_roles": [
+        "current_direction",
+        "superseded_direction"
+      ],
+      "acceptable_gold_passages": [
+        "SY-PAD",
+        "SY-DIAL"
+      ],
+      "excluded_or_misleading_passages": [
+        {
+          "passage_id": "SY-INITIAL",
+          "reason": "The initial intention alone does not establish explicit retirement."
+        }
+      ],
+      "expected_temporal_status": [
+        "current",
+        "superseded"
+      ],
+      "role_temporal_requirements": {
+        "current_direction": [
+          "current"
+        ],
+        "superseded_direction": [
+          "superseded"
+        ]
+      },
+      "acceptable_pair_sets": [
+        [
+          "SY-PAD",
+          "SY-DIAL"
+        ]
+      ],
+      "boundary_passages": [],
+      "required_context_passages": [],
+      "rationale": "Both current configuration and explicitly replaced input are required.",
+      "coverage_tags": [
+        "current_superseded_pair",
+        "dated_update"
+      ],
+      "genuine_insufficient": false,
+      "review_status": "researcher_confirmed",
+      "review_note": "Confirmed by the researcher on 25 October 2026 after manual review of the case summary, evidence roles, applicability, temporal scope and ambiguity notes. No independent expert or inter-rater agreement claim.",
+      "insufficiency_type": "not_applicable_to_supported_case",
+      "current_claim_roles": [
+        "current_direction"
+      ],
+      "applicability_scope": "The section question as specified by this case, at its context's documented reference point; not a project-wide or present-day verdict.",
+      "section_applicability": "applicable",
+      "applicability_rationale": "The active control and explicitly retired control are both documented.",
+      "applicability_evidence_sets": [
+        [
+          "SY-PAD",
+          "SY-DIAL"
+        ]
+      ],
+      "benchmark_tier": "diagnostic",
+      "reference_state": "historical_snapshot",
+      "as_of_record": "SY-R05",
+      "eligible_record_ids": [
+        "SY-R01",
+        "SY-R02",
+        "SY-R03",
+        "SY-R04",
+        "SY-R05"
+      ],
+      "candidate_v2_question": "Which control is active and which control was explicitly retired from use?",
+      "case_origin": "v2_diagnostic_retained",
+      "reviewed_by": "Fuzhe Zhang",
+      "review_date": "2026-10-25",
+      "review_basis": "manual review of case summaries, evidence roles, applicability, temporal scope and ambiguity notes"
+    },
+    {
+      "case_id": "SY-06",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_active",
+      "section_id": "current_vs_superseded",
+      "question": "Which display surface is current and which earlier surface was removed?",
+      "expected_support_status": "supported",
+      "required_evidence_roles": [
+        "current_direction",
+        "superseded_direction"
+      ],
+      "acceptable_gold_passages": [
+        "SY-PAD",
+        "SY-GLASS"
+      ],
+      "excluded_or_misleading_passages": [
+        {
+          "passage_id": "SY-REPAIRED",
+          "reason": "Repair completion does not itself identify both design directions."
+        }
+      ],
+      "expected_temporal_status": [
+        "current",
+        "superseded"
+      ],
+      "role_temporal_requirements": {
+        "current_direction": [
+          "current"
+        ],
+        "superseded_direction": [
+          "superseded"
+        ]
+      },
+      "acceptable_pair_sets": [
+        [
+          "SY-PAD",
+          "SY-GLASS"
+        ]
+      ],
+      "boundary_passages": [],
+      "required_context_passages": [],
+      "rationale": "This pair tests a separate design dimension with the same state contrast.",
+      "coverage_tags": [
+        "current_superseded_pair"
+      ],
+      "genuine_insufficient": false,
+      "review_status": "researcher_confirmed",
+      "review_note": "Confirmed by the researcher on 25 October 2026 after manual review of the case summary, evidence roles, applicability, temporal scope and ambiguity notes. No independent expert or inter-rater agreement claim.",
+      "insufficiency_type": "not_applicable_to_supported_case",
+      "current_claim_roles": [
+        "current_direction"
+      ],
+      "applicability_scope": "The section question as specified by this case, at its context's documented reference point; not a project-wide or present-day verdict.",
+      "section_applicability": "applicable",
+      "applicability_rationale": "The retained display surface and removed surface are both documented.",
+      "applicability_evidence_sets": [
+        [
+          "SY-PAD",
+          "SY-GLASS"
+        ]
+      ],
+      "benchmark_tier": "diagnostic",
+      "reference_state": "historical_snapshot",
+      "as_of_record": "SY-R05",
+      "eligible_record_ids": [
+        "SY-R01",
+        "SY-R02",
+        "SY-R03",
+        "SY-R04",
+        "SY-R05"
+      ],
+      "candidate_v2_question": "Which display surface is current and which earlier surface was removed?",
+      "case_origin": "v2_diagnostic_retained",
+      "reviewed_by": "Fuzhe Zhang",
+      "review_date": "2026-10-25",
+      "review_basis": "manual review of case summaries, evidence roles, applicability, temporal scope and ambiguity notes"
+    },
+    {
+      "case_id": "SY-07",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_active",
+      "section_id": "relevant_feedback",
+      "question": "What externally attributed advice is available during the active snapshot?",
+      "expected_support_status": "supported",
+      "required_evidence_roles": [
+        "closure_or_inapplicability"
+      ],
+      "acceptable_gold_passages": [
+        "SY-NO-FEEDBACK"
+      ],
+      "excluded_or_misleading_passages": [
+        {
+          "passage_id": "SY-REFLECTION",
+          "reason": "Maker reflection is explicitly not external feedback."
+        }
+      ],
+      "expected_temporal_status": [
+        "current"
+      ],
+      "role_temporal_requirements": {
+        "closure_or_inapplicability": [
+          "current"
+        ]
+      },
+      "acceptable_pair_sets": [],
+      "boundary_passages": [],
+      "required_context_passages": [],
+      "rationale": "The active record explicitly states that no external feedback is recorded in this archive. Inapplicability is limited to available recorded advice, not a claim that no conversation ever occurred.",
+      "coverage_tags": [
+        "no_feedback",
+        "explicit_inapplicability"
+      ],
+      "genuine_insufficient": false,
+      "review_status": "researcher_confirmed",
+      "review_note": "Confirmed by the researcher on 25 October 2026 after manual review of the case summary, evidence roles, applicability, temporal scope and ambiguity notes. No independent expert or inter-rater agreement claim.",
+      "insufficiency_type": "not_applicable_to_supported_case",
+      "current_claim_roles": [],
+      "applicability_scope": "External advice available in the active archive; not the existence of unrecorded conversations.",
+      "section_applicability": "not_applicable",
+      "applicability_rationale": "The active record explicitly states that no external feedback is recorded in this archive. Inapplicability is limited to available recorded advice, not a claim that no conversation ever occurred.",
+      "applicability_evidence_sets": [
+        [
+          "SY-NO-FEEDBACK"
+        ]
+      ],
+      "benchmark_tier": "diagnostic",
+      "reference_state": "historical_snapshot",
+      "as_of_record": "SY-R05",
+      "eligible_record_ids": [
+        "SY-R01",
+        "SY-R02",
+        "SY-R03",
+        "SY-R04",
+        "SY-R05"
+      ],
+      "candidate_v2_question": "What externally attributed advice is available during the active snapshot?",
+      "case_origin": "v2_diagnostic_retained",
+      "reviewed_by": "Fuzhe Zhang",
+      "review_date": "2026-10-25",
+      "review_basis": "manual review of case summaries, evidence roles, applicability, temporal scope and ambiguity notes"
+    },
+    {
+      "case_id": "SY-08",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_closed",
+      "section_id": "relevant_feedback",
+      "question": "What tutor or user feedback is relevant to the current project direction?",
+      "expected_support_status": "supported",
+      "required_evidence_roles": [
+        "closure_or_inapplicability"
+      ],
+      "acceptable_gold_passages": [
+        "SY-CLOSED-NO-FEEDBACK"
+      ],
+      "excluded_or_misleading_passages": [
+        {
+          "passage_id": "SY-CLOSED",
+          "reason": "Project completion does not imply feedback collection."
+        }
+      ],
+      "expected_temporal_status": [
+        "completed"
+      ],
+      "role_temporal_requirements": {
+        "closure_or_inapplicability": [
+          "completed"
+        ]
+      },
+      "acceptable_pair_sets": [],
+      "boundary_passages": [],
+      "required_context_passages": [],
+      "rationale": "The closure explicitly states that no external feedback was collected before closure.",
+      "coverage_tags": [
+        "no_feedback",
+        "explicit_inapplicability"
+      ],
+      "genuine_insufficient": false,
+      "review_status": "researcher_confirmed",
+      "review_note": "Confirmed by the researcher on 25 October 2026 after manual review of the case summary, evidence roles, applicability, temporal scope and ambiguity notes. No independent expert or inter-rater agreement claim.",
+      "insufficiency_type": "not_applicable_to_supported_case",
+      "current_claim_roles": [],
+      "applicability_scope": "The exact canonical section question at the project's complete latest supplied record state; not an assertion about the experiment date.",
+      "section_applicability": "not_applicable",
+      "applicability_rationale": "The closure explicitly states that no external feedback was collected before closure.",
+      "applicability_evidence_sets": [
+        [
+          "SY-CLOSED-NO-FEEDBACK"
+        ]
+      ],
+      "benchmark_tier": "production",
+      "reference_state": "latest_project_state",
+      "as_of_record": "SY-R07",
+      "eligible_record_ids": [
+        "SY-R01",
+        "SY-R02",
+        "SY-R03",
+        "SY-R04",
+        "SY-R05",
+        "SY-R06",
+        "SY-R07"
+      ],
+      "candidate_v2_question": "Did the completed project collect any tutor or visitor feedback before closure?",
+      "case_origin": "v2_case_canonicalised",
+      "reviewed_by": "Fuzhe Zhang",
+      "review_date": "2026-10-25",
+      "review_basis": "manual review of case summaries, evidence roles, applicability, temporal scope and ambiguity notes"
+    },
+    {
+      "case_id": "SY-09",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_active",
+      "section_id": "unresolved_tensions",
+      "question": "What remains unresolved after the display and cable repairs?",
+      "expected_support_status": "supported",
+      "required_evidence_roles": [
+        "unresolved_issue"
+      ],
+      "acceptable_gold_passages": [
+        "SY-DRIFT"
+      ],
+      "excluded_or_misleading_passages": [
+        {
+          "passage_id": "SY-REPAIRED",
+          "reason": "Both recorded repairs are completed, not remaining blockers."
+        }
+      ],
+      "expected_temporal_status": [
+        "current"
+      ],
+      "role_temporal_requirements": {
+        "unresolved_issue": [
+          "current"
+        ]
+      },
+      "acceptable_pair_sets": [],
+      "boundary_passages": [],
+      "required_context_passages": [],
+      "rationale": "The active snapshot identifies a different remaining issue.",
+      "coverage_tags": [
+        "unresolved_present",
+        "completed_issue_distractor"
+      ],
+      "genuine_insufficient": false,
+      "review_status": "researcher_confirmed",
+      "review_note": "Confirmed by the researcher on 25 October 2026 after manual review of the case summary, evidence roles, applicability, temporal scope and ambiguity notes. No independent expert or inter-rater agreement claim.",
+      "insufficiency_type": "not_applicable_to_supported_case",
+      "current_claim_roles": [
+        "unresolved_issue"
+      ],
+      "applicability_scope": "The section question as specified by this case, at its context's documented reference point; not a project-wide or present-day verdict.",
+      "section_applicability": "applicable",
+      "applicability_rationale": "Pressure drift remains unresolved at the active snapshot despite other repairs.",
+      "applicability_evidence_sets": [
+        [
+          "SY-DRIFT"
+        ]
+      ],
+      "benchmark_tier": "diagnostic",
+      "reference_state": "historical_snapshot",
+      "as_of_record": "SY-R05",
+      "eligible_record_ids": [
+        "SY-R01",
+        "SY-R02",
+        "SY-R03",
+        "SY-R04",
+        "SY-R05"
+      ],
+      "candidate_v2_question": "What remains unresolved after the display and cable repairs?",
+      "case_origin": "v2_diagnostic_retained",
+      "reviewed_by": "Fuzhe Zhang",
+      "review_date": "2026-10-25",
+      "review_basis": "manual review of case summaries, evidence roles, applicability, temporal scope and ambiguity notes"
+    },
+    {
+      "case_id": "SY-10",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_closed",
+      "section_id": "unresolved_tensions",
+      "question": "Is pressure drift still documented as a current blocker after the final calibration?",
+      "expected_support_status": "supported",
+      "required_evidence_roles": [
+        "closure_or_inapplicability"
+      ],
+      "acceptable_gold_passages": [
+        "SY-CALIBRATED"
+      ],
+      "excluded_or_misleading_passages": [
+        {
+          "passage_id": "SY-STALE-DRIFT",
+          "reason": "Old unresolved wording is invalidated by the later repair."
+        }
+      ],
+      "expected_temporal_status": [
+        "completed"
+      ],
+      "role_temporal_requirements": {
+        "closure_or_inapplicability": [
+          "completed"
+        ]
+      },
+      "acceptable_pair_sets": [],
+      "boundary_passages": [],
+      "required_context_passages": [],
+      "rationale": "The final calibration explicitly resolved pressure drift. Inapplicability concerns this named blocker only, not every possible limitation.",
+      "coverage_tags": [
+        "completed_issue_distractor",
+        "state_wrong_distractor",
+        "dated_update",
+        "explicit_inapplicability"
+      ],
+      "genuine_insufficient": false,
+      "review_status": "researcher_confirmed",
+      "review_note": "Confirmed by the researcher on 25 October 2026 after manual review of the case summary, evidence roles, applicability, temporal scope and ambiguity notes. No independent expert or inter-rater agreement claim.",
+      "insufficiency_type": "not_applicable_to_supported_case",
+      "current_claim_roles": [],
+      "applicability_scope": "Pressure drift as a current blocker after calibration; not all possible unresolved issues.",
+      "section_applicability": "not_applicable",
+      "applicability_rationale": "The final calibration explicitly resolved pressure drift. Inapplicability concerns this named blocker only, not every possible limitation.",
+      "applicability_evidence_sets": [
+        [
+          "SY-CALIBRATED"
+        ]
+      ],
+      "benchmark_tier": "diagnostic",
+      "reference_state": "latest_project_state",
+      "as_of_record": "SY-R07",
+      "eligible_record_ids": [
+        "SY-R01",
+        "SY-R02",
+        "SY-R03",
+        "SY-R04",
+        "SY-R05",
+        "SY-R06",
+        "SY-R07"
+      ],
+      "candidate_v2_question": "Is pressure drift still documented as a current blocker after the final calibration?",
+      "case_origin": "v2_diagnostic_retained",
+      "reviewed_by": "Fuzhe Zhang",
+      "review_date": "2026-10-25",
+      "review_basis": "manual review of case summaries, evidence roles, applicability, temporal scope and ambiguity notes"
+    },
+    {
+      "case_id": "SY-11",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_active",
+      "section_id": "possible_next_action",
+      "question": "Which test has been agreed as the next task, including its timing and pending status?",
+      "expected_support_status": "supported",
+      "required_evidence_roles": [
+        "next_action"
+      ],
+      "acceptable_gold_passages": [
+        "SY-TASK"
+      ],
+      "excluded_or_misleading_passages": [
+        {
+          "passage_id": "SY-FUTURE",
+          "reason": "A hypothetical extension is not the agreed task."
+        },
+        {
+          "passage_id": "SY-REPAIRED",
+          "reason": "Completed checks are not pending work."
+        }
+      ],
+      "expected_temporal_status": [
+        "current"
+      ],
+      "role_temporal_requirements": {
+        "next_action": [
+          "current"
+        ]
+      },
+      "acceptable_pair_sets": [],
+      "boundary_passages": [],
+      "required_context_passages": [
+        "SY-TASK"
+      ],
+      "rationale": "The source records a named task, a date and pending status.",
+      "coverage_tags": [
+        "explicit_next_action",
+        "dated_context"
+      ],
+      "genuine_insufficient": false,
+      "review_status": "researcher_confirmed",
+      "review_note": "Confirmed by the researcher on 25 October 2026 after manual review of the case summary, evidence roles, applicability, temporal scope and ambiguity notes. No independent expert or inter-rater agreement claim.",
+      "insufficiency_type": "not_applicable_to_supported_case",
+      "current_claim_roles": [
+        "next_action"
+      ],
+      "applicability_scope": "The section question as specified by this case, at its context's documented reference point; not a project-wide or present-day verdict.",
+      "section_applicability": "applicable",
+      "applicability_rationale": "The active snapshot records an agreed, dated and still pending test.",
+      "applicability_evidence_sets": [
+        [
+          "SY-TASK"
+        ]
+      ],
+      "benchmark_tier": "diagnostic",
+      "reference_state": "historical_snapshot",
+      "as_of_record": "SY-R05",
+      "eligible_record_ids": [
+        "SY-R01",
+        "SY-R02",
+        "SY-R03",
+        "SY-R04",
+        "SY-R05"
+      ],
+      "candidate_v2_question": "Which test has been agreed as the next task, including its timing and pending status?",
+      "case_origin": "v2_diagnostic_retained",
+      "reviewed_by": "Fuzhe Zhang",
+      "review_date": "2026-10-25",
+      "review_basis": "manual review of case summaries, evidence roles, applicability, temporal scope and ambiguity notes"
+    },
+    {
+      "case_id": "SY-12",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_closed",
+      "section_id": "possible_next_action",
+      "question": "What is the next documented action or decision that should be addressed?",
+      "expected_support_status": "supported",
+      "required_evidence_roles": [
+        "closure_or_inapplicability"
+      ],
+      "acceptable_gold_passages": [
+        "SY-CLOSED"
+      ],
+      "excluded_or_misleading_passages": [
+        {
+          "passage_id": "SY-CLOSED-FUTURE",
+          "reason": "No reopening or extension is agreed."
+        },
+        {
+          "passage_id": "SY-STALE-TASK",
+          "reason": "The old calibration task was completed."
+        }
+      ],
+      "expected_temporal_status": [
+        "completed"
+      ],
+      "role_temporal_requirements": {
+        "closure_or_inapplicability": [
+          "completed"
+        ]
+      },
+      "acceptable_pair_sets": [],
+      "boundary_passages": [
+        "SY-CALIBRATED"
+      ],
+      "required_context_passages": [],
+      "rationale": "Closure explicitly states there is no agreed next task. Optional reopening does not establish a current commitment.",
+      "coverage_tags": [
+        "future_not_current",
+        "completed_project",
+        "explicit_inapplicability"
+      ],
+      "genuine_insufficient": false,
+      "review_status": "researcher_confirmed",
+      "review_note": "Confirmed by the researcher on 25 October 2026 after manual review of the case summary, evidence roles, applicability, temporal scope and ambiguity notes. No independent expert or inter-rater agreement claim.",
+      "insufficiency_type": "not_applicable_to_supported_case",
+      "current_claim_roles": [],
+      "applicability_scope": "The exact canonical section question at the project's complete latest supplied record state; not an assertion about the experiment date.",
+      "section_applicability": "not_applicable",
+      "applicability_rationale": "Closure explicitly states there is no agreed next task. Optional reopening does not establish a current commitment.",
+      "applicability_evidence_sets": [
+        [
+          "SY-CLOSED"
+        ]
+      ],
+      "benchmark_tier": "production",
+      "reference_state": "latest_project_state",
+      "as_of_record": "SY-R07",
+      "eligible_record_ids": [
+        "SY-R01",
+        "SY-R02",
+        "SY-R03",
+        "SY-R04",
+        "SY-R05",
+        "SY-R06",
+        "SY-R07"
+      ],
+      "candidate_v2_question": "What confirmed current task should follow closure, rather than an optional future reopening?",
+      "case_origin": "v2_case_canonicalised",
+      "reviewed_by": "Fuzhe Zhang",
+      "review_date": "2026-10-25",
+      "review_basis": "manual review of case summaries, evidence roles, applicability, temporal scope and ambiguity notes"
+    },
+    {
+      "case_id": "SY-13",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_closed",
+      "section_id": "changes_and_reasons",
+      "question": "What important changes were made to the project, and why were they made?",
+      "expected_support_status": "supported",
+      "required_evidence_roles": [
+        "change",
+        "reason"
+      ],
+      "acceptable_gold_passages": [
+        "SY-CLOSED-DIAL",
+        "SY-CLOSED-PAD-REASON",
+        "SY-CLOSED-GLASS",
+        "SY-CLOSED-SURFACE-REASON"
+      ],
+      "excluded_or_misleading_passages": [],
+      "expected_temporal_status": [
+        "superseded",
+        "historical"
+      ],
+      "role_temporal_requirements": {
+        "change": [
+          "superseded"
+        ],
+        "reason": [
+          "historical"
+        ]
+      },
+      "acceptable_pair_sets": [],
+      "boundary_passages": [],
+      "required_context_passages": [],
+      "rationale": "Both input and display-surface changes remain recorded at closure, with their distinct reasons. Match a change with its own reason.",
+      "coverage_tags": [
+        "canonical_production"
+      ],
+      "genuine_insufficient": false,
+      "review_status": "researcher_confirmed",
+      "review_note": "Confirmed by the researcher on 25 October 2026 after manual review of the case summary, evidence roles, applicability, temporal scope and ambiguity notes. No independent expert or inter-rater agreement claim.",
+      "insufficiency_type": "not_applicable_to_supported_case",
+      "current_claim_roles": [],
+      "applicability_scope": "The exact canonical section question at the project's complete latest supplied record state; not an assertion about the experiment date.",
+      "section_applicability": "applicable",
+      "applicability_rationale": "Both input and display-surface changes remain recorded at closure, with their distinct reasons. Match a change with its own reason.",
+      "applicability_evidence_sets": [
+        [
+          "SY-CLOSED-DIAL",
+          "SY-CLOSED-PAD-REASON"
+        ],
+        [
+          "SY-CLOSED-GLASS",
+          "SY-CLOSED-SURFACE-REASON"
+        ]
+      ],
+      "benchmark_tier": "production",
+      "reference_state": "latest_project_state",
+      "as_of_record": "SY-R07",
+      "eligible_record_ids": [
+        "SY-R01",
+        "SY-R02",
+        "SY-R03",
+        "SY-R04",
+        "SY-R05",
+        "SY-R06",
+        "SY-R07"
+      ],
+      "candidate_v2_question": null,
+      "case_origin": "new_canonical_case",
+      "reviewed_by": "Fuzhe Zhang",
+      "review_date": "2026-10-25",
+      "review_basis": "manual review of case summaries, evidence roles, applicability, temporal scope and ambiguity notes"
+    },
+    {
+      "case_id": "SY-14",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_closed",
+      "section_id": "current_vs_superseded",
+      "question": "Which project directions are current, and which directions have been replaced or superseded?",
+      "expected_support_status": "supported",
+      "required_evidence_roles": [
+        "current_direction",
+        "superseded_direction"
+      ],
+      "acceptable_gold_passages": [
+        "SY-FINAL-CONFIG",
+        "SY-CLOSED-DIAL",
+        "SY-CLOSED-GLASS"
+      ],
+      "excluded_or_misleading_passages": [],
+      "expected_temporal_status": [
+        "current",
+        "superseded"
+      ],
+      "role_temporal_requirements": {
+        "current_direction": [
+          "current"
+        ],
+        "superseded_direction": [
+          "superseded"
+        ]
+      },
+      "acceptable_pair_sets": [
+        [
+          "SY-FINAL-CONFIG",
+          "SY-CLOSED-DIAL"
+        ],
+        [
+          "SY-FINAL-CONFIG",
+          "SY-CLOSED-GLASS"
+        ]
+      ],
+      "boundary_passages": [],
+      "required_context_passages": [
+        "SY-FINAL-CONFIG"
+      ],
+      "rationale": "The archived final configuration retains pad and diffuser; dial and glass were explicitly replaced and not restored. Current refers to the final configuration, not active development.",
+      "coverage_tags": [
+        "canonical_production"
+      ],
+      "genuine_insufficient": false,
+      "review_status": "researcher_confirmed",
+      "review_note": "Confirmed by the researcher on 25 October 2026 after manual review of the case summary, evidence roles, applicability, temporal scope and ambiguity notes. No independent expert or inter-rater agreement claim.",
+      "insufficiency_type": "not_applicable_to_supported_case",
+      "current_claim_roles": [
+        "current_direction"
+      ],
+      "applicability_scope": "The exact canonical section question at the project's complete latest supplied record state; not an assertion about the experiment date.",
+      "section_applicability": "applicable",
+      "applicability_rationale": "The archived final configuration retains pad and diffuser; dial and glass were explicitly replaced and not restored. Current refers to the final configuration, not active development.",
+      "applicability_evidence_sets": [
+        [
+          "SY-FINAL-CONFIG",
+          "SY-CLOSED-DIAL"
+        ],
+        [
+          "SY-FINAL-CONFIG",
+          "SY-CLOSED-GLASS"
+        ]
+      ],
+      "benchmark_tier": "production",
+      "reference_state": "latest_project_state",
+      "as_of_record": "SY-R07",
+      "eligible_record_ids": [
+        "SY-R01",
+        "SY-R02",
+        "SY-R03",
+        "SY-R04",
+        "SY-R05",
+        "SY-R06",
+        "SY-R07"
+      ],
+      "candidate_v2_question": null,
+      "case_origin": "new_canonical_case",
+      "reviewed_by": "Fuzhe Zhang",
+      "review_date": "2026-10-25",
+      "review_basis": "manual review of case summaries, evidence roles, applicability, temporal scope and ambiguity notes"
+    },
+    {
+      "case_id": "SY-15",
+      "project_id": "signal_loom_synthetic",
+      "context_id": "signal_closed",
+      "section_id": "unresolved_tensions",
+      "question": "What unresolved questions, tensions or limitations remain in the project?",
+      "expected_support_status": "insufficient",
+      "required_evidence_roles": [
+        "unresolved_issue"
+      ],
+      "acceptable_gold_passages": [],
+      "excluded_or_misleading_passages": [
+        {
+          "passage_id": "SY-STALE-DRIFT",
+          "reason": "The named drift issue was explicitly resolved."
+        },
+        {
+          "passage_id": "SY-CALIBRATED",
+          "reason": "Resolution of this named issue does not establish that all questions or limitations are absent."
+        },
+        {
+          "passage_id": "SY-CLOSED",
+          "reason": "Closure with no active aim or task is not an explicit blanket statement that no unresolved limitation remains."
+        }
+      ],
+      "expected_temporal_status": [
+        "current"
+      ],
+      "role_temporal_requirements": {
+        "unresolved_issue": [
+          "current"
+        ]
+      },
+      "acceptable_pair_sets": [],
+      "boundary_passages": [
+        "SY-CLOSED",
+        "SY-CALIBRATED",
+        "SY-CLOSED-REPAIRED"
+      ],
+      "required_context_passages": [],
+      "rationale": "Conservative canonical S5: supplied named technical issues are resolved, but the records do not explicitly establish either a remaining broad limitation or absence of every unresolved question. Keep unclear; diagnostic SY-10 can still support the narrower negative answer.",
+      "coverage_tags": [
+        "canonical_production"
+      ],
+      "genuine_insufficient": true,
+      "review_status": "researcher_confirmed",
+      "review_note": "Confirmed by the researcher on 25 October 2026 after manual review of the case summary, evidence roles, applicability, temporal scope and ambiguity notes. No independent expert or inter-rater agreement claim. Final decision: retain insufficient/unclear; resolving one issue or closing a project does not establish absence of all remaining limitations.",
+      "insufficiency_type": "unknown_ongoing_status",
+      "current_claim_roles": [
+        "unresolved_issue"
+      ],
+      "applicability_scope": "All unresolved questions, tensions or limitations in canonical S5 at closure; wider than the named drift diagnostic.",
+      "section_applicability": "unclear",
+      "applicability_rationale": "Conservative canonical S5: supplied named technical issues are resolved, but the records do not explicitly establish either a remaining broad limitation or absence of every unresolved question. Keep unclear; diagnostic SY-10 can still support the narrower negative answer.",
+      "applicability_evidence_sets": [],
+      "benchmark_tier": "production",
+      "reference_state": "latest_project_state",
+      "as_of_record": "SY-R07",
+      "eligible_record_ids": [
+        "SY-R01",
+        "SY-R02",
+        "SY-R03",
+        "SY-R04",
+        "SY-R05",
+        "SY-R06",
+        "SY-R07"
+      ],
+      "candidate_v2_question": null,
+      "case_origin": "new_canonical_case",
+      "reviewed_by": "Fuzhe Zhang",
+      "review_date": "2026-10-25",
+      "review_basis": "manual review of case summaries, evidence roles, applicability, temporal scope and ambiguity notes"
+    }
+  ],
+  "record_catalog": [
+    {
+      "record_id": "EF-R01",
+      "project_id": "sample_echo_field",
+      "source": "decisions/design_notes.md",
+      "source_root": "data/demo_projects/sample_echo_field",
+      "record_sequence": 1,
+      "record_date": null,
+      "sequence_basis": "Undated design history with an explicit retained-direction statement.",
+      "historical_order_established": false,
+      "sha256": "4e7f0b73c0ffedfef02a9edaaa5bb98eb7988f3a0d6090c46d4d7bca7fd24051"
+    },
+    {
+      "record_id": "EF-R02",
+      "project_id": "sample_echo_field",
+      "source": "feedback/tutor_feedback.md",
+      "source_root": "data/demo_projects/sample_echo_field",
+      "record_sequence": 2,
+      "record_date": null,
+      "sequence_basis": "Undated attributed feedback and responses; authoring order is unknown.",
+      "historical_order_established": false,
+      "sha256": "b8db06f869e8bbe8a0fbf80d919c04e7cd11eb7e075bd04775405760d102f61f"
+    },
+    {
+      "record_id": "EF-R03",
+      "project_id": "sample_echo_field",
+      "source": "process/project_log.md",
+      "source_root": "data/demo_projects/sample_echo_field",
+      "record_sequence": 3,
+      "record_date": null,
+      "sequence_basis": "Undated process history with remaining questions.",
+      "historical_order_established": false,
+      "sha256": "be0223b782b4233518d127e97f54d4b9a388d49daf174892dc51b1f060315c31"
+    },
+    {
+      "record_id": "EF-R04",
+      "project_id": "sample_echo_field",
+      "source": "current_state/goals.md",
+      "source_root": "data/demo_projects/sample_echo_field",
+      "record_sequence": 4,
+      "record_date": null,
+      "sequence_basis": "Explicit Current State record anchors the latest supplied snapshot; not proof of latest authoring date.",
+      "historical_order_established": false,
+      "sha256": "0aba8abc716496aff7a4b21546438d615170ebb709ddd89861557082d18ee764"
+    },
+    {
+      "record_id": "SY-R01",
+      "project_id": "signal_loom_synthetic",
+      "source": "process/01_concept.md",
+      "source_root": "tests/fixtures/temporal_state_project/records",
+      "record_sequence": 1,
+      "record_date": "2026-02-01",
+      "sequence_basis": "Explicit record date and filename sequence.",
+      "historical_order_established": true,
+      "sha256": "f113078b8cf823052b634528a2b658e860c3745c356fde0bdd430d74982aa052"
+    },
+    {
+      "record_id": "SY-R02",
+      "project_id": "signal_loom_synthetic",
+      "source": "decisions/02_revision.md",
+      "source_root": "tests/fixtures/temporal_state_project/records",
+      "record_sequence": 2,
+      "record_date": "2026-02-05",
+      "sequence_basis": "Explicit record date and filename sequence.",
+      "historical_order_established": true,
+      "sha256": "ebba3f71a7415ba87b687b38cc3bc0c421c86c47fd9b04f0b4f0a7a4758e3120"
+    },
+    {
+      "record_id": "SY-R03",
+      "project_id": "signal_loom_synthetic",
+      "source": "process/03_repairs.md",
+      "source_root": "tests/fixtures/temporal_state_project/records",
+      "record_sequence": 3,
+      "record_date": "2026-02-08",
+      "sequence_basis": "Explicit record date and filename sequence.",
+      "historical_order_established": true,
+      "sha256": "02e7dcc7bf4f150403989941565211ed76cd22aad3ef1f9612e819f57d688d2f"
+    },
+    {
+      "record_id": "SY-R04",
+      "project_id": "signal_loom_synthetic",
+      "source": "process/04_working_notes.md",
+      "source_root": "tests/fixtures/temporal_state_project/records",
+      "record_sequence": 4,
+      "record_date": "2026-02-11",
+      "sequence_basis": "Explicit record date and filename sequence.",
+      "historical_order_established": true,
+      "sha256": "06f35a3e70efa5ddb3086bcf3c2fc4690e5d30ca29cd9b75a8ac256621ecd77b"
+    },
+    {
+      "record_id": "SY-R05",
+      "project_id": "signal_loom_synthetic",
+      "source": "current_state/05_active_snapshot.md",
+      "source_root": "tests/fixtures/temporal_state_project/records",
+      "record_sequence": 5,
+      "record_date": "2026-02-12",
+      "sequence_basis": "Explicit active snapshot date and filename sequence.",
+      "historical_order_established": true,
+      "sha256": "3705aa76e8b21748444a0e64e7d8d511c08519c5b4f80ba70a7b50c13bbdf049"
+    },
+    {
+      "record_id": "SY-R06",
+      "project_id": "signal_loom_synthetic",
+      "source": "process/06_undated_note.md",
+      "source_root": "tests/fixtures/temporal_state_project/records",
+      "record_sequence": 6,
+      "record_date": null,
+      "sequence_basis": "File ordinal 06 is stable, but availability before the active cutoff is unproved; excluded from historical views.",
+      "historical_order_established": false,
+      "sha256": "824e9aab65e16ff2496d6c06f4210f335605544801862fa0fc16fc7472962821"
+    },
+    {
+      "record_id": "SY-R07",
+      "project_id": "signal_loom_synthetic",
+      "source": "current_state/07_closure.md",
+      "source_root": "tests/fixtures/temporal_state_project/records",
+      "record_sequence": 7,
+      "record_date": "2026-02-20",
+      "sequence_basis": "Explicit closure date; latest record in the numbered synthetic sequence.",
+      "historical_order_established": true,
+      "sha256": "aae3431e9acf6e9597f7afcb49dea3be7268fe5e2a7c0f0c13c5c8f3920f505b"
+    }
+  ],
+  "reviewed_by": "Fuzhe Zhang",
+  "review_date": "2026-10-25",
+  "review_basis": "manual review of case summaries, evidence roles, applicability, temporal scope and ambiguity notes"
+}
