@@ -1,11 +1,11 @@
 {
-  "status": "implementation_validated_pending_commit",
+  "status": "runner_validated_pending_lock",
   "execution_authorised": false,
-  "formal_evaluation_entrypoint": "disabled",
+  "formal_evaluation_entrypoint": "implemented_requires_formal_lock_version_and_confirmation",
   "validation_gate_passed": true,
-  "validation_gate": "A–G passed with no confirmed leak; F and G are consecutive complete passes in distinct fresh processes and short basetemps. Root cause of the prior errors remains unconfirmed.",
+  "validation_gate": "Final synthetic runner tests and complete regression suite passed. No formal lock or candidate execution authorised.",
   "branch": "temporal-state-retrieval-state-aware-v1",
-  "HEAD": "2c3a298be80f21f5f2bd21cd486e1944e154d1d9",
+  "HEAD": "25bf8e0c7af38d6c7a395a1e9866de46ecd8d27d",
   "freeze_commit": "2c3a298be80f21f5f2bd21cd486e1944e154d1d9",
   "freeze_version": "phase_3a_metadata_v1",
   "candidate_name": "record_state_selection_v1",
@@ -33,7 +33,7 @@
     },
     {
       "path": "experiments/temporal_state_retrieval/state_aware_experiment.py",
-      "sha256": "091ad2e0a8d5f4cecd3fd671d32921b50cd198028ff650f9086c09030fd14835"
+      "sha256": "305fad687cb41e88bd532a91d0d39ce6261de2435c0dbff2eb79a18081a0851e"
     },
     {
       "path": "experiments/temporal_state_retrieval/state_aware_selector.py",
@@ -65,7 +65,7 @@
     },
     {
       "path": "project_knowledge/process/experiments/temporal_state_retrieval/phase_3b_implementation_review.md",
-      "sha256": "39d87260fc7341310e78b19d1a42089eb89d9bd082e5e99995a655a1b3c925a2"
+      "sha256": "d74c9c173b21021ace6e7064f5cc1da9ee4d650ec21d39a9739d1ea87e865747"
     },
     {
       "path": "src/brief_schema.py",
@@ -144,6 +144,10 @@
       "sha256": "0df2b8d0fc4db872680e06fcebe57186801c02447c461ae1d9c21ae43b969e99"
     },
     {
+      "path": "tests/test_state_aware_experiment.py",
+      "sha256": "f7ec0cd513b0ec3017684fe3d93e3eb33a23f898a6b7bff3239bee938cb2597f"
+    },
+    {
       "path": "tests/test_state_aware_selector.py",
       "sha256": "8ae985602718929b99e339883f2f30eb54b7c31eab2b1cbabcf8e71a69c5ef2c"
     },
@@ -168,8 +172,9 @@
   "phase_2_baseline_manifest_sha256": "e3a1bc459dca0ccfcaa5707bdfebbd04c105d33023904c13541bbe972a12a01f",
   "implementation_sha256": {
     "experiments/temporal_state_retrieval/state_aware_selector.py": "6780911e762acfd3fa9057c19f41d51f44457abf7957b23bdd29a6d17ff11650",
-    "experiments/temporal_state_retrieval/state_aware_experiment.py": "091ad2e0a8d5f4cecd3fd671d32921b50cd198028ff650f9086c09030fd14835",
-    "tests/test_state_aware_selector.py": "8ae985602718929b99e339883f2f30eb54b7c31eab2b1cbabcf8e71a69c5ef2c"
+    "experiments/temporal_state_retrieval/state_aware_experiment.py": "305fad687cb41e88bd532a91d0d39ce6261de2435c0dbff2eb79a18081a0851e",
+    "tests/test_state_aware_selector.py": "8ae985602718929b99e339883f2f30eb54b7c31eab2b1cbabcf8e71a69c5ef2c",
+    "tests/test_state_aware_experiment.py": "f7ec0cd513b0ec3017684fe3d93e3eb33a23f898a6b7bff3239bee938cb2597f"
   },
   "python": "3.11.16",
   "dependencies": {
@@ -268,12 +273,49 @@
     "score_after_selection_separate_tiers",
     "private_details_public_aggregates"
   ],
-  "freeze_note": "Validated implementation publication candidate only. Regenerate the formal pre-run lock after the implementation commit and bind its new commit hash under separate authorisation. No candidate evaluation was run.",
+  "freeze_note": "Validated runner publication candidate only. A separately authorised formal lock must bind the resulting implementation commit and be committed afterward. No formal run has occurred.",
   "candidate_evaluation_run": false,
-  "implementation_parent_HEAD": "2c3a298be80f21f5f2bd21cd486e1944e154d1d9",
-  "HEAD_semantics": "implementation parent HEAD, not a post-commit formal run lock",
+  "implementation_parent_HEAD": "25bf8e0c7af38d6c7a395a1e9866de46ecd8d27d",
+  "HEAD_semantics": "Phase 3B2 implementation parent; not an executable lock or resulting implementation commit",
   "formal_pre_run_lock": false,
   "validation_results": [
+    {
+      "check": "focused runner/selector/metadata before final edge-case additions",
+      "result": "260 passed in 73.15s (0:01:13)",
+      "exit_code": 0
+    },
+    {
+      "check": "final runner",
+      "result": "71 passed in 19.26s",
+      "exit_code": 0
+    },
+    {
+      "check": "complete suite",
+      "result": "420 passed in 249.24s (0:04:09)",
+      "exit_code": 0
+    }
+  ],
+  "resource_audit": {
+    "windows_resource_error_reproduced": false,
+    "historical_root_cause": "unconfirmed",
+    "full_suite_protected_access_attempts": 0,
+    "full_suite_external_network_attempts": 0,
+    "full_suite_actual_model_weight_access_attempts": 0,
+    "worker_timeout_cleanup_test_passed": true,
+    "old_tests_modified": false,
+    "fresh_process_utf8": true
+  },
+  "runtime_activity": {
+    "openai": 0,
+    "llm": 0,
+    "model_construction": 0,
+    "embedding": 0,
+    "encode": 0,
+    "semantic_retrieval": 0,
+    "summary": 0,
+    "formal_case_scores": 0
+  },
+  "historical_phase_3b1_validation_results": [
     {
       "check": "A",
       "result": "230 passed in 178.83s (0:02:58)",
@@ -310,21 +352,36 @@
       "exit_code": 0
     }
   ],
-  "resource_audit": {
+  "historical_phase_3b1_resource_audit": {
     "confirmed_leak": false,
     "original_root_cause": "unconfirmed",
     "new_code_or_tests_changed_for_diagnosis": false,
     "test_owned_children_remaining": 0,
     "observed_subprocess_pipes_closed": true
   },
-  "runtime_activity": {
-    "openai": 0,
-    "llm": 0,
-    "model_construction": 0,
-    "embedding": 0,
-    "encode": 0,
-    "semantic_retrieval": 0,
-    "summary": 0,
-    "formal_case_scores": 0
+  "formal_runner_implemented": true,
+  "intended_run_count": 1,
+  "implementation_parent_commit": "25bf8e0c7af38d6c7a395a1e9866de46ecd8d27d",
+  "runner_contract": {
+    "modes": [
+      "preflight",
+      "execute",
+      "recompute"
+    ],
+    "candidate_manifest_authorises_execute": false,
+    "formal_lock_created": false,
+    "implementation_ancestor_of_lock_commit": true,
+    "allowed_intervening_change": "added public lock only",
+    "durable_exclusive_state": true,
+    "resume_supported": false,
+    "reset_supported": false,
+    "automatic_retry": false,
+    "gold_file_loaded_after_selection": true,
+    "trace_only_recompute": true,
+    "candidate_score_tolerance": {
+      "absolute": 0,
+      "relative": 0
+    },
+    "private_commitments_supplied_by_separate_ignored_lock": true
   }
 }
