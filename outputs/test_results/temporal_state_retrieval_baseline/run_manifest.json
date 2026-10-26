@@ -1,0 +1,403 @@
+{
+  "benchmark_version": "phase_1_gold_v1",
+  "gold_public_sha256": "9aa5150990e9f8843cc9f484e5b06fcf68ccfb09d7377ce36d30b911c3294c69",
+  "gold_private_sha256": "0e29cb741db661d91662d2455fedada9e4f7f3f4b7c9d89ef1f43beefed0f122",
+  "public_freeze_manifest_sha256": "0d02fa4ba917b5d006e4019acda60b0c9da99469d9c568b06fad2ff62591e82e",
+  "private_freeze_manifest_sha256": "b643f32ed86f2aeff1844d4aa4698f72544c90bd2bfd2a3c2439decec18abeed",
+  "git_commit": "03d58f773a2fe0f7b4c1302368a5f720ae35b6a6",
+  "git_branch": "temporal-state-retrieval-experiment",
+  "started_utc": "2026-10-25T21:18:21.329129+00:00",
+  "finished_utc": "2026-10-25T21:18:52.527554+00:00",
+  "python": "3.11.16",
+  "platform": "win32",
+  "dependencies": {
+    "sentence-transformers": "6.0.1",
+    "transformers": "5.17.0",
+    "torch": "2.14.0",
+    "numpy": "2.4.6",
+    "huggingface-hub": "1.31.0",
+    "jsonschema": "4.26.0"
+  },
+  "model": "all-MiniLM-L6-v2",
+  "model_snapshot_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "model_load_ms": 402.7829999977257,
+  "corpus_views": {
+    "echo_documented_snapshot": {
+      "documents": 4,
+      "chunks": 12,
+      "corpus_preparation_ms": 6.175900009111501,
+      "document_embedding_ms": 290.6548000028124,
+      "document_embeddings_reused": true
+    },
+    "p96_final_documented": {
+      "documents": 7,
+      "chunks": 49,
+      "corpus_preparation_ms": 17.18609999807086,
+      "document_embedding_ms": 881.8802000023425,
+      "document_embeddings_reused": true
+    },
+    "signal_active": {
+      "documents": 5,
+      "chunks": 5,
+      "corpus_preparation_ms": 12.24240000010468,
+      "document_embedding_ms": 81.87209999596234,
+      "document_embeddings_reused": true
+    },
+    "signal_closed": {
+      "documents": 7,
+      "chunks": 8,
+      "corpus_preparation_ms": 17.040400009136647,
+      "document_embedding_ms": 111.0091000009561,
+      "document_embeddings_reused": true
+    }
+  },
+  "queries": {
+    "current_intention": {
+      "canonical_question": "What is the current aim or intended direction of this project?",
+      "queries": [
+        "What is explicitly described as the current project aim, current interaction method or present direction?",
+        "What is the project currently trying to achieve, excluding superseded and future directions?"
+      ],
+      "categories": [
+        "current_state",
+        "decisions"
+      ]
+    },
+    "changes_and_reasons": {
+      "canonical_question": "What important changes were made to the project, and why were they made?",
+      "queries": [
+        "What project method, interaction or direction was changed or replaced?",
+        "Why was the project changed, and what practical problem did the change address?"
+      ],
+      "categories": [
+        "decisions",
+        "process"
+      ]
+    },
+    "current_vs_superseded": {
+      "canonical_question": "Which project directions are current, and which directions have been replaced or superseded?",
+      "queries": [
+        "What project direction or interaction method is explicitly described as current or still in use?",
+        "What project direction is explicitly described as superseded, replaced, no longer current or future work?"
+      ],
+      "categories": [
+        "current_state",
+        "decisions",
+        "process"
+      ]
+    },
+    "relevant_feedback": {
+      "canonical_question": "What tutor or user feedback is relevant to the current project direction?",
+      "queries": [
+        "What tutor or user feedback was given about the project?",
+        "How did the project respond to, implement, resolve or defer the tutor or user feedback?"
+      ],
+      "categories": [
+        "feedback",
+        "process"
+      ]
+    },
+    "unresolved_tensions": {
+      "canonical_question": "What unresolved questions, tensions or limitations remain in the project?",
+      "queries": [
+        "Which technical problems, limitations, blockers or unclear behaviours remain unresolved after testing?",
+        "What current project notes describe work that still needs attention, correction or validation?"
+      ],
+      "categories": [
+        "current_state",
+        "process",
+        "feedback",
+        "decisions"
+      ]
+    },
+    "possible_next_action": {
+      "canonical_question": "What is the next documented action or decision that should be addressed?",
+      "queries": [
+        "What actions are explicitly listed under the project's next steps?",
+        "What current test, comparison or decision should be completed next?"
+      ],
+      "categories": [
+        "current_state",
+        "process",
+        "feedback"
+      ]
+    }
+  },
+  "cutoffs": {
+    "chunk_words": 120,
+    "overlap_words": 30,
+    "query_top_k": "all chunks in eligible view",
+    "selected_evidence": 2,
+    "hit_cutoffs": [
+      1,
+      3
+    ],
+    "excerpt_characters": 1200
+  },
+  "latency_method": "One first query, one warm-up, then 30 repetitions per unique view/section in fixed sorted round-robin order. One baseline arm; no other arm to alternate. Timing includes query encoding, cosine ranking, production selection and production excerpts. Source-offset mapping, scoring tail and scoring are excluded. Repeated cases share their unique request's samples. Diagnostic and production summaries overlap requests but are never pooled. Reporting audit: distinct-request distributions are retained; a separately labelled all-case-weighted view covers every case, including insufficient cases, by reusing the original measurements where requests coincide.",
+  "warm_repetitions": 30,
+  "activity": {
+    "model_loads": 1,
+    "encode_calls": 1540,
+    "encoded_texts": 1610,
+    "document_encode_calls": 4,
+    "document_texts": 74,
+    "query_encode_calls": 1536,
+    "query_texts": 1536,
+    "openai_requests": 0,
+    "llm_calls": 0,
+    "summary_calls": 0,
+    "external_embedding_requests": 0
+  },
+  "boundary_guard": {
+    "blocked_network_attempts": 0,
+    "blocked_private_access_attempts": 0
+  },
+  "offline": true,
+  "document_embeddings_reused": true,
+  "production_files_modified": false,
+  "harness_sha256": {
+    "experiments/temporal_state_retrieval/__init__.py": "ef226dbaec50751dbe8019ee966b2977bee2da078b87868d60c1a9c6440a2801",
+    "experiments/temporal_state_retrieval/baseline.py": "8fc6d7c180a64894513e8b7520b5ad4a747fc59cb6abfbd3c63cd0bfb22de4df",
+    "experiments/temporal_state_retrieval/scoring.py": "93b88ed188d8608304f667c03e282e570a62a2b4f2b9688d7fedb3eabc026f0e"
+  },
+  "test_sha256": "1a4e14e69690f5214cda99c0b191bf8a2e874ffd4570d27d817c522cbe280f78",
+  "aggregate_results_sha256": "02a5848ee480e6255956fd3638ca56f5c742989cf36915947749737090bcca16",
+  "private_raw_trace_sha256": "6f56601fa8b91a5f15313e7bd60392292820eaf07eb28847539282e6692b4201",
+  "device": "cpu",
+  "logical_cpu_count": 20,
+  "torch_threads": 14,
+  "model_snapshot_files": {
+    "1_Pooling/config.json": "4be450dde3b0273bb9787637cfbd28fe04a7ba6ab9d36ac48e92b11e350ffc23",
+    "config.json": "953f9c0d463486b10a6871cc2fd59f223b2c70184f49815e7efbcab5d8908b41",
+    "config_sentence_transformers.json": "061ca9d39661d6c6d6de5ba27f79a1cd5770ea247f8d46412a68a498dc5ac9f3",
+    "model.safetensors": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db",
+    "modules.json": "84e40c8e006c9b1d6c122e02cba9b02458120b5fb0c87b746c41e0207cf642cf",
+    "README.md": "dcd602d2fd35c203a247304a06fec6654a12f7941b739f9221a064fe8dc3b7f0",
+    "sentence_bert_config.json": "fc1993fde0a95c24ec6c022539d41cf6e2f7c9721e5415d6fb6897472a9cd4b7",
+    "special_tokens_map.json": "303df45a03609e4ead04bc3dc1536d0ab19b5358db685b6f3da123d05ec200e3",
+    "tokenizer.json": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037",
+    "tokenizer_config.json": "acb92769e8195aabd29b7b2137a9e6d6e25c476a4f15aa4355c233426c61576b",
+    "vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+  },
+  "gold_case_population": {
+    "production": 18,
+    "diagnostic": 16
+  },
+  "post_run_formatting": [
+    {
+      "file": "experiments/temporal_state_retrieval/scoring.py",
+      "change": "remove one trailing empty line; AST unchanged",
+      "execution_sha256": "93b88ed188d8608304f667c03e282e570a62a2b4f2b9688d7fedb3eabc026f0e",
+      "final_sha256": "4f2bf9babe4657c329cf731051f243b7d05897f602289d19d90f104162642ae7"
+    }
+  ],
+  "final_artifact_sha256": {
+    "experiments/temporal_state_retrieval/__init__.py": "ef226dbaec50751dbe8019ee966b2977bee2da078b87868d60c1a9c6440a2801",
+    "experiments/temporal_state_retrieval/baseline.py": "87102b25a2f45aba195ff6ab758d9e0303bb2e1fcede762dd5314f16736410da",
+    "experiments/temporal_state_retrieval/scoring.py": "4f2bf9babe4657c329cf731051f243b7d05897f602289d19d90f104162642ae7"
+  },
+  "execution_accounting": {
+    "complete_cases": 34,
+    "unique_corpus_views": 4,
+    "unique_requests": 24,
+    "query_count_per_request": [
+      2
+    ],
+    "first_runs": 24,
+    "warmup_runs": 24,
+    "timed_warm_runs": 720,
+    "total_request_executions": 768,
+    "derived_query_encode_calls": 1536,
+    "derived_query_texts": 1536,
+    "shared_cross_tier_requests": 8,
+    "shared_query_encodes": 512,
+    "tiers": {
+      "production": {
+        "cases": 18,
+        "unique_requests": 18,
+        "request_executions_including_shared": 576,
+        "query_encodes_including_shared": 1152
+      },
+      "diagnostic": {
+        "cases": 16,
+        "unique_requests": 14,
+        "request_executions_including_shared": 448,
+        "query_encodes_including_shared": 896
+      }
+    },
+    "query_embedding_reuse": false,
+    "reuse_boundary": "cases sharing a view/section reuse its saved result and timings; every execution re-encodes both queries",
+    "query_formula": "sum(queries per unique request) * (1 first + 1 warm-up + 30 timed warm)",
+    "exact_query_formula": "4 corpus views * 6 sections * 2 queries * (1 first + 1 warm-up + 30 timed warm) = 1536",
+    "cross_tier_formula": "18 * 2 * 32 + 14 * 2 * 32 - 8 * 2 * 32 = 1152 + 896 - 512 = 1536",
+    "document_formula": "4 document encode calls; 12 + 49 + 5 + 8 = 74 chunk texts",
+    "total_encode_formula": "4 document + 1536 query = 1540 encode calls",
+    "total_text_formula": "74 document + 1536 query = 1610 encoded texts",
+    "query_text_formula": "1536 query encode calls * 1 text = 1536 query texts",
+    "model_load_formula": "1 cached local model instance shared by 4 corpus indices"
+  },
+  "latency_reporting_audit": {
+    "date": "2026-10-26",
+    "baseline_rerun": false,
+    "retrieval_calls_this_audit": 0,
+    "embedding_calls_this_audit": 0,
+    "original_trace_sha256": "6f56601fa8b91a5f15313e7bd60392292820eaf07eb28847539282e6692b4201",
+    "complete_execution_cases": {
+      "production": 18,
+      "diagnostic": 16
+    },
+    "reason": "16 diagnostic cases map to 14 unique view/section requests. Two pairs reuse request results; this is not support-status filtering.",
+    "public_duplicate_cases": [
+      [
+        "SY-05",
+        "SY-06"
+      ]
+    ],
+    "private_duplicate_group_count": 1,
+    "insufficient_diagnostic_public_ids": [
+      "EF-08",
+      "SY-04"
+    ],
+    "insufficient_latency_exclusions": 0,
+    "original_unique_request_counts": {
+      "production": [
+        18,
+        540
+      ],
+      "diagnostic": [
+        14,
+        420
+      ]
+    },
+    "all_case_weighted_counts": {
+      "production": [
+        18,
+        540
+      ],
+      "diagnostic": [
+        16,
+        480
+      ]
+    },
+    "case_weighted_warning": "Analytical reuse of saved samples, not new independent measurements.",
+    "accuracy_metrics_changed": false,
+    "rankings_changed": false,
+    "raw_trace_changed": false,
+    "private_full_case_audit_sha256": "6ec4b7cba033395243afec411d2a873ee1ee28ac9feb16585a391e7af2a34242",
+    "before_audit_aggregate_sha256": "81e26a0df1212a63051dd4a0cb3d4f92491d6501e393a0bf4431021e674e1d20",
+    "before_audit_manifest_sha256": "149fc4fbd0666df62b838681111550ce83a5d7811f2c549c3cf2da822bea4a94",
+    "initial_validation": {
+      "baseline_unit_tests": "26 passed in 20.95s",
+      "full_pytest": "4 failed, 151 passed in 85.64s (0:01:25)",
+      "failed_existing_test": "tests/test_evidence_guidance.py::test_four_synthetic_project_contexts_preserve_cache_validation_and_append_only_reviews (four synthetic parameter cases)",
+      "failure_location": "tests/test_evidence_guidance.py:158",
+      "error_type": "FileNotFoundError",
+      "scope": "repository-external synthetic temporary workspace; real participant files not accessed",
+      "root_cause": "not determined; no production or existing-test changes attempted",
+      "compile": "18 files passed",
+      "pip_check": "No broken requirements found",
+      "external_network_attempts": 0,
+      "protected_data_access_attempts": 0,
+      "commit_gate": "blocked: full suite not passing",
+      "staged": false,
+      "committed": false,
+      "pushed": false
+    },
+    "validation": {
+      "date": "2026-10-26",
+      "matrix": [
+        {
+          "step": "A",
+          "scope": "Evidence-guidance file only",
+          "result": "24 passed in 65.71s (0:01:05)",
+          "exit_code": 0,
+          "process_duration_seconds": 66.297,
+          "directory_label": "A2"
+        },
+        {
+          "step": "B",
+          "scope": "Four previously failing nodes only",
+          "result": "4 passed in 41.50s",
+          "exit_code": 0,
+          "process_duration_seconds": 42.129,
+          "directory_label": "B"
+        },
+        {
+          "step": "C",
+          "scope": "Existing suite, excluding the new baseline tests",
+          "result": "129 passed in 154.48s (0:02:34)",
+          "exit_code": 0,
+          "process_duration_seconds": 154.974,
+          "directory_label": "C"
+        },
+        {
+          "step": "D",
+          "scope": "Baseline then evidence guidance",
+          "result": "52 passed in 69.61s (0:01:09)",
+          "exit_code": 0,
+          "process_duration_seconds": 70.192,
+          "directory_label": "D"
+        },
+        {
+          "step": "E",
+          "scope": "Evidence guidance then baseline",
+          "result": "52 passed in 67.82s (0:01:07)",
+          "exit_code": 0,
+          "process_duration_seconds": 68.422,
+          "directory_label": "E"
+        },
+        {
+          "step": "F1",
+          "scope": "Complete suite, first consecutive run",
+          "result": "157 passed in 182.29s (0:03:02)",
+          "exit_code": 0,
+          "process_duration_seconds": 182.947,
+          "directory_label": "F1"
+        },
+        {
+          "step": "F2",
+          "scope": "Complete suite, second consecutive run",
+          "result": "157 passed in 170.76s (0:02:50)",
+          "exit_code": 0,
+          "process_duration_seconds": 171.392,
+          "directory_label": "F2"
+        }
+      ],
+      "baseline_test_count": 28,
+      "complete_suite_count": 157,
+      "consecutive_full_passes": 2,
+      "distinct_basetemps": true,
+      "root_cause": "root cause unconfirmed",
+      "path_probe": "Temporary filename length 259 succeeds; 260 reproduces FileNotFoundError. Reconstructed original temporary cache length is 260; original internal exception was not retained.",
+      "observer_attempt": "Initial A observer KeyError retained as invalid instrumentation; external observer fixed and A rerun in a new directory.",
+      "original_full_traceback_available": false,
+      "import_hygiene": "New harness scoped imports and new-test monkeypatch bootstrap restore sys.path; original failure causality not established.",
+      "compile": "18 files passed in memory without bytecode writes",
+      "pip_check": "No broken requirements found",
+      "skips": 0,
+      "xfails": 0,
+      "weakened_assertions": false,
+      "external_network_attempts": 0,
+      "protected_data_access_attempts": 0,
+      "baseline_rerun": false,
+      "real_retrieval_calls": 0,
+      "real_embedding_calls": 0,
+      "openai_requests": 0,
+      "llm_calls": 0,
+      "summary_calls": 0,
+      "activity_basis": "No baseline/model execution; offline fixture doubles only in tests, process network and protected-data guards; not a new measurement of baseline counters.",
+      "commit_gate": "passed: ordered matrix and two consecutive full suites"
+    }
+  },
+  "final_test_sha256": "9540eb95a7d65efff25947eb4872e4ef122123a3faac3311ea5b22eae14708bc",
+  "post_run_import_hygiene": {
+    "files": [
+      "experiments/temporal_state_retrieval/baseline.py",
+      "tests/test_temporal_state_baseline.py"
+    ],
+    "scope": "Restore temporary import paths; add two regression checks. No retrieval, scoring or saved-result changes.",
+    "execution_time_hashes_preserved": true,
+    "original_cache_failure_causality": "not established"
+  }
+}
