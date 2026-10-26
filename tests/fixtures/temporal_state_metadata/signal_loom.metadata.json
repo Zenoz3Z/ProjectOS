@@ -1,0 +1,79 @@
+{
+  "metadata_version": "phase_3a_metadata_v1",
+  "review_status": "researcher_confirmed",
+  "records": [
+    {
+      "record_id": "SY-R01",
+      "project_id": "signal_loom_synthetic",
+      "record_state": "historical_record",
+      "record_date": "2026-02-01",
+      "sequence_position": 1,
+      "state_basis": "explicit_heading",
+      "state_scope": "Concept note and Original intention identify a retrospective account of the initial design and bench concern. The date states this record point; no individual assertion is automatically discarded as obsolete.",
+      "source_category": "process"
+    },
+    {
+      "record_id": "SY-R02",
+      "project_id": "signal_loom_synthetic",
+      "record_state": "historical_record",
+      "record_date": "2026-02-05",
+      "sequence_position": 2,
+      "state_basis": "explicit_source_statement",
+      "state_scope": "Revision decision records completed control and surface changes and their reasons. This is an event/decision record, not an overview of the entire latest project state. Descriptions of current choices are scoped to the dated decision.",
+      "source_category": "decisions"
+    },
+    {
+      "record_id": "SY-R03",
+      "project_id": "signal_loom_synthetic",
+      "record_state": "historical_record",
+      "record_date": "2026-02-08",
+      "sequence_position": 3,
+      "state_basis": "explicit_heading",
+      "state_scope": "Repair log documents completed display and timing repairs. A completed repair is not whole-project closure and does not settle all possible remaining limitations.",
+      "source_category": "process"
+    },
+    {
+      "record_id": "SY-R04",
+      "project_id": "signal_loom_synthetic",
+      "record_state": "historical_record",
+      "record_date": "2026-02-11",
+      "sequence_position": 4,
+      "state_basis": "explicit_heading",
+      "state_scope": "Working notes document a reflection after a change and a possible extension. This dated entry is not a whole-project current-state snapshot, an external feedback report or an agreed task list.",
+      "source_category": "process"
+    },
+    {
+      "record_id": "SY-R05",
+      "project_id": "signal_loom_synthetic",
+      "record_state": "current_snapshot",
+      "record_date": "2026-02-12",
+      "sequence_position": 5,
+      "state_basis": "explicit_heading",
+      "state_scope": "Active snapshot explicitly describes the state at 12 February 2026. The document type remains current_snapshot even when considered in a later corpus; it must not be read as proof that its pending work remains open after closure.",
+      "source_category": "current_state"
+    },
+    {
+      "record_id": "SY-R06",
+      "project_id": "signal_loom_synthetic",
+      "record_state": "undated_record",
+      "record_date": null,
+      "sequence_position": 6,
+      "state_basis": "explicit_source_statement",
+      "state_scope": "Unplaced notebook fragment explicitly has no date or documented approval. Its catalogue ordinal does not prove availability before the active snapshot and cannot establish a committed decision.",
+      "source_category": "process"
+    },
+    {
+      "record_id": "SY-R07",
+      "project_id": "signal_loom_synthetic",
+      "record_state": "closure_record",
+      "record_date": "2026-02-20",
+      "sequence_position": 7,
+      "state_basis": "explicit_heading",
+      "state_scope": "Closure record and Project closure explicitly describe completion and archiving on 20 February 2026. This document-level closure does not prove that every limitation is resolved or every section is inapplicable.",
+      "source_category": "current_state"
+    }
+  ],
+  "reviewed_by": "Fuzhe Zhang",
+  "review_date": "2026-10-26",
+  "review_basis": "Researcher review of record-level functions and limitations, with confirmation conditional on the completed candidate-pool, query-order and static method audit."
+}

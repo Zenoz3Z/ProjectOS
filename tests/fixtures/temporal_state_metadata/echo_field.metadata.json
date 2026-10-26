@@ -1,0 +1,49 @@
+{
+  "metadata_version": "phase_3a_metadata_v1",
+  "review_status": "researcher_confirmed",
+  "records": [
+    {
+      "record_id": "EF-R01",
+      "project_id": "sample_echo_field",
+      "record_state": "undated_record",
+      "record_date": null,
+      "sequence_position": 1,
+      "state_basis": "explicit_heading",
+      "state_scope": "Design Decisions is an undated mixed decision narrative with initial ideas, rationale and an explicitly retained current method. A current status field does not make the entire narrative a current-state snapshot. No authoring chronology is proved.",
+      "source_category": "decisions"
+    },
+    {
+      "record_id": "EF-R02",
+      "project_id": "sample_echo_field",
+      "record_state": "historical_record",
+      "record_date": null,
+      "sequence_position": 2,
+      "state_basis": "explicit_source_statement",
+      "state_scope": "The document reports feedback received after a rehearsal and records responses. Historical describes that retrospective event/report function, not expiry of the feedback or its applicability. No date or order relative to the current overview is established.",
+      "source_category": "feedback"
+    },
+    {
+      "record_id": "EF-R03",
+      "project_id": "sample_echo_field",
+      "record_state": "undated_record",
+      "record_date": null,
+      "sequence_position": 3,
+      "state_basis": "explicit_heading",
+      "state_scope": "Project Log combines initial experiments, completed changes and still-open questions; its status is ongoing and it has no date. The whole record is neither a pure past-state report nor an explicit current-state snapshot.",
+      "source_category": "process"
+    },
+    {
+      "record_id": "EF-R04",
+      "project_id": "sample_echo_field",
+      "record_state": "current_snapshot",
+      "record_date": null,
+      "sequence_position": 4,
+      "state_basis": "explicit_heading",
+      "state_scope": "Current State is an explicit supplied-state overview with goals, interaction, completed work, blockers and next steps. Its date and actual creation order are unknown; current refers to this document function, not activity on the experiment date.",
+      "source_category": "current_state"
+    }
+  ],
+  "reviewed_by": "Fuzhe Zhang",
+  "review_date": "2026-10-26",
+  "review_basis": "Researcher review of record-level functions and limitations, with confirmation conditional on the completed candidate-pool, query-order and static method audit."
+}
