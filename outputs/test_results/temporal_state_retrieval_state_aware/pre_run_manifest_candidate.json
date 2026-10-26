@@ -1,0 +1,330 @@
+{
+  "status": "implementation_validated_pending_commit",
+  "execution_authorised": false,
+  "formal_evaluation_entrypoint": "disabled",
+  "validation_gate_passed": true,
+  "validation_gate": "A–G passed with no confirmed leak; F and G are consecutive complete passes in distinct fresh processes and short basetemps. Root cause of the prior errors remains unconfirmed.",
+  "branch": "temporal-state-retrieval-state-aware-v1",
+  "HEAD": "2c3a298be80f21f5f2bd21cd486e1944e154d1d9",
+  "freeze_commit": "2c3a298be80f21f5f2bd21cd486e1944e154d1d9",
+  "freeze_version": "phase_3a_metadata_v1",
+  "candidate_name": "record_state_selection_v1",
+  "metadata_manifest_path": "tests/fixtures/temporal_state_metadata/freeze_manifest.json",
+  "public_artifacts": [
+    {
+      "path": "experiments/__init__.py",
+      "sha256": "369297f7b1b256be6b27232c9c71b7b8764c37e0f43d57d4017ec117bc9b273c"
+    },
+    {
+      "path": "experiments/temporal_state_retrieval/README.md",
+      "sha256": "585b58697bc2598d24cd5cbff04e937b32b0467ca3171fd924f644f18a6f8a70"
+    },
+    {
+      "path": "experiments/temporal_state_retrieval/__init__.py",
+      "sha256": "ef226dbaec50751dbe8019ee966b2977bee2da078b87868d60c1a9c6440a2801"
+    },
+    {
+      "path": "experiments/temporal_state_retrieval/baseline.py",
+      "sha256": "87102b25a2f45aba195ff6ab758d9e0303bb2e1fcede762dd5314f16736410da"
+    },
+    {
+      "path": "experiments/temporal_state_retrieval/scoring.py",
+      "sha256": "4f2bf9babe4657c329cf731051f243b7d05897f602289d19d90f104162642ae7"
+    },
+    {
+      "path": "experiments/temporal_state_retrieval/state_aware_experiment.py",
+      "sha256": "091ad2e0a8d5f4cecd3fd671d32921b50cd198028ff650f9086c09030fd14835"
+    },
+    {
+      "path": "experiments/temporal_state_retrieval/state_aware_selector.py",
+      "sha256": "6780911e762acfd3fa9057c19f41d51f44457abf7957b23bdd29a6d17ff11650"
+    },
+    {
+      "path": "outputs/test_results/temporal_state_retrieval_baseline/aggregate_results.json",
+      "sha256": "02a5848ee480e6255956fd3638ca56f5c742989cf36915947749737090bcca16"
+    },
+    {
+      "path": "outputs/test_results/temporal_state_retrieval_baseline/baseline_report.md",
+      "sha256": "8653f1231222083cc4bc9bf64550a7485e6b05423e81e7d49b39af92a60a5a38"
+    },
+    {
+      "path": "outputs/test_results/temporal_state_retrieval_baseline/run_manifest.json",
+      "sha256": "e3a1bc459dca0ccfcaa5707bdfebbd04c105d33023904c13541bbe972a12a01f"
+    },
+    {
+      "path": "project_knowledge/process/experiments/temporal_state_retrieval/phase_3_preregistration.md",
+      "sha256": "7d36c221612c6f0a8e4b43faf9adf748f625b6d4d7d87a9c467b0419487ce0d0"
+    },
+    {
+      "path": "project_knowledge/process/experiments/temporal_state_retrieval/phase_3a_log.md",
+      "sha256": "0d82db3e5efdfa20f6fae942947bcef715d6435a66c3d985cd0ab2b82ef28122"
+    },
+    {
+      "path": "project_knowledge/process/experiments/temporal_state_retrieval/phase_3a_researcher_review.md",
+      "sha256": "4fed535d81fd266d95a82e7a54c24b8cf5c2192455855d7367df15eab801b610"
+    },
+    {
+      "path": "project_knowledge/process/experiments/temporal_state_retrieval/phase_3b_implementation_review.md",
+      "sha256": "39d87260fc7341310e78b19d1a42089eb89d9bd082e5e99995a655a1b3c925a2"
+    },
+    {
+      "path": "src/brief_schema.py",
+      "sha256": "270dcf17882514503fc0a6633457a5838e90cde2fbb00fd8882fed66da5a007f"
+    },
+    {
+      "path": "src/chunking.py",
+      "sha256": "a9612aac37e68876c51b1dce262247e6bfdf8008ccc303e20b36f8679b82128a"
+    },
+    {
+      "path": "src/document_loader.py",
+      "sha256": "332c1020edd63efbeb8308ae88a5cc8078415491a0e8533fbba7fbb9b8110ffa"
+    },
+    {
+      "path": "src/evaluate_retrieval.py",
+      "sha256": "0b3864a8dfb1a8487791298d47d08c754705b9291584bf25783152a1183b5e3c"
+    },
+    {
+      "path": "src/llm_summarizer.py",
+      "sha256": "d8bd86a6996fd10220133b321eb3173c967ab6d161dc8002ee63c7a2c02cefaf"
+    },
+    {
+      "path": "src/participant_flow.py",
+      "sha256": "d7668b0bc0569844d7a1823d34916b81fc1b7b5b168ddb9275b2cc0fd98f6e66"
+    },
+    {
+      "path": "src/project_context.py",
+      "sha256": "b1913205d9df4ea34690a8bb62d660c51d054fb93058ebdae74622479ac2b2ce"
+    },
+    {
+      "path": "src/reentry_brief.py",
+      "sha256": "a31486dc4aca2d2c3e8ae444b9c667abedab3c54832ef50d871bf9e9521a6be3"
+    },
+    {
+      "path": "src/retrieval.py",
+      "sha256": "d2e4985839f23b9cec875c65608f4e4d4a0bc076db77aec2ea373bc5fc700be8"
+    },
+    {
+      "path": "src/review_store.py",
+      "sha256": "f02447a88c496bd3e5276f63016606afed17e8d3c4b53a70f8741dc7c3901f2e"
+    },
+    {
+      "path": "src/streamlit_app.py",
+      "sha256": "2ae4c2667122d6ce8277c34a42da540f4c595e51ee0c1fa0f4ceffd125b61c05"
+    },
+    {
+      "path": "src/study_cache.py",
+      "sha256": "0eb7f5b303aa1fd7b51ec1074c1ee163f6e9437c1ae59917434ccd4f1590aef3"
+    },
+    {
+      "path": "src/study_project_manager.py",
+      "sha256": "e396973eb3f232f3b4f7ef8a40db9b0a31ef980dbd93d543117689f05816edde"
+    },
+    {
+      "path": "tests/fixtures/temporal_state_benchmark/freeze_manifest.json",
+      "sha256": "0d02fa4ba917b5d006e4019acda60b0c9da99469d9c568b06fad2ff62591e82e"
+    },
+    {
+      "path": "tests/fixtures/temporal_state_benchmark/public_benchmark.json",
+      "sha256": "9aa5150990e9f8843cc9f484e5b06fcf68ccfb09d7377ce36d30b911c3294c69"
+    },
+    {
+      "path": "tests/fixtures/temporal_state_metadata/echo_field.metadata.json",
+      "sha256": "5f9ebe43ce3925761011cc329e4804e4f422fe601823dd338f35521532e82574"
+    },
+    {
+      "path": "tests/fixtures/temporal_state_metadata/freeze_manifest.json",
+      "sha256": "54af74d896f5b95350730c3e67adb1ac34b335fae6d165c371443b8f53acb65b"
+    },
+    {
+      "path": "tests/fixtures/temporal_state_metadata/record_metadata.schema.json",
+      "sha256": "80deb7de4ea0dab1dab95f940b332ad0911957404dad014596edf2185e1c0aed"
+    },
+    {
+      "path": "tests/fixtures/temporal_state_metadata/signal_loom.metadata.json",
+      "sha256": "0df2b8d0fc4db872680e06fcebe57186801c02447c461ae1d9c21ae43b969e99"
+    },
+    {
+      "path": "tests/test_state_aware_selector.py",
+      "sha256": "8ae985602718929b99e339883f2f30eb54b7c31eab2b1cbabcf8e71a69c5ef2c"
+    },
+    {
+      "path": "tests/test_temporal_state_metadata.py",
+      "sha256": "86c1537689743aa5221eb7f01bbde309b27cf6b9f69db6808f22053aeb3457cd"
+    }
+  ],
+  "private_commitments": {
+    "metadata_manifest": "a536da8b6bf93941ab10778ab2ad5d10e0fb4e18ec8d9b8365f7a2c2f2dba203",
+    "phase_1_gold": "0e29cb741db661d91662d2455fedada9e4f7f3f4b7c9d89ef1f43beefed0f122",
+    "phase_1_manifest": "b643f32ed86f2aeff1844d4aa4698f72544c90bd2bfd2a3c2439decec18abeed",
+    "record_metadata": "48102706f77f6a2859204ba77f763e969a8588eaca77516da13738ce49f75bad"
+  },
+  "protocol_sha256": "7d36c221612c6f0a8e4b43faf9adf748f625b6d4d7d87a9c467b0419487ce0d0",
+  "public_metadata_manifest_sha256": "54af74d896f5b95350730c3e67adb1ac34b335fae6d165c371443b8f53acb65b",
+  "public_metadata_sha256": {
+    "echo_field.metadata.json": "5f9ebe43ce3925761011cc329e4804e4f422fe601823dd338f35521532e82574",
+    "signal_loom.metadata.json": "0df2b8d0fc4db872680e06fcebe57186801c02447c461ae1d9c21ae43b969e99"
+  },
+  "phase_1_public_gold_sha256": "9aa5150990e9f8843cc9f484e5b06fcf68ccfb09d7377ce36d30b911c3294c69",
+  "phase_2_baseline_manifest_sha256": "e3a1bc459dca0ccfcaa5707bdfebbd04c105d33023904c13541bbe972a12a01f",
+  "implementation_sha256": {
+    "experiments/temporal_state_retrieval/state_aware_selector.py": "6780911e762acfd3fa9057c19f41d51f44457abf7957b23bdd29a6d17ff11650",
+    "experiments/temporal_state_retrieval/state_aware_experiment.py": "091ad2e0a8d5f4cecd3fd671d32921b50cd198028ff650f9086c09030fd14835",
+    "tests/test_state_aware_selector.py": "8ae985602718929b99e339883f2f30eb54b7c31eab2b1cbabcf8e71a69c5ef2c"
+  },
+  "python": "3.11.16",
+  "dependencies": {
+    "huggingface-hub": "1.31.0",
+    "jsonschema": "4.26.0",
+    "numpy": "2.4.6",
+    "pytest": "9.1.1",
+    "sentence-transformers": "6.0.1",
+    "torch": "2.14.0",
+    "transformers": "5.17.0"
+  },
+  "intended_embedding_model": "all-MiniLM-L6-v2",
+  "intended_model_snapshot_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "intended_views": {
+    "echo_documented_snapshot": {
+      "documents": 4,
+      "chunks": 12
+    },
+    "p96_final_documented": {
+      "documents": 7,
+      "chunks": 49
+    },
+    "signal_active": {
+      "documents": 5,
+      "chunks": 5
+    },
+    "signal_closed": {
+      "documents": 7,
+      "chunks": 8
+    }
+  },
+  "intended_case_counts": {
+    "production": 18,
+    "diagnostic": 16
+  },
+  "phase_1_original_benchmark_criteria": {
+    "source": "project_knowledge/process/experiments/temporal_state_retrieval/experiment_protocol.md",
+    "source_sha256": "3c2b1f564b50001ea6aaff262d65ac593cdc712fd3742e6a3780d6077cc053c6",
+    "verbatim_success_section": "Existing privacy, source integrity, context preservation, multi-project, leakage, latency and negative-result safeguards remain. Metric denominators and success claims now explicitly use the primary tier.\n\n1. A new method must improve the **18 production cases**. Improvement only on secondary diagnostics is not experimental success.\n2. Preserve the separate original Echo Field regression, including Hit@3 6/6, complete first task and current/superseded distinction. Keep historical Hit@1 4/6 visible without claiming a new run.\n3. Primary pair coverage@2 must strictly exceed A on the three primary pair cases. Primary required-role coverage@2 must strictly exceed A, improve in at least two projects and not regress in the third. If a strict gate is unattainable because A is already at ceiling, do not silently change it after results; report no qualifying improvement under this protocol.\n4. Preserve the primary insufficient/unclear versus supported/not_applicable evidence boundary. All three primary explicit-negative cases must expose valid closure evidence in T2. Missing records must not earn invented inapplicability. Automatic insufficient/applicability classification remains outside this experiment.\n5. Primary applicability coverage and closure recognition must not regress against A. False-current exposure must not increase; future_conditional never earns next_action credit. The historical task-list diagnostic cannot count as a successful primary next action.\n6. Primary and secondary results must be separately reported. The earlier private failure targets remain secondary explanations; gains on them cannot substitute for formal section performance. Specific diagnostic queries never replace primary queries.\n7. Historical views must contain no future record or undated record with unproved cutoff availability. Latest production views must contain the complete declared latest corpus. Changing eligibility to hide difficult evidence invalidates comparison.\n8. No source edits for balance, gold leakage, case removal, project-specific rules, retrospective query tuning or algorithm switching. All labels are researcher-confirmed and frozen; no algorithm work is authorised here.\n9. Keep the prospective warm median latency target below 300 ms per primary request; report preparation and p95. No latency has been measured in Phase 1.\n10. Preserve inconsistent or negative outcomes. Even success justifies further technical investigation, not production integration, final state understanding or new participant-validation claims.",
+    "candidate_outcome": "not_evaluated"
+  },
+  "phase_3_candidate_improvement_criteria": {
+    "primary_cases": 18,
+    "diagnostic_cases": 16,
+    "all_required_roles_minimum": [
+      10,
+      15
+    ],
+    "allowed_lost_baseline_passes": 0,
+    "hit_at_3_minimum": [
+      10,
+      15
+    ],
+    "pair_coverage_at_2_minimum": [
+      2,
+      3
+    ],
+    "pair_target": [
+      3,
+      3
+    ],
+    "closure_at_2_minimum": [
+      2,
+      3
+    ],
+    "closure_target": [
+      3,
+      3
+    ],
+    "known_false_current_maximum": [
+      1,
+      9
+    ],
+    "future_record_leakage_allowed": 0,
+    "frozen_production_warm_median_ms": 22.014449998096097,
+    "production_warm_median_limit_ms": 44.028899996192195,
+    "all_gates_required": true,
+    "secondary_gains_do_not_satisfy_primary": true,
+    "candidate_outcome": "not_evaluated",
+    "permitted_success_claim": "met the preregistered Phase 3 improvement criteria",
+    "latency_display_ms": 44.03
+  },
+  "one_shot_rules": [
+    "Create an exclusive immutable pre-run lock before formal execution.",
+    "The first case-level candidate score consumes v1, regardless of outcome.",
+    "A pre-score technical failure is retained and requires manual review; no automatic retry.",
+    "Post-run metrics may be checked from saved traces only; never rerun selection to replace results.",
+    "An implementation correction preserves v1 and requires a new preregistration/version."
+  ],
+  "future_stage_order": [
+    "exclusive_pre_run_lock",
+    "exact_phase_2_adapter_and_four_views",
+    "assert_original_query_candidates",
+    "isolated_selection",
+    "persist_selection_trace",
+    "score_after_selection_separate_tiers",
+    "private_details_public_aggregates"
+  ],
+  "freeze_note": "Validated implementation publication candidate only. Regenerate the formal pre-run lock after the implementation commit and bind its new commit hash under separate authorisation. No candidate evaluation was run.",
+  "candidate_evaluation_run": false,
+  "implementation_parent_HEAD": "2c3a298be80f21f5f2bd21cd486e1944e154d1d9",
+  "HEAD_semantics": "implementation parent HEAD, not a post-commit formal run lock",
+  "formal_pre_run_lock": false,
+  "validation_results": [
+    {
+      "check": "A",
+      "result": "230 passed in 178.83s (0:02:58)",
+      "exit_code": 0
+    },
+    {
+      "check": "B",
+      "result": "119 passed in 49.79s",
+      "exit_code": 0
+    },
+    {
+      "check": "C",
+      "result": "4 passed in 61.37s (0:01:01)",
+      "exit_code": 0
+    },
+    {
+      "check": "D",
+      "result": "121 passed in 79.92s (0:01:19)",
+      "exit_code": 0
+    },
+    {
+      "check": "E",
+      "result": "121 passed in 78.25s (0:01:18)",
+      "exit_code": 0
+    },
+    {
+      "check": "F",
+      "result": "349 passed in 266.86s (0:04:26)",
+      "exit_code": 0
+    },
+    {
+      "check": "G",
+      "result": "349 passed in 264.64s (0:04:24)",
+      "exit_code": 0
+    }
+  ],
+  "resource_audit": {
+    "confirmed_leak": false,
+    "original_root_cause": "unconfirmed",
+    "new_code_or_tests_changed_for_diagnosis": false,
+    "test_owned_children_remaining": 0,
+    "observed_subprocess_pipes_closed": true
+  },
+  "runtime_activity": {
+    "openai": 0,
+    "llm": 0,
+    "model_construction": 0,
+    "embedding": 0,
+    "encode": 0,
+    "semantic_retrieval": 0,
+    "summary": 0,
+    "formal_case_scores": 0
+  }
+}
