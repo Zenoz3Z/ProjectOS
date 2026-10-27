@@ -1,11 +1,11 @@
 {
-  "status": "runner_validated_pending_lock",
+  "status": "runner_hash_contract_v2_validated_pending_lock",
   "execution_authorised": false,
-  "formal_evaluation_entrypoint": "implemented_requires_formal_lock_version_and_confirmation",
+  "formal_evaluation_entrypoint": "implemented_requires_hash_contract_v2_formal_lock_version_and_confirmation",
   "validation_gate_passed": true,
-  "validation_gate": "Final synthetic runner tests and complete regression suite passed. No formal lock or candidate execution authorised.",
+  "validation_gate": "Final hash-contract tests and all 450 regression tests passed; no formal lock or candidate evaluation authorised.",
   "branch": "temporal-state-retrieval-state-aware-v1",
-  "HEAD": "25bf8e0c7af38d6c7a395a1e9866de46ecd8d27d",
+  "HEAD": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
   "freeze_commit": "2c3a298be80f21f5f2bd21cd486e1944e154d1d9",
   "freeze_version": "phase_3a_metadata_v1",
   "candidate_name": "record_state_selection_v1",
@@ -13,147 +13,219 @@
   "public_artifacts": [
     {
       "path": "experiments/__init__.py",
-      "sha256": "369297f7b1b256be6b27232c9c71b7b8764c37e0f43d57d4017ec117bc9b273c"
+      "workspace_raw_sha256": "369297f7b1b256be6b27232c9c71b7b8764c37e0f43d57d4017ec117bc9b273c",
+      "committed_blob_sha256": "369297f7b1b256be6b27232c9c71b7b8764c37e0f43d57d4017ec117bc9b273c",
+      "git_blob_oid": "1ff9641963818590df0a6cc639b697adece38d4a"
     },
     {
       "path": "experiments/temporal_state_retrieval/README.md",
-      "sha256": "585b58697bc2598d24cd5cbff04e937b32b0467ca3171fd924f644f18a6f8a70"
+      "workspace_raw_sha256": "585b58697bc2598d24cd5cbff04e937b32b0467ca3171fd924f644f18a6f8a70",
+      "committed_blob_sha256": "585b58697bc2598d24cd5cbff04e937b32b0467ca3171fd924f644f18a6f8a70",
+      "git_blob_oid": "e0dbe8fcd6ef142e88cd9c5d4023bb4bcef13d96"
     },
     {
       "path": "experiments/temporal_state_retrieval/__init__.py",
-      "sha256": "ef226dbaec50751dbe8019ee966b2977bee2da078b87868d60c1a9c6440a2801"
+      "workspace_raw_sha256": "ef226dbaec50751dbe8019ee966b2977bee2da078b87868d60c1a9c6440a2801",
+      "committed_blob_sha256": "ef226dbaec50751dbe8019ee966b2977bee2da078b87868d60c1a9c6440a2801",
+      "git_blob_oid": "b97036067f81f55213dd8586d86006065f55bf32"
     },
     {
       "path": "experiments/temporal_state_retrieval/baseline.py",
-      "sha256": "87102b25a2f45aba195ff6ab758d9e0303bb2e1fcede762dd5314f16736410da"
+      "workspace_raw_sha256": "87102b25a2f45aba195ff6ab758d9e0303bb2e1fcede762dd5314f16736410da",
+      "committed_blob_sha256": "87102b25a2f45aba195ff6ab758d9e0303bb2e1fcede762dd5314f16736410da",
+      "git_blob_oid": "f2f99c05dc31b7bd1070f5cb186173e5838a7907"
     },
     {
       "path": "experiments/temporal_state_retrieval/scoring.py",
-      "sha256": "4f2bf9babe4657c329cf731051f243b7d05897f602289d19d90f104162642ae7"
+      "workspace_raw_sha256": "4f2bf9babe4657c329cf731051f243b7d05897f602289d19d90f104162642ae7",
+      "committed_blob_sha256": "4f2bf9babe4657c329cf731051f243b7d05897f602289d19d90f104162642ae7",
+      "git_blob_oid": "3068800a92eee3850a6d03edf7df82c3473d9422"
     },
     {
       "path": "experiments/temporal_state_retrieval/state_aware_experiment.py",
-      "sha256": "305fad687cb41e88bd532a91d0d39ce6261de2435c0dbff2eb79a18081a0851e"
+      "workspace_raw_sha256": "2f520d9aa5033f9ffa0a81bfb8b4998b30029ef1d5568e7969af626d5c6b0439",
+      "committed_blob_sha256": "2f520d9aa5033f9ffa0a81bfb8b4998b30029ef1d5568e7969af626d5c6b0439",
+      "git_blob_oid": "2f7c56c5991cf1cf754292a46214320a52fe3337"
     },
     {
       "path": "experiments/temporal_state_retrieval/state_aware_selector.py",
-      "sha256": "6780911e762acfd3fa9057c19f41d51f44457abf7957b23bdd29a6d17ff11650"
+      "workspace_raw_sha256": "6780911e762acfd3fa9057c19f41d51f44457abf7957b23bdd29a6d17ff11650",
+      "committed_blob_sha256": "6780911e762acfd3fa9057c19f41d51f44457abf7957b23bdd29a6d17ff11650",
+      "git_blob_oid": "2af88522b7191dbcae5cb138288ad0acdb293419"
     },
     {
       "path": "outputs/test_results/temporal_state_retrieval_baseline/aggregate_results.json",
-      "sha256": "02a5848ee480e6255956fd3638ca56f5c742989cf36915947749737090bcca16"
+      "workspace_raw_sha256": "02a5848ee480e6255956fd3638ca56f5c742989cf36915947749737090bcca16",
+      "committed_blob_sha256": "02a5848ee480e6255956fd3638ca56f5c742989cf36915947749737090bcca16",
+      "git_blob_oid": "3c858e428f77b357746281df4c0874d6b97f3174"
     },
     {
       "path": "outputs/test_results/temporal_state_retrieval_baseline/baseline_report.md",
-      "sha256": "8653f1231222083cc4bc9bf64550a7485e6b05423e81e7d49b39af92a60a5a38"
+      "workspace_raw_sha256": "8653f1231222083cc4bc9bf64550a7485e6b05423e81e7d49b39af92a60a5a38",
+      "committed_blob_sha256": "8653f1231222083cc4bc9bf64550a7485e6b05423e81e7d49b39af92a60a5a38",
+      "git_blob_oid": "beddedf6bf07a21645d66f838cacc9e5f3811fee"
     },
     {
       "path": "outputs/test_results/temporal_state_retrieval_baseline/run_manifest.json",
-      "sha256": "e3a1bc459dca0ccfcaa5707bdfebbd04c105d33023904c13541bbe972a12a01f"
+      "workspace_raw_sha256": "e3a1bc459dca0ccfcaa5707bdfebbd04c105d33023904c13541bbe972a12a01f",
+      "committed_blob_sha256": "e3a1bc459dca0ccfcaa5707bdfebbd04c105d33023904c13541bbe972a12a01f",
+      "git_blob_oid": "5552367fece3126db362331a8d9716b39830c6dc"
     },
     {
       "path": "project_knowledge/process/experiments/temporal_state_retrieval/phase_3_preregistration.md",
-      "sha256": "7d36c221612c6f0a8e4b43faf9adf748f625b6d4d7d87a9c467b0419487ce0d0"
+      "workspace_raw_sha256": "7d36c221612c6f0a8e4b43faf9adf748f625b6d4d7d87a9c467b0419487ce0d0",
+      "committed_blob_sha256": "7d36c221612c6f0a8e4b43faf9adf748f625b6d4d7d87a9c467b0419487ce0d0",
+      "git_blob_oid": "24a09895f3da67ffdb8976c6104197aa90a40210"
     },
     {
       "path": "project_knowledge/process/experiments/temporal_state_retrieval/phase_3a_log.md",
-      "sha256": "0d82db3e5efdfa20f6fae942947bcef715d6435a66c3d985cd0ab2b82ef28122"
+      "workspace_raw_sha256": "0d82db3e5efdfa20f6fae942947bcef715d6435a66c3d985cd0ab2b82ef28122",
+      "committed_blob_sha256": "0d82db3e5efdfa20f6fae942947bcef715d6435a66c3d985cd0ab2b82ef28122",
+      "git_blob_oid": "bbd814d2eaee13aea662bcf453298c3a3c3dabd6"
     },
     {
       "path": "project_knowledge/process/experiments/temporal_state_retrieval/phase_3a_researcher_review.md",
-      "sha256": "4fed535d81fd266d95a82e7a54c24b8cf5c2192455855d7367df15eab801b610"
+      "workspace_raw_sha256": "4fed535d81fd266d95a82e7a54c24b8cf5c2192455855d7367df15eab801b610",
+      "committed_blob_sha256": "4fed535d81fd266d95a82e7a54c24b8cf5c2192455855d7367df15eab801b610",
+      "git_blob_oid": "a36a923720ca1eb1aa5f4e3c91fa50baaca1c557"
     },
     {
       "path": "project_knowledge/process/experiments/temporal_state_retrieval/phase_3b_implementation_review.md",
-      "sha256": "d74c9c173b21021ace6e7064f5cc1da9ee4d650ec21d39a9739d1ea87e865747"
+      "workspace_raw_sha256": "432f2ca05939929808fd849f038671f203d744c5a445264aadcf893f38814525",
+      "committed_blob_sha256": "432f2ca05939929808fd849f038671f203d744c5a445264aadcf893f38814525",
+      "git_blob_oid": "6c4ba1171a641e8eebae8fb8b645179919787eed"
     },
     {
       "path": "src/brief_schema.py",
-      "sha256": "270dcf17882514503fc0a6633457a5838e90cde2fbb00fd8882fed66da5a007f"
+      "workspace_raw_sha256": "270dcf17882514503fc0a6633457a5838e90cde2fbb00fd8882fed66da5a007f",
+      "committed_blob_sha256": "f45293c738a4c484f53a9f86e221e1394f643b325efdc2453dcc8dcac65bb9c6",
+      "git_blob_oid": "1bca1b56274cee35927e3834f464d8ea1938d696"
     },
     {
       "path": "src/chunking.py",
-      "sha256": "a9612aac37e68876c51b1dce262247e6bfdf8008ccc303e20b36f8679b82128a"
+      "workspace_raw_sha256": "a9612aac37e68876c51b1dce262247e6bfdf8008ccc303e20b36f8679b82128a",
+      "committed_blob_sha256": "e5d981d87e889bbf587210c4aaf88c9cae1292dafdadaa37f23f0e7b35f0a320",
+      "git_blob_oid": "6bb5b4d5e53fb7542cfc89fc91ce5e8a28d806e4"
     },
     {
       "path": "src/document_loader.py",
-      "sha256": "332c1020edd63efbeb8308ae88a5cc8078415491a0e8533fbba7fbb9b8110ffa"
+      "workspace_raw_sha256": "332c1020edd63efbeb8308ae88a5cc8078415491a0e8533fbba7fbb9b8110ffa",
+      "committed_blob_sha256": "d3f4b66ba873a751aca06d274b1efa4c5d07e89e2adb31ac62845282d4cb92ed",
+      "git_blob_oid": "6baf978339427253cca4bc4e48639ab391615e47"
     },
     {
       "path": "src/evaluate_retrieval.py",
-      "sha256": "0b3864a8dfb1a8487791298d47d08c754705b9291584bf25783152a1183b5e3c"
+      "workspace_raw_sha256": "0b3864a8dfb1a8487791298d47d08c754705b9291584bf25783152a1183b5e3c",
+      "committed_blob_sha256": "7c87cbef785eb87d4e36a55a09e9fa22caea46d225c47da93311992dbb3a0bae",
+      "git_blob_oid": "58b9b8d72e2f8751f4eb1b73e5b71c2d5f8baa57"
     },
     {
       "path": "src/llm_summarizer.py",
-      "sha256": "d8bd86a6996fd10220133b321eb3173c967ab6d161dc8002ee63c7a2c02cefaf"
+      "workspace_raw_sha256": "d8bd86a6996fd10220133b321eb3173c967ab6d161dc8002ee63c7a2c02cefaf",
+      "committed_blob_sha256": "33450093b571938666ede3a6471debdd7e8caf2ce237ad9e3c8bd8626cc47924",
+      "git_blob_oid": "b86804a140372a904e2390025df931e3ce7b4b06"
     },
     {
       "path": "src/participant_flow.py",
-      "sha256": "d7668b0bc0569844d7a1823d34916b81fc1b7b5b168ddb9275b2cc0fd98f6e66"
+      "workspace_raw_sha256": "d7668b0bc0569844d7a1823d34916b81fc1b7b5b168ddb9275b2cc0fd98f6e66",
+      "committed_blob_sha256": "d7668b0bc0569844d7a1823d34916b81fc1b7b5b168ddb9275b2cc0fd98f6e66",
+      "git_blob_oid": "eb4d2c54da22bd5852dfbd257bf8a2fdece642f7"
     },
     {
       "path": "src/project_context.py",
-      "sha256": "b1913205d9df4ea34690a8bb62d660c51d054fb93058ebdae74622479ac2b2ce"
+      "workspace_raw_sha256": "b1913205d9df4ea34690a8bb62d660c51d054fb93058ebdae74622479ac2b2ce",
+      "committed_blob_sha256": "b1913205d9df4ea34690a8bb62d660c51d054fb93058ebdae74622479ac2b2ce",
+      "git_blob_oid": "755962779c5aad407ca0fce8909eccee5e30eeb2"
     },
     {
       "path": "src/reentry_brief.py",
-      "sha256": "a31486dc4aca2d2c3e8ae444b9c667abedab3c54832ef50d871bf9e9521a6be3"
+      "workspace_raw_sha256": "a31486dc4aca2d2c3e8ae444b9c667abedab3c54832ef50d871bf9e9521a6be3",
+      "committed_blob_sha256": "7586c1fd623166ed17002f70fb029e79839971fbbfa9284a6723ca2f37ddd752",
+      "git_blob_oid": "4d4009867584cb3b488b68101e28d2d944b888f1"
     },
     {
       "path": "src/retrieval.py",
-      "sha256": "d2e4985839f23b9cec875c65608f4e4d4a0bc076db77aec2ea373bc5fc700be8"
+      "workspace_raw_sha256": "d2e4985839f23b9cec875c65608f4e4d4a0bc076db77aec2ea373bc5fc700be8",
+      "committed_blob_sha256": "1a3de21b73188bb46b65d941b709ada3ed0fda9e3fd6e0bc88db3646825a3089",
+      "git_blob_oid": "820c37ea01f3bd9564caa9d0df726f6dd999ce81"
     },
     {
       "path": "src/review_store.py",
-      "sha256": "f02447a88c496bd3e5276f63016606afed17e8d3c4b53a70f8741dc7c3901f2e"
+      "workspace_raw_sha256": "f02447a88c496bd3e5276f63016606afed17e8d3c4b53a70f8741dc7c3901f2e",
+      "committed_blob_sha256": "82653cf77d449a19c1f2e73541b785b265d390eef615e42ff4722b88bf836412",
+      "git_blob_oid": "fcc521dda63ea62470cdc07a8ca0f2cc84ea0921"
     },
     {
       "path": "src/streamlit_app.py",
-      "sha256": "2ae4c2667122d6ce8277c34a42da540f4c595e51ee0c1fa0f4ceffd125b61c05"
+      "workspace_raw_sha256": "2ae4c2667122d6ce8277c34a42da540f4c595e51ee0c1fa0f4ceffd125b61c05",
+      "committed_blob_sha256": "365187c7473de0f2b41a9ffa3dee63384f978448502315013f6bb65f7266a8ea",
+      "git_blob_oid": "7bdaf9b03a04e64e82975bcde9b480095982eb84"
     },
     {
       "path": "src/study_cache.py",
-      "sha256": "0eb7f5b303aa1fd7b51ec1074c1ee163f6e9437c1ae59917434ccd4f1590aef3"
+      "workspace_raw_sha256": "0eb7f5b303aa1fd7b51ec1074c1ee163f6e9437c1ae59917434ccd4f1590aef3",
+      "committed_blob_sha256": "c80f0756a8b465f6544d7826c003c61f0c9b03ec940bb169cb6023cf233f1c2e",
+      "git_blob_oid": "aeb017a107b01c12b78da2ecaaac225180d355b8"
     },
     {
       "path": "src/study_project_manager.py",
-      "sha256": "e396973eb3f232f3b4f7ef8a40db9b0a31ef980dbd93d543117689f05816edde"
+      "workspace_raw_sha256": "e396973eb3f232f3b4f7ef8a40db9b0a31ef980dbd93d543117689f05816edde",
+      "committed_blob_sha256": "e396973eb3f232f3b4f7ef8a40db9b0a31ef980dbd93d543117689f05816edde",
+      "git_blob_oid": "e6591287237e4c32ccbd7b25d7f972f88540e827"
     },
     {
       "path": "tests/fixtures/temporal_state_benchmark/freeze_manifest.json",
-      "sha256": "0d02fa4ba917b5d006e4019acda60b0c9da99469d9c568b06fad2ff62591e82e"
+      "workspace_raw_sha256": "0d02fa4ba917b5d006e4019acda60b0c9da99469d9c568b06fad2ff62591e82e",
+      "committed_blob_sha256": "0d02fa4ba917b5d006e4019acda60b0c9da99469d9c568b06fad2ff62591e82e",
+      "git_blob_oid": "ad969b8c1b40e65431cf4d10098c09ef71f57ba5"
     },
     {
       "path": "tests/fixtures/temporal_state_benchmark/public_benchmark.json",
-      "sha256": "9aa5150990e9f8843cc9f484e5b06fcf68ccfb09d7377ce36d30b911c3294c69"
+      "workspace_raw_sha256": "9aa5150990e9f8843cc9f484e5b06fcf68ccfb09d7377ce36d30b911c3294c69",
+      "committed_blob_sha256": "9aa5150990e9f8843cc9f484e5b06fcf68ccfb09d7377ce36d30b911c3294c69",
+      "git_blob_oid": "8300542e5e777a7980dfa93642c8ec000f614030"
     },
     {
       "path": "tests/fixtures/temporal_state_metadata/echo_field.metadata.json",
-      "sha256": "5f9ebe43ce3925761011cc329e4804e4f422fe601823dd338f35521532e82574"
+      "workspace_raw_sha256": "5f9ebe43ce3925761011cc329e4804e4f422fe601823dd338f35521532e82574",
+      "committed_blob_sha256": "5f9ebe43ce3925761011cc329e4804e4f422fe601823dd338f35521532e82574",
+      "git_blob_oid": "ddf093dfcecb7e7637927475d9e923cf388c8036"
     },
     {
       "path": "tests/fixtures/temporal_state_metadata/freeze_manifest.json",
-      "sha256": "54af74d896f5b95350730c3e67adb1ac34b335fae6d165c371443b8f53acb65b"
+      "workspace_raw_sha256": "54af74d896f5b95350730c3e67adb1ac34b335fae6d165c371443b8f53acb65b",
+      "committed_blob_sha256": "54af74d896f5b95350730c3e67adb1ac34b335fae6d165c371443b8f53acb65b",
+      "git_blob_oid": "3a4592ed8d3384ed98288db76c4db01400386fee"
     },
     {
       "path": "tests/fixtures/temporal_state_metadata/record_metadata.schema.json",
-      "sha256": "80deb7de4ea0dab1dab95f940b332ad0911957404dad014596edf2185e1c0aed"
+      "workspace_raw_sha256": "80deb7de4ea0dab1dab95f940b332ad0911957404dad014596edf2185e1c0aed",
+      "committed_blob_sha256": "80deb7de4ea0dab1dab95f940b332ad0911957404dad014596edf2185e1c0aed",
+      "git_blob_oid": "d2cfc6541c52ac9081be648ed5c5bc8f64d99599"
     },
     {
       "path": "tests/fixtures/temporal_state_metadata/signal_loom.metadata.json",
-      "sha256": "0df2b8d0fc4db872680e06fcebe57186801c02447c461ae1d9c21ae43b969e99"
+      "workspace_raw_sha256": "0df2b8d0fc4db872680e06fcebe57186801c02447c461ae1d9c21ae43b969e99",
+      "committed_blob_sha256": "0df2b8d0fc4db872680e06fcebe57186801c02447c461ae1d9c21ae43b969e99",
+      "git_blob_oid": "83f0b5bb2785955c05de1a356093cc652e6ed01b"
     },
     {
       "path": "tests/test_state_aware_experiment.py",
-      "sha256": "f7ec0cd513b0ec3017684fe3d93e3eb33a23f898a6b7bff3239bee938cb2597f"
+      "workspace_raw_sha256": "6ddb715bb18ff62f85af9dc17c566f7db1bc39864fd8bec2fffc8d40b2f02cdc",
+      "committed_blob_sha256": "6ddb715bb18ff62f85af9dc17c566f7db1bc39864fd8bec2fffc8d40b2f02cdc",
+      "git_blob_oid": "5af0ac518ae38666f84c415b00f51c8bd3f9e649"
     },
     {
       "path": "tests/test_state_aware_selector.py",
-      "sha256": "8ae985602718929b99e339883f2f30eb54b7c31eab2b1cbabcf8e71a69c5ef2c"
+      "workspace_raw_sha256": "8ae985602718929b99e339883f2f30eb54b7c31eab2b1cbabcf8e71a69c5ef2c",
+      "committed_blob_sha256": "8ae985602718929b99e339883f2f30eb54b7c31eab2b1cbabcf8e71a69c5ef2c",
+      "git_blob_oid": "c4f703f433e1e4631f5dbfc3e1a8667d6e49e3b3"
     },
     {
       "path": "tests/test_temporal_state_metadata.py",
-      "sha256": "86c1537689743aa5221eb7f01bbde309b27cf6b9f69db6808f22053aeb3457cd"
+      "workspace_raw_sha256": "86c1537689743aa5221eb7f01bbde309b27cf6b9f69db6808f22053aeb3457cd",
+      "committed_blob_sha256": "86c1537689743aa5221eb7f01bbde309b27cf6b9f69db6808f22053aeb3457cd",
+      "git_blob_oid": "19be04d4f24639a707918729a4d11e773893d9f6"
     }
   ],
   "private_commitments": {
@@ -170,12 +242,6 @@
   },
   "phase_1_public_gold_sha256": "9aa5150990e9f8843cc9f484e5b06fcf68ccfb09d7377ce36d30b911c3294c69",
   "phase_2_baseline_manifest_sha256": "e3a1bc459dca0ccfcaa5707bdfebbd04c105d33023904c13541bbe972a12a01f",
-  "implementation_sha256": {
-    "experiments/temporal_state_retrieval/state_aware_selector.py": "6780911e762acfd3fa9057c19f41d51f44457abf7957b23bdd29a6d17ff11650",
-    "experiments/temporal_state_retrieval/state_aware_experiment.py": "305fad687cb41e88bd532a91d0d39ce6261de2435c0dbff2eb79a18081a0851e",
-    "tests/test_state_aware_selector.py": "8ae985602718929b99e339883f2f30eb54b7c31eab2b1cbabcf8e71a69c5ef2c",
-    "tests/test_state_aware_experiment.py": "f7ec0cd513b0ec3017684fe3d93e3eb33a23f898a6b7bff3239bee938cb2597f"
-  },
   "python": "3.11.16",
   "dependencies": {
     "huggingface-hub": "1.31.0",
@@ -273,37 +339,36 @@
     "score_after_selection_separate_tiers",
     "private_details_public_aggregates"
   ],
-  "freeze_note": "Validated runner publication candidate only. A separately authorised formal lock must bind the resulting implementation commit and be committed afterward. No formal run has occurred.",
+  "freeze_note": "Non-executable publication candidate. Future formal locks must bind raw workspace bytes and committed Git blob bytes separately and identify the resulting implementation commit. Archived legacy locks must not be reused.",
   "candidate_evaluation_run": false,
-  "implementation_parent_HEAD": "25bf8e0c7af38d6c7a395a1e9866de46ecd8d27d",
-  "HEAD_semantics": "Phase 3B2 implementation parent; not an executable lock or resulting implementation commit",
+  "implementation_parent_HEAD": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+  "HEAD_semantics": "Phase 3B2.1 implementation parent; not a formal lock or resulting implementation commit",
   "formal_pre_run_lock": false,
   "validation_results": [
     {
-      "check": "focused runner/selector/metadata before final edge-case additions",
-      "result": "260 passed in 73.15s (0:01:13)",
+      "check": "final new hash contract tests",
+      "result": "30 passed, 71 deselected in 7.60s",
       "exit_code": 0
     },
     {
-      "check": "final runner",
-      "result": "71 passed in 19.26s",
+      "check": "focused before two additional path cases",
+      "result": "291 passed in 79.41s (0:01:19)",
       "exit_code": 0
     },
     {
       "check": "complete suite",
-      "result": "420 passed in 249.24s (0:04:09)",
+      "result": "450 passed in 197.39s (0:03:17)",
       "exit_code": 0
     }
   ],
   "resource_audit": {
     "windows_resource_error_reproduced": false,
-    "historical_root_cause": "unconfirmed",
     "full_suite_protected_access_attempts": 0,
     "full_suite_external_network_attempts": 0,
     "full_suite_actual_model_weight_access_attempts": 0,
-    "worker_timeout_cleanup_test_passed": true,
     "old_tests_modified": false,
-    "fresh_process_utf8": true
+    "git_configuration_modified": false,
+    "repository_attributes_modified": false
   },
   "runtime_activity": {
     "openai": 0,
@@ -361,7 +426,7 @@
   },
   "formal_runner_implemented": true,
   "intended_run_count": 1,
-  "implementation_parent_commit": "25bf8e0c7af38d6c7a395a1e9866de46ecd8d27d",
+  "implementation_parent_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
   "runner_contract": {
     "modes": [
       "preflight",
@@ -382,6 +447,1204 @@
       "absolute": 0,
       "relative": 0
     },
-    "private_commitments_supplied_by_separate_ignored_lock": true
+    "private_commitments_supplied_by_separate_ignored_lock": true,
+    "hash_contract_version": 2,
+    "worktree_hash_mode": "raw_bytes_sha256",
+    "committed_hash_mode": "git_blob_bytes_sha256",
+    "equivalence_mode": "git_clean_filtered_blob_oid",
+    "legacy_lock_rejected": true,
+    "git_hash_object_writes": false,
+    "normalised_whitespace_bypass": false
+  },
+  "historical_phase_3b2_validation_results": [
+    {
+      "check": "focused runner/selector/metadata before final edge-case additions",
+      "result": "260 passed in 73.15s (0:01:13)",
+      "exit_code": 0
+    },
+    {
+      "check": "final runner",
+      "result": "71 passed in 19.26s",
+      "exit_code": 0
+    },
+    {
+      "check": "complete suite",
+      "result": "420 passed in 249.24s (0:04:09)",
+      "exit_code": 0
+    }
+  ],
+  "historical_phase_3b2_resource_audit": {
+    "windows_resource_error_reproduced": false,
+    "historical_root_cause": "unconfirmed",
+    "full_suite_protected_access_attempts": 0,
+    "full_suite_external_network_attempts": 0,
+    "full_suite_actual_model_weight_access_attempts": 0,
+    "worker_timeout_cleanup_test_passed": true,
+    "old_tests_modified": false,
+    "fresh_process_utf8": true
+  },
+  "hash_contract_version": 2,
+  "worktree_hash_mode": "raw_bytes_sha256",
+  "committed_hash_mode": "git_blob_bytes_sha256",
+  "equivalence_mode": "git_clean_filtered_blob_oid",
+  "one_shot_consumed": false,
+  "formal_lock_exists": false,
+  "frozen_input_commit": "25bf8e0c7af38d6c7a395a1e9866de46ecd8d27d",
+  "artifact_commitment_provenance": {
+    "unchanged_artifacts_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+    "prospective_implementation_paths": [
+      "experiments/temporal_state_retrieval/state_aware_experiment.py",
+      "project_knowledge/process/experiments/temporal_state_retrieval/phase_3b_implementation_review.md",
+      "tests/test_state_aware_experiment.py"
+    ],
+    "prospective_method": "Git clean and no-filter OIDs are equal; raw bytes therefore supply the prospective blob SHA-256. Re-derive every formal lock commitment from the resulting implementation commit.",
+    "formal_implementation_commit_bound": false
+  },
+  "implementation_workspace_raw_sha256": {
+    "experiments/temporal_state_retrieval/state_aware_selector.py": "6780911e762acfd3fa9057c19f41d51f44457abf7957b23bdd29a6d17ff11650",
+    "experiments/temporal_state_retrieval/state_aware_experiment.py": "2f520d9aa5033f9ffa0a81bfb8b4998b30029ef1d5568e7969af626d5c6b0439",
+    "tests/test_state_aware_selector.py": "8ae985602718929b99e339883f2f30eb54b7c31eab2b1cbabcf8e71a69c5ef2c",
+    "tests/test_state_aware_experiment.py": "6ddb715bb18ff62f85af9dc17c566f7db1bc39864fd8bec2fffc8d40b2f02cdc"
+  },
+  "tracked_protected_hash_validation": [
+    {
+      "repo_relative_path": ".gitignore",
+      "workspace_raw_sha256": "eb58af783233847be9bfc811c28e8a2851a904a52daf121fb93c76a34101a5e4",
+      "frozen_workspace_sha256": "eb58af783233847be9bfc811c28e8a2851a904a52daf121fb93c76a34101a5e4",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "7fb37c59d3b039d88c0a207aa54f6e62a9ac3abc",
+      "committed_blob_sha256": "f23edac593a26bb81165ffcba02838f7a41a815d9fa7a81b93c60a022ca0ed12",
+      "cleaned_worktree_blob_oid": "7fb37c59d3b039d88c0a207aa54f6e62a9ac3abc",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "CRLF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "config/participant_assignments.example.json",
+      "workspace_raw_sha256": "40deafcee0ca2c1605a043f7bbd7654b175d2a779c58e10337d356a4567b01a6",
+      "frozen_workspace_sha256": "40deafcee0ca2c1605a043f7bbd7654b175d2a779c58e10337d356a4567b01a6",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "9219bc7cfac066f15286f37b5c0a81b00ebc3ced",
+      "committed_blob_sha256": "40deafcee0ca2c1605a043f7bbd7654b175d2a779c58e10337d356a4567b01a6",
+      "cleaned_worktree_blob_oid": "9219bc7cfac066f15286f37b5c0a81b00ebc3ced",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "config/study_project_template/current_state/.gitkeep",
+      "workspace_raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "frozen_workspace_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "committed_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "cleaned_worktree_blob_oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "none",
+        "committed": "none"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "config/study_project_template/decisions/.gitkeep",
+      "workspace_raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "frozen_workspace_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "committed_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "cleaned_worktree_blob_oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "none",
+        "committed": "none"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "config/study_project_template/feedback/.gitkeep",
+      "workspace_raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "frozen_workspace_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "committed_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "cleaned_worktree_blob_oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "none",
+        "committed": "none"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "config/study_project_template/process/.gitkeep",
+      "workspace_raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "frozen_workspace_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "committed_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "cleaned_worktree_blob_oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "none",
+        "committed": "none"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "data/demo_projects/sample_echo_field/current_state/goals.md",
+      "workspace_raw_sha256": "0aba8abc716496aff7a4b21546438d615170ebb709ddd89861557082d18ee764",
+      "frozen_workspace_sha256": "0aba8abc716496aff7a4b21546438d615170ebb709ddd89861557082d18ee764",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "4c4364a60c27bc284306d908f170bc3f13defdb2",
+      "committed_blob_sha256": "d2e24911e2657ef3f0714851b2c3f92f04ea17d7eeae324f2cabb55950ea26ed",
+      "cleaned_worktree_blob_oid": "4c4364a60c27bc284306d908f170bc3f13defdb2",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "CRLF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "data/demo_projects/sample_echo_field/decisions/design_notes.md",
+      "workspace_raw_sha256": "4e7f0b73c0ffedfef02a9edaaa5bb98eb7988f3a0d6090c46d4d7bca7fd24051",
+      "frozen_workspace_sha256": "4e7f0b73c0ffedfef02a9edaaa5bb98eb7988f3a0d6090c46d4d7bca7fd24051",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "93fbbc443cd9dc8004e101eb72ad823ee416d3c4",
+      "committed_blob_sha256": "ed74b634f2a77d92451d79ab3848b8615c32ee06bd442cb6f9d1b83fa0d7e66d",
+      "cleaned_worktree_blob_oid": "93fbbc443cd9dc8004e101eb72ad823ee416d3c4",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "CRLF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "data/demo_projects/sample_echo_field/feedback/tutor_feedback.md",
+      "workspace_raw_sha256": "b8db06f869e8bbe8a0fbf80d919c04e7cd11eb7e075bd04775405760d102f61f",
+      "frozen_workspace_sha256": "b8db06f869e8bbe8a0fbf80d919c04e7cd11eb7e075bd04775405760d102f61f",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "d541d54e3321dd26e6726aa3c26335b601c7d4d0",
+      "committed_blob_sha256": "5c49cb863239558ed97f9e5bdd9d456093475cdf6dfde865746133db60e3f676",
+      "cleaned_worktree_blob_oid": "d541d54e3321dd26e6726aa3c26335b601c7d4d0",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "CRLF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "data/demo_projects/sample_echo_field/process/project_log.md",
+      "workspace_raw_sha256": "be0223b782b4233518d127e97f54d4b9a388d49daf174892dc51b1f060315c31",
+      "frozen_workspace_sha256": "be0223b782b4233518d127e97f54d4b9a388d49daf174892dc51b1f060315c31",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "b1cc66b8db45d5bd0317d250eda6dd1503659675",
+      "committed_blob_sha256": "8c7d0e4917552059c8c70da3e3fd0b8358987f875de714cb91a336a3936d9134",
+      "cleaned_worktree_blob_oid": "b1cc66b8db45d5bd0317d250eda6dd1503659675",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "CRLF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "experiments/__init__.py",
+      "workspace_raw_sha256": "369297f7b1b256be6b27232c9c71b7b8764c37e0f43d57d4017ec117bc9b273c",
+      "frozen_workspace_sha256": "369297f7b1b256be6b27232c9c71b7b8764c37e0f43d57d4017ec117bc9b273c",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "1ff9641963818590df0a6cc639b697adece38d4a",
+      "committed_blob_sha256": "369297f7b1b256be6b27232c9c71b7b8764c37e0f43d57d4017ec117bc9b273c",
+      "cleaned_worktree_blob_oid": "1ff9641963818590df0a6cc639b697adece38d4a",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "experiments/temporal_state_retrieval/README.md",
+      "workspace_raw_sha256": "585b58697bc2598d24cd5cbff04e937b32b0467ca3171fd924f644f18a6f8a70",
+      "frozen_workspace_sha256": "585b58697bc2598d24cd5cbff04e937b32b0467ca3171fd924f644f18a6f8a70",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "e0dbe8fcd6ef142e88cd9c5d4023bb4bcef13d96",
+      "committed_blob_sha256": "585b58697bc2598d24cd5cbff04e937b32b0467ca3171fd924f644f18a6f8a70",
+      "cleaned_worktree_blob_oid": "e0dbe8fcd6ef142e88cd9c5d4023bb4bcef13d96",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "experiments/temporal_state_retrieval/__init__.py",
+      "workspace_raw_sha256": "ef226dbaec50751dbe8019ee966b2977bee2da078b87868d60c1a9c6440a2801",
+      "frozen_workspace_sha256": "ef226dbaec50751dbe8019ee966b2977bee2da078b87868d60c1a9c6440a2801",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "b97036067f81f55213dd8586d86006065f55bf32",
+      "committed_blob_sha256": "ef226dbaec50751dbe8019ee966b2977bee2da078b87868d60c1a9c6440a2801",
+      "cleaned_worktree_blob_oid": "b97036067f81f55213dd8586d86006065f55bf32",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "experiments/temporal_state_retrieval/baseline.py",
+      "workspace_raw_sha256": "87102b25a2f45aba195ff6ab758d9e0303bb2e1fcede762dd5314f16736410da",
+      "frozen_workspace_sha256": "87102b25a2f45aba195ff6ab758d9e0303bb2e1fcede762dd5314f16736410da",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "f2f99c05dc31b7bd1070f5cb186173e5838a7907",
+      "committed_blob_sha256": "87102b25a2f45aba195ff6ab758d9e0303bb2e1fcede762dd5314f16736410da",
+      "cleaned_worktree_blob_oid": "f2f99c05dc31b7bd1070f5cb186173e5838a7907",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "experiments/temporal_state_retrieval/scoring.py",
+      "workspace_raw_sha256": "4f2bf9babe4657c329cf731051f243b7d05897f602289d19d90f104162642ae7",
+      "frozen_workspace_sha256": "4f2bf9babe4657c329cf731051f243b7d05897f602289d19d90f104162642ae7",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "3068800a92eee3850a6d03edf7df82c3473d9422",
+      "committed_blob_sha256": "4f2bf9babe4657c329cf731051f243b7d05897f602289d19d90f104162642ae7",
+      "cleaned_worktree_blob_oid": "3068800a92eee3850a6d03edf7df82c3473d9422",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "experiments/temporal_state_retrieval/state_aware_selector.py",
+      "workspace_raw_sha256": "6780911e762acfd3fa9057c19f41d51f44457abf7957b23bdd29a6d17ff11650",
+      "frozen_workspace_sha256": "6780911e762acfd3fa9057c19f41d51f44457abf7957b23bdd29a6d17ff11650",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "2af88522b7191dbcae5cb138288ad0acdb293419",
+      "committed_blob_sha256": "6780911e762acfd3fa9057c19f41d51f44457abf7957b23bdd29a6d17ff11650",
+      "cleaned_worktree_blob_oid": "2af88522b7191dbcae5cb138288ad0acdb293419",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "outputs/test_results/temporal_state_retrieval_baseline/aggregate_results.json",
+      "workspace_raw_sha256": "02a5848ee480e6255956fd3638ca56f5c742989cf36915947749737090bcca16",
+      "frozen_workspace_sha256": "02a5848ee480e6255956fd3638ca56f5c742989cf36915947749737090bcca16",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "3c858e428f77b357746281df4c0874d6b97f3174",
+      "committed_blob_sha256": "02a5848ee480e6255956fd3638ca56f5c742989cf36915947749737090bcca16",
+      "cleaned_worktree_blob_oid": "3c858e428f77b357746281df4c0874d6b97f3174",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "outputs/test_results/temporal_state_retrieval_baseline/baseline_report.md",
+      "workspace_raw_sha256": "8653f1231222083cc4bc9bf64550a7485e6b05423e81e7d49b39af92a60a5a38",
+      "frozen_workspace_sha256": "8653f1231222083cc4bc9bf64550a7485e6b05423e81e7d49b39af92a60a5a38",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "beddedf6bf07a21645d66f838cacc9e5f3811fee",
+      "committed_blob_sha256": "8653f1231222083cc4bc9bf64550a7485e6b05423e81e7d49b39af92a60a5a38",
+      "cleaned_worktree_blob_oid": "beddedf6bf07a21645d66f838cacc9e5f3811fee",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "outputs/test_results/temporal_state_retrieval_baseline/run_manifest.json",
+      "workspace_raw_sha256": "e3a1bc459dca0ccfcaa5707bdfebbd04c105d33023904c13541bbe972a12a01f",
+      "frozen_workspace_sha256": "e3a1bc459dca0ccfcaa5707bdfebbd04c105d33023904c13541bbe972a12a01f",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "5552367fece3126db362331a8d9716b39830c6dc",
+      "committed_blob_sha256": "e3a1bc459dca0ccfcaa5707bdfebbd04c105d33023904c13541bbe972a12a01f",
+      "cleaned_worktree_blob_oid": "5552367fece3126db362331a8d9716b39830c6dc",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "project_knowledge/process/experiments/temporal_state_retrieval/experiment_protocol.md",
+      "workspace_raw_sha256": "3c2b1f564b50001ea6aaff262d65ac593cdc712fd3742e6a3780d6077cc053c6",
+      "frozen_workspace_sha256": "3c2b1f564b50001ea6aaff262d65ac593cdc712fd3742e6a3780d6077cc053c6",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "572cc5a6c5cacc44cdf89aff43aad67f799adc13",
+      "committed_blob_sha256": "3c2b1f564b50001ea6aaff262d65ac593cdc712fd3742e6a3780d6077cc053c6",
+      "cleaned_worktree_blob_oid": "572cc5a6c5cacc44cdf89aff43aad67f799adc13",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "project_knowledge/process/experiments/temporal_state_retrieval/phase_2_baseline_log.md",
+      "workspace_raw_sha256": "c10166c972b39338921933ba7127506414b2c7c30a6e4f3bc2035dd6962b83b2",
+      "frozen_workspace_sha256": "c10166c972b39338921933ba7127506414b2c7c30a6e4f3bc2035dd6962b83b2",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "6b395678edcec444819a3301105e93ae4934ad03",
+      "committed_blob_sha256": "c10166c972b39338921933ba7127506414b2c7c30a6e4f3bc2035dd6962b83b2",
+      "cleaned_worktree_blob_oid": "6b395678edcec444819a3301105e93ae4934ad03",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "project_knowledge/process/experiments/temporal_state_retrieval/phase_3_preregistration.md",
+      "workspace_raw_sha256": "7d36c221612c6f0a8e4b43faf9adf748f625b6d4d7d87a9c467b0419487ce0d0",
+      "frozen_workspace_sha256": "7d36c221612c6f0a8e4b43faf9adf748f625b6d4d7d87a9c467b0419487ce0d0",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "24a09895f3da67ffdb8976c6104197aa90a40210",
+      "committed_blob_sha256": "7d36c221612c6f0a8e4b43faf9adf748f625b6d4d7d87a9c467b0419487ce0d0",
+      "cleaned_worktree_blob_oid": "24a09895f3da67ffdb8976c6104197aa90a40210",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "project_knowledge/process/experiments/temporal_state_retrieval/phase_3a_log.md",
+      "workspace_raw_sha256": "0d82db3e5efdfa20f6fae942947bcef715d6435a66c3d985cd0ab2b82ef28122",
+      "frozen_workspace_sha256": "0d82db3e5efdfa20f6fae942947bcef715d6435a66c3d985cd0ab2b82ef28122",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "bbd814d2eaee13aea662bcf453298c3a3c3dabd6",
+      "committed_blob_sha256": "0d82db3e5efdfa20f6fae942947bcef715d6435a66c3d985cd0ab2b82ef28122",
+      "cleaned_worktree_blob_oid": "bbd814d2eaee13aea662bcf453298c3a3c3dabd6",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "project_knowledge/process/experiments/temporal_state_retrieval/phase_3a_researcher_review.md",
+      "workspace_raw_sha256": "4fed535d81fd266d95a82e7a54c24b8cf5c2192455855d7367df15eab801b610",
+      "frozen_workspace_sha256": "4fed535d81fd266d95a82e7a54c24b8cf5c2192455855d7367df15eab801b610",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "a36a923720ca1eb1aa5f4e3c91fa50baaca1c557",
+      "committed_blob_sha256": "4fed535d81fd266d95a82e7a54c24b8cf5c2192455855d7367df15eab801b610",
+      "cleaned_worktree_blob_oid": "a36a923720ca1eb1aa5f4e3c91fa50baaca1c557",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "pytest.ini",
+      "workspace_raw_sha256": "4d5193eb36807e4622451417a9fe7bea71e7307137cd05cc214332e514fd9527",
+      "frozen_workspace_sha256": "4d5193eb36807e4622451417a9fe7bea71e7307137cd05cc214332e514fd9527",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "80432c2203160dff3c5478bf78b8fa77f0567ed1",
+      "committed_blob_sha256": "4d5193eb36807e4622451417a9fe7bea71e7307137cd05cc214332e514fd9527",
+      "cleaned_worktree_blob_oid": "80432c2203160dff3c5478bf78b8fa77f0567ed1",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "src/brief_schema.py",
+      "workspace_raw_sha256": "270dcf17882514503fc0a6633457a5838e90cde2fbb00fd8882fed66da5a007f",
+      "frozen_workspace_sha256": "270dcf17882514503fc0a6633457a5838e90cde2fbb00fd8882fed66da5a007f",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "1bca1b56274cee35927e3834f464d8ea1938d696",
+      "committed_blob_sha256": "f45293c738a4c484f53a9f86e221e1394f643b325efdc2453dcc8dcac65bb9c6",
+      "cleaned_worktree_blob_oid": "1bca1b56274cee35927e3834f464d8ea1938d696",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "CRLF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "src/chunking.py",
+      "workspace_raw_sha256": "a9612aac37e68876c51b1dce262247e6bfdf8008ccc303e20b36f8679b82128a",
+      "frozen_workspace_sha256": "a9612aac37e68876c51b1dce262247e6bfdf8008ccc303e20b36f8679b82128a",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "6bb5b4d5e53fb7542cfc89fc91ce5e8a28d806e4",
+      "committed_blob_sha256": "e5d981d87e889bbf587210c4aaf88c9cae1292dafdadaa37f23f0e7b35f0a320",
+      "cleaned_worktree_blob_oid": "6bb5b4d5e53fb7542cfc89fc91ce5e8a28d806e4",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "CRLF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "src/document_loader.py",
+      "workspace_raw_sha256": "332c1020edd63efbeb8308ae88a5cc8078415491a0e8533fbba7fbb9b8110ffa",
+      "frozen_workspace_sha256": "332c1020edd63efbeb8308ae88a5cc8078415491a0e8533fbba7fbb9b8110ffa",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "6baf978339427253cca4bc4e48639ab391615e47",
+      "committed_blob_sha256": "d3f4b66ba873a751aca06d274b1efa4c5d07e89e2adb31ac62845282d4cb92ed",
+      "cleaned_worktree_blob_oid": "6baf978339427253cca4bc4e48639ab391615e47",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "CRLF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "src/evaluate_retrieval.py",
+      "workspace_raw_sha256": "0b3864a8dfb1a8487791298d47d08c754705b9291584bf25783152a1183b5e3c",
+      "frozen_workspace_sha256": "0b3864a8dfb1a8487791298d47d08c754705b9291584bf25783152a1183b5e3c",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "58b9b8d72e2f8751f4eb1b73e5b71c2d5f8baa57",
+      "committed_blob_sha256": "7c87cbef785eb87d4e36a55a09e9fa22caea46d225c47da93311992dbb3a0bae",
+      "cleaned_worktree_blob_oid": "58b9b8d72e2f8751f4eb1b73e5b71c2d5f8baa57",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "CRLF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "src/llm_summarizer.py",
+      "workspace_raw_sha256": "d8bd86a6996fd10220133b321eb3173c967ab6d161dc8002ee63c7a2c02cefaf",
+      "frozen_workspace_sha256": "d8bd86a6996fd10220133b321eb3173c967ab6d161dc8002ee63c7a2c02cefaf",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "b86804a140372a904e2390025df931e3ce7b4b06",
+      "committed_blob_sha256": "33450093b571938666ede3a6471debdd7e8caf2ce237ad9e3c8bd8626cc47924",
+      "cleaned_worktree_blob_oid": "b86804a140372a904e2390025df931e3ce7b4b06",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "CRLF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "src/participant_flow.py",
+      "workspace_raw_sha256": "d7668b0bc0569844d7a1823d34916b81fc1b7b5b168ddb9275b2cc0fd98f6e66",
+      "frozen_workspace_sha256": "d7668b0bc0569844d7a1823d34916b81fc1b7b5b168ddb9275b2cc0fd98f6e66",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "eb4d2c54da22bd5852dfbd257bf8a2fdece642f7",
+      "committed_blob_sha256": "d7668b0bc0569844d7a1823d34916b81fc1b7b5b168ddb9275b2cc0fd98f6e66",
+      "cleaned_worktree_blob_oid": "eb4d2c54da22bd5852dfbd257bf8a2fdece642f7",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "src/project_context.py",
+      "workspace_raw_sha256": "b1913205d9df4ea34690a8bb62d660c51d054fb93058ebdae74622479ac2b2ce",
+      "frozen_workspace_sha256": "b1913205d9df4ea34690a8bb62d660c51d054fb93058ebdae74622479ac2b2ce",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "755962779c5aad407ca0fce8909eccee5e30eeb2",
+      "committed_blob_sha256": "b1913205d9df4ea34690a8bb62d660c51d054fb93058ebdae74622479ac2b2ce",
+      "cleaned_worktree_blob_oid": "755962779c5aad407ca0fce8909eccee5e30eeb2",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "src/reentry_brief.py",
+      "workspace_raw_sha256": "a31486dc4aca2d2c3e8ae444b9c667abedab3c54832ef50d871bf9e9521a6be3",
+      "frozen_workspace_sha256": "a31486dc4aca2d2c3e8ae444b9c667abedab3c54832ef50d871bf9e9521a6be3",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "4d4009867584cb3b488b68101e28d2d944b888f1",
+      "committed_blob_sha256": "7586c1fd623166ed17002f70fb029e79839971fbbfa9284a6723ca2f37ddd752",
+      "cleaned_worktree_blob_oid": "4d4009867584cb3b488b68101e28d2d944b888f1",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "CRLF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "src/retrieval.py",
+      "workspace_raw_sha256": "d2e4985839f23b9cec875c65608f4e4d4a0bc076db77aec2ea373bc5fc700be8",
+      "frozen_workspace_sha256": "d2e4985839f23b9cec875c65608f4e4d4a0bc076db77aec2ea373bc5fc700be8",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "820c37ea01f3bd9564caa9d0df726f6dd999ce81",
+      "committed_blob_sha256": "1a3de21b73188bb46b65d941b709ada3ed0fda9e3fd6e0bc88db3646825a3089",
+      "cleaned_worktree_blob_oid": "820c37ea01f3bd9564caa9d0df726f6dd999ce81",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "CRLF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "src/review_store.py",
+      "workspace_raw_sha256": "f02447a88c496bd3e5276f63016606afed17e8d3c4b53a70f8741dc7c3901f2e",
+      "frozen_workspace_sha256": "f02447a88c496bd3e5276f63016606afed17e8d3c4b53a70f8741dc7c3901f2e",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "fcc521dda63ea62470cdc07a8ca0f2cc84ea0921",
+      "committed_blob_sha256": "82653cf77d449a19c1f2e73541b785b265d390eef615e42ff4722b88bf836412",
+      "cleaned_worktree_blob_oid": "fcc521dda63ea62470cdc07a8ca0f2cc84ea0921",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "CRLF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "src/streamlit_app.py",
+      "workspace_raw_sha256": "2ae4c2667122d6ce8277c34a42da540f4c595e51ee0c1fa0f4ceffd125b61c05",
+      "frozen_workspace_sha256": "2ae4c2667122d6ce8277c34a42da540f4c595e51ee0c1fa0f4ceffd125b61c05",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "7bdaf9b03a04e64e82975bcde9b480095982eb84",
+      "committed_blob_sha256": "365187c7473de0f2b41a9ffa3dee63384f978448502315013f6bb65f7266a8ea",
+      "cleaned_worktree_blob_oid": "7bdaf9b03a04e64e82975bcde9b480095982eb84",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "CRLF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "src/study_cache.py",
+      "workspace_raw_sha256": "0eb7f5b303aa1fd7b51ec1074c1ee163f6e9437c1ae59917434ccd4f1590aef3",
+      "frozen_workspace_sha256": "0eb7f5b303aa1fd7b51ec1074c1ee163f6e9437c1ae59917434ccd4f1590aef3",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "aeb017a107b01c12b78da2ecaaac225180d355b8",
+      "committed_blob_sha256": "c80f0756a8b465f6544d7826c003c61f0c9b03ec940bb169cb6023cf233f1c2e",
+      "cleaned_worktree_blob_oid": "aeb017a107b01c12b78da2ecaaac225180d355b8",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "CRLF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "src/study_project_manager.py",
+      "workspace_raw_sha256": "e396973eb3f232f3b4f7ef8a40db9b0a31ef980dbd93d543117689f05816edde",
+      "frozen_workspace_sha256": "e396973eb3f232f3b4f7ef8a40db9b0a31ef980dbd93d543117689f05816edde",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "e6591287237e4c32ccbd7b25d7f972f88540e827",
+      "committed_blob_sha256": "e396973eb3f232f3b4f7ef8a40db9b0a31ef980dbd93d543117689f05816edde",
+      "cleaned_worktree_blob_oid": "e6591287237e4c32ccbd7b25d7f972f88540e827",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "tests/evaluation_queries.json",
+      "workspace_raw_sha256": "26eeb29b0fec07577505634ff2a7b83823db9ca8f2ff9ce8f431841a2c73e503",
+      "frozen_workspace_sha256": "26eeb29b0fec07577505634ff2a7b83823db9ca8f2ff9ce8f431841a2c73e503",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "82cd446adb93187b28fb6de5d2ed53e888c25f4f",
+      "committed_blob_sha256": "e71deb90ce4ca810c8f557a7072b91c13642047e708e8309ec7d72a30c2f2e70",
+      "cleaned_worktree_blob_oid": "82cd446adb93187b28fb6de5d2ed53e888c25f4f",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "CRLF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "tests/fixtures/temporal_state_benchmark/README.md",
+      "workspace_raw_sha256": "c6204ad64d369fb7aee39df481fe716370b9e17b1e60da56531cd96efc8174ef",
+      "frozen_workspace_sha256": "c6204ad64d369fb7aee39df481fe716370b9e17b1e60da56531cd96efc8174ef",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "6ada9c6e1be540781e84cb74940e3b110a040fda",
+      "committed_blob_sha256": "c6204ad64d369fb7aee39df481fe716370b9e17b1e60da56531cd96efc8174ef",
+      "cleaned_worktree_blob_oid": "6ada9c6e1be540781e84cb74940e3b110a040fda",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "tests/fixtures/temporal_state_benchmark/benchmark.schema.json",
+      "workspace_raw_sha256": "d9241d998a9a2eb39e61698f0188ffbe32b0c3bba1c02d911394fc293dee4f72",
+      "frozen_workspace_sha256": "d9241d998a9a2eb39e61698f0188ffbe32b0c3bba1c02d911394fc293dee4f72",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "8ba8c179bd0bd4e9f28abd71c2619f9c7808216d",
+      "committed_blob_sha256": "d9241d998a9a2eb39e61698f0188ffbe32b0c3bba1c02d911394fc293dee4f72",
+      "cleaned_worktree_blob_oid": "8ba8c179bd0bd4e9f28abd71c2619f9c7808216d",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "tests/fixtures/temporal_state_benchmark/freeze_manifest.json",
+      "workspace_raw_sha256": "0d02fa4ba917b5d006e4019acda60b0c9da99469d9c568b06fad2ff62591e82e",
+      "frozen_workspace_sha256": "0d02fa4ba917b5d006e4019acda60b0c9da99469d9c568b06fad2ff62591e82e",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "ad969b8c1b40e65431cf4d10098c09ef71f57ba5",
+      "committed_blob_sha256": "0d02fa4ba917b5d006e4019acda60b0c9da99469d9c568b06fad2ff62591e82e",
+      "cleaned_worktree_blob_oid": "ad969b8c1b40e65431cf4d10098c09ef71f57ba5",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "tests/fixtures/temporal_state_benchmark/public_benchmark.json",
+      "workspace_raw_sha256": "9aa5150990e9f8843cc9f484e5b06fcf68ccfb09d7377ce36d30b911c3294c69",
+      "frozen_workspace_sha256": "9aa5150990e9f8843cc9f484e5b06fcf68ccfb09d7377ce36d30b911c3294c69",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "8300542e5e777a7980dfa93642c8ec000f614030",
+      "committed_blob_sha256": "9aa5150990e9f8843cc9f484e5b06fcf68ccfb09d7377ce36d30b911c3294c69",
+      "cleaned_worktree_blob_oid": "8300542e5e777a7980dfa93642c8ec000f614030",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "tests/fixtures/temporal_state_metadata/echo_field.metadata.json",
+      "workspace_raw_sha256": "5f9ebe43ce3925761011cc329e4804e4f422fe601823dd338f35521532e82574",
+      "frozen_workspace_sha256": "5f9ebe43ce3925761011cc329e4804e4f422fe601823dd338f35521532e82574",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "ddf093dfcecb7e7637927475d9e923cf388c8036",
+      "committed_blob_sha256": "5f9ebe43ce3925761011cc329e4804e4f422fe601823dd338f35521532e82574",
+      "cleaned_worktree_blob_oid": "ddf093dfcecb7e7637927475d9e923cf388c8036",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "tests/fixtures/temporal_state_metadata/freeze_manifest.json",
+      "workspace_raw_sha256": "54af74d896f5b95350730c3e67adb1ac34b335fae6d165c371443b8f53acb65b",
+      "frozen_workspace_sha256": "54af74d896f5b95350730c3e67adb1ac34b335fae6d165c371443b8f53acb65b",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "3a4592ed8d3384ed98288db76c4db01400386fee",
+      "committed_blob_sha256": "54af74d896f5b95350730c3e67adb1ac34b335fae6d165c371443b8f53acb65b",
+      "cleaned_worktree_blob_oid": "3a4592ed8d3384ed98288db76c4db01400386fee",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "tests/fixtures/temporal_state_metadata/record_metadata.schema.json",
+      "workspace_raw_sha256": "80deb7de4ea0dab1dab95f940b332ad0911957404dad014596edf2185e1c0aed",
+      "frozen_workspace_sha256": "80deb7de4ea0dab1dab95f940b332ad0911957404dad014596edf2185e1c0aed",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "d2cfc6541c52ac9081be648ed5c5bc8f64d99599",
+      "committed_blob_sha256": "80deb7de4ea0dab1dab95f940b332ad0911957404dad014596edf2185e1c0aed",
+      "cleaned_worktree_blob_oid": "d2cfc6541c52ac9081be648ed5c5bc8f64d99599",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "tests/fixtures/temporal_state_metadata/signal_loom.metadata.json",
+      "workspace_raw_sha256": "0df2b8d0fc4db872680e06fcebe57186801c02447c461ae1d9c21ae43b969e99",
+      "frozen_workspace_sha256": "0df2b8d0fc4db872680e06fcebe57186801c02447c461ae1d9c21ae43b969e99",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "83f0b5bb2785955c05de1a356093cc652e6ed01b",
+      "committed_blob_sha256": "0df2b8d0fc4db872680e06fcebe57186801c02447c461ae1d9c21ae43b969e99",
+      "cleaned_worktree_blob_oid": "83f0b5bb2785955c05de1a356093cc652e6ed01b",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "tests/fixtures/temporal_state_project/README.md",
+      "workspace_raw_sha256": "fe63291284a83a3694947eb2ade91c46f149b04a67c87a42af7f8c8db1f37e79",
+      "frozen_workspace_sha256": "fe63291284a83a3694947eb2ade91c46f149b04a67c87a42af7f8c8db1f37e79",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "b6577185cb19bbc6b0468b4666ee4c6cb0749ff8",
+      "committed_blob_sha256": "fe63291284a83a3694947eb2ade91c46f149b04a67c87a42af7f8c8db1f37e79",
+      "cleaned_worktree_blob_oid": "b6577185cb19bbc6b0468b4666ee4c6cb0749ff8",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "tests/fixtures/temporal_state_project/records/current_state/05_active_snapshot.md",
+      "workspace_raw_sha256": "3705aa76e8b21748444a0e64e7d8d511c08519c5b4f80ba70a7b50c13bbdf049",
+      "frozen_workspace_sha256": "3705aa76e8b21748444a0e64e7d8d511c08519c5b4f80ba70a7b50c13bbdf049",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "ba08b22add2e86c9ff385523ec7705b41fd07e85",
+      "committed_blob_sha256": "3705aa76e8b21748444a0e64e7d8d511c08519c5b4f80ba70a7b50c13bbdf049",
+      "cleaned_worktree_blob_oid": "ba08b22add2e86c9ff385523ec7705b41fd07e85",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "tests/fixtures/temporal_state_project/records/current_state/07_closure.md",
+      "workspace_raw_sha256": "aae3431e9acf6e9597f7afcb49dea3be7268fe5e2a7c0f0c13c5c8f3920f505b",
+      "frozen_workspace_sha256": "aae3431e9acf6e9597f7afcb49dea3be7268fe5e2a7c0f0c13c5c8f3920f505b",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "e9dd1b8d1ff2c58cddb7838a2dead2d8c8516ee7",
+      "committed_blob_sha256": "aae3431e9acf6e9597f7afcb49dea3be7268fe5e2a7c0f0c13c5c8f3920f505b",
+      "cleaned_worktree_blob_oid": "e9dd1b8d1ff2c58cddb7838a2dead2d8c8516ee7",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "tests/fixtures/temporal_state_project/records/decisions/02_revision.md",
+      "workspace_raw_sha256": "ebba3f71a7415ba87b687b38cc3bc0c421c86c47fd9b04f0b4f0a7a4758e3120",
+      "frozen_workspace_sha256": "ebba3f71a7415ba87b687b38cc3bc0c421c86c47fd9b04f0b4f0a7a4758e3120",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "063e920df2d5f348e3196293f4e5d5bc40decdf8",
+      "committed_blob_sha256": "ebba3f71a7415ba87b687b38cc3bc0c421c86c47fd9b04f0b4f0a7a4758e3120",
+      "cleaned_worktree_blob_oid": "063e920df2d5f348e3196293f4e5d5bc40decdf8",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "tests/fixtures/temporal_state_project/records/process/01_concept.md",
+      "workspace_raw_sha256": "f113078b8cf823052b634528a2b658e860c3745c356fde0bdd430d74982aa052",
+      "frozen_workspace_sha256": "f113078b8cf823052b634528a2b658e860c3745c356fde0bdd430d74982aa052",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "9314028cb88ee09c65f0110568642e1c684aa58f",
+      "committed_blob_sha256": "f113078b8cf823052b634528a2b658e860c3745c356fde0bdd430d74982aa052",
+      "cleaned_worktree_blob_oid": "9314028cb88ee09c65f0110568642e1c684aa58f",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "tests/fixtures/temporal_state_project/records/process/03_repairs.md",
+      "workspace_raw_sha256": "02e7dcc7bf4f150403989941565211ed76cd22aad3ef1f9612e819f57d688d2f",
+      "frozen_workspace_sha256": "02e7dcc7bf4f150403989941565211ed76cd22aad3ef1f9612e819f57d688d2f",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "639c40a440503278967163e5affc5463ff96b099",
+      "committed_blob_sha256": "02e7dcc7bf4f150403989941565211ed76cd22aad3ef1f9612e819f57d688d2f",
+      "cleaned_worktree_blob_oid": "639c40a440503278967163e5affc5463ff96b099",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "tests/fixtures/temporal_state_project/records/process/04_working_notes.md",
+      "workspace_raw_sha256": "06f35a3e70efa5ddb3086bcf3c2fc4690e5d30ca29cd9b75a8ac256621ecd77b",
+      "frozen_workspace_sha256": "06f35a3e70efa5ddb3086bcf3c2fc4690e5d30ca29cd9b75a8ac256621ecd77b",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "fedbf78be12001dcf8d6fe13bbb931d86d112eda",
+      "committed_blob_sha256": "06f35a3e70efa5ddb3086bcf3c2fc4690e5d30ca29cd9b75a8ac256621ecd77b",
+      "cleaned_worktree_blob_oid": "fedbf78be12001dcf8d6fe13bbb931d86d112eda",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "tests/fixtures/temporal_state_project/records/process/06_undated_note.md",
+      "workspace_raw_sha256": "824e9aab65e16ff2496d6c06f4210f335605544801862fa0fc16fc7472962821",
+      "frozen_workspace_sha256": "824e9aab65e16ff2496d6c06f4210f335605544801862fa0fc16fc7472962821",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "2c084474cc2842c629834b51a47440ce8972de6a",
+      "committed_blob_sha256": "824e9aab65e16ff2496d6c06f4210f335605544801862fa0fc16fc7472962821",
+      "cleaned_worktree_blob_oid": "2c084474cc2842c629834b51a47440ce8972de6a",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "tests/study_fixtures.py",
+      "workspace_raw_sha256": "502a39f4e10187c9d886a2d1d3bf27763ec715a46fb52d3e574bae015394500b",
+      "frozen_workspace_sha256": "502a39f4e10187c9d886a2d1d3bf27763ec715a46fb52d3e574bae015394500b",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "1858a51021368918752c8427ff878edb82ba19c7",
+      "committed_blob_sha256": "502a39f4e10187c9d886a2d1d3bf27763ec715a46fb52d3e574bae015394500b",
+      "cleaned_worktree_blob_oid": "1858a51021368918752c8427ff878edb82ba19c7",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "tests/test_evidence_guidance.py",
+      "workspace_raw_sha256": "bd1eb0d911c1fdcb1f94b55427ab482232f459f4f00ecc7837e8703b3294830b",
+      "frozen_workspace_sha256": "bd1eb0d911c1fdcb1f94b55427ab482232f459f4f00ecc7837e8703b3294830b",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "fdfd6a2f43bc3673536730f41ff7d47a812ef204",
+      "committed_blob_sha256": "bd1eb0d911c1fdcb1f94b55427ab482232f459f4f00ecc7837e8703b3294830b",
+      "cleaned_worktree_blob_oid": "fdfd6a2f43bc3673536730f41ff7d47a812ef204",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "tests/test_llm_summarizer.py",
+      "workspace_raw_sha256": "c041f3ed69750ef34cb92387a950ce619724fd8a60b9d2f3f2ef7e9faa7e786f",
+      "frozen_workspace_sha256": "c041f3ed69750ef34cb92387a950ce619724fd8a60b9d2f3f2ef7e9faa7e786f",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "1e4a835eb3e3afdb22082d40553ad47f2fbe125b",
+      "committed_blob_sha256": "ab5a61292ae4b31929cdb3c33e99cff1ba48ca4b8989efacdd072d3fd92e6cdb",
+      "cleaned_worktree_blob_oid": "1e4a835eb3e3afdb22082d40553ad47f2fbe125b",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "CRLF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "tests/test_participant_flow.py",
+      "workspace_raw_sha256": "436c990ecf1fa66330e9a64e66ccb089790b3219856f0bd7e2fe80f9d4afe1bf",
+      "frozen_workspace_sha256": "436c990ecf1fa66330e9a64e66ccb089790b3219856f0bd7e2fe80f9d4afe1bf",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "9263a7b24089737af32d72f92a59910fe6a56903",
+      "committed_blob_sha256": "4382784c4f769620a978be132fc3d58fa5570919cbf666d12c2dfc286b4c91eb",
+      "cleaned_worktree_blob_oid": "9263a7b24089737af32d72f92a59910fe6a56903",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "CRLF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "tests/test_participant_ui.py",
+      "workspace_raw_sha256": "18d4fd3dfb58788e05a514bedaab77b4afa9a1d950aea5d762b1e1c7ea91e85a",
+      "frozen_workspace_sha256": "18d4fd3dfb58788e05a514bedaab77b4afa9a1d950aea5d762b1e1c7ea91e85a",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "a85770e95032b446bd63015f6d440f55bc645074",
+      "committed_blob_sha256": "5578be92a6063c3f4c2889d77a1e9134ec05b09ddbc900e4409505f8bcd46f15",
+      "cleaned_worktree_blob_oid": "a85770e95032b446bd63015f6d440f55bc645074",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "CRLF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "tests/test_reentry_brief.py",
+      "workspace_raw_sha256": "98d85226a7986947e72d1f0fb0dbad8e22f805305b629844c992c393bc05898b",
+      "frozen_workspace_sha256": "98d85226a7986947e72d1f0fb0dbad8e22f805305b629844c992c393bc05898b",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "84cae5e4248a70af30675e5f39e3cb205dedbaa6",
+      "committed_blob_sha256": "7b494102eb2a8a72f19bb450216ef6e4fc61986651743e26455365bee81dc22a",
+      "cleaned_worktree_blob_oid": "84cae5e4248a70af30675e5f39e3cb205dedbaa6",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "CRLF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "tests/test_review_store.py",
+      "workspace_raw_sha256": "782237e8d93d95d39295c2d5675708bce4da4bc11c106d7e683a7ecb45682bfe",
+      "frozen_workspace_sha256": "782237e8d93d95d39295c2d5675708bce4da4bc11c106d7e683a7ecb45682bfe",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "6935f5f7df00ecadad412bdc364b830c06604f98",
+      "committed_blob_sha256": "09cd52d588696029b3f886408b8f8e2113002fe65d0e98788630f7a993ef6bea",
+      "cleaned_worktree_blob_oid": "6935f5f7df00ecadad412bdc364b830c06604f98",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "CRLF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "tests/test_state_aware_selector.py",
+      "workspace_raw_sha256": "8ae985602718929b99e339883f2f30eb54b7c31eab2b1cbabcf8e71a69c5ef2c",
+      "frozen_workspace_sha256": "8ae985602718929b99e339883f2f30eb54b7c31eab2b1cbabcf8e71a69c5ef2c",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "c4f703f433e1e4631f5dbfc3e1a8667d6e49e3b3",
+      "committed_blob_sha256": "8ae985602718929b99e339883f2f30eb54b7c31eab2b1cbabcf8e71a69c5ef2c",
+      "cleaned_worktree_blob_oid": "c4f703f433e1e4631f5dbfc3e1a8667d6e49e3b3",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "tests/test_study_projects.py",
+      "workspace_raw_sha256": "63838549b77b3c887940b6324e27a55777454098341768398ba09d563f61d264",
+      "frozen_workspace_sha256": "63838549b77b3c887940b6324e27a55777454098341768398ba09d563f61d264",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "dd49ba2d5bfeb5dc63d6552ccac7ade9977e7ee5",
+      "committed_blob_sha256": "63838549b77b3c887940b6324e27a55777454098341768398ba09d563f61d264",
+      "cleaned_worktree_blob_oid": "dd49ba2d5bfeb5dc63d6552ccac7ade9977e7ee5",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "tests/test_temporal_state_baseline.py",
+      "workspace_raw_sha256": "9540eb95a7d65efff25947eb4872e4ef122123a3faac3311ea5b22eae14708bc",
+      "frozen_workspace_sha256": "9540eb95a7d65efff25947eb4872e4ef122123a3faac3311ea5b22eae14708bc",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "259bc1c7edcd1245af204d6d045aaed0730725af",
+      "committed_blob_sha256": "9540eb95a7d65efff25947eb4872e4ef122123a3faac3311ea5b22eae14708bc",
+      "cleaned_worktree_blob_oid": "259bc1c7edcd1245af204d6d045aaed0730725af",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    },
+    {
+      "repo_relative_path": "tests/test_temporal_state_metadata.py",
+      "workspace_raw_sha256": "86c1537689743aa5221eb7f01bbde309b27cf6b9f69db6808f22053aeb3457cd",
+      "frozen_workspace_sha256": "86c1537689743aa5221eb7f01bbde309b27cf6b9f69db6808f22053aeb3457cd",
+      "implementation_commit": "5e433a591183f84471c2081e8522e19d9b1e4cc6",
+      "committed_blob_oid": "19be04d4f24639a707918729a4d11e773893d9f6",
+      "committed_blob_sha256": "86c1537689743aa5221eb7f01bbde309b27cf6b9f69db6808f22053aeb3457cd",
+      "cleaned_worktree_blob_oid": "19be04d4f24639a707918729a4d11e773893d9f6",
+      "workspace_raw_match": true,
+      "committed_blob_match": true,
+      "worktree_equivalent_to_commit": true,
+      "eol_representation": {
+        "workspace": "LF",
+        "committed": "LF"
+      },
+      "validation_status": "validated"
+    }
+  ],
+  "protected_validation_scope": {
+    "raw_hashes_unchanged": 88,
+    "tracked_three_layer_passes": 66,
+    "raw_snapshot_implementation_files_excluded_as_authorised_changes": 4,
+    "formal_participant_access": false,
+    "five_thesis_drafts_unchanged": true
+  },
+  "invalidated_legacy_lock_record": {
+    "status": "invalidated_before_commit",
+    "reason": "runner_worktree_vs_git_blob_eol_validation_bug",
+    "one_shot_consumed": false,
+    "execution_state_created": false,
+    "scored_case_count": 0,
+    "original_public_lock_sha256": "8f01bbd80ab91bfb22c3d4d4a26f7932bd6df870fbc9945a7b323c49841d6073",
+    "original_private_lock_sha256": "31a72788c18192752246f028c2aee2baf6ef175f0b2c2e90a80e18271e0300c0",
+    "archived_at": "2026-10-27T00:12:14.904673+00:00"
   }
 }

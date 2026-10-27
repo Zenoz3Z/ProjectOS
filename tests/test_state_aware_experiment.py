@@ -2,6 +2,7 @@
 import copy
 import hashlib
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -18,6 +19,16 @@ from experiments.temporal_state_retrieval import scoring
 
 def encoded(value):
     return (json.dumps(value, indent=2) + "\n").encode()
+
+
+def blob_oid(data):
+    return hashlib.sha1(b"blob " + str(len(data)).encode() + b"\0" + data).hexdigest()
+
+
+def artifact(root, path):
+    data=(root/path).read_bytes()
+    return dict(path=path,workspace_raw_sha256=hashlib.sha256(data).hexdigest(),
+        committed_blob_sha256=hashlib.sha256(data).hexdigest(),git_blob_oid=blob_oid(data))
 
 
 def save(path, value):
@@ -45,9 +56,15 @@ class FakeGit:
         raise AssertionError(args)
 
     def blob(self, commit, path):
-        if commit == self.parent and path == e.CANDIDATE_PATH: return encoded(self.trusted)
+        if commit == e.FROZEN_INPUT_COMMIT and path == e.CANDIDATE_PATH: return encoded(self.trusted)
         if commit == self.head and path == e.LOCK_PATH: return self.lock_bytes
         return self.committed[path]
+
+    def tree_entry(self, commit, path): return blob_oid(self.committed[path])
+    def object_bytes(self, oid): return next(b for b in self.committed.values() if blob_oid(b)==oid)
+    def clean_attributes(self, path): return dict.fromkeys(("text","eol","filter","working-tree-encoding","ident"),"unspecified")
+    def clean_oid(self, path): return blob_oid((self.root/path).read_bytes())
+    def raw_oid(self, path): return self.clean_oid(path)
 
     def ancestor(self, *args): return self.is_ancestor
     def ignored(self, path): return Path(path).is_relative_to(self.root / "private_data")
@@ -107,10 +124,11 @@ def formal_fixture(tmp_path):
     save(private_path,private)
     lock = dict(common, status="execution_authorised", execution_authorised=True, candidate_evaluation_run=False,
         run_count_allowed=1, experiment_version=e.EXPERIMENT_VERSION, implementation_commit=git.implementation,
-        public_artifacts=[{"path":p,"sha256":e.digest(root/p)} for p in sorted(paths|{e.RUNNER_TEST_PATH})],
+        public_artifacts=[artifact(root,p) for p in sorted(paths|{e.RUNNER_TEST_PATH})],
         private_commitments=commitments, private_lock_sha256=e.digest(private_path), python=sys.version.split()[0],
         dependencies={}, outputs={n:e.PUBLIC_DIRECTORY+"/"+n for n in e.PUBLIC_OUTPUTS},
         score_tolerance={"absolute":0,"relative":0},run_id=run_id,authorised_by="Synthetic reviewer",authorisation_date="2000-01-01")
+    lock.update(e.HASH_CONTRACT)
     git.committed={p:(root/p).read_bytes() for p in paths|{e.RUNNER_TEST_PATH}}
     def sync():
         save(root/e.LOCK_PATH,lock);git.lock_bytes=(root/e.LOCK_PATH).read_bytes()
@@ -169,7 +187,7 @@ def test_b2_implementation_changes_bind_to_new_commit_not_parent(formal_fixture,
     save(f["root"]/path,b"synthetic revised B2 implementation")
     f["git"].committed[path]=(f["root"]/path).read_bytes()
     for item in f["lock"]["public_artifacts"]:
-        if item["path"]==path:item["sha256"]=e.digest(f["root"]/path)
+        if item["path"]==path:item.update(artifact(f["root"],path))
     f["sync"]()
     assert checked(f)["lock"]["implementation_commit"]==f["git"].implementation
 
@@ -333,8 +351,9 @@ def test_recompute_is_trace_only_exact_and_non_overwriting(formal_fixture,monkey
     # actual bytes as a temporary fixture commitment, never as participant input.
     scorer_path="experiments/temporal_state_retrieval/scoring.py"
     save(f["root"]/scorer_path,Path(scoring.__file__).read_bytes())
+    f["git"].committed[scorer_path]=(f["root"]/scorer_path).read_bytes()
     for x in f["lock"]["public_artifacts"]:
-        if x["path"]==scorer_path:x["sha256"]=e.digest(f["root"]/scorer_path)
+        if x["path"]==scorer_path:x.update(artifact(f["root"],scorer_path))
     f["sync"]()
     manifest=e.read_json(f["output"]/"private_run_manifest.json")
     manifest["lock_hash"]=e.digest(f["root"]/e.LOCK_PATH);save(f["output"]/"private_run_manifest.json",manifest)
@@ -511,3 +530,170 @@ def test_case_trace_exclusive_publication_never_increments_twice(formal_fixture)
     before=state.path.read_bytes()
     with pytest.raises(FileExistsError):state.record(trace,result,baseline_result={},gold_case={})
     assert state.path.read_bytes()==before and state.data["scored_case_count"]==1
+
+
+@pytest.fixture
+def hash_repo(tmp_path):
+    root=tmp_path/"tiny_git_repository";root.mkdir()
+    def git(*args):
+        return subprocess.check_output(["git",*args],cwd=root,stderr=subprocess.PIPE)
+    git("init","--template=")
+    (root/".gitattributes").write_bytes(b"*.py text eol=lf\n*.bin -text\n")
+    (root/"record.py").write_bytes(b"first = 1\nsecond = 2\n")
+    (root/"binary.bin").write_bytes(b"\x00binary\r\nbytes\xff")
+    git("add","--",".gitattributes","record.py","binary.bin")
+    git("-c","user.name=Synthetic Fixture","-c","user.email=fixture.invalid",
+        "-c","core.hooksPath=disabled-hooks","commit","-m","Synthetic hash-contract fixture")
+    commit=git("rev-parse","HEAD").decode().strip()
+    return root,commit,e.GitView(root)
+
+
+def real_artifact(fixture,path="record.py"):
+    root,commit,git=fixture
+    oid=git.tree_entry(commit,path)
+    return dict(path=path,workspace_raw_sha256=e.digest(root/path),git_blob_oid=oid,
+        committed_blob_sha256=hashlib.sha256(git.object_bytes(oid)).hexdigest())
+
+
+@pytest.mark.parametrize("ending", [b"\n",b"\r\n"])
+def test_hash_contract_git_lf_and_worktree_eol_pass_all_three_layers(hash_repo,ending):
+    root,commit,git=hash_repo
+    (root/"record.py").write_bytes(b"first = 1"+ending+b"second = 2"+ending)
+    item=real_artifact(hash_repo)
+    before={p:p.read_bytes() for p in root.rglob("*") if p.is_file()}
+    report=e.validate_tracked_artifact(root,item,commit)
+    assert report["workspace_raw_match"] and report["committed_blob_match"] and report["worktree_equivalent_to_commit"]
+    assert report["validation_status"]=="validated"
+    assert report["cleaned_worktree_blob_oid"]==report["committed_blob_oid"]
+    assert report["eol_representation"]=={"workspace":"CRLF" if ending==b"\r\n" else "LF","committed":"LF"}
+    assert (report["workspace_raw_sha256"]==report["committed_blob_sha256"])==(ending==b"\n")
+    assert before=={p:p.read_bytes() for p in root.rglob("*") if p.is_file()}
+
+
+@pytest.mark.parametrize("changed", [b"first = 9\nsecond = 2\n",b"first = 1 \nsecond = 2\n",
+    b"first = 1\n",b"first = 1\nsecond = 2\nthird = 3\n"])
+def test_hash_contract_content_whitespace_added_deleted_lines_never_equivalent(hash_repo,changed):
+    root,commit,git=hash_repo;item=real_artifact(hash_repo)
+    (root/"record.py").write_bytes(changed)
+    with pytest.raises(e.HashContractError,match="workspace raw hash"):
+        e.validate_tracked_artifact(root,item,commit)
+    # Even a separately permitted raw snapshot cannot hide changed Git content.
+    item["workspace_raw_sha256"]=e.digest(root/"record.py")
+    with pytest.raises(e.HashContractError,match="Clean-filtered") as error:
+        e.validate_tracked_artifact(root,item,commit)
+    assert error.value.validation["workspace_raw_match"] and error.value.validation["committed_blob_match"]
+    assert not error.value.validation["worktree_equivalent_to_commit"]
+
+
+@pytest.mark.parametrize("field", ["workspace_raw_sha256","committed_blob_sha256","git_blob_oid"])
+def test_hash_contract_rejects_wrong_independent_commitment(hash_repo,field):
+    root,commit,git=hash_repo;item=real_artifact(hash_repo)
+    item[field]="0"*(40 if field=="git_blob_oid" else 64)
+    with pytest.raises(e.HashContractError):e.validate_tracked_artifact(root,item,commit)
+
+
+def test_hash_contract_rejects_wrong_frozen_workspace_anchor(hash_repo):
+    root,commit,git=hash_repo
+    with pytest.raises(e.HashContractError,match="workspace raw hash"):
+        e.validate_tracked_artifact(root,real_artifact(hash_repo),commit,frozen_workspace_sha256="0"*64)
+
+
+def test_hash_contract_missing_worktree_file_is_not_recreated(hash_repo):
+    root,commit,git=hash_repo;item=real_artifact(hash_repo)
+    (root/"record.py").unlink()
+    with pytest.raises(e.HashContractError):e.validate_tracked_artifact(root,item,commit)
+    assert not (root/"record.py").exists()
+
+
+def test_hash_contract_path_not_in_implementation_commit_rejected(hash_repo):
+    root,commit,git=hash_repo;item=real_artifact(hash_repo)
+    (root/"not_committed.py").write_bytes((root/"record.py").read_bytes());item["path"]="not_committed.py"
+    with pytest.raises(e.HashContractError,match="absent"):e.validate_tracked_artifact(root,item,commit)
+
+
+@pytest.mark.parametrize("method", ["tree_entry","object_bytes","clean_attributes","clean_oid"])
+def test_hash_contract_git_command_failure_fails_closed(hash_repo,monkeypatch,method):
+    root,commit,git=hash_repo;item=real_artifact(hash_repo)
+    def failure(*a):raise subprocess.CalledProcessError(1,["git","synthetic-failure"])
+    monkeypatch.setattr(git,method,failure)
+    with pytest.raises(e.HashContractError,match="Git command failed"):
+        e.validate_tracked_artifact(root,item,commit,git=git)
+
+
+def test_hash_contract_binary_raw_bytes_and_mismatch(hash_repo):
+    root,commit,git=hash_repo;item=real_artifact(hash_repo,"binary.bin")
+    report=e.validate_tracked_artifact(root,item,commit)
+    assert report["validation_status"]=="validated" and report["eol_representation"]["workspace"]=="binary"
+    (root/"binary.bin").write_bytes(b"\x00changed\r\nbytes\xff")
+    with pytest.raises(e.HashContractError,match="workspace raw hash"):e.validate_tracked_artifact(root,item,commit)
+
+
+def test_hash_contract_binary_cannot_be_forced_through_text_eol(hash_repo):
+    root,commit,git=hash_repo;item=real_artifact(hash_repo,"binary.bin")
+    (root/".gitattributes").write_bytes(b"*.bin text eol=lf\n")
+    with pytest.raises(e.HashContractError,match="Binary file incorrectly"):
+        e.validate_tracked_artifact(root,item,commit)
+
+
+@pytest.mark.parametrize("attribute", ["filter=unexpected","working-tree-encoding=UTF-16","ident"])
+def test_hash_contract_unexpected_clean_transform_is_rejected_before_hash_object(hash_repo,monkeypatch,attribute):
+    root,commit,git=hash_repo;item=real_artifact(hash_repo)
+    (root/".gitattributes").write_text("*.py "+attribute+"\n",encoding="utf-8")
+    monkeypatch.setattr(git,"clean_oid",lambda *a:pytest.fail("Unsafe filter entered"))
+    with pytest.raises(e.HashContractError,match="Unexpected Git filter"):
+        e.validate_tracked_artifact(root,item,commit,git=git)
+
+
+@pytest.mark.parametrize("path", ["../escape.py", "nested/../../escape.py", "C:/escape.py", "C:escape.py"])
+def test_hash_contract_path_escape_rejected(hash_repo,path):
+    root,commit,git=hash_repo;item=real_artifact(hash_repo);item["path"]=path
+    with pytest.raises(e.HashContractError,match="Escaping"):e.validate_tracked_artifact(root,item,commit)
+
+
+def test_hash_contract_symlink_or_windows_junction_is_rejected(hash_repo):
+    root,commit,git=hash_repo;item=real_artifact(hash_repo)
+    target=root.parent/"outside_sources";target.mkdir();(target/"record.py").write_bytes(b"not accessed")
+    link=root/"linked"
+    if os.name=="nt":
+        import _winapi
+        _winapi.CreateJunction(str(target),str(link))
+    else:link.symlink_to(target,target_is_directory=True)
+    item["path"]="linked/record.py"
+    with pytest.raises(e.HashContractError,match="Symlink or reparse"):
+        e.validate_tracked_artifact(root,item,commit)
+
+
+def test_hash_contract_hash_object_is_readonly_and_has_no_write_flag(hash_repo,monkeypatch):
+    root,commit,git=hash_repo;item=real_artifact(hash_repo)
+    objects=root/".git/objects"
+    before={p.relative_to(objects):p.read_bytes() for p in objects.rglob("*") if p.is_file()}
+    original=subprocess.check_output;calls=[]
+    def observed(command,*a,**kw):calls.append(command);return original(command,*a,**kw)
+    monkeypatch.setattr(subprocess,"check_output",observed)
+    e.validate_tracked_artifact(root,item,commit)
+    hash_calls=[c for c in calls if "hash-object" in c]
+    assert hash_calls and all("-w" not in c and "--path=record.py" in c for c in hash_calls)
+    assert before=={p.relative_to(objects):p.read_bytes() for p in objects.rglob("*") if p.is_file()}
+
+
+@pytest.mark.parametrize("old", ["version","fields"])
+def test_hash_contract_legacy_lock_preflight_rejected_without_state(formal_fixture,old):
+    f=formal_fixture
+    if old=="version":
+        for k in e.HASH_CONTRACT:f["lock"].pop(k)
+    else:
+        item=f["lock"]["public_artifacts"][0]
+        item.update(sha256=item.pop("workspace_raw_sha256"))
+        item.pop("git_blob_oid");item.pop("committed_blob_sha256")
+    f["sync"]()
+    with pytest.raises(ValueError,match="contract v2"):checked(f)
+    assert not (f["output"]/"execution_state.json").exists()
+
+
+def test_hash_contract_v2_dry_preflight_records_all_layers_without_mutation(formal_fixture):
+    f=formal_fixture;before={p:p.read_bytes() for p in f["root"].rglob("*") if p.is_file()}
+    context=checked(f)
+    assert len(context["hash_validation"])==len(f["lock"]["public_artifacts"])
+    assert all(r["validation_status"]=="validated" and r["workspace_raw_match"] and r["committed_blob_match"]
+        and r["worktree_equivalent_to_commit"] for r in context["hash_validation"])
+    assert before=={p:p.read_bytes() for p in f["root"].rglob("*") if p.is_file()}

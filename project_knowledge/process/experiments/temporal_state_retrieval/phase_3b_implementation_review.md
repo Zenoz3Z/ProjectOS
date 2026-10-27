@@ -1,6 +1,6 @@
 # Phase 3B implementation review
 
-Date: 26 October 2026. Phase 3B2 extends the runner; the Phase 3B1 selector remains byte-identical.
+Updated: 27 October 2026. Phase 3B2.1 repairs the runner hash contract; the selector, frozen experimental inputs and production files remain byte-identical. Earlier validation records below retain their original scope.
 
 The earlier Phase 3B1 resource-isolation matrix A–G is retained below as historical engineering evidence. Phase 3B2 validation is recorded separately at the end. `execution_authorised=false` and `candidate_evaluation_run=false`: implementation validation does not authorise formal evaluation.
 
@@ -73,7 +73,7 @@ Import remains inert: it does not load model libraries, modify the environment, 
 
 Formal preflight accepts only the canonical public `pre_run_lock.json`, never the candidate manifest. It checks explicit one-shot authorisation, experiment version, fixed outputs, 18 production and 16 diagnostic cases, the four frozen views, model revision, environment versions and both unchanged criteria objects. It hashes committed inputs without parsing gold. The actual model must already exist locally with the frozen file hashes; no download is permitted.
 
-The lock must identify the future Phase 3B2 implementation commit. That commit must descend from the Phase 3B1 commit and be an ancestor of the current lock commit. The only permitted intervening tracked difference is the addition of the public lock. The lock's bytes must match the committed file; the working tracked files and index must be clean. Implementation artifacts, including this review and the new runner tests, must match the implementation commit. Frozen Phase 1/2/3A inputs and the selector must also match their Phase 3B1 commitments. This avoids a circular requirement that HEAD equal the implementation commit after a lock has been committed.
+The lock must identify the resulting Phase 3B2.1 implementation commit. That commit must descend from the validated Phase 3B2 commit and be an ancestor of the later lock commit. The only permitted intervening tracked difference is the addition of the public lock. The lock's bytes must match the committed file; the working tracked files and index must be clean. Implementation artifacts, including this review and the runner tests, must satisfy the three-layer hash contract below. Frozen Phase 1/2/3A workspace bytes and the selector must also match their unchanged Phase 3B1 raw-byte commitments. This avoids a circular requirement that HEAD equal the implementation commit after a lock has been committed.
 
 The public lock commits the hash of a separate ignored private lock. The private lock supplies local input bindings, the offline model location and an 18-record identity inventory containing only record ID, project ID, relative source path, source category and SHA-256. It contains no expected passage or target role in that inventory. Public record identities are checked against the frozen public inventory; private source bytes and metadata are checked against frozen private commitments. The private lock does not contain a reciprocal public-lock hash. A final identity join against the frozen gold catalogue occurs only after selection, before scoring. Private paths never enter public output.
 
@@ -143,7 +143,7 @@ Phase 1, Phase 2 and Phase 3A frozen bytes, production source, existing tests/co
 
 This review concerns implementation readiness only. It supplies no case-level ranking, candidate score, predicted metric or result analysis, and does not authorise formal execution.
 
-## Phase 3B2 validation and publication boundary
+## Historical Phase 3B2 validation and publication boundary
 
 Status: **runner_validated_pending_lock**. `validation_gate_passed=true`, `formal_runner_implemented=true`, `execution_authorised=false`, `candidate_evaluation_run=false`, `intended_run_count=1`. The candidate manifest is a publication record, not the formal lock. A separately authorised lock must bind the resulting implementation commit before execution can occur.
 
@@ -167,3 +167,43 @@ No Windows PermissionError, socketpair exhaustion or other unexplained resource 
 The full-suite boundary guard recorded zero attempts to access actual protected input directories, actual model-weight files or external network endpoints. P01–P04 were not read, parsed or rehashed. Private research source checks were limited to previously authorised integrity hashing. Source/category/ID literals and negative-test strings in the new code are implementation contracts or explicitly synthetic fixtures, not participant statements. The privacy scanner's path-pattern hit was the defensive regular expression itself, not an actual local path.
 
 Real activity throughout Phase 3B2: OpenAI 0; LLM 0; embedding model loads 0; encode 0; semantic retrieval 0; summary generation 0; formal candidate case scores 0. Synthetic tests exercised scoring and lifecycle writes only on invented cases in temporary repositories. The actual public output directory still contains no formal lock or candidate evaluation result. Implementation is ready for the separately authorised lock stage; no benchmark outcome or future improvement is asserted.
+
+## Phase 3B2.1 cross-platform hash contract
+
+The attempted pre-commit lock audit found that ten frozen production Python files had CRLF worktree bytes and LF committed blobs. Their raw workspace hashes still matched the frozen manifests, and their content was equivalent under Git's existing clean/EOL rules. The previous formal preflight incorrectly required a single SHA-256 to describe both representations. No evaluation, model loading or scoring had started. This was a runner validation defect, not a changed source corpus or an experimental result.
+
+The old uncommitted public lock and its corresponding private lock were moved intact into ignored diagnostic storage. Their original SHA-256 values are respectively `8f01bbd80ab91bfb22c3d4d4a26f7932bd6df870fbc9945a7b323c49841d6073` and `31a72788c18192752246f028c2aee2baf6ef175f0b2c2e90a80e18271e0300c0`. The private archive records `invalidated_before_commit`, the validation-bug reason, archive time, zero scored cases, no execution state and no consumed one-shot. Archived bytes were not rewritten. The canonical public lock path is absent, and the archive cannot authorise execution.
+
+Hash contract version 2 separates three checks:
+
+1. **Frozen workspace-byte integrity:** SHA-256 of unmodified raw worktree bytes must equal both the explicit workspace commitment and the applicable frozen raw-byte hash. CRLF is not normalised for this check. Existing manifests retain their original values.
+2. **Committed-blob integrity:** the regular-file blob OID is resolved from the specified implementation commit, the blob's raw bytes are read, and its SHA-256 and OID must match the separate lock commitments. Neither value is inferred from a workspace hash.
+3. **Worktree-to-commit equivalence:** Git computes the worktree blob OID using the repository's actual clean/EOL rules and the repository-relative path. This must equal the implementation blob OID. Object-writing mode is never used. Generic whitespace removal and manual newline replacement are not substitutes for this check.
+
+Future formal artifacts require `workspace_raw_sha256`, `committed_blob_sha256` and `git_blob_oid`. The top-level modes are `hash_contract_version=2`, `worktree_hash_mode=raw_bytes_sha256`, `committed_hash_mode=git_blob_bytes_sha256` and `equivalence_mode=git_clean_filtered_blob_oid`. A legacy lock or ambiguous single-hash artifact is rejected rather than silently upgraded. The ancestry guard remains mandatory and is anchored to Phase 3B2 commit `5e433a591183f84471c2081e8522e19d9b1e4cc6`; unchanged frozen input hashes remain anchored to their earlier commitments.
+
+Each validated tracked artifact reports its relative path, workspace/frozen raw hashes, implementation commit, actual committed OID and SHA-256, cleaned worktree OID, all three boolean checks, detected EOL representation and validation status. Failure reports retain the layer reached and a rejection reason. Missing files or commit entries, failed Git commands, incorrect commitments, path escapes, symlinks/reparse points and unexpected filters fail closed. External clean filters, working-tree encoding conversions and ident expansion are not authorised. Binary data cannot be forced through text-EOL conversion or silently transformed. File extensions do not exempt an artifact from validation.
+
+The publication candidate remains non-executable. Unchanged artifact blob commitments are read from the current commit. For the three modified implementation artifacts, prospective blob commitments can be recorded only when Git's cleaned and unfiltered worktree OIDs are identical, making the current raw bytes the exact prospective blob bytes. A later authorised lock must still derive every blob commitment from the resulting implementation commit. The candidate is neither that lock nor proof of a completed formal preflight.
+
+### Phase 3B2.1 validation
+
+Status: **runner_hash_contract_v2_validated_pending_lock**. The validation gate passed. Execution remains unauthorised, no new formal lock exists, no execution state was created and the one-shot remains unconsumed.
+
+| Check | Result |
+|---|---|
+| New hash-contract tests, final path guards included | 30 passed, 71 deselected in 7.60s |
+| Runner, selector and Phase 3A checks before the final two path cases | 291 passed in 79.41s (0:01:19) |
+| Complete suite on final Python implementation | 450 passed in 197.39s (0:03:17) |
+| Final full-suite composition | 101 runner checks, 119 unchanged selector checks, 73 unchanged Phase 3A checks and 157 other existing tests |
+| Production/source integrity | All ten originally affected production files remain byte-identical and pass all three layers |
+| Broader integrity audit | 88 protected raw hashes unchanged; all 66 tracked protected files pass the three-layer audit against the parent implementation commit |
+| EOL audit | 21 of those 66 files have CRLF worktrees and LF blobs, including all ten original blockers |
+| Compilation and dependencies | 31 Python files compiled in memory; no broken requirements found |
+| Documentation and privacy | Six local links resolve; final diff checks and public-content scans pass |
+
+The new checks use small temporary Git repositories. They verify LF/LF and CRLF/LF equivalence, reject changed characters and trailing spaces as well as added/deleted lines, and exercise wrong commitments, missing files/commit entries, Git failures, binary handling, unexpected clean transformations, absolute/drive-relative/traversal paths and a real Windows junction. File and object-database snapshots confirm that validation does not rewrite inputs or publish Git objects. Existing lifecycle, ancestry, dry-preflight and import-isolation checks remain in place; their fixtures now provide explicit v2 commitments without removing or reducing assertions.
+
+No intermittent resource failure occurred, so the conditional second complete pass was not needed. The external test guard observed zero actual protected-directory, model-weight or external-network access attempts. Temporary Git identities and attributes belong only to synthetic fixtures. The ProjectOS repository/global Git configuration and repository attributes were not changed. A temporary extra blank line in this document was removed before final diff validation.
+
+The candidate manifest records the 66 tracked-file reports, including every requested hash, OID, match flag and EOL field. Private/untracked protected inputs are represented only by integrity counts or existing commitments. P01–P04 were not accessed, parsed or rehashed; researcher self-test sources/metadata, frozen Phase 1/2/3A files, the selector and five thesis drafts retain their bytes. No production or old UI test was edited. Real OpenAI, LLM, model load, encode, retrieval, summary and candidate scoring counts are all zero. Synthetic lifecycle/scoring fixtures do not constitute benchmark execution.

@@ -18,6 +18,7 @@ from datetime import datetime, timezone
 import importlib.metadata
 import math
 import re
+import stat
 import tempfile
 import time
 from concurrent.futures import ThreadPoolExecutor
@@ -269,7 +270,14 @@ class RunLifecycle:
 
 
 ROOT = Path(__file__).resolve().parents[2]
-IMPLEMENTATION_PARENT = "25bf8e0c7af38d6c7a395a1e9866de46ecd8d27d"
+IMPLEMENTATION_PARENT = "5e433a591183f84471c2081e8522e19d9b1e4cc6"
+FROZEN_INPUT_COMMIT = "25bf8e0c7af38d6c7a395a1e9866de46ecd8d27d"
+HASH_CONTRACT = {
+    "hash_contract_version": 2,
+    "worktree_hash_mode": "raw_bytes_sha256",
+    "committed_hash_mode": "git_blob_bytes_sha256",
+    "equivalence_mode": "git_clean_filtered_blob_oid",
+}
 EXPERIMENT_VERSION = "phase_3b_state_aware_v1"
 PUBLIC_DIRECTORY = "outputs/test_results/temporal_state_retrieval_state_aware"
 LOCK_PATH = PUBLIC_DIRECTORY + "/pre_run_lock.json"
@@ -328,6 +336,35 @@ class GitView:
     def blob(self, commit, path):
         return subprocess.check_output(["git", "show", commit + ":" + path], cwd=self.root)
 
+    def tree_entry(self, commit, path):
+        raw = subprocess.check_output(["git", "ls-tree", "-z", commit, "--", path], cwd=self.root)
+        rows = raw.rstrip(b"\0").split(b"\0") if raw else []
+        if len(rows) != 1:
+            raise ValueError("Path is absent or ambiguous in implementation commit")
+        header, name = rows[0].split(b"\t", 1)
+        mode, kind, oid = header.decode("ascii").split()
+        if name.decode("utf-8") != path or kind != "blob" or mode not in {"100644", "100755"}:
+            raise ValueError("Implementation path must be a regular tracked file")
+        return oid
+
+    def object_bytes(self, oid):
+        return subprocess.check_output(["git", "cat-file", "blob", oid], cwd=self.root)
+
+    def clean_attributes(self, path):
+        names = ("text", "eol", "filter", "working-tree-encoding", "ident")
+        raw = subprocess.check_output(["git", "check-attr", "-z", *names, "--", path], cwd=self.root)
+        parts = raw.decode("utf-8").rstrip("\0").split("\0")
+        if len(parts) != 3 * len(names) or any(parts[i] != path for i in range(0, len(parts), 3)):
+            raise ValueError("Unexpected Git attribute response")
+        return {parts[i+1]: parts[i+2] for i in range(0, len(parts), 3)}
+
+    def clean_oid(self, path):
+        # Deliberately omit -w: Git applies existing attributes/EOL rules read-only.
+        return self.call("hash-object", "--path=" + path, "--", path)
+
+    def raw_oid(self, path):
+        return self.call("hash-object", "--no-filters", "--", path)
+
     def ancestor(self, ancestor, head):
         return subprocess.run(["git", "merge-base", "--is-ancestor", ancestor, head],
                               cwd=self.root, capture_output=True, check=False).returncode == 0
@@ -335,6 +372,102 @@ class GitView:
     def ignored(self, path):
         return subprocess.run(["git", "check-ignore", "-q", "--", str(path)],
                               cwd=self.root, capture_output=True, check=False).returncode == 0
+
+
+class HashContractError(ValueError):
+    def __init__(self, message, validation):
+        super().__init__(message)
+        self.validation = dict(validation, validation_status="rejected", reason=message)
+
+
+def require_hash_contract(lock):
+    if any(lock.get(k) != v or type(lock.get(k)) is not type(v) for k, v in HASH_CONTRACT.items()):
+        raise ValueError("Hash contract v2 is required; legacy lock fields are not inferred")
+
+
+def _regular_worktree_file(root, relative):
+    normalized = str(relative).replace("\\", "/")
+    parts = Path(normalized)
+    if parts.is_absolute() or parts.drive or ":" in normalized or ".." in parts.parts or not parts.parts:
+        raise ValueError("Escaping or invalid tracked path")
+    if re.search(r"(^|/)P0[1-4](/|$)", normalized):
+        raise ValueError("Formal participant path forbidden")
+    path = root
+    for part in parts.parts:
+        path = path / part
+        info = path.lstat()
+        if stat.S_ISLNK(info.st_mode) or getattr(info, "st_file_attributes", 0) & getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0x400):
+            raise ValueError("Symlink or reparse-point tracked path forbidden")
+    if not path.resolve().is_relative_to(root) or not path.is_file():
+        raise ValueError("Tracked path must be a regular workspace file")
+    return path, parts.as_posix()
+
+
+def _eol_representation(data):
+    if b"\0" in data:
+        return "binary"
+    try:
+        data.decode("utf-8")
+    except UnicodeDecodeError:
+        return "binary"
+    crlf = data.count(b"\r\n")
+    lf, cr = data.count(b"\n") - crlf, data.count(b"\r") - crlf
+    kinds = [name for name, count in (("CRLF", crlf), ("LF", lf), ("CR", cr)) if count]
+    return kinds[0] if len(kinds) == 1 else "mixed" if kinds else "none"
+
+
+def validate_tracked_artifact(root, item, implementation, *, git=None, frozen_workspace_sha256=None):
+    """Three independent, fail-closed checks; no byte rewriting or Git object writes."""
+    root = Path(root).resolve()
+    git = git or GitView(root)
+    report = dict(repo_relative_path=item.get("path"), workspace_raw_sha256=None,
+        frozen_workspace_sha256=frozen_workspace_sha256 or item.get("workspace_raw_sha256"),
+        implementation_commit=implementation, committed_blob_oid=None, committed_blob_sha256=None,
+        cleaned_worktree_blob_oid=None, workspace_raw_match=False, committed_blob_match=False,
+        worktree_equivalent_to_commit=False, eol_representation=None, validation_status="rejected")
+    try:
+        if set(item) != {"path", "workspace_raw_sha256", "committed_blob_sha256", "git_blob_oid"}:
+            raise ValueError("Artifact requires explicit hash contract v2 fields")
+        if any(not re.fullmatch(r"[0-9a-f]{64}", item[k]) for k in ("workspace_raw_sha256", "committed_blob_sha256")):
+            raise ValueError("Invalid SHA-256 commitment")
+        if not re.fullmatch(r"(?:[0-9a-f]{40}|[0-9a-f]{64})", item["git_blob_oid"]):
+            raise ValueError("Invalid Git blob OID")
+        path, relative = _regular_worktree_file(root, item["path"])
+        data = path.read_bytes()
+        raw_hash = hashlib.sha256(data).hexdigest()
+        report.update(repo_relative_path=relative, workspace_raw_sha256=raw_hash,
+            workspace_raw_match=raw_hash == item["workspace_raw_sha256"] == report["frozen_workspace_sha256"])
+        if not report["workspace_raw_match"]:
+            raise ValueError("Frozen workspace raw hash mismatch")
+        oid = git.tree_entry(implementation, relative)
+        blob = git.object_bytes(oid)
+        blob_hash = hashlib.sha256(blob).hexdigest()
+        report.update(committed_blob_oid=oid, committed_blob_sha256=blob_hash,
+            committed_blob_match=oid == item["git_blob_oid"] and blob_hash == item["committed_blob_sha256"],
+            eol_representation={"workspace": _eol_representation(data), "committed": _eol_representation(blob)})
+        if not report["committed_blob_match"]:
+            raise ValueError("Committed blob hash or OID mismatch")
+        attrs = git.clean_attributes(relative)
+        if set(attrs) != {"text", "eol", "filter", "working-tree-encoding", "ident"}:
+            raise ValueError("Incomplete Git clean attributes")
+        if any(attrs[k] not in {"unspecified", "unset"} for k in ("filter", "working-tree-encoding", "ident")):
+            raise ValueError("Unexpected Git filter, encoding or ident transformation")
+        if attrs["text"] not in {"unspecified", "unset", "set", "auto"} or attrs["eol"] not in {"unspecified", "unset", "lf", "crlf"}:
+            raise ValueError("Unsupported Git text/EOL attributes")
+        binary = report["eol_representation"]["workspace"] == "binary"
+        if binary and (attrs["text"] == "set" or (attrs["text"] != "unset" and attrs["eol"] in {"lf", "crlf"})):
+            raise ValueError("Binary file incorrectly configured for text EOL conversion")
+        cleaned = git.clean_oid(relative)
+        report.update(cleaned_worktree_blob_oid=cleaned, worktree_equivalent_to_commit=cleaned == oid)
+        if binary and cleaned != git.raw_oid(relative):
+            raise ValueError("Git clean rules transformed binary bytes")
+        if not report["worktree_equivalent_to_commit"]:
+            raise ValueError("Clean-filtered worktree blob differs from implementation commit")
+        report["validation_status"] = "validated"
+        return report
+    except (OSError, subprocess.SubprocessError, ValueError, TypeError, KeyError) as error:
+        message = "Git command failed" if isinstance(error, subprocess.SubprocessError) else str(error)
+        raise HashContractError(message, report) from error
 
 
 def check_git_lock(git, lock, lock_bytes):
@@ -365,6 +498,7 @@ def preflight(root, lock_path, private_lock_path, *, git=None):
         raise ValueError("Only pre_run_lock.json can authorise execution")
     lock_bytes = lock_path.read_bytes()
     lock = json.loads(lock_bytes)
+    require_hash_contract(lock)
     required = {"status", "execution_authorised", "candidate_evaluation_run", "run_count_allowed",
         "experiment_version", "implementation_commit", "public_artifacts", "private_commitments",
         "private_lock_sha256", "protocol_sha256", "intended_case_counts", "intended_views",
@@ -387,7 +521,7 @@ def preflight(root, lock_path, private_lock_path, *, git=None):
     if (root / PUBLIC_DIRECTORY).resolve() != root / PUBLIC_DIRECTORY:
         raise ValueError("Public output directory cannot redirect through a symlink")
     head = check_git_lock(git, lock, lock_bytes)
-    trusted = json.loads(git.blob(IMPLEMENTATION_PARENT, CANDIDATE_PATH))
+    trusted = json.loads(git.blob(FROZEN_INPUT_COMMIT, CANDIDATE_PATH))
     artifacts = lock["public_artifacts"]
     paths = [x["path"] for x in artifacts]
     expected = {x["path"] for x in trusted["public_artifacts"]} | {RUNNER_TEST_PATH}
@@ -398,13 +532,11 @@ def preflight(root, lock_path, private_lock_path, *, git=None):
     implementation_paths = {RUNNER_PATH,
         "project_knowledge/process/experiments/temporal_state_retrieval/phase_3b_implementation_review.md"}
     immutable = {x["path"]: x["sha256"] for x in trusted["public_artifacts"] if x["path"] not in implementation_paths}
+    hash_validation = []
     for item in artifacts:
-        path = safe_path(root, item["path"])
-        actual = digest(path)
-        if actual != item["sha256"] or hashlib.sha256(git.blob(lock["implementation_commit"], item["path"])).hexdigest() != actual:
-            raise ValueError("Implementation/public hash mismatch")
-        if item["path"] in immutable and actual != immutable[item["path"]]:
-            raise ValueError("Frozen Phase 1/2/3A or selector hash changed")
+        safe_path(root, item["path"])
+        hash_validation.append(validate_tracked_artifact(root, item, lock["implementation_commit"], git=git,
+            frozen_workspace_sha256=immutable.get(item["path"], item.get("workspace_raw_sha256"))))
     for key in ("protocol_sha256", "intended_case_counts", "intended_views", "intended_embedding_model",
                 "intended_model_snapshot_revision", "phase_1_original_benchmark_criteria", "phase_3_candidate_improvement_criteria"):
         if lock[key] != trusted[key]:
@@ -493,7 +625,8 @@ def preflight(root, lock_path, private_lock_path, *, git=None):
     return {"root": root, "lock": lock, "lock_hash": hashlib.sha256(lock_bytes).hexdigest(),
             "private_lock_hash": digest(private_lock_path), "lock_commit": head, "private": private,
             "bindings": bindings, "inventory": inventory, "metadata": metadata,
-            "model_snapshot": model, "output": output, "baseline_manifest": baseline_manifest}
+            "model_snapshot": model, "output": output, "baseline_manifest": baseline_manifest,
+            "hash_validation": hash_validation}
 
 
 def assert_public_safe(value):
@@ -1053,12 +1186,12 @@ def recompute(root, private_run, verification_path=None):
     if state["status"] not in {"execution_completed", "validation_failed"} or state["scored_case_count"] != 34:
         raise ValueError("Only a completed one-shot run can be independently verified")
     lock = read_json(root / LOCK_PATH)
+    require_hash_contract(lock)
     if digest(root / LOCK_PATH) != manifest["lock_hash"]:
         raise ValueError("Saved lock hash mismatch")
     scoring_path = "experiments/temporal_state_retrieval/scoring.py"
-    expected_scoring = next(x["sha256"] for x in lock["public_artifacts"] if x["path"] == scoring_path)
-    if digest(root / scoring_path) != expected_scoring:
-        raise ValueError("Frozen scoring implementation changed")
+    scoring_item = next(x for x in lock["public_artifacts"] if x["path"] == scoring_path)
+    validate_tracked_artifact(root, scoring_item, lock["implementation_commit"])
     from .scoring import score_case
     mismatches = []
     for name, expected in manifest["output_hashes"].items():
