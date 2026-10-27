@@ -1,0 +1,135 @@
+{
+  "production": {
+    "gained": {
+      "count": 2,
+      "public_case_ids": [
+        "EF-01"
+      ],
+      "private_case_count": 1
+    },
+    "lost": {
+      "count": 1,
+      "public_case_ids": [
+        "SY-14"
+      ],
+      "private_case_count": 0
+    },
+    "unchanged_pass": {
+      "count": 7,
+      "public_case_ids": [
+        "EF-03",
+        "EF-04",
+        "EF-05",
+        "EF-06",
+        "SY-02",
+        "SY-12",
+        "SY-13"
+      ],
+      "private_case_count": 0
+    },
+    "unchanged_fail": {
+      "count": 5,
+      "public_case_ids": [
+        "EF-02",
+        "SY-08"
+      ],
+      "private_case_count": 3
+    },
+    "insufficient_boundary_cases": {
+      "count": 3,
+      "public_case_ids": [
+        "SY-15"
+      ],
+      "private_case_count": 2
+    },
+    "selection_changed": {
+      "count": 8,
+      "public_case_ids": [
+        "EF-01",
+        "EF-05",
+        "SY-02",
+        "SY-14",
+        "SY-15"
+      ],
+      "private_case_count": 3
+    },
+    "selection_unchanged": {
+      "count": 10,
+      "public_case_ids": [
+        "EF-02",
+        "EF-03",
+        "EF-04",
+        "EF-06",
+        "SY-08",
+        "SY-12",
+        "SY-13"
+      ],
+      "private_case_count": 3
+    }
+  },
+  "diagnostic": {
+    "gained": {
+      "count": 2,
+      "public_case_ids": [
+        "SY-05",
+        "SY-06"
+      ],
+      "private_case_count": 0
+    },
+    "lost": {
+      "count": 0,
+      "public_case_ids": [],
+      "private_case_count": 0
+    },
+    "unchanged_pass": {
+      "count": 6,
+      "public_case_ids": [
+        "EF-07",
+        "SY-01",
+        "SY-03",
+        "SY-09",
+        "SY-10",
+        "SY-11"
+      ],
+      "private_case_count": 0
+    },
+    "unchanged_fail": {
+      "count": 6,
+      "public_case_ids": [
+        "SY-07"
+      ],
+      "private_case_count": 5
+    },
+    "insufficient_boundary_cases": {
+      "count": 2,
+      "public_case_ids": [
+        "EF-08",
+        "SY-04"
+      ],
+      "private_case_count": 0
+    },
+    "selection_changed": {
+      "count": 9,
+      "public_case_ids": [
+        "SY-01",
+        "SY-05",
+        "SY-06",
+        "SY-09",
+        "SY-10"
+      ],
+      "private_case_count": 4
+    },
+    "selection_unchanged": {
+      "count": 7,
+      "public_case_ids": [
+        "EF-07",
+        "EF-08",
+        "SY-03",
+        "SY-04",
+        "SY-07",
+        "SY-11"
+      ],
+      "private_case_count": 1
+    }
+  }
+}

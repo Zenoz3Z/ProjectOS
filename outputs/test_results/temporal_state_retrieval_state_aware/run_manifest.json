@@ -1,0 +1,60 @@
+{
+  "experiment_version": "phase_3b_state_aware_v1",
+  "run_id": "phase_3b_state_aware_v1_run_20261027",
+  "implementation_commit": "8b790ea13c6eae236b325b012150e5c06bf524f6",
+  "lock_commit": "7def9334aff4fbc2a487f3dead6d29d205ee41b5",
+  "lock_sha256": "2e9533755b11cf435516fd0162d10ec9514370af09fbb1942169665374be5818",
+  "private_lock_sha256": "c38d122eb07b865170c383f8d696e801e8f1a1311828ae66db116b30f7a9dfb2",
+  "candidate_evaluation_run": true,
+  "scored_case_count": 34,
+  "activity": {
+    "model_loads": 1,
+    "encode_calls": 1540,
+    "document_encode_calls": 4,
+    "query_encode_calls": 1536,
+    "document_texts": 74,
+    "query_texts": 1536,
+    "openai_requests": 0,
+    "llm_calls": 0,
+    "summary_calls": 0
+  },
+  "model_load_ms": 326.1499000072945,
+  "worker_preparation_ms": 12394.484299991746,
+  "environment": {
+    "device": "cpu",
+    "logical_cpu_count": 20,
+    "torch_threads": 14
+  },
+  "corpus_preparation": {
+    "view_1": {
+      "documents": 4,
+      "chunks": 12,
+      "corpus_preparation_ms": 4.260600020643324,
+      "document_encode_ms": 349.2573999974411
+    },
+    "view_2": {
+      "documents": 7,
+      "chunks": 49,
+      "corpus_preparation_ms": 14.858800015645102,
+      "document_encode_ms": 1065.371500008041
+    },
+    "view_3": {
+      "documents": 5,
+      "chunks": 5,
+      "corpus_preparation_ms": 10.061699984362349,
+      "document_encode_ms": 94.42380000837147
+    },
+    "view_4": {
+      "documents": 7,
+      "chunks": 8,
+      "corpus_preparation_ms": 13.294000003952533,
+      "document_encode_ms": 139.6938000107184
+    }
+  },
+  "timing_method": "first + one warm-up + 30 warm per distinct view/section; query encoding, original selection, projected IPC selection and excerpts included; audit checks, offset mapping and scoring excluded",
+  "outputs_sha256": {
+    "candidate_aggregate_results.json": "95fc2b2c0f25af003fcd89031cc275c9c3440ecc017a86a1a45fe1b432dd550b",
+    "paired_comparison.json": "96f63c5797c666b180de16218a995a70dd75150401de47aa534e70475c0252d0",
+    "phase_3b_report.md": "27a244f244762b798e6f3257c838c337aa5edec79586083a529e47fca4a9657e"
+  }
+}

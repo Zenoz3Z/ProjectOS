@@ -1,0 +1,1621 @@
+{
+  "verification_status": "matched",
+  "verification_method": "trace_only_recovery",
+  "formal_execute_count": 1,
+  "original_recompute_attempts": 1,
+  "original_recompute_publication_failed": true,
+  "original_failure_stage": "verification publication",
+  "original_failure_type": "PermissionError WinError 5",
+  "recovery_recompute_attempts": 1,
+  "recompute_attempt_number": 2,
+  "implementation_commit": "8b790ea13c6eae236b325b012150e5c06bf524f6",
+  "lock_commit": "7def9334aff4fbc2a487f3dead6d29d205ee41b5",
+  "run_id": "phase_3b_state_aware_v1_run_20261027",
+  "case_count": 34,
+  "timestamp_utc": "2026-10-27T00:58:21.514593+00:00",
+  "recovery_method": "External wrapper invokes the unchanged frozen score_case and result_bundle; exclusive open x publication; no alternative scoring formulas.",
+  "call_counts": {
+    "model_loader": 0,
+    "encode": 0,
+    "retrieval": 0,
+    "selector": 0,
+    "document_loader": 0,
+    "openai": 0,
+    "llm": 0,
+    "summary_calls": 0,
+    "formal_execute": 0,
+    "baseline_execute": 0,
+    "external_network": 0,
+    "protected_data_access": 0,
+    "model_weight_access": 0
+  },
+  "trace_only_scoring_calls": {
+    "frozen_score_case": 34,
+    "frozen_result_bundle": 1
+  },
+  "raw_trace_sha256": "644cb7682d57b8f3e994d57a0b75369b6104d5faff1c7f3908008a42a20666ca",
+  "original_aggregate_sha256": "95fc2b2c0f25af003fcd89031cc275c9c3440ecc017a86a1a45fe1b432dd550b",
+  "paired_comparison_sha256": "96f63c5797c666b180de16218a995a70dd75150401de47aa534e70475c0252d0",
+  "scoring_source_sha256": "4f2bf9babe4657c329cf731051f243b7d05897f602289d19d90f104162642ae7",
+  "runner_source_sha256": "2f520d9aa5033f9ffa0a81bfb8b4998b30029ef1d5568e7969af626d5c6b0439",
+  "frozen_baseline_aggregate_sha256": "02a5848ee480e6255956fd3638ca56f5c742989cf36915947749737090bcca16",
+  "original_publication_failure_sha256": "d4867559f695bfa29f70abe99ab035ddf9a36dec0be080b1cbfaff6f5ccfbad6",
+  "aggregate": {
+    "experiment_version": "phase_3b_state_aware_v1",
+    "tiers": {
+      "production": {
+        "tier": "production",
+        "case_count": 18,
+        "metrics": {
+          "hit_at_1": {
+            "numerator": 6,
+            "denominator": 15,
+            "value": 0.4,
+            "status": "measured",
+            "eligible_public_case_ids": [
+              "EF-01",
+              "EF-02",
+              "EF-03",
+              "EF-04",
+              "EF-05",
+              "EF-06",
+              "SY-02",
+              "SY-08",
+              "SY-12",
+              "SY-13",
+              "SY-14"
+            ],
+            "eligible_private_case_count": 4,
+            "excluded": {
+              "insufficient case has no affirmative gold": {
+                "public_case_ids": [
+                  "SY-15"
+                ],
+                "private_case_count": 2
+              }
+            }
+          },
+          "hit_at_3": {
+            "numerator": 12,
+            "denominator": 15,
+            "value": 0.8,
+            "status": "measured",
+            "eligible_public_case_ids": [
+              "EF-01",
+              "EF-02",
+              "EF-03",
+              "EF-04",
+              "EF-05",
+              "EF-06",
+              "SY-02",
+              "SY-08",
+              "SY-12",
+              "SY-13",
+              "SY-14"
+            ],
+            "eligible_private_case_count": 4,
+            "excluded": {
+              "insufficient case has no affirmative gold": {
+                "public_case_ids": [
+                  "SY-15"
+                ],
+                "private_case_count": 2
+              }
+            }
+          },
+          "mrr": {
+            "numerator": 9.252631578947367,
+            "denominator": 15,
+            "value": 0.6168421052631579,
+            "status": "measured",
+            "eligible_public_case_ids": [
+              "EF-01",
+              "EF-02",
+              "EF-03",
+              "EF-04",
+              "EF-05",
+              "EF-06",
+              "SY-02",
+              "SY-08",
+              "SY-12",
+              "SY-13",
+              "SY-14"
+            ],
+            "eligible_private_case_count": 4,
+            "excluded": {
+              "insufficient case has no affirmative gold": {
+                "public_case_ids": [
+                  "SY-15"
+                ],
+                "private_case_count": 2
+              }
+            },
+            "numerator_exact": "879/95"
+          },
+          "role_coverage_at_2": {
+            "numerator": 10.5,
+            "denominator": 15,
+            "value": 0.7,
+            "status": "measured",
+            "eligible_public_case_ids": [
+              "EF-01",
+              "EF-02",
+              "EF-03",
+              "EF-04",
+              "EF-05",
+              "EF-06",
+              "SY-02",
+              "SY-08",
+              "SY-12",
+              "SY-13",
+              "SY-14"
+            ],
+            "eligible_private_case_count": 4,
+            "excluded": {
+              "insufficient case has no affirmative gold": {
+                "public_case_ids": [
+                  "SY-15"
+                ],
+                "private_case_count": 2
+              }
+            },
+            "interpretation": "macro mean of per-case role fractions; not a count of cases",
+            "covered_roles_total": 14,
+            "required_roles_total": 21
+          },
+          "all_required_roles_at_2": {
+            "numerator": 9,
+            "denominator": 15,
+            "value": 0.6,
+            "status": "measured",
+            "eligible_public_case_ids": [
+              "EF-01",
+              "EF-02",
+              "EF-03",
+              "EF-04",
+              "EF-05",
+              "EF-06",
+              "SY-02",
+              "SY-08",
+              "SY-12",
+              "SY-13",
+              "SY-14"
+            ],
+            "eligible_private_case_count": 4,
+            "excluded": {
+              "insufficient case has no affirmative gold": {
+                "public_case_ids": [
+                  "SY-15"
+                ],
+                "private_case_count": 2
+              }
+            }
+          },
+          "pair_coverage_at_2": {
+            "numerator": 1,
+            "denominator": 3,
+            "value": 0.3333333333333333,
+            "status": "measured",
+            "eligible_public_case_ids": [
+              "EF-03",
+              "SY-14"
+            ],
+            "eligible_private_case_count": 1,
+            "excluded": {
+              "case has no required direction pair": {
+                "public_case_ids": [
+                  "EF-01",
+                  "EF-02",
+                  "EF-04",
+                  "EF-05",
+                  "EF-06",
+                  "SY-02",
+                  "SY-08",
+                  "SY-12",
+                  "SY-13",
+                  "SY-15"
+                ],
+                "private_case_count": 5
+              }
+            }
+          },
+          "temporal_mismatch": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "status": "not measurable at retrieval-only baseline",
+            "eligible_public_case_ids": [],
+            "eligible_private_case_count": 0,
+            "excluded": {
+              "unjudged or incompletely annotated top-1": {
+                "public_case_ids": [
+                  "EF-01",
+                  "EF-02",
+                  "EF-03",
+                  "EF-04",
+                  "EF-05",
+                  "EF-06",
+                  "SY-02",
+                  "SY-08",
+                  "SY-12",
+                  "SY-13",
+                  "SY-14",
+                  "SY-15"
+                ],
+                "private_case_count": 6
+              }
+            }
+          },
+          "false_current_judged": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "status": "not measurable at retrieval-only baseline",
+            "eligible_public_case_ids": [],
+            "eligible_private_case_count": 0,
+            "excluded": {
+              "unjudged, unknown or empty selected evidence": {
+                "public_case_ids": [
+                  "EF-01",
+                  "EF-03",
+                  "EF-05",
+                  "EF-06",
+                  "SY-14",
+                  "SY-15"
+                ],
+                "private_case_count": 3
+              },
+              "case makes no affirmative current claim": {
+                "public_case_ids": [
+                  "EF-02",
+                  "EF-04",
+                  "SY-02",
+                  "SY-08",
+                  "SY-12",
+                  "SY-13"
+                ],
+                "private_case_count": 3
+              }
+            }
+          },
+          "applicability_evidence_at_2": {
+            "numerator": 8,
+            "denominator": 14,
+            "value": 0.5714285714285714,
+            "status": "measured",
+            "eligible_public_case_ids": [
+              "EF-01",
+              "EF-02",
+              "EF-03",
+              "EF-04",
+              "EF-05",
+              "EF-06",
+              "SY-02",
+              "SY-08",
+              "SY-12",
+              "SY-13",
+              "SY-14"
+            ],
+            "eligible_private_case_count": 3,
+            "excluded": {
+              "unclear applicability is outside denominator": {
+                "public_case_ids": [
+                  "SY-15"
+                ],
+                "private_case_count": 3
+              }
+            }
+          },
+          "closure_at_1": {
+            "numerator": 1,
+            "denominator": 3,
+            "value": 0.3333333333333333,
+            "status": "measured",
+            "eligible_public_case_ids": [
+              "SY-02",
+              "SY-08",
+              "SY-12"
+            ],
+            "eligible_private_case_count": 0,
+            "excluded": {
+              "not an explicit inapplicability case": {
+                "public_case_ids": [
+                  "EF-01",
+                  "EF-02",
+                  "EF-03",
+                  "EF-04",
+                  "EF-05",
+                  "EF-06",
+                  "SY-13",
+                  "SY-14",
+                  "SY-15"
+                ],
+                "private_case_count": 6
+              }
+            }
+          },
+          "closure_at_2": {
+            "numerator": 2,
+            "denominator": 3,
+            "value": 0.6666666666666666,
+            "status": "measured",
+            "eligible_public_case_ids": [
+              "SY-02",
+              "SY-08",
+              "SY-12"
+            ],
+            "eligible_private_case_count": 0,
+            "excluded": {
+              "not an explicit inapplicability case": {
+                "public_case_ids": [
+                  "EF-01",
+                  "EF-02",
+                  "EF-03",
+                  "EF-04",
+                  "EF-05",
+                  "EF-06",
+                  "SY-13",
+                  "SY-14",
+                  "SY-15"
+                ],
+                "private_case_count": 6
+              }
+            }
+          },
+          "false_current_all_case_lower_bound": {
+            "numerator": 1,
+            "denominator": 9,
+            "value": 0.1111111111111111,
+            "status": "known annotated exposure lower bound; unjudged cases are not safe negatives",
+            "eligible_public_case_ids": [
+              "EF-01",
+              "EF-03",
+              "EF-05",
+              "EF-06",
+              "SY-14",
+              "SY-15"
+            ],
+            "eligible_private_case_count": 3,
+            "excluded": {
+              "not a current-claim case": {
+                "count": 9
+              }
+            },
+            "unjudged_or_unknown_count": 9
+          },
+          "insufficient_preservation_accuracy": {
+            "numerator": null,
+            "denominator": null,
+            "value": null,
+            "status": "not measurable at retrieval-only baseline",
+            "scope_case_count": 3,
+            "excluded": {
+              "all cases": {
+                "reason": "no final support/abstention decision layer is evaluated"
+              }
+            }
+          }
+        },
+        "latency": {
+          "case_count": 18,
+          "unique_requests": 18,
+          "scope": "distinct measured view/section requests covering every case; no support-status exclusion",
+          "first_query": {
+            "numerator": null,
+            "denominator": 18,
+            "value": 24.873350019333884,
+            "median_ms": 24.873350019333884,
+            "minimum_ms": 23.56629999121651,
+            "maximum_ms": 28.0203000002075,
+            "p95_ms": 27.51098000589991,
+            "sample_count": 18,
+            "interpretation": "median duration, not a numerator/denominator accuracy"
+          },
+          "warm": {
+            "numerator": null,
+            "denominator": 540,
+            "value": 25.259299989556894,
+            "median_ms": 25.259299989556894,
+            "minimum_ms": 22.644399985438213,
+            "maximum_ms": 41.40460002236068,
+            "p95_ms": 28.909174958243963,
+            "sample_count": 540,
+            "interpretation": "median duration, not a numerator/denominator accuracy"
+          },
+          "insufficient_cases_included": 3,
+          "case_weighted": {
+            "case_count": 18,
+            "unique_requests": 18,
+            "first_query": {
+              "numerator": null,
+              "denominator": 18,
+              "value": 24.873350019333884,
+              "median_ms": 24.873350019333884,
+              "minimum_ms": 23.56629999121651,
+              "maximum_ms": 28.0203000002075,
+              "p95_ms": 27.51098000589991,
+              "sample_count": 18,
+              "interpretation": "median duration, not a numerator/denominator accuracy"
+            },
+            "warm": {
+              "numerator": null,
+              "denominator": 540,
+              "value": 25.259299989556894,
+              "median_ms": 25.259299989556894,
+              "minimum_ms": 22.644399985438213,
+              "maximum_ms": 41.40460002236068,
+              "p95_ms": 28.909174958243963,
+              "sample_count": 540,
+              "interpretation": "median duration, not a numerator/denominator accuracy"
+            },
+            "interpretation": "all-case weighting of saved request measurements; shared requests are repeated analytically, not independently timed"
+          }
+        },
+        "timing_components": {
+          "selector_overhead_ms": {
+            "numerator": null,
+            "denominator": 540,
+            "value": 0.5433000042103231,
+            "median_ms": 0.5433000042103231,
+            "minimum_ms": 0.35149999894201756,
+            "maximum_ms": 1.8534999981056899,
+            "p95_ms": 1.406189997214824,
+            "sample_count": 540,
+            "interpretation": "median duration, not a numerator/denominator accuracy"
+          },
+          "query_encode_ms": {
+            "numerator": null,
+            "denominator": 540,
+            "value": 24.367550009628758,
+            "median_ms": 24.367550009628758,
+            "minimum_ms": 22.008100029779598,
+            "maximum_ms": 40.690099995117635,
+            "p95_ms": 27.997855001012795,
+            "sample_count": 540,
+            "interpretation": "median duration, not a numerator/denominator accuracy"
+          },
+          "retrieval_and_baseline_selection_ms": {
+            "numerator": null,
+            "denominator": 540,
+            "value": 24.526149980374612,
+            "median_ms": 24.526149980374612,
+            "minimum_ms": 22.127500007627532,
+            "maximum_ms": 40.824700001394376,
+            "p95_ms": 28.150689996255096,
+            "sample_count": 540,
+            "interpretation": "median duration, not a numerator/denominator accuracy"
+          },
+          "baseline_selection_ms": {
+            "numerator": null,
+            "denominator": 540,
+            "value": 0.02649999805726111,
+            "median_ms": 0.02649999805726111,
+            "minimum_ms": 0.020899984519928694,
+            "maximum_ms": 0.09429996134713292,
+            "p95_ms": 0.051404983969405287,
+            "sample_count": 540,
+            "interpretation": "median duration, not a numerator/denominator accuracy"
+          },
+          "retrieval_ms": {
+            "numerator": null,
+            "denominator": 540,
+            "value": 24.486200010869652,
+            "median_ms": 24.486200010869652,
+            "minimum_ms": 22.102999995695427,
+            "maximum_ms": 40.79739999724552,
+            "p95_ms": 28.115299994533416,
+            "sample_count": 540,
+            "interpretation": "median duration, not a numerator/denominator accuracy"
+          },
+          "excerpt_ms": {
+            "numerator": null,
+            "denominator": 540,
+            "value": 0.027050002245232463,
+            "median_ms": 0.027050002245232463,
+            "minimum_ms": 0.016799982404336333,
+            "maximum_ms": 0.04469999112188816,
+            "p95_ms": 0.034900003811344504,
+            "sample_count": 540,
+            "interpretation": "median duration, not a numerator/denominator accuracy"
+          }
+        }
+      },
+      "diagnostic": {
+        "tier": "diagnostic",
+        "case_count": 16,
+        "metrics": {
+          "hit_at_1": {
+            "numerator": 8,
+            "denominator": 14,
+            "value": 0.5714285714285714,
+            "status": "measured",
+            "eligible_public_case_ids": [
+              "EF-07",
+              "SY-01",
+              "SY-03",
+              "SY-05",
+              "SY-06",
+              "SY-07",
+              "SY-09",
+              "SY-10",
+              "SY-11"
+            ],
+            "eligible_private_case_count": 5,
+            "excluded": {
+              "insufficient case has no affirmative gold": {
+                "public_case_ids": [
+                  "EF-08",
+                  "SY-04"
+                ],
+                "private_case_count": 0
+              }
+            }
+          },
+          "hit_at_3": {
+            "numerator": 9,
+            "denominator": 14,
+            "value": 0.6428571428571429,
+            "status": "measured",
+            "eligible_public_case_ids": [
+              "EF-07",
+              "SY-01",
+              "SY-03",
+              "SY-05",
+              "SY-06",
+              "SY-07",
+              "SY-09",
+              "SY-10",
+              "SY-11"
+            ],
+            "eligible_private_case_count": 5,
+            "excluded": {
+              "insufficient case has no affirmative gold": {
+                "public_case_ids": [
+                  "EF-08",
+                  "SY-04"
+                ],
+                "private_case_count": 0
+              }
+            }
+          },
+          "mrr": {
+            "numerator": 8.852631578947367,
+            "denominator": 14,
+            "value": 0.6323308270676691,
+            "status": "measured",
+            "eligible_public_case_ids": [
+              "EF-07",
+              "SY-01",
+              "SY-03",
+              "SY-05",
+              "SY-06",
+              "SY-07",
+              "SY-09",
+              "SY-10",
+              "SY-11"
+            ],
+            "eligible_private_case_count": 5,
+            "excluded": {
+              "insufficient case has no affirmative gold": {
+                "public_case_ids": [
+                  "EF-08",
+                  "SY-04"
+                ],
+                "private_case_count": 0
+              }
+            },
+            "numerator_exact": "841/95"
+          },
+          "role_coverage_at_2": {
+            "numerator": 8.5,
+            "denominator": 14,
+            "value": 0.6071428571428571,
+            "status": "measured",
+            "eligible_public_case_ids": [
+              "EF-07",
+              "SY-01",
+              "SY-03",
+              "SY-05",
+              "SY-06",
+              "SY-07",
+              "SY-09",
+              "SY-10",
+              "SY-11"
+            ],
+            "eligible_private_case_count": 5,
+            "excluded": {
+              "insufficient case has no affirmative gold": {
+                "public_case_ids": [
+                  "EF-08",
+                  "SY-04"
+                ],
+                "private_case_count": 0
+              }
+            },
+            "interpretation": "macro mean of per-case role fractions; not a count of cases",
+            "covered_roles_total": 13,
+            "required_roles_total": 20
+          },
+          "all_required_roles_at_2": {
+            "numerator": 8,
+            "denominator": 14,
+            "value": 0.5714285714285714,
+            "status": "measured",
+            "eligible_public_case_ids": [
+              "EF-07",
+              "SY-01",
+              "SY-03",
+              "SY-05",
+              "SY-06",
+              "SY-07",
+              "SY-09",
+              "SY-10",
+              "SY-11"
+            ],
+            "eligible_private_case_count": 5,
+            "excluded": {
+              "insufficient case has no affirmative gold": {
+                "public_case_ids": [
+                  "EF-08",
+                  "SY-04"
+                ],
+                "private_case_count": 0
+              }
+            }
+          },
+          "pair_coverage_at_2": {
+            "numerator": 3,
+            "denominator": 5,
+            "value": 0.6,
+            "status": "measured",
+            "eligible_public_case_ids": [
+              "EF-07",
+              "SY-05",
+              "SY-06"
+            ],
+            "eligible_private_case_count": 2,
+            "excluded": {
+              "case has no required direction pair": {
+                "public_case_ids": [
+                  "EF-08",
+                  "SY-01",
+                  "SY-03",
+                  "SY-04",
+                  "SY-07",
+                  "SY-09",
+                  "SY-10",
+                  "SY-11"
+                ],
+                "private_case_count": 3
+              }
+            }
+          },
+          "temporal_mismatch": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "status": "not measurable at retrieval-only baseline",
+            "eligible_public_case_ids": [],
+            "eligible_private_case_count": 0,
+            "excluded": {
+              "unjudged or incompletely annotated top-1": {
+                "public_case_ids": [
+                  "EF-07",
+                  "EF-08",
+                  "SY-01",
+                  "SY-03",
+                  "SY-04",
+                  "SY-05",
+                  "SY-06",
+                  "SY-07",
+                  "SY-09",
+                  "SY-10",
+                  "SY-11"
+                ],
+                "private_case_count": 5
+              }
+            }
+          },
+          "false_current_judged": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "status": "not measurable at retrieval-only baseline",
+            "eligible_public_case_ids": [],
+            "eligible_private_case_count": 0,
+            "excluded": {
+              "unjudged, unknown or empty selected evidence": {
+                "public_case_ids": [
+                  "EF-07",
+                  "EF-08",
+                  "SY-01",
+                  "SY-05",
+                  "SY-06",
+                  "SY-09",
+                  "SY-11"
+                ],
+                "private_case_count": 4
+              },
+              "case makes no affirmative current claim": {
+                "public_case_ids": [
+                  "SY-03",
+                  "SY-04",
+                  "SY-07",
+                  "SY-10"
+                ],
+                "private_case_count": 1
+              }
+            }
+          },
+          "applicability_evidence_at_2": {
+            "numerator": 8,
+            "denominator": 13,
+            "value": 0.6153846153846154,
+            "status": "measured",
+            "eligible_public_case_ids": [
+              "EF-07",
+              "SY-01",
+              "SY-03",
+              "SY-05",
+              "SY-06",
+              "SY-07",
+              "SY-09",
+              "SY-10",
+              "SY-11"
+            ],
+            "eligible_private_case_count": 4,
+            "excluded": {
+              "unclear applicability is outside denominator": {
+                "public_case_ids": [
+                  "EF-08",
+                  "SY-04"
+                ],
+                "private_case_count": 1
+              }
+            }
+          },
+          "closure_at_1": {
+            "numerator": 1,
+            "denominator": 2,
+            "value": 0.5,
+            "status": "measured",
+            "eligible_public_case_ids": [
+              "SY-07",
+              "SY-10"
+            ],
+            "eligible_private_case_count": 0,
+            "excluded": {
+              "not an explicit inapplicability case": {
+                "public_case_ids": [
+                  "EF-07",
+                  "EF-08",
+                  "SY-01",
+                  "SY-03",
+                  "SY-04",
+                  "SY-05",
+                  "SY-06",
+                  "SY-09",
+                  "SY-11"
+                ],
+                "private_case_count": 5
+              }
+            }
+          },
+          "closure_at_2": {
+            "numerator": 1,
+            "denominator": 2,
+            "value": 0.5,
+            "status": "measured",
+            "eligible_public_case_ids": [
+              "SY-07",
+              "SY-10"
+            ],
+            "eligible_private_case_count": 0,
+            "excluded": {
+              "not an explicit inapplicability case": {
+                "public_case_ids": [
+                  "EF-07",
+                  "EF-08",
+                  "SY-01",
+                  "SY-03",
+                  "SY-04",
+                  "SY-05",
+                  "SY-06",
+                  "SY-09",
+                  "SY-11"
+                ],
+                "private_case_count": 5
+              }
+            }
+          },
+          "false_current_all_case_lower_bound": {
+            "numerator": 1,
+            "denominator": 11,
+            "value": 0.09090909090909091,
+            "status": "known annotated exposure lower bound; unjudged cases are not safe negatives",
+            "eligible_public_case_ids": [
+              "EF-07",
+              "EF-08",
+              "SY-01",
+              "SY-05",
+              "SY-06",
+              "SY-09",
+              "SY-11"
+            ],
+            "eligible_private_case_count": 4,
+            "excluded": {
+              "not a current-claim case": {
+                "count": 5
+              }
+            },
+            "unjudged_or_unknown_count": 11
+          },
+          "insufficient_preservation_accuracy": {
+            "numerator": null,
+            "denominator": null,
+            "value": null,
+            "status": "not measurable at retrieval-only baseline",
+            "scope_case_count": 2,
+            "excluded": {
+              "all cases": {
+                "reason": "no final support/abstention decision layer is evaluated"
+              }
+            }
+          }
+        },
+        "latency": {
+          "case_count": 16,
+          "unique_requests": 14,
+          "scope": "distinct measured view/section requests covering every case; no support-status exclusion",
+          "first_query": {
+            "numerator": null,
+            "denominator": 14,
+            "value": 24.78269999846816,
+            "median_ms": 24.78269999846816,
+            "minimum_ms": 23.063100001309067,
+            "maximum_ms": 27.639000007184222,
+            "p95_ms": 27.497365007002372,
+            "sample_count": 14,
+            "interpretation": "median duration, not a numerator/denominator accuracy"
+          },
+          "warm": {
+            "numerator": null,
+            "denominator": 420,
+            "value": 25.3546999883838,
+            "median_ms": 25.3546999883838,
+            "minimum_ms": 22.604199999477714,
+            "maximum_ms": 35.63059997395612,
+            "p95_ms": 29.2821999930311,
+            "sample_count": 420,
+            "interpretation": "median duration, not a numerator/denominator accuracy"
+          },
+          "insufficient_cases_included": 2,
+          "case_weighted": {
+            "case_count": 16,
+            "unique_requests": 14,
+            "first_query": {
+              "numerator": null,
+              "denominator": 16,
+              "value": 24.767400027485564,
+              "median_ms": 24.767400027485564,
+              "minimum_ms": 23.063100001309067,
+              "maximum_ms": 27.639000007184222,
+              "p95_ms": 27.475575006974395,
+              "sample_count": 16,
+              "interpretation": "median duration, not a numerator/denominator accuracy"
+            },
+            "warm": {
+              "numerator": null,
+              "denominator": 480,
+              "value": 25.47775000857655,
+              "median_ms": 25.47775000857655,
+              "minimum_ms": 22.604199999477714,
+              "maximum_ms": 35.63059997395612,
+              "p95_ms": 29.317400010768324,
+              "sample_count": 480,
+              "interpretation": "median duration, not a numerator/denominator accuracy"
+            },
+            "interpretation": "all-case weighting of saved request measurements; shared requests are repeated analytically, not independently timed"
+          }
+        },
+        "timing_components": {
+          "selector_overhead_ms": {
+            "numerator": null,
+            "denominator": 420,
+            "value": 0.49310000031255186,
+            "median_ms": 0.49310000031255186,
+            "minimum_ms": 0.3198999911546707,
+            "maximum_ms": 1.4623000170104206,
+            "p95_ms": 1.355005012010224,
+            "sample_count": 420,
+            "interpretation": "median duration, not a numerator/denominator accuracy"
+          },
+          "query_encode_ms": {
+            "numerator": null,
+            "denominator": 420,
+            "value": 24.498750004568137,
+            "median_ms": 24.498750004568137,
+            "minimum_ms": 22.045099991373718,
+            "maximum_ms": 35.0983000244014,
+            "p95_ms": 28.204209991963573,
+            "sample_count": 420,
+            "interpretation": "median duration, not a numerator/denominator accuracy"
+          },
+          "retrieval_and_baseline_selection_ms": {
+            "numerator": null,
+            "denominator": 420,
+            "value": 24.619500007247552,
+            "median_ms": 24.619500007247552,
+            "minimum_ms": 22.15169998817146,
+            "maximum_ms": 35.21889998228289,
+            "p95_ms": 28.423479983757712,
+            "sample_count": 420,
+            "interpretation": "median duration, not a numerator/denominator accuracy"
+          },
+          "baseline_selection_ms": {
+            "numerator": null,
+            "denominator": 420,
+            "value": 0.024900000425986946,
+            "median_ms": 0.024900000425986946,
+            "minimum_ms": 0.01990000600926578,
+            "maximum_ms": 0.09429996134713292,
+            "p95_ms": 0.051704958605114364,
+            "sample_count": 420,
+            "interpretation": "median duration, not a numerator/denominator accuracy"
+          },
+          "retrieval_ms": {
+            "numerator": null,
+            "denominator": 420,
+            "value": 24.591449997387826,
+            "median_ms": 24.591449997387826,
+            "minimum_ms": 22.13060003123246,
+            "maximum_ms": 35.196400014683604,
+            "p95_ms": 28.38332499086391,
+            "sample_count": 420,
+            "interpretation": "median duration, not a numerator/denominator accuracy"
+          },
+          "excerpt_ms": {
+            "numerator": null,
+            "denominator": 420,
+            "value": 0.025899993488565087,
+            "median_ms": 0.025899993488565087,
+            "minimum_ms": 0.017400016076862812,
+            "maximum_ms": 0.04350001108832657,
+            "p95_ms": 0.034505000803619616,
+            "sample_count": 420,
+            "interpretation": "median duration, not a numerator/denominator accuracy"
+          }
+        }
+      }
+    },
+    "deltas": {
+      "production": {
+        "hit_at_1": {
+          "numerator": {
+            "baseline": 6,
+            "candidate": 6,
+            "delta": 0
+          },
+          "denominator": {
+            "baseline": 15,
+            "candidate": 15,
+            "delta": 0
+          },
+          "value": {
+            "baseline": 0.4,
+            "candidate": 0.4,
+            "delta": 0.0
+          }
+        },
+        "hit_at_3": {
+          "numerator": {
+            "baseline": 10,
+            "candidate": 12,
+            "delta": 2
+          },
+          "denominator": {
+            "baseline": 15,
+            "candidate": 15,
+            "delta": 0
+          },
+          "value": {
+            "baseline": 0.6666666666666666,
+            "candidate": 0.8,
+            "delta": 0.13333333333333341
+          }
+        },
+        "mrr": {
+          "numerator": {
+            "baseline": 8.299999999999999,
+            "candidate": 9.252631578947367,
+            "delta": 0.9526315789473685
+          },
+          "denominator": {
+            "baseline": 15,
+            "candidate": 15,
+            "delta": 0
+          },
+          "value": {
+            "baseline": 0.5533333333333332,
+            "candidate": 0.6168421052631579,
+            "delta": 0.06350877192982463
+          }
+        },
+        "role_coverage_at_2": {
+          "numerator": {
+            "baseline": 8.5,
+            "candidate": 10.5,
+            "delta": 2.0
+          },
+          "denominator": {
+            "baseline": 15,
+            "candidate": 15,
+            "delta": 0
+          },
+          "value": {
+            "baseline": 0.5666666666666667,
+            "candidate": 0.7,
+            "delta": 0.1333333333333333
+          }
+        },
+        "all_required_roles_at_2": {
+          "numerator": {
+            "baseline": 8,
+            "candidate": 9,
+            "delta": 1
+          },
+          "denominator": {
+            "baseline": 15,
+            "candidate": 15,
+            "delta": 0
+          },
+          "value": {
+            "baseline": 0.5333333333333333,
+            "candidate": 0.6,
+            "delta": 0.06666666666666665
+          }
+        },
+        "pair_coverage_at_2": {
+          "numerator": {
+            "baseline": 2,
+            "candidate": 1,
+            "delta": -1
+          },
+          "denominator": {
+            "baseline": 3,
+            "candidate": 3,
+            "delta": 0
+          },
+          "value": {
+            "baseline": 0.6666666666666666,
+            "candidate": 0.3333333333333333,
+            "delta": -0.3333333333333333
+          }
+        },
+        "temporal_mismatch": {
+          "numerator": {
+            "baseline": 0,
+            "candidate": 0,
+            "delta": 0
+          },
+          "denominator": {
+            "baseline": 0,
+            "candidate": 0,
+            "delta": 0
+          },
+          "value": {
+            "baseline": null,
+            "candidate": null,
+            "delta": null
+          }
+        },
+        "false_current_judged": {
+          "numerator": {
+            "baseline": 0,
+            "candidate": 0,
+            "delta": 0
+          },
+          "denominator": {
+            "baseline": 0,
+            "candidate": 0,
+            "delta": 0
+          },
+          "value": {
+            "baseline": null,
+            "candidate": null,
+            "delta": null
+          }
+        },
+        "applicability_evidence_at_2": {
+          "numerator": {
+            "baseline": 8,
+            "candidate": 8,
+            "delta": 0
+          },
+          "denominator": {
+            "baseline": 14,
+            "candidate": 14,
+            "delta": 0
+          },
+          "value": {
+            "baseline": 0.5714285714285714,
+            "candidate": 0.5714285714285714,
+            "delta": 0.0
+          }
+        },
+        "closure_at_1": {
+          "numerator": {
+            "baseline": 1,
+            "candidate": 1,
+            "delta": 0
+          },
+          "denominator": {
+            "baseline": 3,
+            "candidate": 3,
+            "delta": 0
+          },
+          "value": {
+            "baseline": 0.3333333333333333,
+            "candidate": 0.3333333333333333,
+            "delta": 0.0
+          }
+        },
+        "closure_at_2": {
+          "numerator": {
+            "baseline": 2,
+            "candidate": 2,
+            "delta": 0
+          },
+          "denominator": {
+            "baseline": 3,
+            "candidate": 3,
+            "delta": 0
+          },
+          "value": {
+            "baseline": 0.6666666666666666,
+            "candidate": 0.6666666666666666,
+            "delta": 0.0
+          }
+        },
+        "false_current_all_case_lower_bound": {
+          "numerator": {
+            "baseline": 1,
+            "candidate": 1,
+            "delta": 0
+          },
+          "denominator": {
+            "baseline": 9,
+            "candidate": 9,
+            "delta": 0
+          },
+          "value": {
+            "baseline": 0.1111111111111111,
+            "candidate": 0.1111111111111111,
+            "delta": 0.0
+          }
+        },
+        "insufficient_preservation_accuracy": {
+          "numerator": {
+            "baseline": null,
+            "candidate": null,
+            "delta": null
+          },
+          "denominator": {
+            "baseline": null,
+            "candidate": null,
+            "delta": null
+          },
+          "value": {
+            "baseline": null,
+            "candidate": null,
+            "delta": null
+          }
+        }
+      },
+      "diagnostic": {
+        "hit_at_1": {
+          "numerator": {
+            "baseline": 5,
+            "candidate": 8,
+            "delta": 3
+          },
+          "denominator": {
+            "baseline": 14,
+            "candidate": 14,
+            "delta": 0
+          },
+          "value": {
+            "baseline": 0.35714285714285715,
+            "candidate": 0.5714285714285714,
+            "delta": 0.21428571428571425
+          }
+        },
+        "hit_at_3": {
+          "numerator": {
+            "baseline": 8,
+            "candidate": 9,
+            "delta": 1
+          },
+          "denominator": {
+            "baseline": 14,
+            "candidate": 14,
+            "delta": 0
+          },
+          "value": {
+            "baseline": 0.5714285714285714,
+            "candidate": 0.6428571428571429,
+            "delta": 0.07142857142857151
+          }
+        },
+        "mrr": {
+          "numerator": {
+            "baseline": 6.949999999999999,
+            "candidate": 8.852631578947367,
+            "delta": 1.9026315789473678
+          },
+          "denominator": {
+            "baseline": 14,
+            "candidate": 14,
+            "delta": 0
+          },
+          "value": {
+            "baseline": 0.4964285714285714,
+            "candidate": 0.6323308270676691,
+            "delta": 0.1359022556390977
+          }
+        },
+        "role_coverage_at_2": {
+          "numerator": {
+            "baseline": 7.0,
+            "candidate": 8.5,
+            "delta": 1.5
+          },
+          "denominator": {
+            "baseline": 14,
+            "candidate": 14,
+            "delta": 0
+          },
+          "value": {
+            "baseline": 0.5,
+            "candidate": 0.6071428571428571,
+            "delta": 0.1071428571428571
+          }
+        },
+        "all_required_roles_at_2": {
+          "numerator": {
+            "baseline": 6,
+            "candidate": 8,
+            "delta": 2
+          },
+          "denominator": {
+            "baseline": 14,
+            "candidate": 14,
+            "delta": 0
+          },
+          "value": {
+            "baseline": 0.42857142857142855,
+            "candidate": 0.5714285714285714,
+            "delta": 0.14285714285714285
+          }
+        },
+        "pair_coverage_at_2": {
+          "numerator": {
+            "baseline": 1,
+            "candidate": 3,
+            "delta": 2
+          },
+          "denominator": {
+            "baseline": 5,
+            "candidate": 5,
+            "delta": 0
+          },
+          "value": {
+            "baseline": 0.2,
+            "candidate": 0.6,
+            "delta": 0.39999999999999997
+          }
+        },
+        "temporal_mismatch": {
+          "numerator": {
+            "baseline": 0,
+            "candidate": 0,
+            "delta": 0
+          },
+          "denominator": {
+            "baseline": 0,
+            "candidate": 0,
+            "delta": 0
+          },
+          "value": {
+            "baseline": null,
+            "candidate": null,
+            "delta": null
+          }
+        },
+        "false_current_judged": {
+          "numerator": {
+            "baseline": 0,
+            "candidate": 0,
+            "delta": 0
+          },
+          "denominator": {
+            "baseline": 0,
+            "candidate": 0,
+            "delta": 0
+          },
+          "value": {
+            "baseline": null,
+            "candidate": null,
+            "delta": null
+          }
+        },
+        "applicability_evidence_at_2": {
+          "numerator": {
+            "baseline": 6,
+            "candidate": 8,
+            "delta": 2
+          },
+          "denominator": {
+            "baseline": 13,
+            "candidate": 13,
+            "delta": 0
+          },
+          "value": {
+            "baseline": 0.46153846153846156,
+            "candidate": 0.6153846153846154,
+            "delta": 0.15384615384615385
+          }
+        },
+        "closure_at_1": {
+          "numerator": {
+            "baseline": 1,
+            "candidate": 1,
+            "delta": 0
+          },
+          "denominator": {
+            "baseline": 2,
+            "candidate": 2,
+            "delta": 0
+          },
+          "value": {
+            "baseline": 0.5,
+            "candidate": 0.5,
+            "delta": 0.0
+          }
+        },
+        "closure_at_2": {
+          "numerator": {
+            "baseline": 1,
+            "candidate": 1,
+            "delta": 0
+          },
+          "denominator": {
+            "baseline": 2,
+            "candidate": 2,
+            "delta": 0
+          },
+          "value": {
+            "baseline": 0.5,
+            "candidate": 0.5,
+            "delta": 0.0
+          }
+        },
+        "false_current_all_case_lower_bound": {
+          "numerator": {
+            "baseline": 1,
+            "candidate": 1,
+            "delta": 0
+          },
+          "denominator": {
+            "baseline": 11,
+            "candidate": 11,
+            "delta": 0
+          },
+          "value": {
+            "baseline": 0.09090909090909091,
+            "candidate": 0.09090909090909091,
+            "delta": 0.0
+          }
+        },
+        "insufficient_preservation_accuracy": {
+          "numerator": {
+            "baseline": null,
+            "candidate": null,
+            "delta": null
+          },
+          "denominator": {
+            "baseline": null,
+            "candidate": null,
+            "delta": null
+          },
+          "value": {
+            "baseline": null,
+            "candidate": null,
+            "delta": null
+          }
+        }
+      }
+    },
+    "criteria": {
+      "phase_3": {
+        "passed": false,
+        "checks": {
+          "all_required_roles": false,
+          "preserve_baseline_passes": false,
+          "hit_at_3": true,
+          "pair_coverage": false,
+          "closure": true,
+          "false_current": true,
+          "future_record_leakage": true,
+          "warm_latency": true,
+          "primary_improvement": true
+        },
+        "statement": "did not meet the preregistered Phase 3 improvement criteria",
+        "outcome": "mixed"
+      },
+      "phase_1": {
+        "passed": false,
+        "checks": {
+          "echo_hit_at_3": true,
+          "echo_first_task_complete": false,
+          "echo_current_superseded_pair": true,
+          "strict_pair_improvement": false,
+          "strict_role_improvement": false,
+          "all_explicit_closure": false,
+          "applicability_preserved": true,
+          "false_current_preserved": true,
+          "insufficient_boundary_preserved": true,
+          "warm_latency": true,
+          "frozen_sources_views_labels_and_separate_tiers": true
+        },
+        "statement": "did not meet the original Phase 1 criteria",
+        "outcome": "mixed"
+      }
+    },
+    "environment_comparable": true
+  },
+  "paired_comparison": {
+    "production": {
+      "gained": {
+        "count": 2,
+        "public_case_ids": [
+          "EF-01"
+        ],
+        "private_case_count": 1
+      },
+      "lost": {
+        "count": 1,
+        "public_case_ids": [
+          "SY-14"
+        ],
+        "private_case_count": 0
+      },
+      "unchanged_pass": {
+        "count": 7,
+        "public_case_ids": [
+          "EF-03",
+          "EF-04",
+          "EF-05",
+          "EF-06",
+          "SY-02",
+          "SY-12",
+          "SY-13"
+        ],
+        "private_case_count": 0
+      },
+      "unchanged_fail": {
+        "count": 5,
+        "public_case_ids": [
+          "EF-02",
+          "SY-08"
+        ],
+        "private_case_count": 3
+      },
+      "insufficient_boundary_cases": {
+        "count": 3,
+        "public_case_ids": [
+          "SY-15"
+        ],
+        "private_case_count": 2
+      },
+      "selection_changed": {
+        "count": 8,
+        "public_case_ids": [
+          "EF-01",
+          "EF-05",
+          "SY-02",
+          "SY-14",
+          "SY-15"
+        ],
+        "private_case_count": 3
+      },
+      "selection_unchanged": {
+        "count": 10,
+        "public_case_ids": [
+          "EF-02",
+          "EF-03",
+          "EF-04",
+          "EF-06",
+          "SY-08",
+          "SY-12",
+          "SY-13"
+        ],
+        "private_case_count": 3
+      }
+    },
+    "diagnostic": {
+      "gained": {
+        "count": 2,
+        "public_case_ids": [
+          "SY-05",
+          "SY-06"
+        ],
+        "private_case_count": 0
+      },
+      "lost": {
+        "count": 0,
+        "public_case_ids": [],
+        "private_case_count": 0
+      },
+      "unchanged_pass": {
+        "count": 6,
+        "public_case_ids": [
+          "EF-07",
+          "SY-01",
+          "SY-03",
+          "SY-09",
+          "SY-10",
+          "SY-11"
+        ],
+        "private_case_count": 0
+      },
+      "unchanged_fail": {
+        "count": 6,
+        "public_case_ids": [
+          "SY-07"
+        ],
+        "private_case_count": 5
+      },
+      "insufficient_boundary_cases": {
+        "count": 2,
+        "public_case_ids": [
+          "EF-08",
+          "SY-04"
+        ],
+        "private_case_count": 0
+      },
+      "selection_changed": {
+        "count": 9,
+        "public_case_ids": [
+          "SY-01",
+          "SY-05",
+          "SY-06",
+          "SY-09",
+          "SY-10"
+        ],
+        "private_case_count": 4
+      },
+      "selection_unchanged": {
+        "count": 7,
+        "public_case_ids": [
+          "EF-07",
+          "EF-08",
+          "SY-03",
+          "SY-04",
+          "SY-07",
+          "SY-11"
+        ],
+        "private_case_count": 1
+      }
+    }
+  },
+  "case_results_match": true,
+  "all_numerators_denominators_values_equal": true,
+  "all_public_metrics_match": true,
+  "field_mismatches": 0,
+  "private_recovery_sha256": "6dab961e835083ff8ebf6bffc6a996eca7dc8a789c5803d12750510dc576698c",
+  "aggregate_field_comparison_count": 942,
+  "paired_field_comparison_count": 88,
+  "frozen_baseline_field_comparison_count": 78,
+  "publication_note": "The zero-valued summary counter is named summary_calls in this public projection to satisfy the unchanged public-content guard. Publication uses saved verification data; no additional scoring was performed."
+}
