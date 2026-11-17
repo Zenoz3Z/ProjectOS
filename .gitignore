@@ -24,6 +24,7 @@ build/
 dist/
 
 # Local runtime data; keep the prepared data/demo_projects/ archive public
+/.projectos_demo/
 /data/reviews/
 /data/study_projects/*
 !/data/study_projects/README.md

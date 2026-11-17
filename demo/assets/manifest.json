@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "project_id": "sample_echo_field",
+  "model": "gpt-6-luna",
+  "cache_file": "demo/assets/tutorial_summaries.json",
+  "cache_sha256": "86c70905d6f4adb4ca6b13870b3b586cbb8bb0ce887efdfc8c25d331e1e24fbd",
+  "source_files": {
+    "data/demo_projects/sample_echo_field/current_state/goals.md": "0aba8abc716496aff7a4b21546438d615170ebb709ddd89861557082d18ee764",
+    "data/demo_projects/sample_echo_field/decisions/design_notes.md": "4e7f0b73c0ffedfef02a9edaaa5bb98eb7988f3a0d6090c46d4d7bca7fd24051",
+    "data/demo_projects/sample_echo_field/feedback/tutor_feedback.md": "b8db06f869e8bbe8a0fbf80d919c04e7cd11eb7e075bd04775405760d102f61f",
+    "data/demo_projects/sample_echo_field/process/project_log.md": "be0223b782b4233518d127e97f54d4b9a388d49daf174892dc51b1f060315c31"
+  },
+  "source_commit": "2b5f110ec7e2593c2d8155023b3c07f0c406f06f",
+  "description": "Existing pre-generated Echo Field tutorial cache, copied unchanged. No participant materials or responses."
+}

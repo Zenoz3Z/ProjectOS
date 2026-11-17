@@ -1,0 +1,200 @@
+1
+00:00:03,200 --> 00:00:04,640
+Hi, I’m Fuzhe.
+
+2
+00:00:05,500 --> 00:00:10,500
+This is ProjectOS,
+my final project in Creative Computing.
+
+3
+00:00:11,540 --> 00:00:15,160
+When I return to an old creative project,
+
+4
+00:00:15,720 --> 00:00:19,830
+I often need to look through many notes.
+
+5
+00:00:21,310 --> 00:00:24,850
+I want to remember
+what I was trying to do,
+
+6
+00:00:25,540 --> 00:00:30,350
+what changed,
+and what still needs attention.
+
+7
+00:00:31,810 --> 00:00:36,030
+I developed ProjectOS
+to support this process.
+
+8
+00:00:39,190 --> 00:00:43,230
+Here, I’m using
+the Echo Field tutorial example.
+
+9
+00:00:43,690 --> 00:00:47,830
+The summaries were prepared in advance.
+
+10
+00:00:49,230 --> 00:00:54,390
+No participant data is shown
+in this demo.
+
+11
+00:00:55,650 --> 00:00:58,270
+The brief has six sections.
+
+12
+00:00:59,750 --> 00:01:03,670
+They cover the project’s aim, changes,
+
+13
+00:01:04,210 --> 00:01:06,550
+current and earlier directions,
+
+14
+00:01:07,190 --> 00:01:12,250
+feedback, open issues,
+and possible next steps.
+
+15
+00:01:14,910 --> 00:01:16,970
+Let’s look at the current aim.
+
+16
+00:01:17,850 --> 00:01:21,430
+This is the summary that ProjectOS
+
+17
+00:01:21,450 --> 00:01:25,270
+produced from the project records.
+
+18
+00:01:26,930 --> 00:01:31,110
+It is a starting point,
+not a final answer.
+
+19
+00:01:32,220 --> 00:01:38,680
+I need to decide whether it
+still describes my project.
+
+20
+00:01:41,390 --> 00:01:45,390
+I can open the supporting evidence here.
+
+21
+00:01:45,880 --> 00:01:50,360
+These excerpts let me see
+what the summary is based on.
+
+22
+00:01:51,710 --> 00:01:54,670
+I can also open the source details.
+
+23
+00:01:55,990 --> 00:02:02,210
+But an old record may no longer
+describe the current situation.
+
+24
+00:02:03,150 --> 00:02:06,090
+So I still need to check its meaning.
+
+25
+00:02:09,517 --> 00:02:11,217
+I have four choices:
+
+26
+00:02:11,977 --> 00:02:16,537
+Confirm, Update, Reject,
+or Not applicable.
+
+27
+00:02:16,797 --> 00:02:20,957
+For this demo, I’ll choose Update.
+
+28
+00:02:22,127 --> 00:02:26,617
+Imagine that my focus has changed.
+
+29
+00:02:27,857 --> 00:02:30,897
+I now want to test whether visitors
+
+30
+00:02:30,917 --> 00:02:34,107
+understand the movement feedback.
+
+31
+00:02:34,127 --> 00:02:37,427
+This is a fictional example,
+
+32
+00:02:38,177 --> 00:02:41,597
+not a change recorded
+in the original files.
+
+33
+00:02:44,547 --> 00:02:48,107
+I enter my update in the
+‘Your updated version’ field.
+
+34
+00:02:49,157 --> 00:02:52,617
+Then I click Save and continue.
+
+35
+00:02:53,257 --> 00:02:58,137
+The progress now shows
+one of six sections reviewed.
+
+36
+00:03:00,917 --> 00:03:05,417
+After refreshing,
+I can return to the first section.
+
+37
+00:03:06,017 --> 00:03:08,517
+My saved response is still here.
+
+38
+00:03:09,097 --> 00:03:11,057
+The update is stored separately.
+
+39
+00:03:11,867 --> 00:03:16,467
+It does not change the original files
+
+40
+00:03:16,487 --> 00:03:22,287
+or automatically rewrite the summary.
+
+41
+00:03:25,007 --> 00:03:28,477
+For me, the main idea is simple.
+
+42
+00:03:29,307 --> 00:03:31,987
+AI offers a starting point.
+
+43
+00:03:32,647 --> 00:03:36,247
+I can check the evidence, disagree,
+
+44
+00:03:37,287 --> 00:03:39,927
+and record my own understanding.
+
+45
+00:03:41,097 --> 00:03:43,697
+ProjectOS supports the review.
+
+46
+00:03:44,357 --> 00:03:50,917
+The final judgement stays with the person
+who knows the project.

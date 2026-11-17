@@ -1,0 +1,239 @@
+{
+  "identity": {
+    "cache_schema_version": 1,
+    "project_id": "sample_echo_field",
+    "project_role": "tutorial",
+    "model": "gpt-6-luna",
+    "prompt_schema_version": "grounded-summary-v1",
+    "prompt_fingerprint": "0529b4ad9c426662b5556f36fe864c18a693b7868e263b43e896b131c4d0d2f9",
+    "pipeline_fingerprint": "86349ebf8dbb702e349b2743e56c20e25fbed01a55fb66d3778f5fa1b4070c1c",
+    "source_fingerprint": "99919e28cea8d99171f78523b8aab097c7f4ea528b340cd857b543269f958928"
+  },
+  "sections": {
+    "current_intention": {
+      "key": "299145273461302c7bd2750bd4c7cb4e5d917a6e27a31a2a754faf311a332d4d",
+      "evidence_fingerprint": "86a7223a669a9409e27081253b5e63c05712940b72e44e699a6fadcfe00bddeb",
+      "section": {
+        "section_id": "current_intention",
+        "title": "Current intention",
+        "question": "What is the current aim or intended direction of this project?",
+        "evidence_status": "supported",
+        "evidence": [
+          {
+            "rank": 1,
+            "source": "current_state/goals.md",
+            "category": "current_state",
+            "chunk_id": "current_state__goals_chunk_003",
+            "similarity_score": 0.4225260019302368,
+            "excerpt": "state is sufficiently visible. 2. Compare the intended response with the actual movement value. 3. Record any sudden jumps caused by lighting changes. 4. Decide whether multi-person interaction belongs in the current scope or future work. ## Superseded direction Hand-gesture recognition is no longer the current interaction method. It should only be discussed as an earlier experiment that informed the whole-body movement design."
+          },
+          {
+            "rank": 2,
+            "source": "decisions/design_notes.md",
+            "category": "decisions",
+            "chunk_id": "decisions__design_notes_chunk_003",
+            "similarity_score": 0.22566884756088257,
+            "excerpt": "continuous `movement_strength` value. ## Rationale Whole-body movement was selected because it was more stable and easier for users to understand without learning a gesture vocabulary. It also allowed the installation to respond to different movement styles rather than requiring one correct gesture. The decision changed the project from gesture recognition to an exploration of responsive feedback and perceived control. ## Current status Whole-body movement remains the current interaction method. The earlier hand-gesture approach is considered superseded and should not be presented as the current design direction."
+          }
+        ]
+      },
+      "result": {
+        "support_status": "supported",
+        "summary": "The project currently uses whole-body movement as its interaction method, exploring responsive feedback and perceived control through a continuous movement-strength value.",
+        "state_type": "current",
+        "source_numbers": [
+          2
+        ],
+        "note": "Record 2 explicitly states the current interaction method and design direction; record 1 discusses superseded hand-gesture recognition and optional scope decisions."
+      }
+    },
+    "changes_and_reasons": {
+      "key": "0c2cd73ab4bb2549eef42fc46eda8660ce95897da94004b01ae47f20ecd41382",
+      "evidence_fingerprint": "cac931550527d55b406d3dc3907bae3902eac8b76b34976af9d03c8648f40e26",
+      "section": {
+        "section_id": "changes_and_reasons",
+        "title": "What changed and why",
+        "question": "What important changes were made to the project, and why were they made?",
+        "evidence_status": "supported",
+        "evidence": [
+          {
+            "rank": 1,
+            "source": "decisions/design_notes.md",
+            "category": "decisions",
+            "chunk_id": "decisions__design_notes_chunk_001",
+            "similarity_score": 0.34341201186180115,
+            "excerpt": "--- project: echo_field document_type: design_decision category: decisions status: current dataset_role: demo ------------------ # Echo Field — Design Decisions ## Project aim Echo Field is a responsive visual installation that explores how visual feedback based on body movement can influence a user’s sense of control and engagement. The installation uses a webcam to estimate movement intensity. This value controls the speed, density and colour of a generative visual environment. ## Initial interaction idea The initial concept focused on hand gestures as the main interaction method. Hand movements were intended to provide precise control over the visual response. ## Problem with hand tracking Early experiments showed that hand-gesture detection was inconsistent. Recognition depended heavily on camera position, lighting conditions, distance and whether"
+          },
+          {
+            "rank": 2,
+            "source": "decisions/design_notes.md",
+            "category": "decisions",
+            "chunk_id": "decisions__design_notes_chunk_003",
+            "similarity_score": 0.24891555309295654,
+            "excerpt": "continuous `movement_strength` value. ## Rationale Whole-body movement was selected because it was more stable and easier for users to understand without learning a gesture vocabulary. It also allowed the installation to respond to different movement styles rather than requiring one correct gesture. The decision changed the project from gesture recognition to an exploration of responsive feedback and perceived control. ## Current status Whole-body movement remains the current interaction method. The earlier hand-gesture approach is considered superseded and should not be presented as the current design direction."
+          }
+        ]
+      },
+      "result": {
+        "support_status": "supported",
+        "summary": "The project changed from hand-gesture recognition to whole-body movement after early tests found hand detection inconsistent across camera position, lighting and distance. Whole-body movement was chosen as more stable and easier to understand without learning gestures.",
+        "state_type": "historical",
+        "source_numbers": [
+          1,
+          2
+        ],
+        "note": "The records explicitly document the change, its reason, and that the hand-gesture approach was superseded."
+      }
+    },
+    "current_vs_superseded": {
+      "key": "35f8e90c6ac19a9e8a6c8e1f66b0f96952fedeee5966d727c02fc455c81812cf",
+      "evidence_fingerprint": "21632f8d5a0a4b34ce457c70b39045f40124028963e5e712cb37ce8e493ec6ca",
+      "section": {
+        "section_id": "current_vs_superseded",
+        "title": "Current versus superseded directions",
+        "question": "Which project directions are current, and which directions have been replaced or superseded?",
+        "evidence_status": "supported",
+        "evidence": [
+          {
+            "rank": 1,
+            "source": "current_state/goals.md",
+            "category": "current_state",
+            "chunk_id": "current_state__goals_chunk_003",
+            "similarity_score": 0.4191683530807495,
+            "excerpt": "state is sufficiently visible. 2. Compare the intended response with the actual movement value. 3. Record any sudden jumps caused by lighting changes. 4. Decide whether multi-person interaction belongs in the current scope or future work. ## Superseded direction Hand-gesture recognition is no longer the current interaction method. It should only be discussed as an earlier experiment that informed the whole-body movement design."
+          },
+          {
+            "rank": 2,
+            "source": "decisions/design_notes.md",
+            "category": "decisions",
+            "chunk_id": "decisions__design_notes_chunk_003",
+            "similarity_score": 0.21964280307292938,
+            "excerpt": "continuous `movement_strength` value. ## Rationale Whole-body movement was selected because it was more stable and easier for users to understand without learning a gesture vocabulary. It also allowed the installation to respond to different movement styles rather than requiring one correct gesture. The decision changed the project from gesture recognition to an exploration of responsive feedback and perceived control. ## Current status Whole-body movement remains the current interaction method. The earlier hand-gesture approach is considered superseded and should not be presented as the current design direction."
+          }
+        ]
+      },
+      "result": {
+        "support_status": "supported",
+        "summary": "The current direction uses whole-body movement as the interaction method, with movement represented by a continuous movement-strength value. Hand-gesture recognition has been superseded and is retained only as an earlier experiment that informed the whole-body design.",
+        "state_type": "mixed",
+        "source_numbers": [
+          1,
+          2
+        ],
+        "note": "Both records explicitly identify whole-body movement as current and hand-gesture recognition as superseded."
+      }
+    },
+    "relevant_feedback": {
+      "key": "a767e241a05a3247bc5664956f5fcdeed02ed2e2e5d2c3c84161ba0d8b27d4cc",
+      "evidence_fingerprint": "3d2d641f012a925f949efacd062da8a3d3cb0a293276dff1488e38355d4602e8",
+      "section": {
+        "section_id": "relevant_feedback",
+        "title": "Relevant feedback",
+        "question": "What tutor or user feedback is relevant to the current project direction?",
+        "evidence_status": "supported",
+        "evidence": [
+          {
+            "rank": 1,
+            "source": "feedback/tutor_feedback.md",
+            "category": "feedback",
+            "chunk_id": "feedback__tutor_feedback_chunk_001",
+            "similarity_score": 0.5168373584747314,
+            "excerpt": "--- project: echo_field document_type: tutor_feedback category: feedback status: reviewed dataset_role: demo ------------------ # Echo Field — Tutor Feedback ## Context This feedback was received after a rehearsal of the responsive visual installation. ## Feedback point 1 — Connect colour to movement The visual response should not rely only on changes in speed. Colour should also change with movement intensity so that users receive more than one form of visual feedback. A possible direction was to use blue for lower movement and shift towards green or yellow-green as movement increases. ## Feedback point 2 — Explain the change in interaction method The project presentation should explain why the interaction changed from hand gestures to whole-body movement. The final research framing should"
+          },
+          {
+            "rank": 2,
+            "source": "feedback/tutor_feedback.md",
+            "category": "feedback",
+            "chunk_id": "feedback__tutor_feedback_chunk_002",
+            "similarity_score": 0.4083142876625061,
+            "excerpt": "Feedback point 2 — Explain the change in interaction method The project presentation should explain why the interaction changed from hand gestures to whole-body movement. The final research framing should show that this decision emerged from practical experimentation with unstable gesture detection rather than presenting whole-body movement as an unexplained starting point. ## Feedback point 3 — Consider multiple participants The difference between one-person and multi-person interaction could be explored. Multiple bodies may produce a stronger movement signal, but this does not necessarily mean that each participant would feel an equal sense of control. ## Response to feedback The colour system was connected to movement intensity. The project documentation was revised to explain the transition from hand gestures to whole-body"
+          }
+        ]
+      },
+      "result": {
+        "support_status": "supported",
+        "summary": "Tutor feedback asked for colour to change with movement intensity and for the presentation to explain the shift from hand gestures to whole-body movement, prompted by unstable gesture detection. The record says the colour system was connected to movement intensity and the documentation was revised to explain the transition; exploring single- versus multi-person interaction was also suggested.",
+        "state_type": "historical",
+        "source_numbers": [
+          1,
+          2
+        ],
+        "note": "The records explicitly provide relevant tutor feedback and state that two feedback points were addressed; multiple-participant interaction is described as an exploration to consider, not an unresolved issue."
+      }
+    },
+    "unresolved_tensions": {
+      "key": "94fe529262cf60abe854d72fee62b5863e263367f6e1a8c4b7871d531edfad35",
+      "evidence_fingerprint": "eb5be7e61d3fe02c569a14aeae7ef0fbb06dda5a96bc0b88eb34da0f4b09828f",
+      "section": {
+        "section_id": "unresolved_tensions",
+        "title": "Unresolved tensions",
+        "question": "What unresolved questions, tensions or limitations remain in the project?",
+        "evidence_status": "supported",
+        "evidence": [
+          {
+            "rank": 1,
+            "source": "current_state/goals.md",
+            "category": "current_state",
+            "chunk_id": "current_state__goals_chunk_002",
+            "similarity_score": 0.29673880338668823,
+            "excerpt": "has been smoothed. * Extreme values have been clamped. * Colour changes have been linked to movement intensity. * The interface explains that overall body movement is being detected. * Informal testing has been completed with five participants. ## Current blockers * Slow movement does not always produce sufficiently clear feedback. * Sudden value changes can still occur under unstable lighting. * Long viewing sessions may cause visual fatigue. * The current system cannot distinguish between one participant and multiple participants. ## Next steps 1. Test whether the low-movement visual state is sufficiently visible. 2. Compare the intended response with the actual movement value. 3. Record any sudden jumps caused by lighting changes. 4. Decide whether multi-person interaction belongs in"
+          },
+          {
+            "rank": 2,
+            "source": "feedback/tutor_feedback.md",
+            "category": "feedback",
+            "chunk_id": "feedback__tutor_feedback_chunk_001",
+            "similarity_score": 0.3488558828830719,
+            "excerpt": "--- project: echo_field document_type: tutor_feedback category: feedback status: reviewed dataset_role: demo ------------------ # Echo Field — Tutor Feedback ## Context This feedback was received after a rehearsal of the responsive visual installation. ## Feedback point 1 — Connect colour to movement The visual response should not rely only on changes in speed. Colour should also change with movement intensity so that users receive more than one form of visual feedback. A possible direction was to use blue for lower movement and shift towards green or yellow-green as movement increases. ## Feedback point 2 — Explain the change in interaction method The project presentation should explain why the interaction changed from hand gestures to whole-body movement. The final research framing should"
+          }
+        ]
+      },
+      "result": {
+        "support_status": "supported",
+        "summary": "The current system still gives insufficiently clear feedback for slow movement, may show sudden value changes under unstable lighting, and may cause visual fatigue during long viewing sessions. It also cannot distinguish one participant from multiple participants.",
+        "state_type": "current",
+        "source_numbers": [
+          1
+        ],
+        "note": "The current-state record explicitly lists these as blockers; the tutor feedback is historical and does not state that its points remain unresolved."
+      }
+    },
+    "possible_next_action": {
+      "key": "28c8d7f55b3b9deb3ae76a811faa802319b48f60cd2e577d5b2617f699a6c927",
+      "evidence_fingerprint": "b415d8477f8a54c3c3b16c2fcff367e6650d47172b6a900aaf86da85133b7c7b",
+      "section": {
+        "section_id": "possible_next_action",
+        "title": "Possible next action",
+        "question": "What is the next documented action or decision that should be addressed?",
+        "evidence_status": "supported",
+        "evidence": [
+          {
+            "rank": 1,
+            "source": "feedback/tutor_feedback.md",
+            "category": "feedback",
+            "chunk_id": "feedback__tutor_feedback_chunk_001",
+            "similarity_score": 0.3401564359664917,
+            "excerpt": "--- project: echo_field document_type: tutor_feedback category: feedback status: reviewed dataset_role: demo ------------------ # Echo Field — Tutor Feedback ## Context This feedback was received after a rehearsal of the responsive visual installation. ## Feedback point 1 — Connect colour to movement The visual response should not rely only on changes in speed. Colour should also change with movement intensity so that users receive more than one form of visual feedback. A possible direction was to use blue for lower movement and shift towards green or yellow-green as movement increases. ## Feedback point 2 — Explain the change in interaction method The project presentation should explain why the interaction changed from hand gestures to whole-body movement. The final research framing should"
+          },
+          {
+            "rank": 2,
+            "source": "current_state/goals.md",
+            "category": "current_state",
+            "chunk_id": "current_state__goals_chunk_002",
+            "similarity_score": 0.34002554416656494,
+            "excerpt": "has been smoothed. * Extreme values have been clamped. * Colour changes have been linked to movement intensity. * The interface explains that overall body movement is being detected. * Informal testing has been completed with five participants. ## Current blockers * Slow movement does not always produce sufficiently clear feedback. * Sudden value changes can still occur under unstable lighting. * Long viewing sessions may cause visual fatigue. * The current system cannot distinguish between one participant and multiple participants. ## Next steps 1. Test whether the low-movement visual state is sufficiently visible. 2. Compare the intended response with the actual movement value. 3. Record any sudden jumps caused by lighting changes. 4. Decide whether multi-person interaction belongs in"
+          }
+        ]
+      },
+      "result": {
+        "support_status": "supported",
+        "summary": "Test whether the low-movement visual state is sufficiently visible.",
+        "state_type": "current",
+        "source_numbers": [
+          2
+        ],
+        "note": "The current-state record explicitly lists this as the first next step."
+      }
+    }
+  }
+}

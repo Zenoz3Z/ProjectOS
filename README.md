@@ -4,7 +4,28 @@
 
 ProjectOS is an MSc research prototype that helps creative students revisit a project after an interruption. It retrieves evidence from existing project records and organises it into a six-section Project Re-entry Brief, with short AI-generated summaries and visible supporting excerpts. Users can inspect the evidence and confirm, update, reject or mark a section not applicable. The local Streamlit prototype supports researcher-assigned projects, with Echo Field as a short tutorial. Researchers prepare summaries before a session by sending selected excerpts to the OpenAI API; participant review reads the prepared summaries without calling the API.
 
-## Guide for supervisor review
+## Submission review entry — 17 November 2026
+
+**Author: Fuzhe Zhang (Zeno), MSc Creative Computing, UAL Creative Computing Institute.** Start with the [submission index](submission/README.md). The current review branch is **`temporal-state-retrieval-state-aware-v1`**, based on commit `2b5f110ec7e2593c2d8155023b3c07f0c406f06f`; it is not the older default `main`. The submission additions are local and uncommitted at this checkpoint. A ZIP of the remote branch will not yet contain them.
+
+| Material | Entry |
+| --- | --- |
+| Submission thesis | [PDF](submission/documents/Fuzhe_Zhang_ProjectOS_Submission_v10.pdf), [Word](submission/documents/Fuzhe_Zhang_ProjectOS_Submission_v10.docx), [Markdown](project_knowledge/process/report_draft_v10_submission.md) |
+| Demonstration | [User-reviewed v4 video](submission/demo/ProjectOS_Demo_Review_v4_Captioned.mp4) and [English editorial subtitles](submission/demo/ProjectOS_Demo_Review_v4.en.srt) |
+| Try the interface without an API key | [Public Echo Field tutorial](demo/README.md) — existing six-section interface and unchanged pre-generated summaries |
+| Development and research process | [Daily-log index](project_knowledge/process/daily_logs/README.md); retrospective entries are explicitly labelled |
+| Independent research attachments | [Blank information and consent form used in the study](project_knowledge/research/appendices/ProjectOS_Participant_Information_and_Consent_Form.pdf), [questions and observation guide](project_knowledge/feedback/user_testing/iteration_1/post_test_questionnaire_and_interview.md), [blank R1–R7 ratings](project_knowledge/feedback/user_testing/iteration_1/round_1_templates/post_test_ratings_template.md) |
+| Participant findings | [Round 2 final findings](project_knowledge/feedback/user_testing/iteration_2/round_2_final_findings.md) and [cross-iteration findings](project_knowledge/feedback/user_testing/iteration_2/cross_iteration_findings.md) |
+| Post-study technical investigation | [Baseline](outputs/test_results/temporal_state_retrieval_baseline/baseline_report.md), [state-aware results](outputs/test_results/temporal_state_retrieval_state_aware/phase_3b_report.md), [trace verification](outputs/test_results/temporal_state_retrieval_state_aware/verification.json) |
+| This submission preparation | [Validation and packaging scope](submission/validation.md) |
+
+The technical investigation is separate from the four-person participant study. Its **mixed/negative** result met neither the Phase 1 nor Phase 3 criteria: some retrieval measures improved, but evidence pairing regressed. The experimental selector was **not deployed into the participant prototype** and is not used by the tutorial launcher. No new participant study accompanies this submission preparation.
+
+The thesis body is 3,575 words; its AI Use Acknowledgement is 225 words, totalling 3,800. Separate counts do not establish an institutional exemption. The consent PDF is a separate, researcher-confirmed blank issued version, Version 1.0, 9 October 2026. Questionnaire masters keep their historical draft wording; they are not silently relabelled as issued final documents. Signed forms and participant records are excluded.
+
+The researcher reports that Anna had no objection to proceeding with submission preparation. This is user-reported supervisor feedback, not a new institutional approval or a guarantee of an assessment outcome.
+
+## Historical supervisor-review and development context
 
 **Final design response, 25 October 2026:** Iteration 3 adds conditional, section-specific evidence guidance, consistent definitions of the four review actions and an explicit optional evidence reminder. It responds to the two completed study rounds; **there was no third participant study, and these changes have not been evaluated with new participants**. Feature development is now frozen. Remaining work is thesis integration, portfolio preparation and final validation/submission preparation. See [DD-006](project_knowledge/decisions/design_decisions/dd_006_iteration_3_actionable_evidence_absence.md) and the [Iteration 3 validation report](outputs/test_results/iteration_3_evidence_guidance_validation.md), which separates the researcher-reported local test pass from the blocked Codex browser attempt.
 
@@ -23,12 +44,12 @@ The prototype supports local, assigned-project rehearsals. In the [P00 pilot](pr
 | Review question | Suggested reading |
 | --- | --- |
 | What is the research trying to establish? | [Current goals](project_knowledge/current_state/goals.md) and [research questions](project_knowledge/feedback/user_testing/iteration_1/research_questions.md) |
-| Why this interaction, and how was it built? | [Summary design decision](project_knowledge/decisions/design_decisions/dd_004_user_facing_reentry_summary.md) and [implementation chapter draft](report/drafts/04_design_and_implementation.md) |
+| Why this interaction, and how was it built? | [Summary design decision](project_knowledge/decisions/design_decisions/dd_004_user_facing_reentry_summary.md) and the current thesis linked above |
 | What did the completed study find? | [Round 2 final findings](project_knowledge/feedback/user_testing/iteration_2/round_2_final_findings.md), [cross-iteration comparison](project_knowledge/feedback/user_testing/iteration_2/cross_iteration_findings.md) and [development-log index](project_knowledge/process/daily_logs/README.md) |
 | What procedure was originally proposed? | [Round 1 protocol draft](project_knowledge/feedback/user_testing/iteration_1/study_protocol_round_1_draft.md), [materials gap check](project_knowledge/feedback/user_testing/iteration_1/study_materials_gap_check_round_1.md), and [project-pack guide](project_knowledge/feedback/user_testing/iteration_1/participant_project_pack_guide.md) |
 | What still needs attention? | [Open issues](project_knowledge/current_state/blockers.md) and [proposed next steps](project_knowledge/current_state/next_steps.md) |
 
-The implementation chapter describes Iteration 0. Later summary generation and participant-session work are documented in the [Day 7](project_knowledge/process/daily_logs/day_7_llm_reentry_summary.md) and Day 8 logs; the chapter has not yet been extended to cover those changes.
+The historical implementation chapter under `report/drafts/` describes Iteration 0 and remains available through the original logs. It is not the submission thesis. Later summary generation and participant-session work are documented in the [Day 7](project_knowledge/process/daily_logs/day_7_llm_reentry_summary.md) and Day 8 logs. Historical plans, chapter drafts and test reports retain their dates and scope; their test counts are not this preparation's results.
 
 ## Problem and motivation
 
@@ -38,7 +59,7 @@ Creative projects accumulate goals, experiments, feedback, abandoned ideas and d
 
 > How do source visibility and user correction help creative practitioners assess an AI-generated reconstruction of a long-term project during project re-entry?
 
-The research examines source visibility, evidence absence, correction, control and verification effort. [TD-003](project_knowledge/decisions/technical_decisions/td_003_freeze_automatic_project_state_inference.md) freezes further automatic retrieval expansion after engineering success did not establish semantic acceptance. Automatic temporal reasoning, automatic contradiction detection, self-service upload, public deployment, user accounts and perfect reconstruction accuracy are outside the present scope. Explicit temporal metadata remains future work; prototype feature development is frozen.
+The research examines source visibility, evidence absence, correction, control and verification effort. [TD-003](project_knowledge/decisions/technical_decisions/td_003_freeze_automatic_project_state_inference.md) records the production retrieval freeze after engineering success did not establish semantic acceptance. Automatic temporal reasoning, automatic contradiction detection, self-service upload, public deployment, user accounts and perfect reconstruction accuracy remain outside the participant prototype's scope. The separate post-study metadata experiment is complete; it did not change that prototype.
 
 ## Relationship to general-purpose AI chat tools
 
@@ -130,6 +151,8 @@ The prototype does not require a vector database or a separate web backend.
 
 ```text
 ProjectOS/
+├── submission/               # Submission thesis exports, accepted demo and entry index
+├── demo/                     # Cache-only tutorial adapter and inspected public cache
 ├── src/                      # Retrieval, brief, summary, review and UI modules
 ├── tests/                    # Unit tests and retrieval evaluation questions
 ├── config/                   # Safe assignment example and empty category template
@@ -161,7 +184,7 @@ The current goals, open issues and next steps provide a reading guide to the pre
 Use Python 3.11 and a dedicated environment. With Git and Miniconda installed, run the following in Miniconda Prompt from the folder where you want to keep the project. Access to the private repository is required to clone it.
 
 ```bat
-git clone https://github.com/Zenoz3Z/ProjectOS.git
+git clone --branch temporal-state-retrieval-state-aware-v1 --single-branch https://github.com/Zenoz3Z/ProjectOS.git
 cd ProjectOS
 conda create -n projectos python=3.11
 conda activate projectos
@@ -169,7 +192,7 @@ python -m pip install -r requirements.txt
 python -m pip check
 ```
 
-If you already have a checkout, open its root directory and skip the clone step. If the `projectos` environment already exists, activate it instead of creating it again. The first retrieval run may download the embedding model; subsequent runs can use the local model cache. Generating summaries requires network access and an OpenAI API account with access to the configured model, and may incur API charges.
+For the local candidate package, extract it and open its root instead of cloning. The remote branch does not yet include the uncommitted submission additions. If the `projectos` environment already exists, activate it instead of creating it again. Dependency installation may need internet access. The cache-only tutorial below does not load an embedding model or need an API key. The separate generation workflow may download an embedding model on its first retrieval run and requires network access and an OpenAI account with access to the configured model; generation may incur charges.
 
 ## Environment variables
 
@@ -191,7 +214,21 @@ To check presence without printing the key:
 python -c "import os; print('OPENAI_API_KEY configured' if os.getenv('OPENAI_API_KEY') else 'OPENAI_API_KEY missing')"
 ```
 
-## Run the Streamlit prototype
+## Run the public tutorial without an API key
+
+From the repository or extracted candidate root, with `projectos` active:
+
+```bat
+python -B demo/launch.py --port 8501
+```
+
+Open the printed loopback URL. If that port is in use, choose another with `--port`. Each launch creates a new ignored `.projectos_demo/sessions/demo_<identifier>/` workspace and prints the identifier. Stop only that server with Ctrl+C. To revisit its saved responses, use `python -B demo/launch.py --session demo_<identifier> --port 8501`, replacing the placeholder with the printed identifier. A refresh retains saved responses; unsubmitted text is not durable. See [demo instructions](demo/README.md).
+
+The launcher copies only the four public Echo Field records and its inspected prepared cache, reuses the production review interface, cache validation and save functions, and blocks inference and external connections in its process. Demo responses never enter the research directories. Missing or incompatible caches produce an error; there is no regeneration fallback. Original source/prompt/pipeline bytes are part of cache validation. The candidate ZIP preserves them; Git newline conversion or source edits can invalidate the cache. First-time dependency installation is not promised to be offline.
+
+## Run the original generation interface
+
+The following is the original Development workflow, not the recommended keyless review entry. It performs retrieval and can generate summaries when explicitly requested with a configured API key. It is retained for technical documentation.
 
 With `projectos` active and the terminal in the repository root:
 
@@ -207,7 +244,7 @@ call "%USERPROFILE%\miniconda3\Scripts\activate.bat" projectos
 python -m streamlit run src\streamlit_app.py
 ```
 
-Open the local URL printed by Streamlit. Development mode is sufficient for a demonstration. The application loads records from `data/demo_projects/sample_echo_field/`; it does not index this repository's research notes or downloaded papers. Without an API key, evidence inspection is available, but new LLM summaries cannot be generated. Review controls are shown when a summary or a saved user correction is available.
+Open the local URL printed by Streamlit. This Development interface loads records from `data/demo_projects/sample_echo_field/`; it does not index this repository's research notes or downloaded papers. Without an API key, evidence inspection is available after local retrieval, but new LLM summaries cannot be generated. Review controls are shown when a summary or a saved user correction is available.
 
 For a short demonstration, select Development mode, generate the brief, inspect a section's evidence, then save a correction and revisit the section. This writes a local review history under the ignored `data/reviews/` directory. Use demonstration text only. Start participant sessions with the preparation workflow below.
 
@@ -287,7 +324,7 @@ Remaining work is reviewed thesis integration, portfolio preparation, final vali
 ## Limitations
 
 - Iteration 3 is a design response, not a participant-evaluated improvement. Its browser smoke attempt was blocked by the Codex isolated runtime before interaction; conditional guidance does not repair retrieval or establish why evidence is insufficient.
-- Published retrieval evaluation uses one small prepared archive; P96 provides excluded researcher self-testing. Four formal participants across two different rounds provide descriptive findings, not generalisable accuracy or causal user-benefit evidence.
+- The original retrieval check used one small prepared archive. The later, separate technical benchmark used three corpora and researcher-confirmed labels; its mixed/negative results do not establish reliable project-state understanding. Four formal participants across two different rounds provide descriptive findings, not generalisable accuracy or causal user-benefit evidence.
 - P96 exposed evidence retrieval issues in section 3 (Current versus superseded directions), section 5 (Unresolved tensions) and section 6 (Possible next action). These remain known limitations; successful navigation does not establish that the retrieved evidence or reconstructed project state is accurate.
 - Retrieval does not explicitly model chronology or parse state metadata. Related passages can still mix resolved issues, current blockers and future work. No PDF OCR is implemented.
 - Generated summaries can omit or misinterpret evidence. Source-number checks do not verify factual entailment.
@@ -319,7 +356,7 @@ The following inspected images show historical development, not the latest inter
 
 ## Author and course context
 
-**Zeno Zhang**\
+**Fuzhe Zhang (Zeno)**\
 MSc Creative Computing\
 UAL Creative Computing Institute\
 2026
