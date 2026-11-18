@@ -4,24 +4,24 @@
 
 ProjectOS is an MSc research prototype that helps creative students revisit a project after an interruption. It retrieves evidence from existing project records and organises it into a six-section Project Re-entry Brief, with short AI-generated summaries and visible supporting excerpts. Users can inspect the evidence and confirm, update, reject or mark a section not applicable. The local Streamlit prototype supports researcher-assigned projects, with Echo Field as a short tutorial. Researchers prepare summaries before a session by sending selected excerpts to the OpenAI API; participant review reads the prepared summaries without calling the API.
 
-## Submission review entry — 17 November 2026
+## Assessment submission · 18 November 2026
 
-**Author: Fuzhe Zhang (Zeno), MSc Creative Computing, UAL Creative Computing Institute.** Start with the [submission index](submission/README.md). The current review branch is **`temporal-state-retrieval-state-aware-v1`**, based on commit `2b5f110ec7e2593c2d8155023b3c07f0c406f06f`; it is not the older default `main`. The submission additions are local and uncommitted at this checkpoint. A ZIP of the remote branch will not yet contain them.
+**Fuzhe Zhang (Zeno)** · MSc Creative Computing · UAL Creative Computing Institute. The [assessment index](submission/README.md) collects the dissertation, demonstration, process logs and research attachments for the review branch `temporal-state-retrieval-state-aware-v1`.
 
 | Material | Entry |
 | --- | --- |
-| Submission thesis | [PDF](submission/documents/Fuzhe_Zhang_ProjectOS_Submission_v10.pdf), [Word](submission/documents/Fuzhe_Zhang_ProjectOS_Submission_v10.docx), [Markdown](project_knowledge/process/report_draft_v10_submission.md) |
+| Final dissertation | [Read the dissertation prepared for assessment, 18 November 2026 (PDF)](submission/documents/Fuzhe_Zhang_ProjectOS_Dissertation_18Nov.pdf) |
 | Demonstration | [User-reviewed v4 video](submission/demo/ProjectOS_Demo_Review_v4_Captioned.mp4) and [English editorial subtitles](submission/demo/ProjectOS_Demo_Review_v4.en.srt) |
 | Try the interface without an API key | [Public Echo Field tutorial](demo/README.md) — existing six-section interface and unchanged pre-generated summaries |
 | Development and research process | [Daily-log index](project_knowledge/process/daily_logs/README.md); retrospective entries are explicitly labelled |
 | Independent research attachments | [Blank information and consent form used in the study](project_knowledge/research/appendices/ProjectOS_Participant_Information_and_Consent_Form.pdf), [questions and observation guide](project_knowledge/feedback/user_testing/iteration_1/post_test_questionnaire_and_interview.md), [blank R1–R7 ratings](project_knowledge/feedback/user_testing/iteration_1/round_1_templates/post_test_ratings_template.md) |
 | Participant findings | [Round 2 final findings](project_knowledge/feedback/user_testing/iteration_2/round_2_final_findings.md) and [cross-iteration findings](project_knowledge/feedback/user_testing/iteration_2/cross_iteration_findings.md) |
 | Post-study technical investigation | [Baseline](outputs/test_results/temporal_state_retrieval_baseline/baseline_report.md), [state-aware results](outputs/test_results/temporal_state_retrieval_state_aware/phase_3b_report.md), [trace verification](outputs/test_results/temporal_state_retrieval_state_aware/verification.json) |
-| This submission preparation | [Validation and packaging scope](submission/validation.md) |
+| Historical preparation checks | [17 November validation record for v10 and the public tutorial](submission/validation.md) |
 
 The technical investigation is separate from the four-person participant study. Its **mixed/negative** result met neither the Phase 1 nor Phase 3 criteria: some retrieval measures improved, but evidence pairing regressed. The experimental selector was **not deployed into the participant prototype** and is not used by the tutorial launcher. No new participant study accompanies this submission preparation.
 
-The thesis body is 3,575 words; its AI Use Acknowledgement is 225 words, totalling 3,800. Separate counts do not establish an institutional exemption. The consent PDF is a separate, researcher-confirmed blank issued version, Version 1.0, 9 October 2026. Questionnaire masters keep their historical draft wording; they are not silently relabelled as issued final documents. Signed forms and participant records are excluded.
+The final PDF reports 3,554 words for the body and 225 for the AI Use Acknowledgement, totalling 3,779. The earlier v10 PDF, Word document and Markdown are historical drafts. The separate blank consent form is Version 1.0, 9 October 2026. Questionnaire masters retain their historical draft wording.
 
 The researcher reports that Anna had no objection to proceeding with submission preparation. This is user-reported supervisor feedback, not a new institutional approval or a guarantee of an assessment outcome.
 
@@ -192,7 +192,7 @@ python -m pip install -r requirements.txt
 python -m pip check
 ```
 
-For the local candidate package, extract it and open its root instead of cloning. The remote branch does not yet include the uncommitted submission additions. If the `projectos` environment already exists, activate it instead of creating it again. Dependency installation may need internet access. The cache-only tutorial below does not load an embedding model or need an API key. The separate generation workflow may download an embedding model on its first retrieval run and requires network access and an OpenAI account with access to the configured model; generation may incur charges.
+If you have a submission ZIP, extract it and open its root directory. If you already have a `projectos` environment, activate it. Installing dependencies may require internet access. The public tutorial uses its prepared summaries without an API key or embedding model. Preparing new summaries for a separate study project requires the configured model and network access and may incur API charges.
 
 ## Environment variables
 
@@ -216,7 +216,7 @@ python -c "import os; print('OPENAI_API_KEY configured' if os.getenv('OPENAI_API
 
 ## Run the public tutorial without an API key
 
-From the repository or extracted candidate root, with `projectos` active:
+From the repository or extracted ZIP root, with `projectos` active:
 
 ```bat
 python -B demo/launch.py --port 8501
@@ -224,7 +224,7 @@ python -B demo/launch.py --port 8501
 
 Open the printed loopback URL. If that port is in use, choose another with `--port`. Each launch creates a new ignored `.projectos_demo/sessions/demo_<identifier>/` workspace and prints the identifier. Stop only that server with Ctrl+C. To revisit its saved responses, use `python -B demo/launch.py --session demo_<identifier> --port 8501`, replacing the placeholder with the printed identifier. A refresh retains saved responses; unsubmitted text is not durable. See [demo instructions](demo/README.md).
 
-The launcher copies only the four public Echo Field records and its inspected prepared cache, reuses the production review interface, cache validation and save functions, and blocks inference and external connections in its process. Demo responses never enter the research directories. Missing or incompatible caches produce an error; there is no regeneration fallback. Original source/prompt/pipeline bytes are part of cache validation. The candidate ZIP preserves them; Git newline conversion or source edits can invalidate the cache. First-time dependency installation is not promised to be offline.
+The launcher copies the four public Echo Field records and their prepared cache into a separate demo session. It reuses the production review interface, validation and save functions, and blocks inference and external connections. Original source, prompt and pipeline bytes are part of the cache identity. Changing source bytes or Git line endings can invalidate the cache. Run `python -B demo/launch.py --check` from the extracted project root to verify compatibility before opening the tutorial.
 
 ## Run the original generation interface
 
@@ -295,7 +295,7 @@ It loads the embedding model and evaluates six developer-authored queries. The [
 
 ## Current prototype status
 
-The repository contains the Iteration 3 assigned-project prototype, the final design response after the study. Feature development is frozen. Both research rounds are complete: P01/P02 in Round 1 and P03/P04 in Round 2, four formal participants. There is no P05, no third participant round and no further recruitment. Iteration 3 has not been evaluated with new participants. The two Round 2 sessions used complete or largely complete projects; their descriptive findings do not establish a causal interface effect or generalisable accuracy. Remaining work is reviewed thesis integration, portfolio preparation, final validation and submission preparation. See the [final Round 2 account](project_knowledge/feedback/user_testing/iteration_2/round_2_final_findings.md) and [comparison across rounds](project_knowledge/feedback/user_testing/iteration_2/cross_iteration_findings.md).
+The repository contains the Iteration 3 assigned-project prototype, the final design response after the study. Feature development is frozen. Both research rounds are complete: P01/P02 in Round 1 and P03/P04 in Round 2, four formal participants. There is no P05, no third participant round and no further recruitment. Iteration 3 has not been evaluated with new participants. The two Round 2 sessions used complete or largely complete projects; their descriptive findings do not establish a causal interface effect or generalisable accuracy. See the [final Round 2 account](project_knowledge/feedback/user_testing/iteration_2/round_2_final_findings.md) and [comparison across rounds](project_knowledge/feedback/user_testing/iteration_2/cross_iteration_findings.md).
 
 Historical preparation, pilot and engineering records retain their original dates and scope. Study closure does not alter consent/storage terms or establish a new ethics approval. This is a local research implementation, not a production service.
 
@@ -319,7 +319,7 @@ The frozen [ProjectOS Round 1 Post-test Ratings — Round 1 v1](project_knowledg
 
 Repository copies of the [information sheet](project_knowledge/feedback/user_testing/iteration_1/participant_information_sheet.md), [consent form](project_knowledge/feedback/user_testing/iteration_1/participant_consent_form.md) and [data protocol](project_knowledge/feedback/user_testing/iteration_1/participant_owned_project_data_protocol_draft.md) retain their historical wording-review status. Closure does not independently verify issued versions or storage compliance. Existing terms remain unchanged: restricted UAL OneDrive storage; source/extracted/temporary copies deleted within seven calendar days after the session; de-identified records and separate signed forms retained until 30 November 2027; separate identity linkage deleted after the seven-day withdrawal period. Necessary temporary local copies use the researcher's password-protected computer. The documents describe OpenAI as an external service, possible abuse-monitoring retention up to 30 days, no deliberate transmission of names/contact details, and no audio/video/photographs. Raw materials, signed forms, mappings, review JSON and interview notes stay outside GitHub. The [materials gap check](project_knowledge/feedback/user_testing/iteration_1/study_materials_gap_check_round_1.md) remains a historical preparation record.
 
-Remaining work is reviewed thesis integration, portfolio preparation, final validation and submission preparation. Iteration 3 implements conditional suggestions about record types to check; automatic diagnosis of missing files or temporal state remains outside scope. No new participant recruitment or automatic retrieval expansion is planned. Earlier [demo-only procedures](project_knowledge/feedback/user_testing/iteration_1/participant_test_protocol.md), design decisions and study proposals remain historical records.
+Iteration 3 implements conditional suggestions about record types to check; automatic diagnosis of missing files or temporal state remains outside scope. No new participant recruitment or automatic retrieval expansion is planned. Earlier [demo-only procedures](project_knowledge/feedback/user_testing/iteration_1/participant_test_protocol.md), design decisions and study proposals remain historical records.
 
 ## Limitations
 
