@@ -6,8 +6,8 @@ Assessment materials for 18 November 2026. The dissertation below is the final v
 
 ## Read and watch
 
-1. [Read the final dissertation (PDF)](documents/Fuzhe_Zhang_ProjectOS_Dissertation_18Nov.pdf). The 13-page PDF reports 3,554 words for the body and 225 for the AI Use Acknowledgement, totalling 3,779.
-2. [Accepted v4 demonstration](demo/ProjectOS_Demo_Review_v4_Captioned.mp4) and [English SRT](demo/ProjectOS_Demo_Review_v4.en.srt), copied without alteration. The researcher reports viewing and accepting this video in full. It uses a tutorial and an explicitly fictional update. Subtitles are editorial, including the disclosed update-field wording, not a verbatim transcript.
+1. [ProjectOS Dissertation (PDF)](documents/ProjectOS_Dissertation.pdf). The 13-page PDF reports 3,554 words for the body and 225 for the AI Use Acknowledgement, totalling 3,779.
+2. [ProjectOS Demonstration (MP4)](demo/ProjectOS_Demonstration.mp4) and [English Subtitles (SRT)](demo/ProjectOS_Demonstration.en.srt), copied without alteration. The researcher reports viewing and accepting this video in full. It uses a tutorial and an explicitly fictional update. Subtitles are editorial, including the disclosed update-field wording, not a verbatim transcript.
 3. [Try the public Echo Field tutorial](../demo/README.md). From the extracted project root, with the project dependencies installed, run `python -B demo/launch.py --port 8501`. It uses six pre-generated summaries without an API key and saves demonstration responses in a separate local session.
 
 ## Independent attachments and evidence

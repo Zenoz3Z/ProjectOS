@@ -10,8 +10,8 @@ ProjectOS is an MSc research prototype that helps creative students revisit a pr
 
 | Material | Entry |
 | --- | --- |
-| Final dissertation | [Read the dissertation prepared for assessment, 18 November 2026 (PDF)](submission/documents/Fuzhe_Zhang_ProjectOS_Dissertation_18Nov.pdf) |
-| Demonstration | [User-reviewed v4 video](submission/demo/ProjectOS_Demo_Review_v4_Captioned.mp4) and [English editorial subtitles](submission/demo/ProjectOS_Demo_Review_v4.en.srt) |
+| Final dissertation | [ProjectOS Dissertation (PDF)](submission/documents/ProjectOS_Dissertation.pdf) |
+| Demonstration | [ProjectOS Demonstration (MP4)](submission/demo/ProjectOS_Demonstration.mp4) and [English Subtitles (SRT)](submission/demo/ProjectOS_Demonstration.en.srt) |
 | Try the interface without an API key | [Public Echo Field tutorial](demo/README.md) — existing six-section interface and unchanged pre-generated summaries |
 | Development and research process | [Daily-log index](project_knowledge/process/daily_logs/README.md); retrospective entries are explicitly labelled |
 | Independent research attachments | [Blank information and consent form used in the study](project_knowledge/research/appendices/ProjectOS_Participant_Information_and_Consent_Form.pdf), [questions and observation guide](project_knowledge/feedback/user_testing/iteration_1/post_test_questionnaire_and_interview.md), [blank R1–R7 ratings](project_knowledge/feedback/user_testing/iteration_1/round_1_templates/post_test_ratings_template.md) |
