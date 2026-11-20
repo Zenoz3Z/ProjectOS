@@ -17,11 +17,11 @@ ProjectOS is an MSc research prototype that helps creative students revisit a pr
 | Independent research attachments | [Blank information and consent form used in the study](project_knowledge/research/appendices/ProjectOS_Participant_Information_and_Consent_Form.pdf), [questions and observation guide](project_knowledge/feedback/user_testing/iteration_1/post_test_questionnaire_and_interview.md), [blank R1–R7 ratings](project_knowledge/feedback/user_testing/iteration_1/round_1_templates/post_test_ratings_template.md) |
 | Participant findings | [Round 2 final findings](project_knowledge/feedback/user_testing/iteration_2/round_2_final_findings.md) and [cross-iteration findings](project_knowledge/feedback/user_testing/iteration_2/cross_iteration_findings.md) |
 | Post-study technical investigation | [Baseline](outputs/test_results/temporal_state_retrieval_baseline/baseline_report.md), [state-aware results](outputs/test_results/temporal_state_retrieval_state_aware/phase_3b_report.md), [trace verification](outputs/test_results/temporal_state_retrieval_state_aware/verification.json) |
-| Historical preparation checks | [17 November validation record for v10 and the public tutorial](submission/validation.md) |
+| Historical preparation checks | [Submission Preparation and Tutorial Validation (17 November 2026)](submission/validation.md). It covers the earlier submission draft and the public tutorial. |
 
 The technical investigation is separate from the four-person participant study. Its **mixed/negative** result met neither the Phase 1 nor Phase 3 criteria: some retrieval measures improved, but evidence pairing regressed. The experimental selector was **not deployed into the participant prototype** and is not used by the tutorial launcher. No new participant study accompanies this submission preparation.
 
-The final PDF reports 3,554 words for the body and 225 for the AI Use Acknowledgement, totalling 3,779. The earlier v10 PDF, Word document and Markdown are historical drafts. The separate blank consent form is Version 1.0, 9 October 2026. Questionnaire masters retain their historical draft wording.
+The final PDF reports 3,554 words for the body and 225 for the AI Use Acknowledgement, totalling 3,779. The 17 November dissertation draft is retained in PDF, Word and Markdown as a historical record. The separate blank consent form is Version 1.0, 9 October 2026. Questionnaire masters retain their historical draft wording.
 
 The researcher reports that Anna had no objection to proceeding with submission preparation. This is user-reported supervisor feedback, not a new institutional approval or a guarantee of an assessment outcome.
 

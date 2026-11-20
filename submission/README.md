@@ -19,11 +19,11 @@ Assessment materials for 18 November 2026. The dissertation below is the final v
 | Study summaries | [Round 2 final findings](../project_knowledge/feedback/user_testing/iteration_2/round_2_final_findings.md) and [cross-iteration findings](../project_knowledge/feedback/user_testing/iteration_2/cross_iteration_findings.md). Four formal participants, two per round; P00/P96 excluded; no P05 or third participant round. |
 | Process | [Daily logs](../project_knowledge/process/daily_logs/README.md) identify original records and retrospective backfill. Dated plans, old chapter drafts and test reports retain their historical status and are not replaced by current claims. |
 | Technical experiment | [Baseline report](../outputs/test_results/temporal_state_retrieval_baseline/baseline_report.md), [candidate report](../outputs/test_results/temporal_state_retrieval_state_aware/phase_3b_report.md), [verification](../outputs/test_results/temporal_state_retrieval_state_aware/verification.json) and [results log](../project_knowledge/process/experiments/temporal_state_retrieval/phase_3b_results_log.md). Separate post-study retrieval-only investigation; mixed/negative; neither success criterion set passed; not deployed into the participant prototype. |
-| Historical preparation checks | [17 November validation record](validation.md) for the v10 materials and public tutorial. The test counts describe that preparation run. |
+| Historical preparation checks | [Submission Preparation and Tutorial Validation (17 November 2026)](validation.md). It covers the earlier submission draft and the public tutorial. The test counts describe that preparation run. |
 
-## Version and reproduction limits
+## Reproduction and archival notes
 
-The review branch is `temporal-state-retrieval-state-aware-v1`. The retained v10 PDF, Word document and Markdown record the 17 November draft. The 18 November dissertation is supplied as a PDF.
+The review branch is `temporal-state-retrieval-state-aware-v1`. The 17 November dissertation draft is retained in PDF, Word and Markdown as a historical record. The 18 November dissertation is supplied as a PDF.
 
 Python dependencies are supplied as a pinned requirements list, not a bundled environment. Installation may require network access. The prepared tutorial runs without an API key or embedding model; fresh summary preparation is a distinct workflow with local model and external API requirements. Frozen experiment reports are included without rerunning them. Complete experiment reproduction requires excluded researcher-owned private evidence and traces; participant source packs are deliberately unavailable.
 
